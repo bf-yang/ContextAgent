@@ -49,6 +49,57 @@ ContextAgent/
 ├─ README.md
 ```
 
+## Installation
+1. Clone the repository.
+```bash
+git clone https://github.com/bf-yang/ContextAgent.git
+cd ContextAgent
+```
+2. Install packages.
+```bash
+
+```
+
+
+
+## Evaluation
+### ICL Evaluation
+- **Proprietary LLMs.** Use API inference for proprietary LLMs (e.g., GPT-4o)
+```shell
+bash src/icl/icl_infer_api.sh
+```
+
+- **Local LLM Inference.** Test open-source LLMs (e.g., Llama-3.1-8B-Instruct and Qwen2.5-7BInstruct)
+```shell
+bash src/icl/icl_infer.sh
+```
+
+### SFT Evaluation
+Running the following script for full SFT experiments, including model training, inference on benchmark, and generate scores.
+```shell
+bash src/sft/sft_exp.sh
+```
+> Note that ```sft_exp.sh``` contains two scripts. The fisrt one ```LLaMA-Factory/experiments/configs/lora_train.sh``` is used for model training. The second one ```src/sft/eval_sft.sh``` is used for evaluation of the fine-tuned LLMs.
+
+
+## Experiment Results
+Please refer to our paper for more results.
+### Quantitative Results
+<div style="text-align: center;">
+    <img src="assets/quantitative_results.png" alt="Dialogue_Teaser" width=100% >
+</div>
+
+### Qualitative Results
+- Proactive Examples
+<div style="text-align: center;">
+    <img src="assets/qualitative_results_overall_proactive.png" alt="Dialogue_Teaser" width=100% >
+</div>
+
+- Non-proactive Examples
+<div style="text-align: center;">
+    <img src="assets/qualitative_results_overall_noproactive.png" alt="Dialogue_Teaser" width=100% >
+</div>
+
 ## 🔗 Citation
 
 If you find our work and this codebase helpful, please consider starring this repo 🌟 and cite:

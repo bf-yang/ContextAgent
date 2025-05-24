@@ -1,0 +1,10 @@
+Metric,Level1,Level2,Level3,Overall
+Proactive_Index_Accuracy,0.745,0.7674,0.8846,0.7729
+Miss_Needed,0.075,0.2326,0.1154,0.1051
+False_Detection,0.18,0.0,0.0,0.122
+Proactive_Score_Accuracy,0.595,0.4419,0.5192,0.5593
+RMSE,1.9442,1.6844,1.461,1.831
+Precision_Tool_Names,0.5838,0.312,0.4788,0.5256
+Recall_Tool_Names,0.6,0.2907,0.3465,0.5102
+F1_Tool_Names,0.5878,0.2822,0.384,0.5074
+Argument_Accuracy,0.2513,0.2622,0.2633,0.2513
