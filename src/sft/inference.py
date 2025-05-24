@@ -1,16 +1,4 @@
-# Evaluate ICL-based approaches via local inference
-# ICL with 10-shots
-# Argments:
-#   -- zs
-#   -- think
-#   -- personas
-#   -- n_fewshot
-
-# Baselines
-#   -- Zero-Shot:     --n_fewshot=0, --think='wo_t', --personas='wo_p'
-#   -- Context-only:  --n_fewshot=10, --think='wo_t', --personas='wo_p'
-#   -- CoT:   --n_fewshot=10, --think='w_t', --personas='wo_p'
-#   -- ICL-P: --n_fewshot=10, --think='wo_t', --personas='w_p'
+# Evaluate SFT-based approaches
 import json
 import os
 from typing import Sequence
@@ -23,77 +11,40 @@ sys.path.append("/home/bufang/ContextAgent/src")
 from functions import *
 import ollama
 from openai import AzureOpenAI
-from utils import azure_inference, ollama_inference, \
-    parse_proactive_agent_results,convert_sets_to_lists
+from utils import azure_inference,parse_proactive_agent_results
 import argparse
 import re
 from tqdm import tqdm
+import csv
 import ast
-import random
-random.seed(42)
-from ollama import chat
+import time
+
+api_key = "4d2ff10a8c3d4d09883a4411832b6718" # Azure API key
+client = AzureOpenAI(
+    api_key = api_key,  
+    api_version = "2023-05-15",
+    azure_endpoint = "https://cuhk-aiot-gpt4.openai.azure.com/"
+)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model_base", type=str, default='qwen2.5:latest',
-                        help='qwen2.5:latest" "llama3.1:8b" "qwen2.5:72b" "llama3.1:70b" "deepseek-r1') 
+    parser.add_argument("--model_base", type=str, default='qwen7b',
+                    help='base SFT model: qwen7b, llama8b, deepseek7b')
     parser.add_argument("--dataset", type=str, default='cab',help='cab, cab_lite, cab_ood')
-    parser.add_argument("--zs", type=str, default='false',help='false, true')
-    parser.add_argument("--personas", type=str, default='w_p',help='w_p, wo_p')
     parser.add_argument("--think", type=str, default='w_t',help='w_t, wo_t')
-    parser.add_argument("--n_fewshot", type=int, default='10', help='Number of few-shot examples')
+    parser.add_argument("--personas", type=str, default='w_p',help='w_p, wo_p')
     args = parser.parse_args()
 
-    dataset_name = args.dataset # dataset
-
     # load the proactive agent's system prompt
-    if args.zs == 'true':
-        with open('prompt/baselines/icl_zs.txt', 'r') as f:
-            prompt_sys = f.read()
-    else:
-        with open('prompt/baselines/icl_fs.txt', 'r') as f:
-            prompt_sys = f.read()
-
-    # load seed dataset
-    path = f'data/{dataset_name}/{dataset_name}_train.json'
-    with open(path, 'r') as f:
-        dataset = json.load(f)
-    keys = list(dataset.keys())
-    
-    # Random select n samples for ICL
-    sample_keys = random.sample(keys, args.n_fewshot)
-    print("Selected samples: ", sample_keys)
-    samples = {key: dataset[key] for key in sample_keys}
-
-    # Delete "Response" in the demonstrations. Keep the same as SFT.
-    for key in samples:
-        if "Response" in samples[key]:
-            del samples[key]["Response"]
-        if "Tool planning" in samples[key]:
-                del samples[key]["Tool planning"]
-        if "Action" in samples[key]:
-            del samples[key]["Action"]
-    if args.think == 'wo_t': # without thoughts in ICL
-        for key in samples:
-            if "Thoughts" in samples[key]:
-                del samples[key]["Thoughts"]
-    if args.personas == 'wo_p': # without personas in ICL
-        for key in samples:
-            if "Personas" in samples[key]:
-                del samples[key]["Personas"]
-    samples_str = json.dumps(samples, ensure_ascii=False, indent=4)
-
-    # Add examples to prompt
-    if args.zs == 'true':
-        pass
-    else:
-        prompt_sys = prompt_sys.replace("{Examples}", samples_str)
-    print("Prompt:\n"+prompt_sys)
+    with open('prompt/prompt_sys.txt', 'r') as f:
+        prompt_sys = f.read()
 
     # load sample data for evaluation
+    dataset_name = args.dataset # dataset
     filepath = f'data/{dataset_name}/{dataset_name}_test.json'
     with open(filepath, 'r', encoding='utf-8') as file:
         dataset = json.load(file)
+    print(dataset.keys())
 
     results_list = []
     for key in tqdm(dataset.keys()):
@@ -107,15 +58,23 @@ if __name__ == "__main__":
         personas_str = ".".join(sample['Personas'])
         print("\033[1;36mSensory Context:\033[0m\n", contextual_info)  
         print("="*50)
+        print("\033[1;36mPersona Context:\033[0m\n", personas_str)  
+        print("="*50)
 
         # proactive LLM agent inference
+        client = OpenAI(
+            api_key="{}".format(os.environ.get("API_KEY", "0")),
+            base_url="http://localhost:{}/v1".format(os.environ.get("API_PORT", 8000)),
+        )
         messages = []
         messages.append({"role": "system", "content": prompt_sys})
         if args.personas == 'w_p':
             messages.append({"role": "user", "content": "Sensory Context:\n"+contextual_info+"\nPersona Context:\n"+personas_str})
         else:
-            messages.append({"role": "user", "content": contextual_info})
-        result = ollama_inference(args.model_base,messages)
+            messages.append({"role": "user", "content": "Sensory Context:\n"+contextual_info})
+
+        result = client.chat.completions.create(messages=messages, model="test")
+        result = result.choices[0].message.content
         print("\033[1;36mProactive LLM Agent Predictions:\033[0m\n", result)  
         print("="*50)
 
@@ -129,7 +88,6 @@ if __name__ == "__main__":
 
         # tool calling
         if tools != 'None':
-            # Check if tools is a valid JSON string
             max_attempts = 1
             attempt = 0
             json_tool = None
@@ -141,42 +99,38 @@ if __name__ == "__main__":
                     print(f"Attempt {attempt + 1}: Error parsing tools with ast.literal_eval: {e}")
                     attempt += 1
                     if attempt < max_attempts:
-                        # Retry if there is an error for tool calling
-                        print("Retrying tool calling...")
-                        result = ollama_inference(args.model_base,messages)
+                        # Regenerate the tools
+                        response = client.chat.completions.create(messages=messages, model="test")
+                        result = response.choices[0].message.content
                         thoughts, proactive_idx, proactive_score, actions, tools = parse_proactive_agent_results(result)
                     else:
                         print("Max attempts reached. Unable to parse tools.")
                         json_tool = []
                         tools = tools + f" Max attempts reached. Unable to parse tools."
 
-            # Tool Execution
             results_tool = []
-            if json_tool is None:
-                print("Unable to parse tools.")
-            else:
-                # iteratively call the tools
+            # iterate over the tool calls
+            if json_tool is not None: 
                 for tool_call in json_tool:
-                    if not isinstance(tool_call, dict) or'name' not in tool_call or 'parameters' not in tool_call:
-                        print("Invalid tool call format:", tool_call)
+                    print(50*"=")
+                    if 'name' not in tool_call or 'parameters' not in tool_call:
                         results_tool.append({
-                            "tool_name": 'error',
-                            "tool_parameters": 'error',
-                            "results": 'error'
-                        })
+                                    "tool_name": 'error',
+                                    "tool_parameters": 'error',
+                                    "results": 'error'
+                                })
                     else:
-                        print(50*"=")
                         print("Calling Function: ",tool_call['name'])
                         print("Function Params: ",tool_call['parameters'])
-                        result_tool = process_function_call(tool_call) # execute the tool
+                        result_tool = process_function_call(tool_call)
                         print("Function Results: ",result_tool)
                         results_tool.append({
                                 "tool_name": tool_call['name'],
                                 "tool_parameters": tool_call['parameters'],
                                 "results": result_tool
                             })
-                print(50*"=")
-                print("\033[1;36mTool Results:\033[0m\n", results_tool)  
+            print(50*"=")
+            print("\033[1;36mTool Results:\033[0m\n", results_tool)  
 
             # LLM reasoning on contextual and function results 
             with open('prompt/prompt_summarize.txt', 'r', encoding='utf-8') as file:
@@ -184,7 +138,7 @@ if __name__ == "__main__":
             if args.personas == 'wo_p':
                 content = "# Sensory Contexts:\n"+contextual_info+"\n\n# Thoughts:\n"+thoughts+"\n\n# Tool results:\n"+str(results_tool)
             else:
-                content = "# Sensory Contexts:\n"+contextual_info+"\n\n# Persona Contexts:\n"+personas_str+"\n\n# Thoughts:\n"+thoughts+"\n\n# Tool results:\n"+str(results_tool)              
+                content = "# Sensory Contexts:\n"+contextual_info+"\n\n# Persona Contexts:\n"+personas_str+"\n\n# Thoughts:\n"+thoughts+"\n\n# Tool results:\n"+str(results_tool) 
             massages = [
                 {'role': 'system','content': prompt_summarize},
                 {'role': 'user','content': content}
@@ -221,11 +175,7 @@ if __name__ == "__main__":
                 'response': 'None'
             }
 
-        dataset = convert_sets_to_lists(dataset)
         # Save results to json
-        if args.zs == 'true':
-            save_path = f'results/{dataset_name}/predictions/icl/pred_{args.model_base}_zs.json'
-        else:
-            save_path = f'results/{dataset_name}/predictions/icl/pred_{args.model_base}_fs_{str(args.n_fewshot)}_{args.personas}_{args.think}.json'
+        save_path = f'results/{dataset_name}/predictions/sft/pred_{args.model_base}_{args.personas}_{args.think}.json'
         with open(save_path, 'w', encoding='utf-8') as new_file:
             json.dump(dataset, new_file, ensure_ascii=False, indent=4)    

@@ -1,7 +1,7 @@
 # Generate sft data for different settings
 
 python src/data_process/sft_data_generate.py \
-    --dataset cab --mode train --think w_t --personas w_p
+    --dataset cab --mode train --think w_t --personas w_p  # with think and personas
 
 python src/data_process/sft_data_generate.py \
     --dataset cab --mode train --think wo_t --personas w_p 

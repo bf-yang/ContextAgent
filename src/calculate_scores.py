@@ -52,8 +52,8 @@ if __name__ == "__main__":
 
     if methods == 'icl':
         pred_path = f'results/{dataset_name}/predictions/{methods}/pred_{model_base_icl}_fs_10_{args.personas}_{args.think}.json'
-    else:
-        pass
+    elif methods == 'sft':
+        pred_path = f'results/{dataset_name}/predictions/{methods}/pred_{model_base_sft}_{args.personas}_{args.think}.json'
 
     print("Prediction Path: ", pred_path)
     with open(pred_path, 'r') as f:
@@ -374,7 +374,8 @@ if __name__ == "__main__":
     if methods == 'icl':
         csv_file = f'results/{dataset_name}/scores/metrics_{methods}_{model_base_icl}_fs_10_{args.personas}_{args.think}.csv'
     else:
-        pass
+        csv_file = f'results/{dataset_name}/scores/metrics_{methods}_{model_base_sft}_{args.personas}_{args.think}.csv'
+
 
     with open(csv_file, mode="w", newline="") as file:
         writer = csv.writer(file)
