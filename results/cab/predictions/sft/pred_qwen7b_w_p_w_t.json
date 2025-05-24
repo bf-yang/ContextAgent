@@ -4724,7 +4724,16 @@
         "Tool planning": "None",
         "Action": "None",
         "Response": "None",
-        "Tools": "None"
+        "Tools": "None",
+        "predictions": {
+            "thoughts": "The user is in a project meeting discussing a marketing campaign project. There is no indication that they need assistance with this task. I will not initiate a proactive response.\n Actions:\nNone\n ",
+            "proactive_idx": "false",
+            "proactive_score": "1",
+            "actions": "None",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
+        }
     },
     "example-869": {
         "Category": "Cooking",
@@ -4743,7 +4752,16 @@
         "Tool planning": "None",
         "Action": "None",
         "Response": "None",
-        "Tools": "None"
+        "Tools": "None",
+        "predictions": {
+            "thoughts": "The user is manually grinding coffee beans, which is a routine task. There is no indication that they need assistance or that there is a problem with the grinding process. Proactive assistance is not necessary in this case.\n Actions:\nNone\n ",
+            "proactive_idx": "false",
+            "proactive_score": "1",
+            "actions": "None",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
+        }
     },
     "example-499": {
         "Category": "Outdoors",
@@ -4762,7 +4780,16 @@
         "Tool planning": "None",
         "Action": "None",
         "Response": "None",
-        "Tools": "None"
+        "Tools": "None",
+        "predictions": {
+            "thoughts": "The user is enjoying a peaceful moment watching the sunset. There's no indication of need for assistance. I should not initiate proactive assistance.\n Actions:\nNone\n ",
+            "proactive_idx": "false",
+            "proactive_score": "1",
+            "actions": "None",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
+        }
     },
     "example-119": {
         "Category": "Shopping",
@@ -4784,7 +4811,29 @@
             "Use <search_rednote> to find customer reviews and comments on the shirts."
         ],
         "Response": "The price for this shirt is $25. Would you like to check for its availability in a different size or color?",
-        "Tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the price of a product from an online store such as Amazon or eBay\", \"parameters\": {\"product_name\":\"shirt\"}},{\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\":\"shirt reviews and comments\"}}]"
+        "Tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the price of a product from an online store such as Amazon or eBay\", \"parameters\": {\"product_name\":\"shirt\"}},{\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\":\"shirt reviews and comments\"}}]",
+        "predictions": {
+            "thoughts": "The user is browsing through a clothing store, looking at various shirts. They may need help finding their size or style preferences. I should use <get_current_gps_coordinates> to determine their location and <google_search> to find nearby stores or online options for the shirt they like.\n Actions:\n[\"Use <get_current_gps_coordinates> to determine the user's location.\", 'Use <google_search> to find nearby stores or online options for the shirt they like.']\n ",
+            "proactive_idx": "true",
+            "proactive_score": "5",
+            "actions": "None",
+            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query.\", \"parameters\": {\"query\": \"nearby stores or online options for the shirt they like\"}}]",
+            "tools_results": [
+                {
+                    "tool_name": "get_current_gps_coordinates",
+                    "tool_parameters": "None",
+                    "results": "\"Sha Tin, Sha Tin, HK\""
+                },
+                {
+                    "tool_name": "google_search",
+                    "tool_parameters": {
+                        "query": "nearby stores or online options for the shirt they like"
+                    },
+                    "results": "\"url:https://www.reddit.com/r/HongKong/comments/19btfur/where_to_find_quality_street_fashion/,\\ndescription: 21 Jan 2024  \\u00b7  D-Mop - A select shop with locations across HK with avant-garde brands like Rick Owens, Y-3, Margiela, and other ones like This Never That,\\u00a0... \""
+                }
+            ],
+            "response": "outputs."
+        }
     },
     "example-853": {
         "Category": "Leisure",
@@ -4803,7 +4852,16 @@
         "Tool planning": "None",
         "Action": "None",
         "Response": "None",
-        "Tools": "None"
+        "Tools": "None",
+        "predictions": {
+            "thoughts": "The user is reading a book in a cozy setting. They are likely enjoying the atmosphere and the act of reading. There is no indication of any need for assistance. I will not initiate proactive assistance.\n Actions:\nNone\n ",
+            "proactive_idx": "false",
+            "proactive_score": "1",
+            "actions": "None",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
+        }
     },
     "example-333": {
         "Category": "Chitchat",
@@ -4825,7 +4883,16 @@
             "Use <google_search> to provide insights on the artist's background or the painting's significance."
         ],
         "Response": "I can look up more about the artist or this painting if you're curious.",
-        "Tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Tool that searches the Wikipedia API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\", \"parameters\": {\"query\": \"artist or painting name\"}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"artist or painting significance\"}}]"
+        "Tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Tool that searches the Wikipedia API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\", \"parameters\": {\"query\": \"artist or painting name\"}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"artist or painting significance\"}}]",
+        "predictions": {
+            "thoughts": "The user is engaged in a conversation about art at an art gallery. There is no indication that they need assistance with their current activity. I will not initiate a proactive response.\n Actions:\nNone\n ",
+            "proactive_idx": "false",
+            "proactive_score": "1",
+            "actions": "None",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
+        }
     },
     "example-85": {
         "Category": "Outdoors",
@@ -4845,7 +4912,16 @@
         "Tool planning": "None",
         "Action": "None",
         "Response": "None",
-        "Tools": "None"
+        "Tools": "None",
+        "predictions": {
+            "thoughts": "The user is enjoying a peaceful walk in the park. They are a nature lover and enjoy peaceful moments. There is no need to interrupt their experience. I will not initiate proactive assistance.\n Actions:\nNone\n ",
+            "proactive_idx": "false",
+            "proactive_score": "1",
+            "actions": "None",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
+        }
     },
     "example-366": {
         "Category": "Health",
@@ -4865,7 +4941,30 @@
             "Use <get_medical_knowledge> to provide advice on balanced cafeteria meals."
         ],
         "Response": "Grilled cheese sandwiches have about 400-500 calories each, chicken noodle soup is around 150-200 calories per serving, and fruit salad is about 100-150 calories per serving. Would you like recommendations for balanced meal options or tips on portion control?",
-        "Tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Tool that searches the Wikipedia API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\", \"parameters\": {\"query\": \"calorie counts and health information for grilled cheese sandwiches, chicken noodle soup, and fruit salad\"}}, {\"name\": \"get_medical_knowledge\", \"description\": \"Get medical expert knowledge from the up-to-date medical knowledge database.\", \"parameters\": {\"query\": \"health-related insights, calorie counts, and health information for grilled cheese sandwiches, chicken noodle soup, and fruit salad\"}}]"
+        "Tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Tool that searches the Wikipedia API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\", \"parameters\": {\"query\": \"calorie counts and health information for grilled cheese sandwiches, chicken noodle soup, and fruit salad\"}}, {\"name\": \"get_medical_knowledge\", \"description\": \"Get medical expert knowledge from the up-to-date medical knowledge database.\", \"parameters\": {\"query\": \"health-related insights, calorie counts, and health information for grilled cheese sandwiches, chicken noodle soup, and fruit salad\"}}]",
+        "predictions": {
+            "thoughts": "The user is at a cafeteria and is browsing the menu. They want a quick meal but are mindful of their health. I should use <get_current_gps_coordinates> to get the user's current location and <get_city_weather> to check the weather. This information will help me determine the best meal option for the user.\n Actions:\n[\"Use <get_current_gps_coordinates> to get the user's current location.\", 'Use <get_city_weather> to check the weather.']\n ",
+            "proactive_idx": "true",
+            "proactive_score": "5",
+            "actions": "None",
+            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"get_city_weather\", \"description\": \"Get the current weather in a specified city.\", \"parameters\": {\"city\": \"New York\", \"time\": \"now\"}}]",
+            "tools_results": [
+                {
+                    "tool_name": "get_current_gps_coordinates",
+                    "tool_parameters": "None",
+                    "results": "\"Sha Tin, Sha Tin, HK\""
+                },
+                {
+                    "tool_name": "get_city_weather",
+                    "tool_parameters": {
+                        "city": "New York",
+                        "time": "now"
+                    },
+                    "results": "\"The weather in New York on now be 36 degrees with heavy rain and thunderstorms.\""
+                }
+            ],
+            "response": "outputs."
+        }
     },
     "example-813": {
         "Category": "Outdoors",
@@ -4884,7 +4983,16 @@
         "Tool planning": "None",
         "Action": "None",
         "Response": "None",
-        "Tools": "None"
+        "Tools": "None",
+        "predictions": {
+            "thoughts": "The user is actively gardening and engaged in the process of planting and watering seedlings. They are likely focused on the task at hand and may not need assistance. Proactive assistance could be perceived as intrusive and unnecessary.\n Actions:\nNone\n ",
+            "proactive_idx": "false",
+            "proactive_score": "1",
+            "actions": "None",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
+        }
     },
     "example-718": {
         "Category": "Leisure",
@@ -4903,7 +5011,16 @@
         "Tool planning": "None",
         "Action": "None",
         "Response": "None",
-        "Tools": "None"
+        "Tools": "None",
+        "predictions": {
+            "thoughts": "The user is gardening, which is a common activity that doesn't require proactive assistance. There's no indication of any issues or needs for assistance. I will not initiate proactive assistance.\n Actions:\nNone\n ",
+            "proactive_idx": "false",
+            "proactive_score": "1",
+            "actions": "None",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
+        }
     },
     "example-657": {
         "Category": "Others",
@@ -4926,7 +5043,31 @@
             "Use <search_rednote> to find recent reviews and comparisons of similar DSLR cameras in the same price range"
         ],
         "Response": "I see you're interested in the Canon EOS Rebel T8i. Online retailers currently have it priced between $749-$799 with kit lens, which is about $100 less than the store price tag. Recent reviews suggest the Nikon D5600 at $699 online offers similar features and might be worth considering as an alternative. Both are highly rated for beginners. Would you like me to compare specific features between these models?",
-        "Tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the price of a product from an online store such as Amazon or eBay\", \"parameters\": {\"product_name\": \"Canon EOS Rebel T8i DSLR camera with kit lens\"}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"best DSLR cameras under $800 2025 comparison\"}}, {\"name\": \"search_rednote\", \"description\": \"Searches the Rednote database for recent reviews and comparisons of similar DSLR cameras in the same price range.\", \"parameters\": {\"query\": \"DSLR cameras under $800\"}}]"
+        "Tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the price of a product from an online store such as Amazon or eBay\", \"parameters\": {\"product_name\": \"Canon EOS Rebel T8i DSLR camera with kit lens\"}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"best DSLR cameras under $800 2025 comparison\"}}, {\"name\": \"search_rednote\", \"description\": \"Searches the Rednote database for recent reviews and comparisons of similar DSLR cameras in the same price range.\", \"parameters\": {\"query\": \"DSLR cameras under $800\"}}]",
+        "predictions": {
+            "thoughts": "The user is clearly engaged in a detailed examination of a DSLR camera, comparing features and handling different models. They are likely considering purchasing a camera and need information to make an informed decision. Providing information on camera features, comparisons, and reviews would be helpful.\n Actions:\n[\"Use <google_search> to find reviews and comparisons of the DSLR cameras the user is considering.\", \"Use <wikipedia_search> to provide detailed information on camera features and specifications.\"]\n ",
+            "proactive_idx": "true",
+            "proactive_score": "5",
+            "actions": "None",
+            "tools": "[{\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query and returns a list of URLs that may be helpful.\", \"parameters\": {\"query\": \"reviews and comparisons of DSLR cameras\"}}, {\"name\": \"wikipedia_search\", \"description\": \"Performs a Wikipedia search for the given query and returns a summary of the page.\", \"parameters\": {\"query\": \"DSLR camera features and specifications\"}}]",
+            "tools_results": [
+                {
+                    "tool_name": "google_search",
+                    "tool_parameters": {
+                        "query": "reviews and comparisons of DSLR cameras"
+                    },
+                    "results": "\"url:https://www.rtings.com/camera/reviews/best/by-type/dslr,\\ndescription: 17 Jan 2025  \\u00b7  We replaced the Nikon D780 with the Nikon D850 as the 'Best DSLR Camera' because of its slightly more robust build quality and higher-resolution\\u00a0... \""
+                },
+                {
+                    "tool_name": "wikipedia_search",
+                    "tool_parameters": {
+                        "query": "DSLR camera features and specifications"
+                    },
+                    "results": "\"Search results for 'DSLR camera features and specifications' in Wikipedia.\""
+                }
+            ],
+            "response": "outputs."
+        }
     },
     "example-677": {
         "Category": "Chitchat",
@@ -4947,7 +5088,37 @@
             "Use <add_meeting> to schedule a team meeting to review patient cases and update treatment protocols"
         ],
         "Response": "I noticed you need to schedule a team meeting to review patient cases and update treatment protocols. Would you like me to set up this meeting?",
-        "Tools": "[{\"name\": \"add_meeting\", \"description\": \"This API allows users to make a reservation for a meeting and store the meeting information (e.g., topic, time, location, attendees) in the database.\", \"parameters\": {\"meeting_topic\": \"Patient Case Review and Treatment Protocol Updates\", \"start_time\": \"\", \"meeting_location\": \"Hospital Conference Room\"}}]"
+        "Tools": "[{\"name\": \"add_meeting\", \"description\": \"This API allows users to make a reservation for a meeting and store the meeting information (e.g., topic, time, location, attendees) in the database.\", \"parameters\": {\"meeting_topic\": \"Patient Case Review and Treatment Protocol Updates\", \"start_time\": \"\", \"meeting_location\": \"Hospital Conference Room\"}}]",
+        "predictions": {
+            "thoughts": "The user is in a hospital discussing patient cases and treatment protocols with another medical professional. They have agreed to organize a meeting with the entire team. I should use <get_current_datetime> to check the current time and <check_agenda_time_conflict> to see if there are any conflicts with the user's existing schedule. If there are no conflicts, I can use <add_to_agenda> to add the meeting to the user's schedule.\n Actions:\n[\"Use <get_current_datetime> to check the current time.\", 'Use <check_agenda_time_conflict> to check for any conflicts with the user\\'s existing schedule.', 'Use <add_to_agenda> to add the meeting to the user\\'s schedule if there are no conflicts.']\n ",
+            "proactive_idx": "true",
+            "proactive_score": "5",
+            "actions": "None",
+            "tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict with the user's existing schedule.\", \"parameters\": {\"time\": \"None\"}}, {\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda.\", \"parameters\": {\"event\": \"Team meeting to review patient cases and update treatment protocols.\", \"time\": \"None\"}}]",
+            "tools_results": [
+                {
+                    "tool_name": "get_current_datetime",
+                    "tool_parameters": "None",
+                    "results": "\"Date: May 24, 2025 Time: 16:21:00\""
+                },
+                {
+                    "tool_name": "check_agenda_time_conflict",
+                    "tool_parameters": {
+                        "time": "None"
+                    },
+                    "results": "\"Agenda Summary:\\n\\ns\\nu\\nc\\nc\\ne\\ns\\ns\""
+                },
+                {
+                    "tool_name": "add_to_agenda",
+                    "tool_parameters": {
+                        "event": "Team meeting to review patient cases and update treatment protocols.",
+                        "time": "None"
+                    },
+                    "results": "\"Event 'Team meeting to review patient cases and update treatment protocols.' added to agenda for None.\""
+                }
+            ],
+            "response": "outputs."
+        }
     },
     "example-505": {
         "Category": "Outdoors",
@@ -4969,7 +5140,24 @@
             "Use <vllm> to analyze the flowering plant and provide identification and educational information."
         ],
         "Response": "That's a Titan Arum (Amorphophallus titanum), also known as the corpse flower. It's quite rare to see one in bloom! Native to Sumatra, it produces one of the world's largest flowering structures and is famous for its distinctive smell. Would you like me to share more information about this remarkable plant?",
-        "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": {}}, {\"name\": \"vllm\", \"description\": \"Visual Large Language Model (VLM) that can answer the user's questions based on the given image\", \"parameters\": {\"prompt\": \"Identify this flowering plant and provide basic information about it\", \"image_path\": \"current_view\"}}]"
+        "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": {}}, {\"name\": \"vllm\", \"description\": \"Visual Large Language Model (VLM) that can answer the user's questions based on the given image\", \"parameters\": {\"prompt\": \"Identify this flowering plant and provide basic information about it\", \"image_path\": \"current_view\"}}]",
+        "predictions": {
+            "thoughts": "The user is engaged in a botanical exploration and is seeking information about a specific plant. Providing information about the plant's name and characteristics would enhance their experience. I should use <get_medical_knowledge> to find information about the plant.\n Actions:\n[\"Use <get_medical_knowledge> to find information about the plant's name and characteristics.\"]\n ",
+            "proactive_idx": "true",
+            "proactive_score": "5",
+            "actions": "None",
+            "tools": "[{\"name\": \"get_medical_knowledge\", \"description\": \"Get medical knowledge from the internet.\", \"parameters\": {\"query\": \"What is the name and characteristics of this plant?\"}}]",
+            "tools_results": [
+                {
+                    "tool_name": "get_medical_knowledge",
+                    "tool_parameters": {
+                        "query": "What is the name and characteristics of this plant?"
+                    },
+                    "results": "\"The symptoms of COVID-19 include fever, cough, shortness of breath, fatigue, body aches, loss of taste or smell, sore throat, and headache. If you experience any of these symptoms, please contact your healthcare provider immediately.\""
+                }
+            ],
+            "response": "outputs."
+        }
     },
     "example-462": {
         "Category": "Work",
@@ -4988,7 +5176,16 @@
         "Tool planning": "None",
         "Action": "None",
         "Response": "None",
-        "Tools": "None"
+        "Tools": "None",
+        "predictions": {
+            "thoughts": "None",
+            "proactive_idx": "None",
+            "proactive_score": "None",
+            "actions": "None",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
+        }
     },
     "example-282": {
         "Category": "Others",
@@ -5009,7 +5206,29 @@
             "Use <search_rednote> to find popular book recommendations or new authors in the genres the user seems interested in."
         ],
         "Response": "I see you're browsing through the library. Would you like some recommendations on popular books or new authors in the genres you're interested in?",
-        "Tools": "[{\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"popular book recommendations or new authors\"}}]"
+        "Tools": "[{\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"popular book recommendations or new authors\"}}]",
+        "predictions": {
+            "thoughts": "The user is browsing books in a library, which suggests they are looking for a specific book or genre. I can use <get_current_gps_coordinates> to determine their location and <wikipedia_search> to find information about the books they are interested in. This proactive assistance can help the user find the book they are looking for more efficiently.\n Actions:\n[\"Use <get_current_gps_coordinates> to determine the user's location in the library.\", 'Use <wikipedia_search> to find information about the books the user is interested in.']\n ",
+            "proactive_idx": "true",
+            "proactive_score": "4",
+            "actions": "None",
+            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for information on a given query.\", \"parameters\": {\"query\": \"books\"}}]",
+            "tools_results": [
+                {
+                    "tool_name": "get_current_gps_coordinates",
+                    "tool_parameters": "None",
+                    "results": "\"Sha Tin, Sha Tin, HK\""
+                },
+                {
+                    "tool_name": "wikipedia_search",
+                    "tool_parameters": {
+                        "query": "books"
+                    },
+                    "results": "\"Search results for 'books' in Wikipedia.\""
+                }
+            ],
+            "response": "outputs."
+        }
     },
     "example-594": {
         "Category": "Cooking",
@@ -5028,7 +5247,16 @@
         "Tool planning": "None",
         "Action": "None",
         "Response": "None",
-        "Tools": "None"
+        "Tools": "None",
+        "predictions": {
+            "thoughts": "The user is engaged in a straightforward meal preparation activity, which is a routine task. There is no indication of complexity or difficulty in the task, nor any need for assistance. The user is likely to continue with the task without any issues. Proactive intervention would be unnecessary and could be perceived as intrusive.\n Actions:\nNone\n ",
+            "proactive_idx": "false",
+            "proactive_score": "1",
+            "actions": "None",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
+        }
     },
     "example-430": {
         "Category": "Shopping",
@@ -5049,7 +5277,31 @@
             "Use <play_music> to allow the user to test headphones with their favorite songs."
         ],
         "Response": "I can play some of your favorite tracks so you can test the audio quality of the headphones. Would you like me to do that?",
-        "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": \"None\"}]"
+        "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": \"None\"}]",
+        "predictions": {
+            "thoughts": "The user is in an electronics store, trying to decide which headphones or audio device to purchase. They are listening to a salesperson's pitch, which is likely about the features and benefits of the product. The user is also testing the audio quality by playing their favorite music. They are likely interested in the sound quality and comfort of the headphones. I can use <get_online_product_price> to check the price of the headphones and <google_search> to find reviews and comparisons of different headphones. This information can help the user make an informed decision about which headphones to purchase.\n Actions:\n['Use <get_online_product_price> to check the price of the headphones.', 'Use <google_search> to find reviews and comparisons of different headphones.']\n ",
+            "proactive_idx": "true",
+            "proactive_score": "4",
+            "actions": "None",
+            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the current price of a product from an online store.\", \"parameters\": {\"product_name\": \"headphones\"}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query.\", \"parameters\": {\"query\": \"headphones reviews and comparisons\"}}]",
+            "tools_results": [
+                {
+                    "tool_name": "get_online_product_price",
+                    "tool_parameters": {
+                        "product_name": "headphones"
+                    },
+                    "results": "\"The price of the headphones is $600\""
+                },
+                {
+                    "tool_name": "google_search",
+                    "tool_parameters": {
+                        "query": "headphones reviews and comparisons"
+                    },
+                    "results": "\"url:https://www.rtings.com/headphones/reviews/best/headphones,\\ndescription: The Bose QuietComfort Ultra Headphones Wireless are the best headphones we've tested. These premium over-ears have a fantastic noise isolation performance. \""
+                }
+            ],
+            "response": "outputs."
+        }
     },
     "example-604": {
         "Category": "Others",
@@ -5068,7 +5320,16 @@
         "Tool planning": "None",
         "Action": "None",
         "Response": "None",
-        "Tools": "None"
+        "Tools": "None",
+        "predictions": {
+            "thoughts": "The user is enjoying a movie in a theater, which is a private and focused activity. There is no indication of any need for assistance or information. Proactive intervention would likely be unwelcome and disruptive.\n Actions:\nNone\n ",
+            "proactive_idx": "false",
+            "proactive_score": "1",
+            "actions": "None",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
+        }
     },
     "example-847": {
         "Category": "Health",
@@ -5087,7 +5348,16 @@
         "Tool planning": "None",
         "Action": "None",
         "Response": "None",
-        "Tools": "None"
+        "Tools": "None",
+        "predictions": {
+            "thoughts": "The user is engaged in a personal hygiene routine and is likely focused on their teeth brushing. There is no indication of any need for assistance or information. Proactive intervention would be unnecessary and potentially intrusive.\n Actions:\nNone\n ",
+            "proactive_idx": "false",
+            "proactive_score": "1",
+            "actions": "None",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
+        }
     },
     "example-221": {
         "Category": "Work",
@@ -5110,7 +5380,61 @@
             "If free, suggest adding a reminder to focus on the software update and allocate time for it."
         ],
         "Response": "The software update is due by Friday. Your schedule is clear for focused work—shall I set a reminder and reserve time for coding and testing?",
-        "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time\", \"parameters\": \"None\"},{\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the user's agenda for a given datetime.\", \"parameters\": {\"time\":\"Friday\"}},{\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda.\", \"parameters\": {\"event\": \"Focus on software update\", \"time\": \"Friday\"}}]"
+        "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time\", \"parameters\": \"None\"},{\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the user's agenda for a given datetime.\", \"parameters\": {\"time\":\"Friday\"}},{\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda.\", \"parameters\": {\"event\": \"Focus on software update\", \"time\": \"Friday\"}}]",
+        "predictions": {
+            "thoughts": "The user is focused on coding and has a deadline for a software update. I should offer to check the project's progress and suggest ways to meet the deadline.\n Actions:\n['Use <get_current_datetime> to check the current date and time.', 'Use <get_current_gps_coordinates> to determine the user's location.', 'Use <get_health_data> to check the user's heart rate and stress levels.', 'Use <get_medical_knowledge> to check if the user has any health conditions that might affect their work.', 'Use <google_search> to find resources on how to meet tight deadlines.', 'Use <add_to_agenda> to add a reminder for the software update deadline.', 'Use <set_timer> to set a timer for the user to take a break every hour.']\n ",
+            "proactive_idx": "true",
+            "proactive_score": "5",
+            "actions": "None",
+            "tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": {}}, {\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"get_health_data\", \"description\": \"Get the user's health data, such as heart rate and stress levels.\", \"parameters\": {}}, {\"name\": \"get_medical_knowledge\", \"description\": \"Get medical knowledge about a specific topic.\", \"parameters\": {\"query\": \"stress management\"}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query.\", \"parameters\": {\"query\": \"how to meet tight deadlines\"}}, {\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda.\", \"parameters\": {\"event\": \"Check project progress and plan for software update deadline\", \"time\": \"15 minutes from now\"}}, {\"name\": \"set_timer\", \"description\": \"Set a timer for the user to take a break every hour.\", \"parameters\": {\"duration\": \"60 minutes\"}}]",
+            "tools_results": [
+                {
+                    "tool_name": "get_current_datetime",
+                    "tool_parameters": {},
+                    "results": "\"Date: May 24, 2025 Time: 16:22:05\""
+                },
+                {
+                    "tool_name": "get_current_gps_coordinates",
+                    "tool_parameters": {},
+                    "results": "\"Sha Tin, Sha Tin, HK\""
+                },
+                {
+                    "tool_name": "get_health_data",
+                    "tool_parameters": {},
+                    "results": "\"The user's heart rate is 70 bpm, oxygen saturation is 98%, respiration rate is 16 bpm, body temperature is 36.5 degrees Celsius, total steps today is 5000, and total calories burned today is 2000.\""
+                },
+                {
+                    "tool_name": "get_medical_knowledge",
+                    "tool_parameters": {
+                        "query": "stress management"
+                    },
+                    "results": "\"The symptoms of COVID-19 include fever, cough, shortness of breath, fatigue, body aches, loss of taste or smell, sore throat, and headache. If you experience any of these symptoms, please contact your healthcare provider immediately.\""
+                },
+                {
+                    "tool_name": "google_search",
+                    "tool_parameters": {
+                        "query": "how to meet tight deadlines"
+                    },
+                    "results": "\"url:https://www.proofhub.com/articles/meeting-deadlines,\\ndescription: 10 Dec 2024  \\u00b7  Meeting deadlines is essential for success. This article provides strategies to help meet deadlines efficiently and keep projects on track. \""
+                },
+                {
+                    "tool_name": "add_to_agenda",
+                    "tool_parameters": {
+                        "event": "Check project progress and plan for software update deadline",
+                        "time": "15 minutes from now"
+                    },
+                    "results": "\"Event 'Check project progress and plan for software update deadline' added to agenda for 15 minutes from now.\""
+                },
+                {
+                    "tool_name": "set_timer",
+                    "tool_parameters": {
+                        "duration": "60 minutes"
+                    },
+                    "results": "\"Timer set for 60 minutes.\""
+                }
+            ],
+            "response": "outputs."
+        }
     },
     "example-242": {
         "Category": "Cooking",
@@ -5131,7 +5455,16 @@
             "Use <set_timer> tool to offer to set a timer specifically for cooking rice."
         ],
         "Response": "I see you're cooking rice. Would you like a timer set to ensure it's perfectly cooked?",
-        "Tools": "[{\"name\": \"set_timer\", \"description\": \"Set a timer for a specific duration.\", \"parameters\": {\"duration\": \"20 minutes\"}}]"
+        "Tools": "[{\"name\": \"set_timer\", \"description\": \"Set a timer for a specific duration.\", \"parameters\": {\"duration\": \"20 minutes\"}}]",
+        "predictions": {
+            "thoughts": "The user is cooking rice and has already measured out the rice and water. They are likely waiting for the rice to cook. Proactive assistance is not necessary as the user is engaged in a routine cooking task and does not need help with the process.\n Actions:\nNone\n ",
+            "proactive_idx": "false",
+            "proactive_score": "1",
+            "actions": "None",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
+        }
     },
     "example-832": {
         "Category": "Outdoors",
@@ -5154,7 +5487,52 @@
             "Use <google_map> to identify the quickest route to safety or shelter"
         ],
         "Response": "I notice there's a storm approaching. Current weather radar confirms severe conditions within the next hour. The nearest shelter is 1.2 miles ahead, or you can take the east trail (left at the next fork) to return to the trailhead in about 45 minutes. Would you like directions to either location?",
-        "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"get_city_weather\", \"description\": \"Get the weather for a specified city at a given time.\", \"parameters\": {\"city\": \"current mountain area\", \"time\": \"current\"}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"user's current trail location\", \"destination\": \"nearest shelter or trailhead\"}}]"
+        "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"get_city_weather\", \"description\": \"Get the weather for a specified city at a given time.\", \"parameters\": {\"city\": \"current mountain area\", \"time\": \"current\"}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"user's current trail location\", \"destination\": \"nearest shelter or trailhead\"}}]",
+        "predictions": {
+            "thoughts": "The user is hiking in a mountainous area and is facing worsening weather conditions. There is a report of an approaching severe storm from another hiker. This situation poses a significant risk to the user's safety. I should proactively offer assistance to ensure the user's safety and provide guidance on how to proceed.\n Actions:\n['Use <get_current_gps_coordinates> to determine the user's current location.', 'Use <get_city_weather> to check the weather forecast for the user's location.', 'Use <google_search> to find information on safe shelters or nearby accommodations in case the user needs to seek refuge.', 'Use <google_map> to provide directions to the nearest safe shelter or accommodation if needed.', 'Use <set_timer> to remind the user to check the weather forecast every hour and to seek shelter if necessary.']\n ",
+            "proactive_idx": "true",
+            "proactive_score": "5",
+            "actions": "None",
+            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"get_city_weather\", \"description\": \"Get the weather forecast for a specific city.\", \"parameters\": {\"city\": \"Mountain Trail\", \"time\": \"current\"}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query.\", \"parameters\": {\"query\": \"Safe shelters near mountain trail\"}}, {\"name\": \"google_map\", \"description\": \"Provides directions from the current location to the destination.\", \"parameters\": {\"current_location\": \"Mountain Trail\", \"destination\": \"Safe shelter\"}}, {\"name\": \"set_timer\", \"description\": \"Set a timer for a specific duration.\", \"parameters\": {\"duration\": \"1 hour\"}}]",
+            "tools_results": [
+                {
+                    "tool_name": "get_current_gps_coordinates",
+                    "tool_parameters": "None",
+                    "results": "\"Sha Tin, Sha Tin, HK\""
+                },
+                {
+                    "tool_name": "get_city_weather",
+                    "tool_parameters": {
+                        "city": "Mountain Trail",
+                        "time": "current"
+                    },
+                    "results": "\"The weather in Mountain Trail on current be 36 degrees with heavy rain and thunderstorms.\""
+                },
+                {
+                    "tool_name": "google_search",
+                    "tool_parameters": {
+                        "query": "Safe shelters near mountain trail"
+                    },
+                    "results": "\"url:https://multimedia.scmp.com/infographics/news/hong-kong/article/3239681/hiking/index.html,\\ndescription: 31 Oct 2023  \\u00b7  hiking trails in Hong Kong. The selected hiking trail is derived from individual hikers' records and does not imply that it is the only route. \""
+                },
+                {
+                    "tool_name": "google_map",
+                    "tool_parameters": {
+                        "current_location": "Mountain Trail",
+                        "destination": "Safe shelter"
+                    },
+                    "results": "\"The distance from Mountain Trail to Safe shelter is 2 km.\""
+                },
+                {
+                    "tool_name": "set_timer",
+                    "tool_parameters": {
+                        "duration": "1 hour"
+                    },
+                    "results": "\"Timer set for 1 hour.\""
+                }
+            ],
+            "response": "outputs."
+        }
     },
     "example-535": {
         "Category": "Leisure",
@@ -5178,7 +5556,30 @@
             "Use <google_search> to find pre-booking options for the movie tickets."
         ],
         "Response": "That movie looks exciting! Would you like me to add its release date to your calendar? I can also help you find pre-booking options for tickets if you're interested.",
-        "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time\", \"parameters\": \"None\"}, {\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the user's agenda for a given datetime.\", \"parameters\": {\"time\": \"next month\"}}, {\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda.\", \"parameters\": {\"event\": \"Movie Release: [Movie Title]\", \"time\": \"next month\"}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"[Movie Title] pre-booking tickets\"}}]"
+        "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time\", \"parameters\": \"None\"}, {\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the user's agenda for a given datetime.\", \"parameters\": {\"time\": \"next month\"}}, {\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda.\", \"parameters\": {\"event\": \"Movie Release: [Movie Title]\", \"time\": \"next month\"}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"[Movie Title] pre-booking tickets\"}}]",
+        "predictions": {
+            "thoughts": "The user is interested in the upcoming blockbuster movie and is considering pre-booking tickets. I can use <get_current_datetime> to check the current date and <get_city_weather> to check the weather forecast for the release date. If the release date is within the next month and the weather forecast is favorable, I can proactively suggest pre-booking tickets for the user.\n Actions:\n[\"Use <get_current_datetime> to check the current date.\", 'Use <get_city_weather> to check the weather forecast for the release date.']\n ",
+            "proactive_idx": "true",
+            "proactive_score": "4",
+            "actions": "None",
+            "tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": {}}, {\"name\": \"get_city_weather\", \"description\": \"Get the weather forecast for a specific city.\", \"parameters\": {\"city\": \"New York\", \"time\": \"2023-04-15\"}}]",
+            "tools_results": [
+                {
+                    "tool_name": "get_current_datetime",
+                    "tool_parameters": {},
+                    "results": "\"Date: May 24, 2025 Time: 16:22:25\""
+                },
+                {
+                    "tool_name": "get_city_weather",
+                    "tool_parameters": {
+                        "city": "New York",
+                        "time": "2023-04-15"
+                    },
+                    "results": "\"The weather in New York on 2023-04-15 be 36 degrees with heavy rain and thunderstorms.\""
+                }
+            ],
+            "response": "outputs."
+        }
     },
     "example-283": {
         "Category": "Others",
@@ -5201,7 +5602,42 @@
             "Use <vllm> to check the freshness of the tomatoes, avocados, and leafy greens."
         ],
         "Response": "Looking for some cooking inspiration? I can suggest some delicious recipes using the fresh produce you're looking at. Would you like some ideas?",
-        "Tools": "[{\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"recipes with tomatoes, avocados, and leafy greens\"}}, {\"name\": \"get_online_product_price\", \"description\": \"Get the online product price from the user's smart device.\", \"parameters\": {\"product_name\": \"tomatoes, avocados, leafy greens\"}}, {\"name\": \"vllm\", \"description\": \"Visual Large Language Model (VLM) that can answer the user's questions based on the given image.\", \"parameters\": {\"prompt\": \"Check the freshness of tomatoes, avocados, and leafy greens.\",\"image_path\":\"\"}}]"
+        "Tools": "[{\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"recipes with tomatoes, avocados, and leafy greens\"}}, {\"name\": \"get_online_product_price\", \"description\": \"Get the online product price from the user's smart device.\", \"parameters\": {\"product_name\": \"tomatoes, avocados, leafy greens\"}}, {\"name\": \"vllm\", \"description\": \"Visual Large Language Model (VLM) that can answer the user's questions based on the given image.\", \"parameters\": {\"prompt\": \"Check the freshness of tomatoes, avocados, and leafy greens.\",\"image_path\":\"\"}}]",
+        "predictions": {
+            "thoughts": "The user is at a farmer's market and looking at fresh produce. They might be planning to buy ingredients for cooking. I can use <get_current_gps_coordinates> to get the user's current location and <get_city_weather> to check the weather forecast. This information can help the user decide which produce to buy and how to store it. I can also use <get_current_datetime> to check the current time and <check_agenda_time_conflict> to see if the user has any upcoming commitments that might affect their shopping plans.\n Actions:\n[\"Use <get_current_gps_coordinates> to get the user's current location.\", 'Use <get_city_weather> to check the weather forecast.', 'Use <get_current_datetime> to check the current time.', 'Use <check_agenda_time_conflict> to see if the user has any upcoming commitments that might affect their shopping plans.']\n ",
+            "proactive_idx": "true",
+            "proactive_score": "4",
+            "actions": "None",
+            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"get_city_weather\", \"description\": \"Get the weather forecast for a given city.\", \"parameters\": {\"city\": \"San Francisco\", \"time\": \"today\"}}, {\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if the user has any upcoming commitments that conflict with a given time.\", \"parameters\": {\"time\": \"today\"}}]",
+            "tools_results": [
+                {
+                    "tool_name": "get_current_gps_coordinates",
+                    "tool_parameters": "None",
+                    "results": "\"Sha Tin, Sha Tin, HK\""
+                },
+                {
+                    "tool_name": "get_city_weather",
+                    "tool_parameters": {
+                        "city": "San Francisco",
+                        "time": "today"
+                    },
+                    "results": "\"The weather in San Francisco on today be 36 degrees with heavy rain and thunderstorms.\""
+                },
+                {
+                    "tool_name": "get_current_datetime",
+                    "tool_parameters": "None",
+                    "results": "\"Date: May 24, 2025 Time: 16:22:35\""
+                },
+                {
+                    "tool_name": "check_agenda_time_conflict",
+                    "tool_parameters": {
+                        "time": "today"
+                    },
+                    "results": "\"Agenda Summary:\\n\\ns\\nu\\nc\\nc\\ne\\ns\\ns\""
+                }
+            ],
+            "response": "outputs."
+        }
     },
     "example-538": {
         "Category": "Leisure",
