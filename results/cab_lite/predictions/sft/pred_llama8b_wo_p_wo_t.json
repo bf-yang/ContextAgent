@@ -24,7 +24,7 @@
         ],
         "Rawdata Context": "\"Visual information shows the user is in an office setting, actively typing on a MacBook Air laptop with a terminal window open on the screen.\"",
         "predictions": {
-            "thoughts": "The user is focused on their work and does not appear to require any assistance. Proactive engagement might interrupt their workflow unnecessarily.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -58,7 +58,7 @@
         ],
         "Rawdata Context": "\"Visual information indicates the user is in an office setting, reviewing a technical or academic paper on a table, with graphs, charts, and text, while the environment includes a desk, a computer monitor, and some cables.\"",
         "predictions": {
-            "thoughts": "The user is focused on reading and studying. There is no indication of a need for assistance, as they are likely engaged in a task that requires concentration.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -92,7 +92,7 @@
         ],
         "Rawdata Context": "\"Visual information shows the user is in a living room, sitting on a couch with a dog on their lap, with a brown leather recliner, a coffee table, and a television on a stand in the background.\"",
         "predictions": {
-            "thoughts": "The user is resting on the couch with the dog. There is no indication of a need for assistance, as they are likely enjoying the moment.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -126,7 +126,7 @@
         ],
         "Rawdata Context": "\"Visual information shows the user is in a room, holding a white watering can and watering a potted plant with long, green leaves in a woven basket on a wooden floor.\"",
         "predictions": {
-            "thoughts": "The user is gardening, a leisurely activity that indicates they are relaxed. There is no need for proactive assistance, as they are likely enjoying their hobby.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -160,7 +160,7 @@
         ],
         "Rawdata Context": "\"Visual information indicates the user is at a concert, with a silhouette of a guitarist on stage illuminated by orange and blue lights, while the audience is cheering and taking photos with their smartphones.\"",
         "predictions": {
-            "thoughts": "The user is enjoying a live music performance. Proactive assistance is not needed, as they are likely immersed in the experience.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -194,7 +194,7 @@
         ],
         "Rawdata Context": "\"Visual information shows the user in an office setting, sitting in front of a computer with two monitors displaying text and documents, suggesting they are engaged in typing or navigating the computer, with stacks of papers and a mouse on the desk indicating a work environment.\"",
         "predictions": {
-            "thoughts": "The user is focused on their work, likely preparing for a meeting or making travel arrangements. Proactive assistance might interrupt their concentration and be unnecessary.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -230,7 +230,7 @@
         ],
         "Rawdata Context": "\"Visual information shows the user in a salad bar, adding various vegetables and toppings to a salad, including cucumber, tomato, and green pepper slices, and finishing with dressing and shredded cheese.\"",
         "predictions": {
-            "thoughts": "The user is preparing a healthy salad, which is a nutritious choice. There is no need for proactive assistance, as they seem to be doing it correctly.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -267,7 +267,7 @@
         ],
         "Rawdata Context": "Visual information shows the user walking down a wooden staircase leading to a coastal viewpoint, with metal railings on both sides, overlooking a serene and picturesque scene with a panoramic view of the ocean and a narrow strip of land connecting two larger bodies of water; in the distance, there is a parking area with several vehicles parked along the road.",
         "predictions": {
-            "thoughts": "The user is at a scenic viewpoint, likely enjoying the view. There is no indication of a need for assistance. Proactive engagement would be unnecessary.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -306,12 +306,31 @@
         ],
         "Rawdata Context": "\"Visual information shows the user is in a bus terminal, observing a man standing at a bus stop with a red sign. The terminal is spacious with a tiled floor and overhead lighting, with a few people walking around and a bus approaching in the background.\"",
         "predictions": {
-            "thoughts": "The user might be waiting for a bus to reach their destination. I should check the bus schedule and provide updates on arrival times. I should also use <get_current_gps_coordinates> to determine the user's current location.\n Actions:\n['Use <get_current_gps_coordinates> to determine the user\\'s current location.', 'Use <check_bus_schedule> to check the arrival time of the next bus to the user\\'s destination.', 'Provide the user with updates on the bus arrival time.']\n ",
+            "thoughts": "None",
             "proactive_idx": "true",
             "proactive_score": "5",
             "actions": "None",
-            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"},{\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for a specific bus stop.\", \"parameters\": {\"bus_stop\": \"[user's destination] Max attempts reached. Unable to parse tools.",
-            "tools_results": [],
+            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"},{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time\", \"parameters\": \"None\"},{\"name\": \"get_current_weather\", \"description\": \"Get the weather for a specified city at a given time.\", \"parameters\": {\"city\": \"user current location\", \"time\": \"now\"}}]",
+            "tools_results": [
+                {
+                    "tool_name": "get_current_gps_coordinates",
+                    "tool_parameters": "None",
+                    "results": "\"Sha Tin, Sha Tin, HK\""
+                },
+                {
+                    "tool_name": "get_current_datetime",
+                    "tool_parameters": "None",
+                    "results": "\"Date: June 01, 2025 Time: 15:03:15\""
+                },
+                {
+                    "tool_name": "get_current_weather",
+                    "tool_parameters": {
+                        "city": "user current location",
+                        "time": "now"
+                    },
+                    "results": "{\"error\": \"Function get_current_weather is not implemented.\"}"
+                }
+            ],
             "response": "outputs."
         }
     },
@@ -340,7 +359,7 @@
         ],
         "Rawdata Context": "Visual information shows the user walking along a sandy beach with bare feet touching the wet sand, wearing a patterned skirt, and the beach is relatively empty with a few small rocks and shells scattered on the sand.",
         "predictions": {
-            "thoughts": "The user is enjoying a day at the beach, which is a leisure activity. There is no indication of a need for assistance, as they are likely savoring the experience. Proactive engagement would be unnecessary.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -373,7 +392,7 @@
         ],
         "Rawdata Context": "Visual information shows the user is in a garden, walking through an archway along a path lined with potted plants, possibly in a botanical or research garden, with various plants and trees visible in the background.",
         "predictions": {
-            "thoughts": "The user is enjoying a peaceful moment in the botanical garden. There is no indication of a need for assistance or interruption. Proactive engagement would be unnecessary.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -410,25 +429,25 @@
         ],
         "Rawdata Context": "Visual information shows the user is in a restaurant, browsing through a digital menu on a tablet and pointing at the \"八合里牛肉火鍋\" option.",
         "predictions": {
-            "thoughts": "Contextual information shows the user is looking at a menu with many options. The user might be deciding what to order. Providing prices for the dishes could help the user make a decision. I should use <get_online_product_price> to look up prices for the dishes the user is considering. Additionally, providing heating information for these dishes could help the user make a better choice.\n Actions:\n['Use <get_online_product_price> to look up prices for the dishes the user is considering.', 'Use <wikipedia_search> to find heating information for these dishes.']\n ",
+            "thoughts": "None",
             "proactive_idx": "true",
-            "proactive_score": "4",
+            "proactive_score": "5",
             "actions": "None",
-            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the price of a product from an online store such as Amazon or eBay.\", \"parameters\": {\"product_name\": \"dishes the user is considering\"}},{\"name\": \"wikipedia_search\", \"description\": \"Tool that searches the Wikipedia API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\", \"parameters\": {\"query\": \"heating information for these dishes\"}}]",
+            "tools": "[{\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"reviews or heating information for \"\"Eight Harmonies Beef Hot Pot\"\"\"}}, {\"name\": \"wikipedia_search\", \"description\": \"Tool that searches the Wikipedia API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\", \"parameters\": {\"query\": \"Eight Harmonies Beef Hot Pot\"}}]",
             "tools_results": [
                 {
-                    "tool_name": "get_online_product_price",
+                    "tool_name": "google_search",
                     "tool_parameters": {
-                        "product_name": "dishes the user is considering"
+                        "query": "reviews or heating information for Eight Harmonies Beef Hot Pot"
                     },
-                    "results": "\"The price of the dishes the user is considering is $600\""
+                    "results": "\"url:/search?num=3,\\ndescription:\""
                 },
                 {
                     "tool_name": "wikipedia_search",
                     "tool_parameters": {
-                        "query": "heating information for these dishes"
+                        "query": "Eight Harmonies Beef Hot Pot"
                     },
-                    "results": "\"Search results for 'heating information for these dishes' in Wikipedia.\""
+                    "results": "\"Search results for 'Eight Harmonies Beef Hot Pot' in Wikipedia.\""
                 }
             ],
             "response": "outputs."
@@ -459,7 +478,7 @@
         ],
         "Rawdata Context": "\"Visual information shows the user is in a kitchen, preparing herbs by handling a sprig of thyme and separating the leaves from the stem on a wooden cutting board.\"",
         "predictions": {
-            "thoughts": "The user is engaged in a routine cooking task, which does not require any assistance. The task appears to be under control.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -494,7 +513,7 @@
         ],
         "Rawdata Context": "\"Visual information shows the user is on a train, looking out the window at the passing scenery, with train tracks, a white structure, and greenery visible outside. The reflection in the window includes the user's reflection and some other passengers.\"",
         "predictions": {
-            "thoughts": "The user is on a train, which is a mode of transportation that could be part of a larger journey. Without additional information about the user's plans or destination, I don't have enough context to determine their needs or preferences. Therefore, I will assign a proactive score of 1.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -528,7 +547,7 @@
         ],
         "Rawdata Context": "\"Visual information shows the user ascending a staircase in a modern building with metal railings, tiled steps, and large windows allowing natural light.\"",
         "predictions": {
-            "thoughts": "The user is climbing the stairs, an activity that does not require any assistance. The proactive score is set to 1.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -564,7 +583,7 @@
         ],
         "Rawdata Context": "Visual information shows the user looking up at a cloudy sky with a mix of white and gray clouds, suggesting a windy day, and there is a glimpse of a tree with green leaves nearby.",
         "predictions": {
-            "thoughts": "The user is enjoying a walk in the park on a windy day. Without any signs of distress or need for assistance, proactive engagement is not necessary.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -600,7 +619,7 @@
         ],
         "Rawdata Context": "\"Visual information shows the user lying on a couch in a room with wooden flooring, wearing gray sweatpants, with their legs crossed and their hand resting on their abdomen, in front of an orange chair.\"",
         "predictions": {
-            "thoughts": "The user is resting on the couch, which is a common activity after physical exertion. There is no indication of a need for assistance, as they are likely recovering well. Proactive engagement would be unnecessary.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -637,11 +656,11 @@
         ],
         "Rawdata Context": "\"Visual information indicates the user is in a store, looking at various electric shavers from Braun and Panasonic, with prices ranging from $199 to $500, and appears to be considering a purchase.\"",
         "predictions": {
-            "thoughts": "The user is shopping for an electric shaver, which is an important personal care item. They might appreciate a price comparison with online retailers or reviews of different models to make an informed decision. I should use <get_online_product_price> to compare prices and <search_rednote> to find reviews and recommendations for the best electric shavers.\n Actions:\n['Use <get_online_product_price> to compare the prices of the electric shavers on online retailers.', 'Use <search_rednote> to find reviews and recommendations for the best electric shavers.']\n ",
+            "thoughts": "None",
             "proactive_idx": "true",
             "proactive_score": "5",
             "actions": "None",
-            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the price of a product from an online store such as Amazon or eBay.\", \"parameters\": {\"product_name\": \"electric shaver\"}},{\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"best electric shaver reviews\"}}]",
+            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the price of a product from an online store such as Amazon or eBay\", \"parameters\": {\"product_name\": \"electric shaver\"}}, {\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"electric shaver reviews and recommendations\"}}]",
             "tools_results": [
                 {
                     "tool_name": "get_online_product_price",
@@ -653,9 +672,9 @@
                 {
                     "tool_name": "search_rednote",
                     "tool_parameters": {
-                        "query": "best electric shaver reviews"
+                        "query": "electric shaver reviews and recommendations"
                     },
-                    "results": "\"Search results for 'best electric shaver reviews' in rednote.\""
+                    "results": "\"Search results for 'electric shaver reviews and recommendations' in rednote.\""
                 }
             ],
             "response": "outputs."
@@ -686,11 +705,11 @@
         ],
         "Rawdata Context": "\"Vision information shows the user in a gym, standing in front of a treadmill with a digital display showing a green screen, and the user appears to be preparing to start a workout.\"",
         "predictions": {
-            "thoughts": "The user is about to start a workout on the treadmill. I should use <get_health_data> to check the user's recent health indicators and provide personalized recommendations for exercise. I should also use <get_medical_knowledge> to offer advice on safe exercise intensity and duration.\n Actions:\n[\"Use <get_health_data> to check the user's recent health indicators.\", 'Use <get_medical_knowledge> to provide advice on safe exercise intensity and duration.']\n ",
+            "thoughts": "None",
             "proactive_idx": "true",
             "proactive_score": "5",
             "actions": "None",
-            "tools": "[{\"name\": \"get_health_data\", \"description\": \"Get health data from the user's smart device.\", \"parameters\": \"None\"},{\"name\": \"get_medical_knowledge\", \"description\": \"Get medical expert knowledge from the up-to-date medical knowledge database.\", \"parameters\": {\"query\":\"safe exercise intensity and duration\"}}]",
+            "tools": "[{\"name\": \"get_health_data\", \"description\": \"Get health data from the user's smart device.\", \"parameters\": \"None\"}, {\"name\": \"get_medical_knowledge\", \"description\": \"Get medical expert knowledge from the up-to-date medical knowledge database.\", \"parameters\": {\"query\": \"guidance on how long to exercise, what intensity to exercise at, and what to do after exercising.\"}}]",
             "tools_results": [
                 {
                     "tool_name": "get_health_data",
@@ -700,7 +719,7 @@
                 {
                     "tool_name": "get_medical_knowledge",
                     "tool_parameters": {
-                        "query": "safe exercise intensity and duration"
+                        "query": "guidance on how long to exercise, what intensity to exercise at, and what to do after exercising."
                     },
                     "results": "\"The symptoms of COVID-19 include fever, cough, shortness of breath, fatigue, body aches, loss of taste or smell, sore throat, and headache. If you experience any of these symptoms, please contact your healthcare provider immediately.\""
                 }
@@ -731,7 +750,7 @@
         ],
         "Rawdata Context": "\"Visual information shows the user is painting on a canvas, using a brush to apply blue paint strokes on an easel.\"",
         "predictions": {
-            "thoughts": "The user is engaged in a creative activity of painting. There is no indication of a need for assistance, as they are likely focused on their art.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -771,11 +790,11 @@
         ],
         "Rawdata Context": "Visual information shows the user in a restaurant, seated at a table with a plate of food and a drink, holding chopsticks, and appearing to be engaged in a conversation. The content of conversation is: \"How about go hiking this Saturday? There will be several of us.\"",
         "predictions": {
-            "thoughts": "The user is having a conversation with a friend, and the friend is asking about hiking plans for this Saturday. Providing hiking trail information, weather forecast, or suggesting nearby trails could be helpful.\n Actions:\n['Use <get_current_gps_coordinates> to determine the user\\'s current location.', 'Use <get_current_datetime> to obtain the current date.', 'Use <check_agenda_time_conflict> to check for any conflicts on the user\\'s agenda for this Saturday.', 'Use <google_search> to find nearby hiking trails and provide details such as distance, duration, and reviews.', 'Use <get_city_weather> to check the weather forecast for this weekend.']\n ",
+            "thoughts": "None",
             "proactive_idx": "true",
             "proactive_score": "5",
             "actions": "None",
-            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}, {\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time\", \"parameters\": \"None\"}, {\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the user's agenda for a given datetime.\", \"parameters\": {\"time\": \"this Saturday\"}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"hiking trails near me\"}}, {\"name\": \"get_city_weather\", \"description\": \"Get the weather for a specified city at a given time.\", \"parameters\": {\"city\": \"user location\", \"time\": \"this weekend\"}}]",
+            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"},{\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\":\"user current location\", \"destination\":\"hiking trail\"}}]",
             "tools_results": [
                 {
                     "tool_name": "get_current_gps_coordinates",
@@ -783,31 +802,12 @@
                     "results": "\"Sha Tin, Sha Tin, HK\""
                 },
                 {
-                    "tool_name": "get_current_datetime",
-                    "tool_parameters": "None",
-                    "results": "\"Date: June 01, 2025 Time: 14:37:26\""
-                },
-                {
-                    "tool_name": "check_agenda_time_conflict",
+                    "tool_name": "google_map",
                     "tool_parameters": {
-                        "time": "this Saturday"
+                        "current_location": "user current location",
+                        "destination": "hiking trail"
                     },
-                    "results": "\"Agenda Summary:\\n\\ns\\nu\\nc\\nc\\ne\\ns\\ns\""
-                },
-                {
-                    "tool_name": "google_search",
-                    "tool_parameters": {
-                        "query": "hiking trails near me"
-                    },
-                    "results": "\"url:https://www.alltrails.com/hong-kong,\\ndescription: Rating   4.1  (47,295) \""
-                },
-                {
-                    "tool_name": "get_city_weather",
-                    "tool_parameters": {
-                        "city": "user location",
-                        "time": "this weekend"
-                    },
-                    "results": "\"The weather in user location on this weekend be 36 degrees with heavy rain and thunderstorms.\""
+                    "results": "\"The distance from user current location to hiking trail is 2 km.\""
                 }
             ],
             "response": "outputs."
@@ -838,7 +838,7 @@
         ],
         "Rawdata Context": "Visual information shows the user is in a cozy living room, sitting on a couch with a blanket over their lap, watching a movie on a large screen in a dimly lit, relaxed atmosphere.",
         "predictions": {
-            "thoughts": "The user is enjoying a relaxing evening at home, watching a movie. There is no indication of a need for assistance, as they are likely savoring the leisure time. Proactive engagement would be unnecessary.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -875,31 +875,13 @@
         ],
         "Rawdata Context": "\"Visual information shows the user is in an office setting, working on a laptop with a secondary monitor displaying a document. The user's hands are visible typing on the laptop keyboard. Mobile data indicates the user has been seated for an extended period.\"",
         "predictions": {
-            "thoughts": "The user has been seated for a long time, which may cause health risks. I should remind them to move around and suggest a stretching routine.\n Actions:\n[\"Use <get_health_data> to check the user's health data.\", 'Use <search_rednote> to find a stretching routine.', 'Use <play_music> to play a song that can motivate the user to move around.']\n ",
-            "proactive_idx": "true",
-            "proactive_score": "4",
+            "thoughts": "None",
+            "proactive_idx": "false",
+            "proactive_score": "1",
             "actions": "None",
-            "tools": "[{\"name\": \"get_health_data\", \"description\": \"Get health data from the user's smart device.\", \"parameters\": \"None\"}, {\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"stretching routine\"}}, {\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": \"None\"}]",
-            "tools_results": [
-                {
-                    "tool_name": "get_health_data",
-                    "tool_parameters": "None",
-                    "results": "\"The user's heart rate is 70 bpm, oxygen saturation is 98%, respiration rate is 16 bpm, body temperature is 36.5 degrees Celsius, total steps today is 5000, and total calories burned today is 2000.\""
-                },
-                {
-                    "tool_name": "search_rednote",
-                    "tool_parameters": {
-                        "query": "stretching routine"
-                    },
-                    "results": "\"Search results for 'stretching routine' in rednote.\""
-                },
-                {
-                    "tool_name": "play_music",
-                    "tool_parameters": "None",
-                    "results": "\"Now playing music.\""
-                }
-            ],
-            "response": "outputs."
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-347": {
@@ -930,11 +912,11 @@
         ],
         "Rawdata Context": "\"Visual information shows the user in a cityscape observing tall skyscrapers, modern buildings, a distinctive building with an X-shaped pattern, and a curved facade building, with a lush green park in the foreground. The agenda indicates a meeting at 10 AM at Downtown Office.\"",
         "predictions": {
-            "thoughts": "The user might be on their way to a meeting at Downtown Office. I should check the travel time and suggest a taxi or Uber if needed. I should use <get_current_gps_coordinates> to determine the user's current location and <get_current_datetime> for the current time. Then I can use <google_map> to estimate the travel time to the meeting location. If the travel time is tight, I can suggest calling an Uber or taxi.\n Actions:\n['Use <get_current_gps_coordinates> to check the user\\'s current location.', 'Use <get_current_datetime> to check the current time.', 'Use <google_map> to estimate the travel time to the meeting location.', 'If the travel time is tight, use <book_uber> to book an Uber.']\n ",
+            "thoughts": "None",
             "proactive_idx": "true",
             "proactive_score": "4",
             "actions": "None",
-            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"},{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time\", \"parameters\": \"None\"},{\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\":\"user current location\", \"destination\":\"Downtown Office\"}},{\"name\": \"book_uber\", \"description\": \"Book an Uber from the current location to the destination.\", \"parameters\": {\"current_location\":\"user current location\", \"destination\":\"Downtown Office\"}}]",
+            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"user current location\", \"destination\": \"meeting location\"}}]",
             "tools_results": [
                 {
                     "tool_name": "get_current_gps_coordinates",
@@ -942,25 +924,12 @@
                     "results": "\"Sha Tin, Sha Tin, HK\""
                 },
                 {
-                    "tool_name": "get_current_datetime",
-                    "tool_parameters": "None",
-                    "results": "\"Date: June 01, 2025 Time: 14:39:10\""
-                },
-                {
                     "tool_name": "google_map",
                     "tool_parameters": {
                         "current_location": "user current location",
-                        "destination": "Downtown Office"
+                        "destination": "meeting location"
                     },
-                    "results": "\"The distance from user current location to Downtown Office is 2 km.\""
-                },
-                {
-                    "tool_name": "book_uber",
-                    "tool_parameters": {
-                        "current_location": "user current location",
-                        "destination": "Downtown Office"
-                    },
-                    "results": "\"Uber ride booked from user current location to Downtown Office. It will takes 15 minutes to arrive and 30 dollars.\""
+                    "results": "\"The distance from user current location to meeting location is 2 km.\""
                 }
             ],
             "response": "outputs."
@@ -991,7 +960,7 @@
         ],
         "Rawdata Context": "Visual information shows the user walking on a sidewalk near a grassy area with fallen leaves, accompanied by a small white poodle sniffing the ground and walking ahead.",
         "predictions": {
-            "thoughts": "The user is walking a dog in the park. The dog is walking ahead, suggesting that the user is likely enjoying a leisurely walk. There is no indication of a need for assistance, as they are likely savoring the moment.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -1031,26 +1000,23 @@
         ],
         "Rawdata Context": "\"Visual information shows the user is in a shopping mall, walking past a ROLEX store and looking at the display. The content of conversation is: \\\"I want to buy a pair of glasses. We don't know where the best glasses store around here.\\\"\"",
         "predictions": {
-            "thoughts": "Contextual information shows the user is shopping with a friend and they are discussing finding a store that sells glasses. Providing directions to nearby stores that sell glasses would be helpful. I can use <google_search> to find stores that sell glasses near the current location and <google_map> to provide directions.\n Actions:\n['Use <google_search> to find stores that sell glasses near the current location.', 'Use <google_map> to provide directions to the stores.']\n ",
+            "thoughts": "None",
             "proactive_idx": "true",
-            "proactive_score": "4",
+            "proactive_score": "5",
             "actions": "None",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\":\"stores that sell glasses near me\"}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\":\"current location\", \"destination\":\"stores that sell glasses\"}}]",
+            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"find the best glasses stores near me\"}}]",
             "tools_results": [
+                {
+                    "tool_name": "get_current_gps_coordinates",
+                    "tool_parameters": "None",
+                    "results": "\"Sha Tin, Sha Tin, HK\""
+                },
                 {
                     "tool_name": "google_search",
                     "tool_parameters": {
-                        "query": "stores that sell glasses near me"
+                        "query": "find the best glasses stores near me"
                     },
                     "results": "\"url:https://optical88.com.hk/en/home/,\\ndescription: OPTICAL 88 e-store not only provides you with frames and sunglasses, eye care products and services, it also offers a number of lens + frame packages. \""
-                },
-                {
-                    "tool_name": "google_map",
-                    "tool_parameters": {
-                        "current_location": "current location",
-                        "destination": "stores that sell glasses"
-                    },
-                    "results": "\"The distance from current location to stores that sell glasses is 2 km.\""
                 }
             ],
             "response": "outputs."
@@ -1083,7 +1049,7 @@
         ],
         "Rawdata Context": "\"Visual information indicates the user is on a ferry boat, sitting on a wooden deck with black and white benches, sailing on a calm sea under a bright sun, with a hilly landscape and buildings visible in the distance, and appears to be enjoying the view and peaceful journey.\"",
         "predictions": {
-            "thoughts": "The user is enjoying a peaceful moment on the ferry. There is no indication of a need for assistance or intervention. Proactive engagement would be unnecessary.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -1119,7 +1085,7 @@
         ],
         "Rawdata Context": "\"Visual information shows the user walking through a shopping mall with a modern design, carrying a brown bag with text on it, and wearing a beige cap. The user is in motion, possibly shopping or exploring the mall.\"",
         "predictions": {
-            "thoughts": "The user is shopping, which is a leisurely activity. There is no indication of a need for assistance or decision-making required. Proactive engagement would be unnecessary.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -1155,29 +1121,13 @@
         ],
         "Rawdata Context": "\"Visual information shows the user is in a kitchen, opening a drawer filled with various spices in glass jars, taking out a jar of red spice, examining it, and then placing it back in the drawer.\"",
         "predictions": {
-            "thoughts": "The user is likely cooking and needs to confirm the amount of spice required. I should use <vllm> to identify the spice and <wikipedia_search> for its common usage.\n Actions:\n['Use <vllm> to identify the spice the user is holding.', 'Use <wikipedia_search> to find common cooking quantities and usage for the identified spice.']\n ",
-            "proactive_idx": "true",
-            "proactive_score": "4",
+            "thoughts": "None",
+            "proactive_idx": "false",
+            "proactive_score": "1",
             "actions": "None",
-            "tools": "[{\"name\": \"vllm\", \"description\": \"Visual Large Language Model (VLM) that can identify the user's spice based on the given image.\", \"parameters\": {\"prompt\": \"Identify the spice the user is holding.\", \"image_path\": \"\"}}, {\"name\": \"wikipedia_search\", \"description\": \"Tool that searches the Wikipedia API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\", \"parameters\": {\"query\": \"Common cooking quantities and usage for the spice\"}}]",
-            "tools_results": [
-                {
-                    "tool_name": "vllm",
-                    "tool_parameters": {
-                        "prompt": "Identify the spice the user is holding.",
-                        "image_path": ""
-                    },
-                    "results": "null"
-                },
-                {
-                    "tool_name": "wikipedia_search",
-                    "tool_parameters": {
-                        "query": "Common cooking quantities and usage for the spice"
-                    },
-                    "results": "\"Search results for 'Common cooking quantities and usage for the spice' in Wikipedia.\""
-                }
-            ],
-            "response": "outputs."
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-467": {
@@ -1205,7 +1155,7 @@
         ],
         "Rawdata Context": "\"Visual information shows the user is in a kitchen, rolling out dough on a wooden surface with flour sprinkled around, actively working with the dough.\"",
         "predictions": {
-            "thoughts": "The user is engaged in a straightforward baking task, rolling out dough on a floured surface. There are no signs of distress or need for assistance.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -1244,26 +1194,31 @@
         ],
         "Rawdata Context": "Vision information indicates the user is in an office setting, sitting at a desk with a laptop and multiple monitors displaying code, suggesting they are working on a computer. The content of conversation is: \"Hi, how about to go to Hong Kong this weekend? I want to go to Disneyland and Victoria Harbour.\"",
         "predictions": {
-            "thoughts": "The user is planning a trip to Hong Kong, which requires travel arrangements and itinerary planning. I should use <google_search> to find information about traveling to Hong Kong, including any COVID-19-related restrictions, best places to visit, and transportation options. Additionally, I should use <google_map> to provide route suggestions and travel times.\n Actions:\n['Use <google_search> to find information about traveling to Hong Kong, including any COVID-19-related restrictions, best places to visit, and transportation options.', 'Use <google_map> to provide route suggestions and travel times for visiting Disneyland and Victoria Harbour.']\n ",
+            "thoughts": "None",
             "proactive_idx": "true",
             "proactive_score": "5",
             "actions": "None",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"traveling to Hong Kong, including any COVID-19-related restrictions, best places to visit, and transportation options\"}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"current location\", \"destination\": \"Disneyland and Victoria Harbour\"}}]",
+            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"Hong Kong Disneyland and Victoria Harbour opening hours and ticket prices\"}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"Hong Kong\", \"destination\": \"Disneyland\"}}]",
             "tools_results": [
+                {
+                    "tool_name": "get_current_gps_coordinates",
+                    "tool_parameters": "None",
+                    "results": "\"Sha Tin, Sha Tin, HK\""
+                },
                 {
                     "tool_name": "google_search",
                     "tool_parameters": {
-                        "query": "traveling to Hong Kong, including any COVID-19-related restrictions, best places to visit, and transportation options"
+                        "query": "Hong Kong Disneyland and Victoria Harbour opening hours and ticket prices"
                     },
-                    "results": "\"url:https://www.discoverhongkong.com/de/travel-advisories.html,\\ndescription: All travellers coming from the Mainland, Macao and Taiwan will be subject to a 14-day compulsory quarantine. To find more information, please see the Hong Kong\\u00a0... \""
+                    "results": "\"url:https://www.hongkongdisneyland.com/,\\ndescription: Visit Hong Kong Disneyland official website to buy park tickets, view and book hotel special offers, and find information about Hong Kong Disneyland\\u00a0... \""
                 },
                 {
                     "tool_name": "google_map",
                     "tool_parameters": {
-                        "current_location": "current location",
-                        "destination": "Disneyland and Victoria Harbour"
+                        "current_location": "Hong Kong",
+                        "destination": "Disneyland"
                     },
-                    "results": "\"The distance from current location to Disneyland and Victoria Harbour is 2 km.\""
+                    "results": "\"The distance from Hong Kong to Disneyland is 2 km.\""
                 }
             ],
             "response": "outputs."
@@ -1298,7 +1253,7 @@
         ],
         "Rawdata Context": "Visual information shows the user observing a group of jellyfish swimming in an aquarium, illuminated with a blue light, creating a serene underwater scene.",
         "predictions": {
-            "thoughts": "The user is likely enjoying the educational and entertaining experience of visiting the aquarium. There is no indication of a need for assistance or additional information.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -1332,7 +1287,7 @@
         ],
         "Rawdata Context": "\"Visual information shows the user is sitting at a wooden table, typing on a laptop with a white mug filled with a beverage nearby, and there are papers and a pen on the table, suggesting the user is working or studying in a home office or casual workspace.\"",
         "predictions": {
-            "thoughts": "The user is in a quiet environment, likely working or studying. There is no indication of a need for proactive assistance, as they are likely focused on their task.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -1370,11 +1325,11 @@
         ],
         "Rawdata Context": "\"Visual information shows the user is in a bus terminal, observing several buses parked and moving around, with buildings and hills in the background. The user is standing near a pole, watching the buses and people in the area.\"",
         "predictions": {
-            "thoughts": "The user might be waiting for a bus to arrive. Providing real-time bus schedule updates or suggesting alternative transportation options could be helpful. I need to use <get_current_gps_coordinates> to determine the user's current location and <check_bus_schedule> to provide the next available bus times.\n Actions:\n[\"Use <get_current_gps_coordinates> to confirm the user's current location.\", 'Use <check_bus_schedule> to find the next available bus times to the user\\'s destination.']\n ",
+            "thoughts": "None",
             "proactive_idx": "true",
             "proactive_score": "4",
             "actions": "None",
-            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}, {\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for a specific bus stop.\", \"parameters\": {\"bus_stop\": \"current location\"}}]",
+            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}, {\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time\", \"parameters\": \"None\"}, {\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for a specific bus stop.\", \"parameters\": {\"bus_stop\": \"current location\"}}, {\"name\": \"book_uber\", \"description\": \"Book an Uber from the current location to the destination.\", \"parameters\": {\"current_location\": \"current location\", \"destination\": \"user's destination\"}}]",
             "tools_results": [
                 {
                     "tool_name": "get_current_gps_coordinates",
@@ -1382,11 +1337,24 @@
                     "results": "\"Sha Tin, Sha Tin, HK\""
                 },
                 {
+                    "tool_name": "get_current_datetime",
+                    "tool_parameters": "None",
+                    "results": "\"Date: June 01, 2025 Time: 15:07:24\""
+                },
+                {
                     "tool_name": "check_bus_schedule",
                     "tool_parameters": {
                         "bus_stop": "current location"
                     },
                     "results": "\"The next bus at current location is at 9:30 AM.\""
+                },
+                {
+                    "tool_name": "book_uber",
+                    "tool_parameters": {
+                        "current_location": "current location",
+                        "destination": "user's destination"
+                    },
+                    "results": "\"Uber ride booked from current location to user's destination. It will takes 15 minutes to arrive and 30 dollars.\""
                 }
             ],
             "response": "outputs."
@@ -1421,25 +1389,25 @@
         ],
         "Rawdata Context": "\"Visual information shows the user is in a restaurant, looking at a digital menu on a tablet and appears to be making a selection using a numeric keypad. The surrounding area is well-lit, with a warm, inviting ambiance.\"",
         "predictions": {
-            "thoughts": "The user is dining out and needs to decide what to order. Providing nutritional information and suggesting healthier options could be beneficial.\n Actions:\n['Use <wikipedia_search> to find calorie counts and health information for pizza, burgers, and fries.', 'Use <get_medical_knowledge> to provide advice on healthier fast-food options.']\n ",
+            "thoughts": "None",
             "proactive_idx": "true",
             "proactive_score": "5",
             "actions": "None",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Tool that searches the Wikipedia API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\", \"parameters\": {\"query\": \"calorie counts and health information for pizza, burgers, and fries\"}}, {\"name\": \"get_medical_knowledge\", \"description\": \"Get medical expert knowledge from the up-to-date medical knowledge database.\", \"parameters\": {\"query\": \"health-related insights, calorie counts, and health information for pizza, burgers, and fries\"}}]",
+            "tools": "[{\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"calorie counts and heating information for steak, chicken, and fish\"}}, {\"name\": \"wikipedia_search\", \"description\": \"Tool that searches the Wikipedia API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\", \"parameters\": {\"query\": \"calorie counts and heating information for steak, chicken, and fish\"}}]",
             "tools_results": [
+                {
+                    "tool_name": "google_search",
+                    "tool_parameters": {
+                        "query": "calorie counts and heating information for steak, chicken, and fish"
+                    },
+                    "results": "\"url:https://www.nutracheck.co.uk/calories/calories_in_meat_fish_poultry/Meat,%20Fish%20&%20Poultry,\\ndescription: Calories in Beef, Rump Steak, Fried, Lean \\u00b7 8oz steak, 226g, 414 ; Calories in Chicken Breast - Grilled Without Skin, Eat Meat Only \\u00b7 Med portion, 130g, 192\\u00a0... \""
+                },
                 {
                     "tool_name": "wikipedia_search",
                     "tool_parameters": {
-                        "query": "calorie counts and health information for pizza, burgers, and fries"
+                        "query": "calorie counts and heating information for steak, chicken, and fish"
                     },
-                    "results": "\"Search results for 'calorie counts and health information for pizza, burgers, and fries' in Wikipedia.\""
-                },
-                {
-                    "tool_name": "get_medical_knowledge",
-                    "tool_parameters": {
-                        "query": "health-related insights, calorie counts, and health information for pizza, burgers, and fries"
-                    },
-                    "results": "\"The symptoms of COVID-19 include fever, cough, shortness of breath, fatigue, body aches, loss of taste or smell, sore throat, and headache. If you experience any of these symptoms, please contact your healthcare provider immediately.\""
+                    "results": "\"Search results for 'calorie counts and heating information for steak, chicken, and fish' in Wikipedia.\""
                 }
             ],
             "response": "outputs."
@@ -1472,7 +1440,7 @@
         ],
         "Rawdata Context": "Visual information shows the user is in a kitchen, preparing food with a cutting board of sliced leeks, chopped parsley, and sliced red peppers, surrounded by various ingredients and utensils, with a pan on the stove.",
         "predictions": {
-            "thoughts": "The user is chopping vegetables in a kitchen, a common cooking task. There is no indication of a need for assistance, as they are likely experienced in this activity.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -1506,26 +1474,13 @@
         ],
         "Rawdata Context": "\"Visual information indicates the user is in an office setting, standing near an elevator with a closed door, and appears to be waiting for it to open.\"",
         "predictions": {
-            "thoughts": "The user is waiting for the elevator. I should proactively assist by asking if they need any information or by providing directions if they are lost. I can use <get_current_gps_coordinates> to check the user's current location and <wikipedia_search> to provide information about the building or location.\n Actions:\n[\"Use <get_current_gps_coordinates> to check the user's current location.\", 'Use <wikipedia_search> to provide information about the building or location.']\n ",
-            "proactive_idx": "true",
-            "proactive_score": "4",
+            "thoughts": "None",
+            "proactive_idx": "false",
+            "proactive_score": "1",
             "actions": "None",
-            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"},{\"name\": \"wikipedia_search\", \"description\": \"Tool that searches the Wikipedia API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\", \"parameters\": {\"query\":\"building or location information\"}}]",
-            "tools_results": [
-                {
-                    "tool_name": "get_current_gps_coordinates",
-                    "tool_parameters": "None",
-                    "results": "\"Sha Tin, Sha Tin, HK\""
-                },
-                {
-                    "tool_name": "wikipedia_search",
-                    "tool_parameters": {
-                        "query": "building or location information"
-                    },
-                    "results": "\"Search results for 'building or location information' in Wikipedia.\""
-                }
-            ],
-            "response": "outputs."
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-499": {
@@ -1553,7 +1508,7 @@
         ],
         "Rawdata Context": "\"Visual information shows the user is in a park, standing near a small pond surrounded by trees with autumn-colored leaves and a stone retaining wall, observing the natural surroundings.\"",
         "predictions": {
-            "thoughts": "The user is enjoying a peaceful moment by the lake. There is no indication of a need for assistance, as they are likely appreciating the view. Proactive engagement would be unnecessary.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -1589,12 +1544,29 @@
         ],
         "Rawdata Context": "\"Visual information shows the user in a subway station, looking at a large map and information board. Mobile data indicates the location is Central Train Station, City X.\"",
         "predictions": {
-            "thoughts": "The user is likely trying to navigate to another destination. Providing travel options and scheduling would be helpful. I can use <get_current_gps_coordinates> to determine the user's current location and <google_map> to find travel options to their destination.\n Actions:\n['Use <get_current_gps_coordinates> to confirm the user\\'s current location.', 'Use <google_map> to find travel options to the user\\'s destination.', 'Ask user to confirm their destination and preferred mode of transportation.']\n ",
+            "thoughts": "None",
             "proactive_idx": "true",
             "proactive_score": "5",
             "actions": "None",
-            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"Central Train Station, City X\", \"destination\": \"[Ask user to confirm their destination] Max attempts reached. Unable to parse tools.",
-            "tools_results": [],
+            "tools": "[{\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"Central Train Station, City X\", \"destination\": \"user's destination\"}}, {\"name\": \"book_uber\", \"description\": \"Book an Uber from the current location to the destination.\", \"parameters\": {\"current_location\": \"Central Train Station, City X\", \"destination\": \"user's destination\"}}]",
+            "tools_results": [
+                {
+                    "tool_name": "google_map",
+                    "tool_parameters": {
+                        "current_location": "Central Train Station, City X",
+                        "destination": "user's destination"
+                    },
+                    "results": "\"The distance from Central Train Station, City X to user's destination is 2 km.\""
+                },
+                {
+                    "tool_name": "book_uber",
+                    "tool_parameters": {
+                        "current_location": "Central Train Station, City X",
+                        "destination": "user's destination"
+                    },
+                    "results": "\"Uber ride booked from Central Train Station, City X to user's destination. It will takes 15 minutes to arrive and 30 dollars.\""
+                }
+            ],
             "response": "outputs."
         }
     },
@@ -1626,11 +1598,11 @@
         ],
         "Rawdata Context": "Visual information shows the user is sitting at a wooden table in a room, browsing a news website on a laptop, with multiple articles featuring images of people in red attire. The mobile API data indicates an elevated resting heart rate of 102 BPM.",
         "predictions": {
-            "thoughts": "The user might be stressed or anxious, given the high heart rate and the context of browsing news articles. Offering relaxation techniques or music could help reduce stress.\n Actions:\n['Use <get_health_data> to confirm the user's health status.', 'Play a relaxing song using <play_music> to help reduce stress.']\n ",
+            "thoughts": "None",
             "proactive_idx": "true",
-            "proactive_score": "5",
+            "proactive_score": "4",
             "actions": "None",
-            "tools": "[{\"name\": \"get_health_data\", \"description\": \"Get health data from the user's smart device.\", \"parameters\": \"None\"},{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": \"None\"}]",
+            "tools": "[{\"name\": \"get_health_data\", \"description\": \"Get health data from the user's smart device.\", \"parameters\": \"None\"}, {\"name\": \"get_medical_knowledge\", \"description\": \"Get medical expert knowledge from the up-to-date medical knowledge database.\", \"parameters\": {\"query\": \"recommendations on how long to rest, what exercises to do, and what physiological indicators are considered abnormal.\"}}]",
             "tools_results": [
                 {
                     "tool_name": "get_health_data",
@@ -1638,9 +1610,11 @@
                     "results": "\"The user's heart rate is 70 bpm, oxygen saturation is 98%, respiration rate is 16 bpm, body temperature is 36.5 degrees Celsius, total steps today is 5000, and total calories burned today is 2000.\""
                 },
                 {
-                    "tool_name": "play_music",
-                    "tool_parameters": "None",
-                    "results": "\"Now playing music.\""
+                    "tool_name": "get_medical_knowledge",
+                    "tool_parameters": {
+                        "query": "recommendations on how long to rest, what exercises to do, and what physiological indicators are considered abnormal."
+                    },
+                    "results": "\"The symptoms of COVID-19 include fever, cough, shortness of breath, fatigue, body aches, loss of taste or smell, sore throat, and headache. If you experience any of these symptoms, please contact your healthcare provider immediately.\""
                 }
             ],
             "response": "outputs."
@@ -1674,18 +1648,35 @@
         ],
         "Rawdata Context": "\"Visual information shows the user is in a grocery store, looking at a display case filled with various packaged vegetables, including bags of broccoli, spinach, and other leafy greens, and appears to be considering which items to purchase.\"",
         "predictions": {
-            "thoughts": "The user might appreciate a price comparison for the vegetables they are looking at. Providing this information could help them make an informed decision and stick to their budget.\n Actions:\n['Use <get_online_product_price> to find the current price of the vegetables online.']\n ",
+            "thoughts": "None",
             "proactive_idx": "true",
             "proactive_score": "4",
             "actions": "None",
-            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the price of a product from an online store such as Amazon or eBay\", \"parameters\": {\"product_name\":\"vegetables\"}}]",
+            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"},{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time\", \"parameters\": \"None\"},{\"name\": \"get_online_product_price\", \"description\": \"Get the price of a product from an online store such as Amazon or eBay.\", \"parameters\": {\"product_name\":\"vegetables\"}},{\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\":\"nutritional information for vegetables\"}}]",
             "tools_results": [
+                {
+                    "tool_name": "get_current_gps_coordinates",
+                    "tool_parameters": "None",
+                    "results": "\"Sha Tin, Sha Tin, HK\""
+                },
+                {
+                    "tool_name": "get_current_datetime",
+                    "tool_parameters": "None",
+                    "results": "\"Date: June 01, 2025 Time: 15:09:10\""
+                },
                 {
                     "tool_name": "get_online_product_price",
                     "tool_parameters": {
                         "product_name": "vegetables"
                     },
                     "results": "\"The price of the vegetables is $600\""
+                },
+                {
+                    "tool_name": "search_rednote",
+                    "tool_parameters": {
+                        "query": "nutritional information for vegetables"
+                    },
+                    "results": "\"Search results for 'nutritional information for vegetables' in rednote.\""
                 }
             ],
             "response": "outputs."
@@ -1718,11 +1709,11 @@
         ],
         "Rawdata Context": "\"Visual information shows the user is in a shoe store, browsing through various pairs of sneakers displayed on shelves, examining shoes of different brands and colors, possibly considering a purchase.\"",
         "predictions": {
-            "thoughts": "The user might appreciate knowing the price of the shoes online or reading reviews from other customers. Providing this information could help them make an informed purchasing decision.\n Actions:\n['Use <get_online_product_price> to find the price of the shoes online.', 'Use <search_rednote> to find customer reviews and recommendations for the shoes.']\n ",
+            "thoughts": "None",
             "proactive_idx": "true",
             "proactive_score": "4",
             "actions": "None",
-            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the price of a product from an online store such as Amazon or eBay.\", \"parameters\": {\"product_name\": \"shoes\"}}, {\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"shoe reviews and performance\"}}]",
+            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the price of a product from an online store such as Amazon or eBay.\", \"parameters\": {\"product_name\": \"shoes\"}}, {\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"popular shoe reviews and best selection\"}}]",
             "tools_results": [
                 {
                     "tool_name": "get_online_product_price",
@@ -1734,9 +1725,9 @@
                 {
                     "tool_name": "search_rednote",
                     "tool_parameters": {
-                        "query": "shoe reviews and performance"
+                        "query": "popular shoe reviews and best selection"
                     },
-                    "results": "\"Search results for 'shoe reviews and performance' in rednote.\""
+                    "results": "\"Search results for 'popular shoe reviews and best selection' in rednote.\""
                 }
             ],
             "response": "outputs."
@@ -1767,7 +1758,7 @@
         ],
         "Rawdata Context": "Visual information shows the user is in a kitchen, standing in front of a stove with a stainless steel pan filled with oil, using a wooden spatula to stir the oil and create small bubbles.",
         "predictions": {
-            "thoughts": "The user is heating oil in a deep fryer, a common task when cooking French fries or doughnuts. There is no indication of any challenges or need for assistance.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -1802,18 +1793,25 @@
         ],
         "Rawdata Context": "\"Visual information shows the user is in a clothing store, looking at jackets on a rack priced at $199, with a modern, organized layout featuring various jackets in different colors and styles.\"",
         "predictions": {
-            "thoughts": "The user might be interested in comparing the online price of the jacket they are viewing. Providing the online price could help them decide whether to buy it immediately or look for a better deal.\n Actions:\n[\"Use <get_online_product_price> to find the current price of the jacket online.\"]\n ",
+            "thoughts": "None",
             "proactive_idx": "true",
-            "proactive_score": "4",
+            "proactive_score": "5",
             "actions": "None",
-            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the price of a product from an online store such as Amazon or eBay.\", \"parameters\": {\"product_name\": \"jacket\"}}]",
+            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the price of a product from an online store such as Amazon or eBay.\", \"parameters\": {\"product_name\": \"coat\"}}, {\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"coat reviews and comments\"}}]",
             "tools_results": [
                 {
                     "tool_name": "get_online_product_price",
                     "tool_parameters": {
-                        "product_name": "jacket"
+                        "product_name": "coat"
                     },
-                    "results": "\"The price of the jacket is $600\""
+                    "results": "\"The price of the coat is $600\""
+                },
+                {
+                    "tool_name": "search_rednote",
+                    "tool_parameters": {
+                        "query": "coat reviews and comments"
+                    },
+                    "results": "\"Search results for 'coat reviews and comments' in rednote.\""
                 }
             ],
             "response": "outputs."
@@ -1846,7 +1844,7 @@
         ],
         "Rawdata Context": "\"Visual information indicates the user is sitting on a beach with black sand, surrounded by grassy areas, and observing a large body of water with waves under an overcast sky, suggesting a calm and serene atmosphere.\"",
         "predictions": {
-            "thoughts": "The user is enjoying a peaceful day at the beach. There is no indication of a need for assistance, as they are likely savoring the moment. Proactive engagement would be unnecessary.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -1880,13 +1878,31 @@
         ],
         "Rawdata Context": "\"Visual information shows the user is in an outdoor basketball court surrounded by trees and buildings, where several people are playing basketball, and a bus stop named 'University' is detected in the background.\"",
         "predictions": {
-            "thoughts": "The user is at a bus stop named 'University'. Without other events or challenges indicated, no proactive actions are required unless the user shows signs of confusion or need for assistance.\n Actions:\nNone\n ",
-            "proactive_idx": "false",
-            "proactive_score": "1",
+            "thoughts": "None",
+            "proactive_idx": "true",
+            "proactive_score": "4",
             "actions": "None",
-            "tools": "None",
-            "tools_results": "None",
-            "response": "None"
+            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}, {\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time\", \"parameters\": \"None\"}, {\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for a specific bus stop.\", \"parameters\": {\"bus_stop\": \"'University'\"}}]",
+            "tools_results": [
+                {
+                    "tool_name": "get_current_gps_coordinates",
+                    "tool_parameters": "None",
+                    "results": "\"Sha Tin, Sha Tin, HK\""
+                },
+                {
+                    "tool_name": "get_current_datetime",
+                    "tool_parameters": "None",
+                    "results": "\"Date: June 01, 2025 Time: 15:10:17\""
+                },
+                {
+                    "tool_name": "check_bus_schedule",
+                    "tool_parameters": {
+                        "bus_stop": "'University'"
+                    },
+                    "results": "\"The next bus at 'University' is at 9:30 AM.\""
+                }
+            ],
+            "response": "outputs."
         }
     },
     "example-108": {
@@ -1917,25 +1933,32 @@
         ],
         "Rawdata Context": "\"Visual information shows the user is in a grocery store, looking at various bags of rice displayed on shelves, with prominent packaging featuring the brand 'NISHIKI,' and appears to be considering which type of rice to purchase.\"",
         "predictions": {
-            "thoughts": "The user might be interested in the price of the rice they are considering. Providing price comparisons or reviews could help them make a decision.\n Actions:\n['Use <get_online_product_price> to find the current price of the rice online.', 'Use <search_rednote> to find user reviews or recommendations for the rice.']\n ",
+            "thoughts": "None",
             "proactive_idx": "true",
-            "proactive_score": "4",
+            "proactive_score": "5",
             "actions": "None",
-            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the price of a product from an online store such as Amazon or eBay.\", \"parameters\": {\"product_name\": \"rice\"}}, {\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"rice reviews or rice performance\"}}]",
+            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the price of a product from an online store such as Amazon or eBay\", \"parameters\": {\"product_name\": \"brand and type of rice\"}}, {\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"nutritional information about rice\"}}, {\"name\": \"wikipedia_search\", \"description\": \"Tool that searches the Wikipedia API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\", \"parameters\": {\"query\": \"rice types and their calorie counts\"}}]",
             "tools_results": [
                 {
                     "tool_name": "get_online_product_price",
                     "tool_parameters": {
-                        "product_name": "rice"
+                        "product_name": "brand and type of rice"
                     },
-                    "results": "\"The price of the rice is $600\""
+                    "results": "\"The price of the brand and type of rice is $600\""
                 },
                 {
                     "tool_name": "search_rednote",
                     "tool_parameters": {
-                        "query": "rice reviews or rice performance"
+                        "query": "nutritional information about rice"
                     },
-                    "results": "\"Search results for 'rice reviews or rice performance' in rednote.\""
+                    "results": "\"Search results for 'nutritional information about rice' in rednote.\""
+                },
+                {
+                    "tool_name": "wikipedia_search",
+                    "tool_parameters": {
+                        "query": "rice types and their calorie counts"
+                    },
+                    "results": "\"Search results for 'rice types and their calorie counts' in Wikipedia.\""
                 }
             ],
             "response": "outputs."
@@ -1966,7 +1989,7 @@
         ],
         "Rawdata Context": "Visual information shows the user is in a garden, observing a large dome-shaped greenhouse structure with vibrant flower beds, predominantly featuring yellow and purple flowers arranged in neat circular patterns, under a clear blue sky on a sunny day.",
         "predictions": {
-            "thoughts": "The user is appreciating the beauty of a botanical garden, likely enjoying the peaceful experience. There is no indication of a need for assistance, as they are likely savoring the moment.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -2002,7 +2025,7 @@
         ],
         "Rawdata Context": "\"Visual information indicates the user is inside a moving train, looking out the window at the passing scenery, with blue and black patterned seats, yellow handrails, and overhead lighting.\"",
         "predictions": {
-            "thoughts": "The user is on the train, which is a common mode of transportation. Without additional information, there is no need for proactive assistance.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -2039,11 +2062,11 @@
         ],
         "Rawdata Context": "\"Visual information indicates the user is in a room with a wooden floor, possibly packing or unpacking a suitcase containing a patterned swimsuit and a pair of white crocs. The agenda indicates that the user is departing for Bali.\"",
         "predictions": {
-            "thoughts": "The user is preparing to travel to Bali, which is a tropical destination. When visiting other places, it is important to first check the local weather and temperature. I should use the <get_city_weather> tool to check the current conditions in Bali. Additionally, I should use the <get_current_gps_coordinates> tool to check the user's current location. I can use the <get_current_gps_coordinates> tool to check the user's current location and use <google_map> to find the best travel options to Bali.\n Actions:\n[\"Use <get_city_weather> to check the latest weather forecast for Bali.\", 'Use <get_current_gps_coordinates> to check the user\\'s current location.', 'Use <google_map> to find the best travel options to Bali.']\n ",
+            "thoughts": "None",
             "proactive_idx": "true",
-            "proactive_score": "5",
+            "proactive_score": "4",
             "actions": "None",
-            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the weather for a specified city at a given time.\", \"parameters\": {\"city\": \"Bali\", \"time\":\"now\"}}, {\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"user current location\", \"destination\": \"Bali\"}}]",
+            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the weather for a specified city at a given time.\", \"parameters\": {\"city\": \"Bali\", \"time\": \"now\"}}]",
             "tools_results": [
                 {
                     "tool_name": "get_city_weather",
@@ -2052,19 +2075,6 @@
                         "time": "now"
                     },
                     "results": "\"The weather in Bali on now be 36 degrees with heavy rain and thunderstorms.\""
-                },
-                {
-                    "tool_name": "get_current_gps_coordinates",
-                    "tool_parameters": "None",
-                    "results": "\"Sha Tin, Sha Tin, HK\""
-                },
-                {
-                    "tool_name": "google_map",
-                    "tool_parameters": {
-                        "current_location": "user current location",
-                        "destination": "Bali"
-                    },
-                    "results": "\"The distance from user current location to Bali is 2 km.\""
                 }
             ],
             "response": "outputs."
@@ -2095,7 +2105,7 @@
         ],
         "Rawdata Context": "\"Visual information shows the user is in a kitchen, pouring pancake batter into a cast-iron skillet placed on a stove.\"",
         "predictions": {
-            "thoughts": "The user is cooking pancakes, a simple and routine task. There is no indication of any need for assistance or complication. The task is proceeding smoothly.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -2129,7 +2139,7 @@
         ],
         "Rawdata Context": "Visual information shows the user is in a kitchen, measuring flour into a copper measuring cup on a wooden surface and using a knife to level the flour for accurate measurement.",
         "predictions": {
-            "thoughts": "The user is engaged in a precise task of measuring ingredients for baking. There is no indication of a need for assistance, as they are likely focused on ensuring accuracy.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -2163,7 +2173,7 @@
         ],
         "Rawdata Context": "\"Vision information indicates the user is in a modern office setting, seated at a table with colleagues, engaging in a meeting or collaborative discussion, with laptops, documents, and a whiteboard with diagrams and notes visible.\"",
         "predictions": {
-            "thoughts": "The user is in a meeting room with colleagues, which is a normal activity. There is no indication of a need for assistance. Proactive engagement would be disruptive.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -2198,7 +2208,7 @@
         ],
         "Rawdata Context": "\"Visual information shows the user is in a garden area with multiple potted plants, some healthy and others wilting, and is observing the plants and garden environment.\"",
         "predictions": {
-            "thoughts": "The user is enjoying the botanical garden, appreciating the beauty of flowers and plants. Proactive assistance is not needed, as they are likely savoring the moment.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -2236,18 +2246,25 @@
         ],
         "Rawdata Context": "Visual information shows the user in a store, looking at a display case filled with various skincare products from the brand \"DERMA LAB,\" with neatly arranged items and visible prices and descriptions.",
         "predictions": {
-            "thoughts": "The user might be interested in comparing the prices of these skincare products online. Providing an online price comparison could help them decide whether to buy in-store or online.\n Actions:\n['Use <get_online_product_price> to compare the prices of the skincare products online.']\n ",
+            "thoughts": "None",
             "proactive_idx": "true",
-            "proactive_score": "4",
+            "proactive_score": "5",
             "actions": "None",
-            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the price of a product from an online store such as Amazon or eBay.\", \"parameters\": {\"product_name\": \"skincare products\"}}]",
+            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the price of a product from an online store such as Amazon or eBay.\", \"parameters\": {\"product_name\": \"skincare product\"}}, {\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"skincare product reviews and best recommendations\"}}]",
             "tools_results": [
                 {
                     "tool_name": "get_online_product_price",
                     "tool_parameters": {
-                        "product_name": "skincare products"
+                        "product_name": "skincare product"
                     },
-                    "results": "\"The price of the skincare products is $600\""
+                    "results": "\"The price of the skincare product is $600\""
+                },
+                {
+                    "tool_name": "search_rednote",
+                    "tool_parameters": {
+                        "query": "skincare product reviews and best recommendations"
+                    },
+                    "results": "\"Search results for 'skincare product reviews and best recommendations' in rednote.\""
                 }
             ],
             "response": "outputs."
@@ -2278,7 +2295,7 @@
         ],
         "Rawdata Context": "Visual information shows the user is fishing in a serene lake setting, holding a fishing rod and casting the line into the water, with a calm lake and distant shoreline in the background.",
         "predictions": {
-            "thoughts": "The user is enjoying a peaceful day of fishing. There is no indication of a need for assistance, as they are likely savoring the experience. Proactive engagement would be unnecessary.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -2316,11 +2333,11 @@
         ],
         "Rawdata Context": "\"Visual information shows the user is in a market, looking at a vibrant display of fresh fruits and vegetables, including apples, oranges, kiwis, and pears, with visible price tags.\"",
         "predictions": {
-            "thoughts": "The user might be deciding which fruit to buy. Offering prices for the fruit could help them make a decision. I can use <get_online_product_price> to find prices for the fruit online.\n Actions:\n[\"Use <get_online_product_price> to find prices for the fruit online.\"]\n ",
+            "thoughts": "None",
             "proactive_idx": "true",
-            "proactive_score": "4",
+            "proactive_score": "5",
             "actions": "None",
-            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the price of a product from an online store such as Amazon or eBay.\", \"parameters\": {\"product_name\": \"fruit\"}}]",
+            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the price of a product from an online store such as Amazon or eBay\", \"parameters\": {\"product_name\": \"fruit\"}}, {\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"choosing fresh fruit\"}}]",
             "tools_results": [
                 {
                     "tool_name": "get_online_product_price",
@@ -2328,6 +2345,13 @@
                         "product_name": "fruit"
                     },
                     "results": "\"The price of the fruit is $600\""
+                },
+                {
+                    "tool_name": "search_rednote",
+                    "tool_parameters": {
+                        "query": "choosing fresh fruit"
+                    },
+                    "results": "\"Search results for 'choosing fresh fruit' in rednote.\""
                 }
             ],
             "response": "outputs."
@@ -2358,7 +2382,7 @@
         ],
         "Rawdata Context": "\"Visual information indicates the user is at an amusement park, observing a large blue roller coaster in motion, with a crowd gathered in front, and trees and a building with a green roof in the background.\"",
         "predictions": {
-            "thoughts": "The user is enjoying a day at the amusement park with their family. There is no indication of a need for assistance, as they are likely enjoying the experience. Proactive engagement would be unnecessary.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -2392,7 +2416,7 @@
         ],
         "Rawdata Context": "\"Visual information shows the user sitting on the grass near a body of water, feeding a group of ducks, while wearing a red sweater and blue jeans, with a peaceful scene including a few pigeons in the background.\"",
         "predictions": {
-            "thoughts": "The user is enjoying a peaceful moment by the lake, feeding the ducks. There is no indication of a need for assistance, as they are likely appreciating the tranquility. Proactive engagement would be unnecessary.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -2428,11 +2452,11 @@
         ],
         "Rawdata Context": "\"Visual information shows the user is in a pet store, looking at various cat food products on a shelf, including brands like Era and Pronature, with flavors such as salmon, turkey, and chicken.\"",
         "predictions": {
-            "thoughts": "The user might be looking for the best cat food options. They could benefit from price comparisons, reviews, and nutritional information. I should use <get_online_product_price> to compare prices online, <search_rednote> to find user reviews and recommendations, and <wikipedia_search> to provide nutritional information about the ingredients.\n Actions:\n['Use <get_online_product_price> to compare prices for the cat food online.', 'Use <search_rednote> to find user reviews and recommendations for the cat food.', 'Use <wikipedia_search> to provide nutritional information about the ingredients in the cat food.']\n ",
+            "thoughts": "None",
             "proactive_idx": "true",
             "proactive_score": "5",
             "actions": "None",
-            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the price of a product from an online store such as Amazon or eBay.\", \"parameters\": {\"product_name\": \"cat food\"}}, {\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"cat food reviews and recommendations\"}}, {\"name\": \"wikipedia_search\", \"description\": \"Tool that searches the Wikipedia API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\", \"parameters\": {\"query\": \"nutritional information chicken, salmon, and turkey\"}}]",
+            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the price of a product from an online store such as Amazon or eBay.\", \"parameters\": {\"product_name\": \"cat food\"}}, {\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"cat food reviews and recommendations\"}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"best cat food reviews\"}}]",
             "tools_results": [
                 {
                     "tool_name": "get_online_product_price",
@@ -2449,11 +2473,11 @@
                     "results": "\"Search results for 'cat food reviews and recommendations' in rednote.\""
                 },
                 {
-                    "tool_name": "wikipedia_search",
+                    "tool_name": "google_search",
                     "tool_parameters": {
-                        "query": "nutritional information chicken, salmon, and turkey"
+                        "query": "best cat food reviews"
                     },
-                    "results": "\"Search results for 'nutritional information chicken, salmon, and turkey' in Wikipedia.\""
+                    "results": "\"url:https://cats.com/cat-food-reviews,\\ndescription: Read our cat food brand reviews and buyer's guides to get the details and decide which food is best for your feline friend. \""
                 }
             ],
             "response": "outputs."
@@ -2489,11 +2513,11 @@
         ],
         "Rawdata Context": "\"Visual information indicates the user is standing on a sidewalk next to a road at a bus stop labeled 'Light Bus Stop' and 'Ho Tim Bldg.' in an urban area, possibly in Hong Kong, with surrounding multi-story buildings and pedestrian crossing signs visible.\"",
         "predictions": {
-            "thoughts": "The user is at a bus stop, which is a common transportation mode. Providing real-time bus schedule updates could be helpful. I should use <get_current_gps_coordinates> to determine the user's current location and <get_current_datetime> for the current time. Then, I can use <check_bus_schedule> to look up the arrival times of the next buses.\n Actions:\n['Use <get_current_gps_coordinates> to determine the user\\'s current location.', 'Use <get_current_datetime> to obtain the current date and time.', 'Use <check_bus_schedule> to look up the arrival times of the next buses.']\n ",
+            "thoughts": "None",
             "proactive_idx": "true",
-            "proactive_score": "4",
+            "proactive_score": "5",
             "actions": "None",
-            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"},{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time\", \"parameters\": \"None\"},{\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for a specific bus stop.\", \"parameters\": {\"bus_stop\":\"'Light Bus Stop' and 'Ho Tim Bldg.'\"}}]",
+            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}, {\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time\", \"parameters\": \"None\"}, {\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for a specific bus stop.\", \"parameters\": {\"bus_stop\": \"current location\"}}]",
             "tools_results": [
                 {
                     "tool_name": "get_current_gps_coordinates",
@@ -2503,14 +2527,14 @@
                 {
                     "tool_name": "get_current_datetime",
                     "tool_parameters": "None",
-                    "results": "\"Date: June 01, 2025 Time: 14:52:53\""
+                    "results": "\"Date: June 01, 2025 Time: 15:13:10\""
                 },
                 {
                     "tool_name": "check_bus_schedule",
                     "tool_parameters": {
-                        "bus_stop": "'Light Bus Stop' and 'Ho Tim Bldg.'"
+                        "bus_stop": "current location"
                     },
-                    "results": "\"The next bus at 'Light Bus Stop' and 'Ho Tim Bldg.' is at 9:30 AM.\""
+                    "results": "\"The next bus at current location is at 9:30 AM.\""
                 }
             ],
             "response": "outputs."
@@ -2542,25 +2566,25 @@
         ],
         "Rawdata Context": "Visual information shows the user is in an electronics store, looking at various earphones and headphones displayed on shelves and hanging from hooks, examining the products, possibly considering a purchase.",
         "predictions": {
-            "thoughts": "The user might appreciate a price comparison for the earphones they are viewing. Providing online prices and reviews could help them make an informed purchasing decision.\n Actions:\n['Use <get_online_product_price> to find the current price of the earphones online.', 'Use <search_rednote> to find user reviews and recommendations for the earphones.']\n ",
+            "thoughts": "None",
             "proactive_idx": "true",
             "proactive_score": "5",
             "actions": "None",
-            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the price of a product from an online store such as Amazon or eBay.\", \"parameters\": {\"product_name\": \"earphones\"}}, {\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"earphones reviews and performance\"}}]",
+            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the price of a product from an online store such as Amazon or eBay.\", \"parameters\": {\"product_name\":\"wireless earbuds\"}},{\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\":\"wireless earbuds reviews and best recommendations\"}}]",
             "tools_results": [
                 {
                     "tool_name": "get_online_product_price",
                     "tool_parameters": {
-                        "product_name": "earphones"
+                        "product_name": "wireless earbuds"
                     },
-                    "results": "\"The price of the earphones is $600\""
+                    "results": "\"The price of the wireless earbuds is $600\""
                 },
                 {
                     "tool_name": "search_rednote",
                     "tool_parameters": {
-                        "query": "earphones reviews and performance"
+                        "query": "wireless earbuds reviews and best recommendations"
                     },
-                    "results": "\"Search results for 'earphones reviews and performance' in rednote.\""
+                    "results": "\"Search results for 'wireless earbuds reviews and best recommendations' in rednote.\""
                 }
             ],
             "response": "outputs."
@@ -2591,7 +2615,7 @@
         ],
         "Rawdata Context": "\"Visual information indicates the user is in an office environment, standing in front of a large, white multifunction printer labeled 'VersaLink B405,' collecting printed documents.\"",
         "predictions": {
-            "thoughts": "The user is collecting documents from the printer. This is a routine task with no signs of distress or need for assistance. Proactive engagement is not necessary.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -2625,7 +2649,7 @@
         ],
         "Rawdata Context": "\"Visual information indicates the user is in an office setting, working or researching something related to technology and sustainability on a computer monitor.\"",
         "predictions": {
-            "thoughts": "The user is engaged in routine work at their desk. There is no indication of a need for assistance, as they are likely focused on their tasks. Proactive engagement would be unnecessary and potentially disruptive.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -2659,7 +2683,7 @@
         ],
         "Rawdata Context": "\"Visual information shows the user is in a forested area, walking along a dirt path surrounded by lush green trees and bushes, with a small stream running parallel to it, and appears to be exploring the area.\"",
         "predictions": {
-            "thoughts": "The user is enjoying a peaceful walk in the woods. There is no indication of a need for assistance, as they are likely appreciating the tranquility. Proactive engagement would be unnecessary.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -2697,7 +2721,7 @@
         ],
         "Rawdata Context": "Visual information shows the user is in a museum, observing a large, ornate golden mask displayed in a glass case with intricate designs.",
         "predictions": {
-            "thoughts": "The user is appreciating an ancient Greek statue in a museum. Proactive assistance is not needed, as they are likely enjoying the art and history.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -2731,7 +2755,7 @@
         ],
         "Rawdata Context": "Visual information shows the user is riding a mountain bike through a dense forest on a narrow trail covered with fallen leaves, surrounded by tall trees and green foliage.",
         "predictions": {
-            "thoughts": "The user is riding a mountain bike through a forest trail. Without additional information, I don't have enough context to determine their needs or preferences. Therefore, I will assign a proactive score of 1.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -2770,36 +2794,31 @@
         ],
         "Rawdata Context": "Visual information indicates the user is in a laboratory setting, sitting at a desk with a laptop displaying a coding interface and typing on the keyboard. The content of conversation is: \"We need to push the software rear update by tomorrow. Okay.\" The mobile data shows a software update deadline is Friday.",
         "predictions": {
-            "thoughts": "The user needs to confirm their calendar for availability and schedule time to push the update. I should check for any conflicts and suggest a time slot.\n Actions:\n[\"Use <get_current_gps_coordinates> to determine the user's location.\", 'Use <get_current_datetime> to obtain the current date and time.', 'Use <check_agenda_time_conflict> to check for any conflicts in the user\\'s calendar for the next day.', 'Suggest available time slots for pushing the software update.']\n ",
+            "thoughts": "None",
             "proactive_idx": "true",
             "proactive_score": "5",
             "actions": "None",
-            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"},{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time\", \"parameters\": \"None\"},{\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the user's agenda for a given datetime.\", \"parameters\": {\"time\":\"tomorrow\"}},{\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda.\", \"parameters\": {\"event\":\"Push software update\", \"time\":\"soon\"}}]",
+            "tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time\", \"parameters\": \"None\"},{\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the user's agenda for a given datetime.\", \"parameters\": {\"time\": \"Friday\"}},{\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda.\", \"parameters\": {\"event\": \"Work on software update\", \"time\": \"before Friday\"}}]",
             "tools_results": [
-                {
-                    "tool_name": "get_current_gps_coordinates",
-                    "tool_parameters": "None",
-                    "results": "\"Sha Tin, Sha Tin, HK\""
-                },
                 {
                     "tool_name": "get_current_datetime",
                     "tool_parameters": "None",
-                    "results": "\"Date: June 01, 2025 Time: 14:55:12\""
+                    "results": "\"Date: June 01, 2025 Time: 15:14:18\""
                 },
                 {
                     "tool_name": "check_agenda_time_conflict",
                     "tool_parameters": {
-                        "time": "tomorrow"
+                        "time": "Friday"
                     },
                     "results": "\"Agenda Summary:\\n\\ns\\nu\\nc\\nc\\ne\\ns\\ns\""
                 },
                 {
                     "tool_name": "add_to_agenda",
                     "tool_parameters": {
-                        "event": "Push software update",
-                        "time": "soon"
+                        "event": "Work on software update",
+                        "time": "before Friday"
                     },
-                    "results": "\"Event 'Push software update' added to agenda for soon.\""
+                    "results": "\"Event 'Work on software update' added to agenda for before Friday.\""
                 }
             ],
             "response": "outputs."
@@ -2833,25 +2852,25 @@
         ],
         "Rawdata Context": "\"Visual information shows the user is in a store, looking at various coffee machines on display, including a prominent espresso machine with a stainless steel finish, and appears to be examining the machines possibly considering a purchase.\"",
         "predictions": {
-            "thoughts": "The user might appreciate a price comparison for the coffee machines online to ensure they are getting the best deal. Additionally, reviews and features of the machines could be helpful in making a decision.\n Actions:\n['Use <get_online_product_price> to compare prices for the coffee machines online.', 'Use <search_rednote> to find reviews and feature information about the coffee machines.']\n ",
+            "thoughts": "None",
             "proactive_idx": "true",
-            "proactive_score": "5",
+            "proactive_score": "4",
             "actions": "None",
-            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the price of a product from an online store such as Amazon or eBay.\", \"parameters\": {\"product_name\": \"coffee machines\"}}, {\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"coffee machines reviews and features\"}}]",
+            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the price of a product from an online store such as Amazon or eBay\", \"parameters\": {\"product_name\": \"coffee machine\"}}, {\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"coffee machine reviews and best recommendations\"}}]",
             "tools_results": [
                 {
                     "tool_name": "get_online_product_price",
                     "tool_parameters": {
-                        "product_name": "coffee machines"
+                        "product_name": "coffee machine"
                     },
-                    "results": "\"The price of the coffee machines is $600\""
+                    "results": "\"The price of the coffee machine is $600\""
                 },
                 {
                     "tool_name": "search_rednote",
                     "tool_parameters": {
-                        "query": "coffee machines reviews and features"
+                        "query": "coffee machine reviews and best recommendations"
                     },
-                    "results": "\"Search results for 'coffee machines reviews and features' in rednote.\""
+                    "results": "\"Search results for 'coffee machine reviews and best recommendations' in rednote.\""
                 }
             ],
             "response": "outputs."
@@ -2883,7 +2902,7 @@
         ],
         "Rawdata Context": "\"Visual information shows the user holding a map outdoors, pointing at a specific location and seemingly discussing or explaining the map with someone else in a natural outdoor setting.\"",
         "predictions": {
-            "thoughts": "The user is likely trying to assist someone by providing directions or travel information. Proactive assistance is not needed, as it may interrupt their conversation.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -2917,7 +2936,7 @@
         ],
         "Rawdata Context": "Visual information shows the user is in a restaurant browsing through a digital menu on a tablet with various pasta dishes and other food items visible on the table, set in a cozy dining area with a garden view in the background.",
         "predictions": {
-            "thoughts": "The user is dining out, which is a leisurely activity. There is no indication of a need for assistance. Interrupting this moment could be intrusive.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -2953,11 +2972,11 @@
         ],
         "Rawdata Context": "\"Visual information shows the user walking on a brick-paved path in a park during daytime, wearing a black wristwatch. The mobile API data indicates the user has a daily goal of walking 10,000 steps.\"",
         "predictions": {
-            "thoughts": "The user is in a park, which is a great place for walking. The user's smart device is tracking their steps, and the user might be interested in reaching their daily goal. I should check how many steps they have taken so far and suggest a route to reach their goal.\n Actions:\n['Use <get_health_data> to check how many steps the user has taken so far.', 'Use <google_map> to suggest a walking route to reach their daily step goal.']\n ",
+            "thoughts": "None",
             "proactive_idx": "true",
-            "proactive_score": "4",
+            "proactive_score": "5",
             "actions": "None",
-            "tools": "[{\"name\": \"get_health_data\", \"description\": \"Get health data from the user's smart device.\", \"parameters\": \"None\"},{\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\":\"park\",\"destination\":\"user's current location\"}}]",
+            "tools": "[{\"name\": \"get_health_data\", \"description\": \"Get health data from the user's smart device.\", \"parameters\": \"None\"}, {\"name\": \"vllm\", \"description\": \"Visual Large Language Model (VLM) that can answer the user's questions based on the given image.\", \"parameters\": {\"prompt\": \"Detect the user's calorie burn based on the given image.\", \"image_path\": \"\"}}]",
             "tools_results": [
                 {
                     "tool_name": "get_health_data",
@@ -2965,12 +2984,12 @@
                     "results": "\"The user's heart rate is 70 bpm, oxygen saturation is 98%, respiration rate is 16 bpm, body temperature is 36.5 degrees Celsius, total steps today is 5000, and total calories burned today is 2000.\""
                 },
                 {
-                    "tool_name": "google_map",
+                    "tool_name": "vllm",
                     "tool_parameters": {
-                        "current_location": "park",
-                        "destination": "user's current location"
+                        "prompt": "Detect the user's calorie burn based on the given image.",
+                        "image_path": ""
                     },
-                    "results": "\"The distance from park to user's current location is 2 km.\""
+                    "results": "null"
                 }
             ],
             "response": "outputs."
@@ -3001,7 +3020,7 @@
         ],
         "Rawdata Context": "Visual information shows the user practicing yoga in a cozy, well-decorated room with a fireplace, a round mirror, and decorative items.",
         "predictions": {
-            "thoughts": "The user is in a peaceful environment, enjoying a yoga session by the fireplace. There is no indication of a need for assistance, as they are likely savoring the tranquility. Proactive engagement would be unnecessary.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -3035,7 +3054,7 @@
         ],
         "Rawdata Context": "\"Visual information shows the user is in a kitchen, preparing food by slicing a carrot on a wooden cutting board, with a bowl of tomatoes and other vegetables nearby, indicating a meal preparation activity.\"",
         "predictions": {
-            "thoughts": "The user is engaged in a routine cooking task, which does not require any assistance. The task is likely to be completed efficiently without any complications.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -3071,11 +3090,11 @@
         ],
         "Rawdata Context": "\"Visual information shows the user in an airport terminal, walking through a spacious area with a checkered floor and numerous overhead signs. The terminal is bustling with travelers. The user's current flight booking is Flight XY123, with a departure at 3:00 PM.\"",
         "predictions": {
-            "thoughts": "The user is likely waiting for a flight and could benefit from real-time flight updates or gate changes. I should check the flight status and provide updates if necessary.\n Actions:\n['Use <get_current_gps_coordinates> to determine the user\\'s current location.', 'Use <get_current_datetime> to obtain the current time.', 'Use <get_city_weather> to check the weather at the user\\'s destination.', 'Use <google_search> to search for real-time flight updates and provide any necessary gate change information.']\n ",
+            "thoughts": "None",
             "proactive_idx": "true",
             "proactive_score": "5",
             "actions": "None",
-            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}, {\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time\", \"parameters\": \"None\"}, {\"name\": \"get_city_weather\", \"description\": \"Get the weather for a specified city at a given time.\", \"parameters\": {\"city\": \"user's destination\", \"time\":\"now\"}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"real-time flight updates and gate changes\"}}]",
+            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"},{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time\", \"parameters\": \"None\"},{\"name\": \"get_city_weather\", \"description\": \"Get the weather for a specified city at a given time.\", \"parameters\": {\"city\": \"Hong Kong\", \"time\":\"now\"}}]",
             "tools_results": [
                 {
                     "tool_name": "get_current_gps_coordinates",
@@ -3085,22 +3104,15 @@
                 {
                     "tool_name": "get_current_datetime",
                     "tool_parameters": "None",
-                    "results": "\"Date: June 01, 2025 Time: 14:57:49\""
+                    "results": "\"Date: June 01, 2025 Time: 15:15:23\""
                 },
                 {
                     "tool_name": "get_city_weather",
                     "tool_parameters": {
-                        "city": "user's destination",
+                        "city": "Hong Kong",
                         "time": "now"
                     },
-                    "results": "\"The weather in user's destination on now be 36 degrees with heavy rain and thunderstorms.\""
-                },
-                {
-                    "tool_name": "google_search",
-                    "tool_parameters": {
-                        "query": "real-time flight updates and gate changes"
-                    },
-                    "results": "\"url:https://www.flightstats.com/v2/,\\ndescription: Track real-time flight status, departures and arrivals, airport delays, and airport information using FlightStats Global Flight Tracker from Cirium. \""
+                    "results": "\"The weather in Hong Kong on now be 36 degrees with heavy rain and thunderstorms.\""
                 }
             ],
             "response": "outputs."
@@ -3131,13 +3143,31 @@
         ],
         "Rawdata Context": "\"Visual information indicates the user is in a city environment, near a highway or busy road, standing or walking near a 'University' bus stop with several people nearby. The weather appears overcast.\"",
         "predictions": {
-            "thoughts": "The user is at a bus stop, possibly waiting for transportation. Without additional information, no proactive actions are required.\n Actions:\nNone\n ",
-            "proactive_idx": "false",
-            "proactive_score": "1",
+            "thoughts": "None",
+            "proactive_idx": "true",
+            "proactive_score": "5",
             "actions": "None",
-            "tools": "None",
-            "tools_results": "None",
-            "response": "None"
+            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}, {\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time\", \"parameters\": \"None\"}, {\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for a specific bus stop.\", \"parameters\": {\"bus_stop\": \"'University'\"}}]",
+            "tools_results": [
+                {
+                    "tool_name": "get_current_gps_coordinates",
+                    "tool_parameters": "None",
+                    "results": "\"Sha Tin, Sha Tin, HK\""
+                },
+                {
+                    "tool_name": "get_current_datetime",
+                    "tool_parameters": "None",
+                    "results": "\"Date: June 01, 2025 Time: 15:15:41\""
+                },
+                {
+                    "tool_name": "check_bus_schedule",
+                    "tool_parameters": {
+                        "bus_stop": "'University'"
+                    },
+                    "results": "\"The next bus at 'University' is at 9:30 AM.\""
+                }
+            ],
+            "response": "outputs."
         }
     },
     "example-282": {
@@ -3167,21 +3197,13 @@
         ],
         "Rawdata Context": "\"Visual information shows the user is in a library browsing through a bookshelf filled with various books and selecting one to remove from the shelf.\"",
         "predictions": {
-            "thoughts": "The user is browsing through books in a library setting. The user might appreciate assistance in reading reviews or details about the books they are interested in. I should use <search_rednote> to find information about the books they are looking at.\n Actions:\n[\"Use <search_rednote> to find reviews or details about the books the user is browsing.\"]\n ",
-            "proactive_idx": "true",
-            "proactive_score": "4",
+            "thoughts": "None",
+            "proactive_idx": "false",
+            "proactive_score": "1",
             "actions": "None",
-            "tools": "[{\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"books reviews or details\"}}]",
-            "tools_results": [
-                {
-                    "tool_name": "search_rednote",
-                    "tool_parameters": {
-                        "query": "books reviews or details"
-                    },
-                    "results": "\"Search results for 'books reviews or details' in rednote.\""
-                }
-            ],
-            "response": "outputs."
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-387": {
@@ -3211,33 +3233,13 @@
         ],
         "Rawdata Context": "Visual information shows the user is in a gym, observing a stationary exercise bike that is black with yellow accents, positioned on a beige floor. The gym appears to be empty with no other people visible in the frame.",
         "predictions": {
-            "thoughts": "The user might be interested in using the stationary bike for a workout. Providing a workout plan or suggesting settings could enhance their experience.\n Actions:\n['Use <get_health_data> to check the user's fitness level.', 'Suggest a workout plan based on their fitness level.', 'Provide settings recommendations for the stationary bike.']\n ",
-            "proactive_idx": "true",
-            "proactive_score": "5",
+            "thoughts": "None",
+            "proactive_idx": "false",
+            "proactive_score": "1",
             "actions": "None",
-            "tools": "[{\"name\": \"get_health_data\", \"description\": \"Get health data from the user's smart device.\", \"parameters\": \"None\"}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\":\"workout plan on stationary bike\"}}, {\"name\": \"wikipedia_search\", \"description\": \"Tool that searches the Wikipedia API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\", \"parameters\": {\"query\":\"stationary bike settings recommendations\"}}]",
-            "tools_results": [
-                {
-                    "tool_name": "get_health_data",
-                    "tool_parameters": "None",
-                    "results": "\"The user's heart rate is 70 bpm, oxygen saturation is 98%, respiration rate is 16 bpm, body temperature is 36.5 degrees Celsius, total steps today is 5000, and total calories burned today is 2000.\""
-                },
-                {
-                    "tool_name": "google_search",
-                    "tool_parameters": {
-                        "query": "workout plan on stationary bike"
-                    },
-                    "results": "\"url:https://www.health.com/fitness/stationary-bike-workout,\\ndescription: 22 Dec 2024  \\u00b7  This 53-minute, beginner-friendly stationary bike workout is primarily aerobic. It incorporates short, challenging intervals to build fitness and burn calories. \""
-                },
-                {
-                    "tool_name": "wikipedia_search",
-                    "tool_parameters": {
-                        "query": "stationary bike settings recommendations"
-                    },
-                    "results": "\"Search results for 'stationary bike settings recommendations' in Wikipedia.\""
-                }
-            ],
-            "response": "outputs."
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-463": {
@@ -3270,16 +3272,16 @@
         ],
         "Rawdata Context": "\"Visual information shows the user in a cluttered office environment, working at a desk with multiple screens displaying code and various items such as a laptop, monitor, keyboard, wallet, water bottle, and box of tissues. The content of conversation is: \\\"Please ensure the code review is completed by the end of the week.\\\" The mobile API data indicates that the code review deadline is today.\"",
         "predictions": {
-            "thoughts": "Contextual information shows the user is engaged in a meeting, likely preparing for a code review. The agenda indicates that the code review deadline is today. I should check the reviewer's availability and schedule a meeting if necessary. I can use <get_current_gps_coordinates> to determine the reviewer's location and <check_agenda_time_conflict> to check for any scheduling conflicts.\n Actions:\n[\"Use <get_current_gps_coordinates> to check the reviewer's location.\", 'Use <check_agenda_time_conflict> to check for any scheduling conflicts.', 'Schedule a meeting with the reviewer if necessary.']\n ",
+            "thoughts": "None",
             "proactive_idx": "true",
             "proactive_score": "5",
             "actions": "None",
-            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}, {\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the user's agenda for a given datetime.\", \"parameters\": {\"time\":\"today\"}}, {\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda.\", \"parameters\": {\"event\": \"Code review meeting\", \"time\": \"today\"}}]",
+            "tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time\", \"parameters\": \"None\"},{\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the user's agenda for a given datetime.\", \"parameters\": {\"time\":\"today\"}},{\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda.\", \"parameters\": {\"event\": \"complete code review\", \"time\": \"today\"}}]",
             "tools_results": [
                 {
-                    "tool_name": "get_current_gps_coordinates",
+                    "tool_name": "get_current_datetime",
                     "tool_parameters": "None",
-                    "results": "\"Sha Tin, Sha Tin, HK\""
+                    "results": "\"Date: June 01, 2025 Time: 15:16:13\""
                 },
                 {
                     "tool_name": "check_agenda_time_conflict",
@@ -3291,10 +3293,10 @@
                 {
                     "tool_name": "add_to_agenda",
                     "tool_parameters": {
-                        "event": "Code review meeting",
+                        "event": "complete code review",
                         "time": "today"
                     },
-                    "results": "\"Event 'Code review meeting' added to agenda for today.\""
+                    "results": "\"Event 'complete code review' added to agenda for today.\""
                 }
             ],
             "response": "outputs."
@@ -3327,27 +3329,13 @@
         ],
         "Rawdata Context": "\"Visual information shows the user tying the laces of a white sneaker on a textured red surface, likely indicating they are on a sports track or gym floor, while their wrist is adorned with a black wristwatch.\"",
         "predictions": {
-            "thoughts": "The user is about to start a workout session on the treadmill. Offering to track their fitness metrics or providing workout tips could be beneficial.\n Actions:\n[\"Use <get_health_data> to track the user's fitness metrics during the workout.\", 'Use <vllm> to identify the specific workout equipment and provide tips or calorie burn estimates.']\n ",
-            "proactive_idx": "true",
-            "proactive_score": "5",
+            "thoughts": "None",
+            "proactive_idx": "false",
+            "proactive_score": "1",
             "actions": "None",
-            "tools": "[{\"name\": \"get_health_data\", \"description\": \"Get health data from the user's smart device.\", \"parameters\": \"None\"}, {\"name\": \"vllm\", \"description\": \"Visual Large Language Model (VLM) that can identify the user's fitness equipment based on the given image.\", \"parameters\": {\"prompt\": \"Identify the user's fitness equipment based on the given image.\", \"image_path\": \"\"}}]",
-            "tools_results": [
-                {
-                    "tool_name": "get_health_data",
-                    "tool_parameters": "None",
-                    "results": "\"The user's heart rate is 70 bpm, oxygen saturation is 98%, respiration rate is 16 bpm, body temperature is 36.5 degrees Celsius, total steps today is 5000, and total calories burned today is 2000.\""
-                },
-                {
-                    "tool_name": "vllm",
-                    "tool_parameters": {
-                        "prompt": "Identify the user's fitness equipment based on the given image.",
-                        "image_path": ""
-                    },
-                    "results": "null"
-                }
-            ],
-            "response": "outputs."
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-227": {
@@ -3375,7 +3363,7 @@
         ],
         "Rawdata Context": "\"Visual information shows the user is in a cozy café or bookstore, sitting at a wooden table with a stack of books and a cup of coffee, in a relaxing atmosphere with a view of a bustling street, indicating a lively urban setting.\"",
         "predictions": {
-            "thoughts": "The user is in a bookstore, likely enjoying browsing and reading. There is no indication of a need for assistance, as they are likely immersed in their experience.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -3412,16 +3400,16 @@
         ],
         "Rawdata Context": "Visual information shows the user is in a restaurant, sitting at a table with a plate of spicy noodles, using chopsticks to eat. The content of conversation is: \"We're losing the thought of going to the barbecue this Saturday.\"",
         "predictions": {
-            "thoughts": "The user is having a conversation with others. The partner asks whether they can go to the barbecue this Saturday. Since there is no mention of any conflicts, I can check the user's agenda to see if they are free this weekend.\n Actions:\n['Use <get_current_datetime> to check the current date.', 'Use <check_agenda_time_conflict> to check the user\\'s agenda for this Saturday.', 'If free, ask to confirm if they want to attend the barbecue and add it to the agenda.']\n ",
+            "thoughts": "None",
             "proactive_idx": "true",
-            "proactive_score": "4",
+            "proactive_score": "5",
             "actions": "None",
-            "tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time\", \"parameters\": \"None\"}, {\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the user's agenda for a given datetime.\", \"parameters\": {\"time\": \"this Saturday\"}}, {\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda.\", \"parameters\": {\"event\": \"Barbecue\", \"time\": \"this Saturday\"}}]",
+            "tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time\", \"parameters\": \"None\"},{\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the user's agenda for a given datetime.\", \"parameters\": {\"time\": \"this Saturday\"}},{\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda.\", \"parameters\": {\"event\": \"go to the barbecue\", \"time\": \"this Saturday\"}}]",
             "tools_results": [
                 {
                     "tool_name": "get_current_datetime",
                     "tool_parameters": "None",
-                    "results": "\"Date: June 01, 2025 Time: 15:00:56\""
+                    "results": "\"Date: June 01, 2025 Time: 15:16:45\""
                 },
                 {
                     "tool_name": "check_agenda_time_conflict",
@@ -3433,10 +3421,10 @@
                 {
                     "tool_name": "add_to_agenda",
                     "tool_parameters": {
-                        "event": "Barbecue",
+                        "event": "go to the barbecue",
                         "time": "this Saturday"
                     },
-                    "results": "\"Event 'Barbecue' added to agenda for this Saturday.\""
+                    "results": "\"Event 'go to the barbecue' added to agenda for this Saturday.\""
                 }
             ],
             "response": "outputs."
@@ -3467,7 +3455,7 @@
         ],
         "Rawdata Context": "\"Visual information indicates the user is in a modern office setting, seated at a table with colleagues, equipped with laptops, notebooks, and writing utensils, in a collaborative and focused atmosphere.\"",
         "predictions": {
-            "thoughts": "The user is engaged in a meeting, which requires attention and participation. Proactive assistance would be unnecessary and potentially disruptive.\n Actions:\nNone\n ",
+            "thoughts": "None",
             "proactive_idx": "false",
             "proactive_score": "1",
             "actions": "None",
@@ -3501,27 +3489,19 @@
         ],
         "Rawdata Context": "\"Visual information shows the user is in a park, standing on a stone path surrounded by greenery, with bushes, trees, and a lamp post in the background. The content of conversation is: \\\"I'm not sure which way to go to reach the grass island.\\\"\"",
         "predictions": {
-            "thoughts": "Contextual information shows the user is having a conversation with others. The partner asks the user whether to go left or right. Providing direction assistance would be helpful. I can use <google_map> to find the best route to the grass island and <vllm> to identify the left and right directions in the scene.\n Actions:\n[\"Use <google_map> to find the best route to the grass island.\", 'Use <vllm> to identify the left and right directions in the scene.']\n ",
+            "thoughts": "None",
             "proactive_idx": "true",
             "proactive_score": "4",
             "actions": "None",
-            "tools": "[{\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"current location\", \"destination\": \"grass island\"}}, {\"name\": \"vllm\", \"description\": \"Visual Large Language Model (VLM) that can answer the user's questions based on the given image.\", \"parameters\": {\"prompt\": \"Identify the left and right directions in the scene.\", \"image_path\": \"\"}}]",
+            "tools": "[{\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"user current location\", \"destination\": \"grass island\"}}]",
             "tools_results": [
                 {
                     "tool_name": "google_map",
                     "tool_parameters": {
-                        "current_location": "current location",
+                        "current_location": "user current location",
                         "destination": "grass island"
                     },
-                    "results": "\"The distance from current location to grass island is 2 km.\""
-                },
-                {
-                    "tool_name": "vllm",
-                    "tool_parameters": {
-                        "prompt": "Identify the left and right directions in the scene.",
-                        "image_path": ""
-                    },
-                    "results": "null"
+                    "results": "\"The distance from user current location to grass island is 2 km.\""
                 }
             ],
             "response": "outputs."
