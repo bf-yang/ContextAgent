@@ -1,0 +1,2232 @@
+{
+    "example-50": {
+        "Category": "Work",
+        "Vision": "The user is sitting at their desk, working on a laptop.",
+        "Audio": "",
+        "Context information": "Visual information shows the user is working.",
+        "Mobile api data": [
+            ""
+        ],
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "Since the user is working, I should not proactively provide any information that may interfere with their work.",
+        "Proactive index": "false",
+        "Proactive score": 1,
+        "Tool planning": "None",
+        "Action": "None",
+        "Response": "None",
+        "Tools": "None",
+        "Total Frame Number": "332",
+        "Sampled Frames": "[4, 10, 52, 67, 88, 105, 111, 114, 115, 129, 137, 140, 154, 156, 178, 192, 203, 209, 216, 235, 238, 242, 262, 266, 299, 307, 311, 319, 329, 331]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in an office setting, typing on a MacBook Air laptop. The screen displays a terminal window with text scrolling, and the desktop background shows a colorful gradient. The user's hand is visible on the keyboard, indicating active typing."
+        ],
+        "Rawdata Context": "\"Visual information shows the user is in an office setting, actively typing on a MacBook Air laptop with a terminal window open on the screen.\""
+    },
+    "example-397": {
+        "Category": "Work",
+        "Vision": "The user is sitting in an office, reviewing printed documents spread across the desk.",
+        "Audio": "",
+        "Mobile api data": [
+            ""
+        ],
+        "Context information": "Visual information shows the user is carefully reviewing printed documents, which suggests focused and detailed work.",
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "The user is deeply focused on reviewing documents, which requires undivided attention. Proactive assistance is unnecessary, as it might disturb their concentration.",
+        "Proactive index": "false",
+        "Proactive score": 1,
+        "Tool planning": "None",
+        "Action": "None",
+        "Response": "None",
+        "Tools": "None",
+        "Total Frame Number": "234",
+        "Sampled Frames": "[13, 21, 23, 26, 31, 35, 37, 41, 51, 56, 64, 69, 72, 95, 111, 115, 123, 131, 132, 141, 154, 164, 182, 195, 205, 209, 210, 216, 223, 233]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in an office setting, looking at a document or paper on a table. The document appears to be a technical or academic paper, with graphs, charts, and text. The user's hand is visible, flipping through the pages. The office environment includes a desk, a computer monitor, and some cables."
+        ],
+        "Rawdata Context": "\"Visual information indicates the user is in an office setting, reviewing a technical or academic paper on a table, with graphs, charts, and text, while the environment includes a desk, a computer monitor, and some cables.\""
+    },
+    "example-131": {
+        "Category": "Chitchat",
+        "Vision": "The user is in a living room, sitting on a couch with a pet dog.",
+        "Audio": "",
+        "Context information": "Visual information shows the user is in a living room, sitting on a couch with a pet dog.",
+        "Mobile api data": [
+            ""
+        ],
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "Contextual information shows the user in a living room, sitting on a couch with a pet dog. The current information does not support generating proactive service, as the user is likely enjoying a peaceful moment with their pet. Proactive assistance is not needed, as it might interrupt their peaceful time. Therefore, I will set the proactive score to 1.",
+        "Proactive index": "false",
+        "Proactive score": 1,
+        "Tool planning": "None",
+        "Action": "None",
+        "Response": "None",
+        "Tools": "None",
+        "Total Frame Number": "46",
+        "Sampled Frames": "[1, 2, 3, 5, 6, 8, 9, 10, 11, 14, 15, 16, 18, 19, 21, 22, 25, 26, 28, 30, 32, 33, 35, 37, 38, 39, 41, 42, 44, 45]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a living room, sitting on a couch with a dog on their lap. The dog is looking directly at the camera, with one ear perked up and the other drooping. The room has a brown leather recliner, a coffee table, and a television on a stand in the background. Natural light filters through a window with blinds."
+        ],
+        "Rawdata Context": "\"Visual information shows the user is in a living room, sitting on a couch with a dog on their lap, with a brown leather recliner, a coffee table, and a television on a stand in the background.\""
+    },
+    "example-495": {
+        "Category": "Others",
+        "Vision": "The user is standing in a room with several houseplants, holding a watering can.",
+        "Audio": "",
+        "Mobile api data": [
+            ""
+        ],
+        "Context information": "The user is tending to houseplants, likely watering them.",
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "The user is caring for houseplants, which may benefit from advice on watering schedules or plant care tips. However, without explicit interest, the proactive score is set to 2.",
+        "Proactive index": "false",
+        "Proactive score": 1,
+        "Tool planning": "None",
+        "Action": "None",
+        "Response": "None",
+        "Tools": "None",
+        "Total Frame Number": "294",
+        "Sampled Frames": "[7, 14, 26, 47, 58, 60, 62, 67, 78, 81, 104, 115, 122, 136, 139, 147, 149, 159, 208, 212, 224, 226, 236, 241, 247, 248, 255, 260, 281, 282]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a room, holding a white watering can with a long spout. They are watering a potted plant with long, green leaves, which is placed in a woven basket. The plant is situated on a wooden floor, and the user appears to be tending to the plant with care."
+        ],
+        "Rawdata Context": "\"Visual information shows the user is in a room, holding a white watering can and watering a potted plant with long, green leaves in a woven basket on a wooden floor.\""
+    },
+    "example-136": {
+        "Category": "Leisure",
+        "Vision": "The user is at a music festival, standing in a crowd with a stage visible in the distance.",
+        "Audio": "",
+        "Context information": "The user is attending a music festival, surrounded by other festival-goers. The environment is lively and energetic.",
+        "Mobile api data": [
+            ""
+        ],
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "The user is enjoying a music festival. While there might be potential for assistance, such as finding specific stages or facilities, these are not critical needs unless the user requests help.",
+        "Proactive index": "false",
+        "Proactive score": 1,
+        "Tool planning": "None",
+        "Action": "None",
+        "Response": "None",
+        "Tools": "None",
+        "Total Frame Number": "238",
+        "Sampled Frames": "[19, 23, 32, 33, 36, 37, 63, 68, 82, 96, 100, 103, 106, 115, 125, 131, 147, 160, 161, 162, 173, 179, 182, 194, 196, 203, 212, 215, 221, 233]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is at a concert, with a silhouette of a guitarist on stage illuminated by orange and blue lights. The audience is cheering and taking photos with their smartphones."
+        ],
+        "Rawdata Context": "\"Visual information indicates the user is at a concert, with a silhouette of a guitarist on stage illuminated by orange and blue lights, while the audience is cheering and taking photos with their smartphones.\""
+    },
+    "example-39": {
+        "Category": "Work",
+        "Vision": "The user is working on a computer, typing on a keyboard in an office.",
+        "Audio": "",
+        "Context information": "Visual information suggests the user is working on a computer, typing on a keyboard in an office.",
+        "Mobile api data": [
+            ""
+        ],
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "The user is working normally in the office with no additional information, no abnormal changes in physiological indicators, and no data indicating prolonged sitting. Therefore, I should not proactively provide any information that may interfere with the user's work, resulting in a proactive score of 1 points.",
+        "Proactive index": "false",
+        "Proactive score": 1,
+        "Tool planning": "None",
+        "Action": "None",
+        "Response": "None",
+        "Tools": "None",
+        "Total Frame Number": "127",
+        "Sampled Frames": "[3, 5, 7, 9, 18, 20, 21, 35, 44, 45, 46, 51, 54, 55, 56, 57, 65, 77, 78, 81, 85, 86, 88, 91, 93, 95, 101, 102, 111, 116]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in an office setting, sitting in front of a computer with two monitors displaying text and documents. The user's hands are on a white keyboard, suggesting they are typing or navigating the computer. There are stacks of papers and a mouse on the desk, indicating a work environment. The user appears to be focused on the computer screens, possibly working on a project or document."
+        ],
+        "Rawdata Context": "\"Visual information shows the user in an office setting, sitting in front of a computer with two monitors displaying text and documents, suggesting they are engaged in typing or navigating the computer, with stacks of papers and a mouse on the desk indicating a work environment.\""
+    },
+    "example-217": {
+        "Category": "Cooking",
+        "Vision": "The user is standing in their kitchen, surrounded by various ingredients on the countertop.",
+        "Audio": "",
+        "Context information": "Visual information shows the user in their kitchen with ingredients such as chicken, tomatoes, onions, and spices laid out.",
+        "Mobile api data": [
+            ""
+        ],
+        "Personas": [
+            "User enjoys trying new recipes but often feels unsure about ingredient measurements."
+        ],
+        "Thoughts": "The user is interested in cooking a new dish, possibly inspired by the TV show. They could benefit from a step-by-step recipe guide and tips on ingredient measurements. Using the <search_rednote> tool could help find a detailed chicken curry recipe and provide ingredient measurement tips.",
+        "Proactive index": "true",
+        "Proactive score": 5,
+        "Tool planning": "<search_rednote>",
+        "Action": [
+            "Use <search_rednote> to find a detailed chicken curry recipe with ingredient measurements."
+        ],
+        "Response": "I found a chicken curry recipe that matches the ingredients you have. It includes step-by-step instructions and precise measurements. Would you like to follow this recipe or explore more options?",
+        "Tools": "[{\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\":\"chicken curry recipe with ingredient measurements\"}}]",
+        "Total Frame Number": "209",
+        "Sampled Frames": "[14, 17, 20, 21, 28, 32, 42, 51, 54, 61, 67, 78, 79, 92, 108, 121, 124, 135, 136, 138, 140, 145, 155, 168, 176, 187, 193, 194, 204, 206]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a salad bar, adding various vegetables and toppings to a salad. The salad includes cucumber, tomato, and green pepper slices. The user then pours a dressing over the salad and adds shredded cheese. The salad bar is well-organized with multiple compartments containing different ingredients."
+        ],
+        "Rawdata Context": "\"Visual information shows the user in a salad bar, adding various vegetables and toppings to a salad, including cucumber, tomato, and green pepper slices, and finishing with dressing and shredded cheese.\""
+    },
+    "example-225": {
+        "Category": "Health",
+        "Vision": "The user is outdoors, jogging on a scenic trail.",
+        "Audio": "",
+        "Context information": "Visual information suggests the user is jogging on an outdoor scenic trail.",
+        "Mobile api data": [
+            ""
+        ],
+        "Personas": [
+            "The user enjoys outdoor jogging and prefers to monitor their pace and distance."
+        ],
+        "Thoughts": "The user is jogging outdoors. Providing an update on their pace and distance could motivate them and enhance their jogging experience.",
+        "Proactive index": "true",
+        "Proactive score": 4,
+        "Tool planning": "<get_health_data>,<get_current_gps_coordinates>",
+        "Action": [
+            "Use <get_health_data> to check the user's current pace and distance covered.",
+            "Use <get_current_gps_coordinates> to confirm the user's location and adjust pace suggestions based on the trail."
+        ],
+        "Response": "You've covered 3 miles at an average pace of 9 minutes per mile. Keep up the great work!",
+        "Tools": "[{\"name\": \"get_health_data\", \"description\": \"Get health data from the user's smart device.\", \"parameters\": \"None\"}, {\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}]",
+        "Total Frame Number": "213",
+        "Sampled Frames": "[1, 19, 35, 44, 57, 64, 67, 70, 88, 90, 93, 96, 103, 112, 123, 124, 128, 132, 139, 145, 148, 150, 154, 167, 189, 197, 202, 203, 204, 212]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is walking down a wooden staircase leading to a coastal viewpoint. The staircase is flanked by metal railings on both sides. In the distance, there is a parking area with several vehicles parked along the road. The viewpoint offers a panoramic view of the ocean and a narrow strip of land connecting two larger bodies of water. The sky is partly cloudy, and the overall scene is serene and picturesque."
+        ],
+        "Rawdata Context": "Visual information shows the user walking down a wooden staircase leading to a coastal viewpoint, with metal railings on both sides, overlooking a serene and picturesque scene with a panoramic view of the ocean and a narrow strip of land connecting two larger bodies of water; in the distance, there is a parking area with several vehicles parked along the road."
+    },
+    "example-142": {
+        "Category": "Travel",
+        "Vision": "The user stands under a glass-paneled bus shelter, seems looking at the bus stop sign.",
+        "Audio": "",
+        "Context information": "Visual data indicates user stands under a glass-paneled bus shelter, seems looking at the bus stop sign.",
+        "Mobile api data": [
+            ""
+        ],
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "The user is likely waiting for a bus at a shelter. The user might need real-time bus arrival information or route suggestions. Providing real-time bus arrival information or alternative transportation options could be helpful, so I set the proactive score to 5. At such scenario, I need to first use <get_current_gps_coordinates> and <get_current_datetime> to verify the user's current location, date, and time. Then, I should use <check_bus_schedule> to provide real-time bus arrival information and suggest alternative routes if the bus is delayed. If it is too late, I can also recommend alternative transportation methods such as a taxi or Uber and ask the user if they need me to book it for them.",
+        "Proactive index": "true",
+        "Proactive score": 5,
+        "Tool planning": "<get_current_gps_coordinates>,<get_current_datetime>,<check_bus_schedule>,<book_uber>",
+        "Action": [
+            "Use <get_current_gps_coordinates> to check the user's current location.",
+            "Use <get_current_datetime> to verify the current date and time.",
+            "Use <check_bus_schedule> to provide real-time bus arrival information and suggest alternative routes if needed.",
+            "Use <book_uber> to book an Uber if the bus is delayed or unavailable."
+        ],
+        "Response": "Next bus delayed 12 minutes due to weather (heavy rain alert until 3PM). Current UberX surge is 1.2x. Would you prefer: 1) Wait with updated shelter occupancy data 2) Secure ride-share now 3) Walking route to L train?",
+        "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"},{\"name\": \"check_bus_schedule\", \"description\": \"Check real-time bus schedules for a specific route.\", \"parameters\": {\"bus_stop\": \"user current location\"}},{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"},{\"name\": \"book_uber\", \"description\": \"Book a ride to a specified location.\", \"parameters\": {\"current_location\":\"user current location\", \"destination\": \"User's destination\"}}]",
+        "Total Frame Number": "196",
+        "Sampled Frames": "[1, 10, 20, 27, 30, 39, 46, 48, 51, 52, 55, 58, 60, 61, 63, 67, 68, 91, 123, 126, 127, 138, 146, 157, 158, 169, 173, 174, 187, 191]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a bus terminal, observing a man standing at a bus stop with a red sign. The terminal is spacious with a tiled floor and overhead lighting. A few people are walking around, and a bus is approaching in the background. The bus stop sign indicates the bus number and route."
+        ],
+        "Rawdata Context": "\"Visual information shows the user is in a bus terminal, observing a man standing at a bus stop with a red sign. The terminal is spacious with a tiled floor and overhead lighting, with a few people walking around and a bus approaching in the background.\""
+    },
+    "example-498": {
+        "Category": "Outdoors",
+        "Vision": "The user is walking along a beach, with gentle waves lapping at their feet. There are a few small rocks on the beach.",
+        "Audio": "",
+        "Mobile api data": [
+            ""
+        ],
+        "Context information": "The user is enjoying a walk along the beach, with gentle waves and a few small rocks in the background.",
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "The user is likely enjoying a leisurely beach walk. There is no indication of a need for assistance, as they are probably appreciating the natural surroundings. Proactive engagement would not add value.",
+        "Proactive index": "false",
+        "Proactive score": 1,
+        "Tool planning": "None",
+        "Action": "None",
+        "Response": "None",
+        "Tools": "None",
+        "Total Frame Number": "936",
+        "Sampled Frames": "[8, 22, 50, 224, 235, 281, 293, 302, 360, 405, 508, 579, 620, 621, 651, 674, 702, 716, 762, 763, 794, 796, 818, 821, 849, 852, 885, 924, 925, 932]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is walking along a sandy beach, with their bare feet touching the wet sand. The waves gently wash over their feet, and they are wearing a patterned skirt. The beach is relatively empty, with a few small rocks and shells scattered on the sand."
+        ],
+        "Rawdata Context": "Visual information shows the user walking along a sandy beach with bare feet touching the wet sand, wearing a patterned skirt, and the beach is relatively empty with a few small rocks and shells scattered on the sand."
+    },
+    "example-441": {
+        "Category": "Outdoors",
+        "Vision": "The user is standing at the entrance of a botanical garden, looking at a map.",
+        "Audio": "'I wonder how long it will take to walk through the main garden path.'",
+        "Mobile api data": [],
+        "Context information": "The user is at a botanical garden entrance, curious about the duration of a walk along the main garden path.",
+        "Personas": [],
+        "Thoughts": "The user seems to want to explore the main garden path. By providing the estimated walking time and a map of the path, I can enhance their visit. I will use <get_current_gps_coordinates> to confirm their location and <google_map> to find the walking time and route.",
+        "Proactive index": "true",
+        "Proactive score": 5,
+        "Tool planning": "<get_current_gps_coordinates>,<google_map>",
+        "Action": [
+            "Use <get_current_gps_coordinates> to confirm the user's location.",
+            "Use <google_map> to find the walking time and route for the main garden path from the current location."
+        ],
+        "Response": "The main garden path will take about 30 minutes to stroll through. Would you like directions on your glasses to guide you?",
+        "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"botanical garden entrance\", \"destination\": \"main garden path\"}}]",
+        "Total Frame Number": "244",
+        "Sampled Frames": "[49, 53, 57, 63, 67, 71, 73, 76, 81, 89, 122, 123, 125, 142, 143, 156, 164, 173, 174, 176, 177, 180, 184, 197, 203, 205, 222, 223, 228, 242]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a garden, walking through an archway. The path is lined with potted plants and a sign with friendly reminders to visitors. The garden appears to be a botanical or research garden, with various plants and trees visible in the background."
+        ],
+        "Rawdata Context": "Visual information shows the user is in a garden, walking through an archway along a path lined with potted plants, possibly in a botanical or research garden, with various plants and trees visible in the background."
+    },
+    "example-198": {
+        "Category": "Chitchat",
+        "Vision": "The user is browsing through a digital menu on a tablet at a restaurant.",
+        "Audio": "",
+        "Context information": "Visual information indicates the user is browsing through a digital menu on a tablet at a restaurant.",
+        "Mobile api data": [
+            ""
+        ],
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "Contextual information shows the user is browsing through a digital menu on a tablet at a restaurant. The user is likely deciding between dishes. I can offer help by suggesting popular or dietary-specific options based on their preferences or by highlighting chef's specials. So I can use <get_current_gps_coordinates> to confirm the restaurant's location and <search_rednote> to find recommendations for popular items or dietary-specific options at this restaurant.",
+        "Proactive index": "true",
+        "Proactive score": 5,
+        "Tool planning": "<get_current_gps_coordinates>,<search_rednote>",
+        "Action": [
+            "Use <get_current_gps_coordinates> to confirm the restaurant's location.",
+            "Use <search_rednote> to find recommendations for chef specials or trending items in this restaurant."
+        ],
+        "Response": "Would you like help picking a popular dish or chef’s special from the menu?",
+        "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"},{\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\":\"chef specials or trending items in this restaurant.\"}}]",
+        "Total Frame Number": "290",
+        "Sampled Frames": "[2, 20, 26, 34, 37, 66, 78, 79, 81, 82, 94, 112, 130, 135, 142, 154, 162, 165, 169, 183, 212, 219, 238, 251, 258, 266, 269, 278, 281, 284]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a restaurant, browsing through a digital menu on a tablet. The menu displays various food items with images and descriptions, including探魚,正斗粥麵專家,八合里牛肉火鍋, and 太二老壇子酸菜魚. The user is pointing at the \"八合里牛肉火鍋\" option. The tablet screen is the primary focus, with a few buttons and icons visible on the right side."
+        ],
+        "Rawdata Context": "Visual information shows the user is in a restaurant, browsing through a digital menu on a tablet and pointing at the \"八合里牛肉火鍋\" option."
+    },
+    "example-235": {
+        "Category": "Cooking",
+        "Vision": "The user is in the kitchen, standing in front of a cutting board with various spices and herbs scattered around.",
+        "Audio": "",
+        "Mobile api data": [
+            ""
+        ],
+        "Context information": "Visual information shows the user is in the kitchen, preparing to use spices and herbs for cooking. The task appears to be straightforward.",
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "The user seems to be preparing to cook with spices and herbs. This is a typical task with no immediate signs of complexity or need for assistance. Proactive engagement is not necessary.",
+        "Proactive index": "false",
+        "Proactive score": 1,
+        "Tool planning": "None",
+        "Action": "None",
+        "Response": "None",
+        "Tools": "None",
+        "Total Frame Number": "129",
+        "Sampled Frames": "[0, 1, 4, 5, 9, 11, 14, 16, 18, 19, 20, 33, 42, 47, 54, 55, 56, 69, 70, 71, 74, 81, 88, 90, 94, 98, 106, 117, 123, 128]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a kitchen, preparing herbs. They are handling a sprig of thyme, separating the leaves from the stem. The wooden cutting board is visible, and the user's hands are actively working with the herb."
+        ],
+        "Rawdata Context": "\"Visual information shows the user is in a kitchen, preparing herbs by handling a sprig of thyme and separating the leaves from the stem on a wooden cutting board.\""
+    },
+    "example-421": {
+        "Category": "Travel",
+        "Vision": "The user is sitting on a train, looking out the window at passing landscapes.",
+        "Audio": "",
+        "Mobile api data": [],
+        "Context information": "The user is traveling by train, observing the scenery outside.",
+        "Personas": [
+            "A curious traveler interested in learning about new places and landscapes."
+        ],
+        "Thoughts": "The user might appreciate information about the areas they're passing through, enhancing their travel experience. Proactively providing interesting facts or history about the region can enrich their journey.",
+        "Proactive index": "true",
+        "Proactive score": 4,
+        "Tool planning": "<vllm>,<wikipedia_search>",
+        "Action": [
+            "Use <vllm> to identify landmarks or regions visible from the train window.",
+            "Use <wikipedia_search> to provide interesting facts or historical information about these landmarks or regions."
+        ],
+        "Response": "You're currently passing through the scenic Lake District, known for its stunning landscapes and as a source of inspiration for famous poets. Would you like to know more?",
+        "Tools": "[{\"name\": \"vllm\", \"description\": \"Visual Large Language Model (VLM) that can identify landmarks or regions.\", \"parameters\": {\"prompt\": \"Identify landmarks or regions visible from the train window.\", \"image_path\": \"\"}}, {\"name\": \"wikipedia_search\", \"description\": \"Tool that searches the Wikipedia API for historical or factual information.\", \"parameters\": {\"query\": \"Lake District\"}}]",
+        "Total Frame Number": "178",
+        "Sampled Frames": "[4, 5, 10, 11, 14, 21, 32, 34, 37, 41, 42, 43, 46, 55, 62, 66, 72, 103, 105, 114, 120, 123, 131, 132, 144, 146, 151, 153, 161, 172]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is on a train, looking out the window at the passing scenery. The train tracks are visible, and there is a white structure and greenery outside. The reflection in the window shows the user's reflection and some other passengers."
+        ],
+        "Rawdata Context": "\"Visual information shows the user is on a train, looking out the window at the passing scenery, with train tracks, a white structure, and greenery visible outside. The reflection in the window includes the user's reflection and some other passengers.\""
+    },
+    "example-61": {
+        "Category": "Others",
+        "Vision": "The user is walking down a staircase.",
+        "Audio": "",
+        "Context information": "Visual information shows the user is walking down a staircase.",
+        "Mobile api data": [
+            ""
+        ],
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "The user is walking down a staircase. Since I don't have any additional information about the user's persona, and going down the stairs is relatively dangerous and requires concentration. Therefore, I should refrain from actively engaging with the user at this time.",
+        "Proactive index": "false",
+        "Proactive score": 1,
+        "Tool planning": "None",
+        "Action": "None",
+        "Response": "None",
+        "Tools": "None",
+        "Total Frame Number": "339",
+        "Sampled Frames": "[8, 16, 21, 23, 38, 39, 40, 71, 73, 83, 91, 106, 108, 117, 123, 138, 143, 153, 161, 169, 196, 199, 203, 243, 276, 278, 288, 290, 300, 336]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is ascending a staircase in a modern building. The staircase has metal railings and tiled steps with non-slip surfaces. The walls are white, and the floor is tiled with a geometric pattern. The building features large windows, allowing natural light to illuminate the area. The user is moving upwards, with the staircase leading to an upper floor."
+        ],
+        "Rawdata Context": "\"Visual information shows the user ascending a staircase in a modern building with metal railings, tiled steps, and large windows allowing natural light.\""
+    },
+    "example-385": {
+        "Category": "Outdoors",
+        "Vision": "The user is lying on a blanket in a park, looking up at the clouds.",
+        "Audio": "",
+        "Mobile api data": [
+            ""
+        ],
+        "Context information": "Visual information shows the user is lying on a blanket in a park, gazing at the clouds, suggesting a moment of relaxation and reflection.",
+        "Personas": [
+            "The user appreciates ambient music during moments of relaxation."
+        ],
+        "Thoughts": "The user is enjoying a peaceful moment in the park, which could be enriched by ambient music. Given the user's preference for ambient music during relaxation, suggesting a calming playlist could enhance their experience.",
+        "Proactive index": "true",
+        "Proactive score": 5,
+        "Tool planning": "<play_music>",
+        "Action": [
+            "Use <play_music> to play an ambient playlist to enhance the user's relaxation."
+        ],
+        "Response": "I see you're relaxing in the park. Would you like some ambient music to accompany your cloud-watching?",
+        "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": \"None\"}]",
+        "Total Frame Number": "768",
+        "Sampled Frames": "[34, 40, 50, 99, 140, 194, 224, 235, 256, 293, 316, 360, 373, 451, 508, 593, 620, 621, 635, 642, 643, 651, 661, 675, 694, 697, 702, 738, 762, 763]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is looking up at a cloudy sky with a mix of white and gray clouds scattered across a deep blue background. The clouds appear to be in motion, suggesting a windy day. On the right side of the frame, there is a glimpse of a tree with green leaves, indicating the presence of vegetation nearby."
+        ],
+        "Rawdata Context": "Visual information shows the user looking up at a cloudy sky with a mix of white and gray clouds, suggesting a windy day, and there is a glimpse of a tree with green leaves nearby."
+    },
+    "example-103": {
+        "Category": "Health",
+        "Vision": "The user is sitting on the sofa and holding their stomach.",
+        "Audio": "",
+        "Context information": "Visual information shows the user is sitting on the sofa and holding his stomach, appears to be experiencing some stomach discomfort.",
+        "Mobile api data": [
+            ""
+        ],
+        "Personas": [
+            "The user has a history of digestive issues and prefers low-acidic foods."
+        ],
+        "Thoughts": "Contextual information shows the user is sitting on the sofa and holding his stomach. It appears the user is experiencing some stomach discomfort. Since the user has a history of digestive issues and appears to be experiencing discomfort, providing recommendations for low-acidic menu options would be helpful.",
+        "Proactive index": "true",
+        "Proactive score": 5,
+        "Tool planning": "<get_medical_knowledge>",
+        "Action": [
+            "Use <get_medical_knowledge> to identify low-acidic menu options suitable for the user's condition."
+        ],
+        "Response": "I see you might be experiencing some stomach discomfort. Based on your history, I recommend choosing low-acidic options like oatmeal or herbal tea. Would you like more detailed suggestions?",
+        "Tools": "[{\"name\": \"get_medical_knowledge\", \"description\": \"Get medical expert knowledge from the up-to-date medical knowledge database.\", \"parameters\": {\"query\": \"digestive issues\"}}]",
+        "Total Frame Number": "169",
+        "Sampled Frames": "[7, 12, 13, 19, 23, 24, 25, 40, 41, 42, 48, 52, 60, 67, 72, 76, 84, 86, 96, 100, 104, 110, 111, 123, 138, 140, 141, 152, 155, 157]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is lying on a couch in a room with wooden flooring. The user's legs are crossed, and they are wearing gray sweatpants. The couch is positioned in front of an orange chair, and the user's hand is resting on their abdomen."
+        ],
+        "Rawdata Context": "\"Visual information shows the user lying on a couch in a room with wooden flooring, wearing gray sweatpants, with their legs crossed and their hand resting on their abdomen, in front of an orange chair.\""
+    },
+    "example-89": {
+        "Category": "Shopping",
+        "Vision": "The user is browsing shelves at an electronics store.",
+        "Audio": "",
+        "Context information": "Visual information shows the user is shopping for electronics and is currently looking at different gadgets.",
+        "Mobile api data": [
+            ""
+        ],
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "Contextual information shows the user is shopping for electronics and is currently looking at different gadgets. Providing information on current prices and online deals might be helpful. So I can use <get_online_product_price> to find the best deals on the gadgets the user is looking at. In addition, I can use <search_rednote> to find user reviews and recommendations for the gadgets the user is interested in.",
+        "Proactive index": "medium",
+        "Proactive score": 3,
+        "Tool planning": "<get_online_product_price>,<search_rednote>",
+        "Action": [
+            "Use <get_online_product_price> to find the best deals on the gadgets the user is looking at.",
+            "Use <search_rednote> to find user reviews and recommendations for the gadgets the user is interested in."
+        ],
+        "Response": "The latest model of this gadget is currently available online for $299. Would you like more information or assistance with purchasing?",
+        "Tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the price of a product from an online store such as Amazon or eBay\", \"parameters\": {\"product_name\":\"latest model of the gadget\"}},{\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\":\"gadget reviews and recommendations\"}}]",
+        "Total Frame Number": "184",
+        "Sampled Frames": "[4, 5, 9, 12, 27, 29, 31, 33, 43, 54, 57, 58, 65, 93, 96, 97, 106, 113, 129, 136, 140, 150, 152, 159, 163, 165, 166, 169, 174, 178]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a store, looking at various electric shavers displayed on shelves. The shelves are stocked with different models of Braun and Panasonic shavers, priced between $199 and $500. The user appears to be examining the shavers, possibly considering a purchase."
+        ],
+        "Rawdata Context": "\"Visual information indicates the user is in a store, looking at various electric shavers from Braun and Panasonic, with prices ranging from $199 to $500, and appears to be considering a purchase.\""
+    },
+    "example-252": {
+        "Category": "Health",
+        "Vision": "The user is walking on a treadmill at the gym, with an energetic pace.",
+        "Audio": "",
+        "Mobile api data": [
+            ""
+        ],
+        "Context information": "The user is in a gym, actively walking on a treadmill at a stable pace.",
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "The user is at the gym, focused on their workout. There are no signs that they require assistance or have health concerns. Proactive engagement could interfere with their exercise routine.",
+        "Proactive index": "false",
+        "Proactive score": 1,
+        "Tool planning": "None",
+        "Action": "None",
+        "Response": "None",
+        "Tools": "None",
+        "Total Frame Number": "163",
+        "Sampled Frames": "[4, 6, 7, 14, 25, 40, 46, 51, 56, 59, 63, 69, 71, 81, 82, 88, 91, 97, 99, 107, 120, 122, 124, 128, 134, 135, 139, 144, 155, 158]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a gym, standing in front of a treadmill. The treadmill has a digital display showing a green screen, and the user appears to be preparing to start a workout. The gym equipment is modern and well-maintained."
+        ],
+        "Rawdata Context": "\"Vision information shows the user in a gym, standing in front of a treadmill with a digital display showing a green screen, and the user appears to be preparing to start a workout.\""
+    },
+    "example-483": {
+        "Category": "Leisure",
+        "Vision": "The user is painting on a canvas, using a brush to apply paint strokes. The user is focusing on the painting process.",
+        "Audio": "",
+        "Mobile api data": [
+            ""
+        ],
+        "Context information": "Visual information shows the user is painting, focused on his canvas.",
+        "Personas": [],
+        "Thoughts": "The user is engaged in painting, a creative activity that likely requires focus and concentration. There is no indication of the need for assistance, and proactive engagement could be intrusive.",
+        "Proactive index": "false",
+        "Proactive score": 1,
+        "Tool planning": "None",
+        "Action": "None",
+        "Response": "None",
+        "Tools": "None",
+        "Total Frame Number": "704",
+        "Sampled Frames": "[34, 40, 92, 99, 134, 135, 140, 179, 194, 205, 256, 279, 302, 316, 334, 373, 374, 425, 451, 513, 543, 552, 593, 635, 642, 643, 661, 675, 694, 697]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is painting on a canvas, using a brush to apply blue paint strokes. The canvas is mounted on an easel, and the user's hand is visible, holding the brush and applying paint. The background is blurred, focusing on the painting process."
+        ],
+        "Rawdata Context": "\"Visual information shows the user is painting on a canvas, using a brush to apply blue paint strokes on an easel.\""
+    },
+    "example-24": {
+        "Category": "Chitchat",
+        "Vision": "A group of people is dining in a restaurant.",
+        "Audio": "How about we go hiking next Saturday? There will be seven of us.",
+        "Context information": "Visual information suggests that the user is is dining in a restaurant with a group of people. Audio information shows there is a conversation between the user and others. The partner says, \"How about we go hiking next Saturday? There will be seven of us.\"",
+        "Mobile api data": [
+            ""
+        ],
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "When someone suggests going out for fun, engaging in outdoor activities, or traveling, I need to consider the weather at the destination, whether it is peak tourist season, and if the timing conflicts with the user's schedule, among other factors. Regardless of the user's persona, real-time feedback based on the above factors is beneficial to the user. Therefore, the proactive index is set to true, and the proactive score is 5.",
+        "Proactive index": "true",
+        "Proactive score": 5,
+        "Tool planning": "<get_current_gps_coordinates>,<get_city_weather>,<get_current_datetime>,<check_agenda_time_conflict>",
+        "Action": [
+            "Use <get_current_gps_coordinates> to determine the user's location.",
+            "Use <get_city_weather> to look up the weather forecast for the location next Saturday.",
+            "Use <get_current_datetime> to assess the current time and season.",
+            "Use <check_agenda_time_conflict> to review the user's agenda for any potential scheduling conflicts."
+        ],
+        "Response": "The weather next Saturday is expected to be excellent, with early spring temperatures ranging from 20 to 25 degrees, making it ideal for outdoor activities. Additionally, it is not the peak tourist season. The user's agenda indicates no other plans for that day. Therefore, this travel proposal is highly recommended.",
+        "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"},{\"name\": \"get_city_weather\", \"description\": \"Get the weather for a specified city at a given time.\", \"parameters\": {\"city\": \"Hong Kong\", \"time\":\"next Saturday\"}},{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time\", \"parameters\": \"None\"},{\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the user's agenda for a given datetime.\", \"parameters\": {\"time\":\"next Saturday\"}}]",
+        "Audio Transcription": " How about go hiking this Saturday? There will be several of us.",
+        "Total Frame Number": "128",
+        "Sampled Frames": "[4, 5, 8, 12, 13, 14, 16, 19, 22, 24, 25, 36, 41, 49, 52, 62, 66, 70, 73, 78, 82, 84, 98, 106, 108, 114, 116, 119, 121, 127]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a restaurant, seated at a table with a plate of food and a drink. The user is holding chopsticks and appears to be engaged in a conversation. The restaurant has a casual atmosphere with other patrons visible in the background. The user's phone is placed on the table, and there is a cup of tea nearby. The setting includes a menu on the table and a television screen in the background displaying advertisements."
+        ],
+        "Rawdata Context": "Visual information shows the user in a restaurant, seated at a table with a plate of food and a drink, holding chopsticks, and appearing to be engaged in a conversation. The content of conversation is: \"How about go hiking this Saturday? There will be several of us.\""
+    },
+    "example-330": {
+        "Category": "Chitchat",
+        "Vision": "The user is in a living room, sitting with friends on a couch watching a comedy movie.",
+        "Audio": "",
+        "Mobile api data": [
+            ""
+        ],
+        "Context information": "Visual information shows the user is enjoying a comedy movie with friends in a living room setting.",
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "The user is enjoying a light-hearted moment with friends. Proactive assistance is not required, as it might interrupt their enjoyment of the movie.",
+        "Proactive index": "false",
+        "Proactive score": 1,
+        "Tool planning": "None",
+        "Action": "None",
+        "Response": "None",
+        "Tools": "None",
+        "Total Frame Number": "967",
+        "Sampled Frames": "[14, 77, 92, 126, 144, 231, 268, 270, 374, 377, 390, 404, 406, 465, 549, 570, 598, 653, 688, 690, 692, 741, 766, 772, 809, 823, 842, 866, 880, 962]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a cozy living room, sitting on a couch with a blanket draped over their lap. They are watching a movie on a large screen, which displays a scene with a woman and a man. The room is dimly lit, creating a relaxed atmosphere."
+        ],
+        "Rawdata Context": "Visual information shows the user is in a cozy living room, sitting on a couch with a blanket over their lap, watching a movie on a large screen in a dimly lit, relaxed atmosphere."
+    },
+    "example-147": {
+        "Category": "Work",
+        "Vision": "The user is focused on writing a lengthy research paper on their computer screen and has been sitting and working for an extended period.",
+        "Audio": "",
+        "Context information": "Visual information indicates that the user has been working on their research paper for several hours without taking breaks and has been sitting and working for an extended period.",
+        "Mobile api data": [
+            "User has sitted for an extended period."
+        ],
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "Contextual information indicates that the user has been working on their research paper and has been sitting and working for an extended period. If the user sits for only a short time, I don't need to remind them to move. However, the current context indicates that the user has been sitting for studing or working for a long time. I need to use <get_health_data> tool to check whether the health data from their wearable device is normal and suggest that they get up and move around. I can also use <wikipedia_search> and <get_medical_knowledge> tools to provide professional medical knowledge, including recommendations on how long to sit before resting, the duration of rest needed, suggested exercises, and what physiological indicators are considered abnormal.",
+        "Proactive index": "true",
+        "Proactive score": 5,
+        "Tool planning": "<get_health_data>,<wikipedia_search>,<get_medical_knowledge>",
+        "Action": [
+            "Use the <get_health_data> tool to check their physiological indicators over the past period of time, such as heart rate, breathing, and blood samples.",
+            "Use <get_medical_knowledge> and <wikipedia_search> tools for professional medical knowledge, including recommendations on how long to sit before resting, the duration of rest needed, suggested exercises, and what physiological indicators are considered abnormal."
+        ],
+        "Response": "You can walk around your desk or choose a standing desk to change your posture. Every hour you sit, you should stand up and move around for 5-10 minutes to avoid staying in the same posture for a long time.",
+        "Tools": "[{\"name\":\"get_health_data\", \"description\": \"Get health data from the user's smart device.\", \"parameters\": \"None\"}, {\"name\": \"get_medical_knowledge\", \"description\": \"Get medical expert knowledge from the up-to-date medical knowledge database.\", \"parameters\": {\"query\":\"recommendations on how long to sit before resting, the duration of rest needed, suggested exercises, and what physiological indicators are considered abnormal.\"}},{\"name\": \"wikipedia_search\", \"description\": \"Tool that searches the Wikipedia API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\", \"parameters\":{\"query\":\"recommendations on how long to sit before resting, the duration of rest needed, suggested exercises, and what physiological indicators are considered abnormal.\"}}]",
+        "Total Frame Number": "178",
+        "Sampled Frames": "[2, 8, 14, 20, 21, 23, 24, 43, 57, 62, 64, 68, 76, 84, 90, 95, 96, 97, 101, 103, 111, 117, 121, 127, 135, 141, 144, 169, 171, 173]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in an office setting, working on a laptop with a secondary monitor displaying a document. The laptop screen shows a text editor with code or text, while the secondary monitor displays a document with highlighted text. The user's hands are visible typing on the laptop keyboard."
+        ],
+        "Rawdata Context": "\"Visual information shows the user is in an office setting, working on a laptop with a secondary monitor displaying a document. The user's hands are visible typing on the laptop keyboard. Mobile data indicates the user has been seated for an extended period.\""
+    },
+    "example-347": {
+        "Category": "Work",
+        "Vision": "The user is standing outside a large office building, holding a laptop bag.",
+        "Audio": "",
+        "Mobile api data": [
+            "Meeting at 10 AM at Downtown Office."
+        ],
+        "Context information": "The user is outside a large office building and has a meeting scheduled at 10 AM at the Downtown Office. It appears the user is preparing to head to the meeting.",
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "The user has a meeting at 10 AM, and they are currently outside. It would be helpful to ensure they arrive on time. I should use <get_current_gps_coordinates> to determine their location and <book_uber> to arrange transportation to the meeting location. This proactive assistance could help the user reach their destination punctually.",
+        "Proactive index": "true",
+        "Proactive score": 4,
+        "Tool planning": "<get_current_gps_coordinates>,<book_uber>",
+        "Action": [
+            "Use <get_current_gps_coordinates> to determine the user's current location.",
+            "Use <book_uber> to arrange transportation to the Downtown Office meeting location."
+        ],
+        "Response": "I noticed you have a meeting at Downtown Office at 10 AM. Let's book an Uber to ensure you arrive on time.",
+        "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}, {\"name\": \"book_uber\", \"description\": \"Book an Uber from the current location to the destination.\", \"parameters\": {\"current_location\": \"user's current location\", \"destination\": \"Downtown Office\"}}]",
+        "Total Frame Number": "448",
+        "Sampled Frames": "[8, 10, 22, 34, 53, 68, 123, 129, 170, 176, 180, 182, 191, 198, 199, 240, 259, 283, 297, 321, 325, 336, 375, 376, 382, 387, 395, 402, 403, 447]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a cityscape, observing tall skyscrapers and modern buildings. The scene includes a prominent building with a distinctive X-shaped pattern and another with a curved facade. In the foreground, there is a lush green park with trees and a small pond. The sky is clear with a few scattered clouds."
+        ],
+        "Rawdata Context": "\"Visual information shows the user in a cityscape observing tall skyscrapers, modern buildings, a distinctive building with an X-shaped pattern, and a curved facade building, with a lush green park in the foreground. The agenda indicates a meeting at 10 AM at Downtown Office.\""
+    },
+    "example-104": {
+        "Category": "Outdoors",
+        "Vision": "The user is walking their dog in a neighborhood park.",
+        "Audio": "",
+        "Context information": "The user is enjoying a walk in the park with their dog.",
+        "Mobile api data": [
+            ""
+        ],
+        "Personas": [
+            "The user enjoys outdoor activities and spends quality time with their pet."
+        ],
+        "Thoughts": "The user is enjoying a leisurely walk with their dog. Proactive assistance isn't necessary in this scenario as it could interrupt their leisure time.",
+        "Proactive index": "false",
+        "Proactive score": 1,
+        "Tool planning": "None",
+        "Action": "None",
+        "Response": "None",
+        "Tools": "None",
+        "Total Frame Number": "1381",
+        "Sampled Frames": "[80, 107, 134, 193, 325, 353, 507, 516, 579, 581, 675, 685, 692, 745, 763, 791, 793, 837, 896, 899, 1070, 1073, 1142, 1224, 1234, 1248, 1292, 1323, 1325, 1344]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is walking on a sidewalk near a grassy area with fallen leaves. The dog, a small white poodle, is sniffing the ground and walking ahead of the user. The sidewalk is bordered by a curb, and the grassy area is filled with green plants and some dry leaves. The user appears to be following the dog, observing its behavior."
+        ],
+        "Rawdata Context": "Visual information shows the user walking on a sidewalk near a grassy area with fallen leaves, accompanied by a small white poodle sniffing the ground and walking ahead."
+    },
+    "example-151": {
+        "Category": "Chitchat",
+        "Vision": "The user is in a shopping mall, talking to a partner.",
+        "Audio": "\"I want to buy a pair of glasses. Do you know where the best glasses stores are around here?\"",
+        "Context information": "Visual information shows the user walking in a shopping mall with a friend. Audio information shows there is a conversation between the user and others. The partner says: \"I want to buy a pair of glasses. Do you know where the best glasses stores are around here?\".",
+        "Mobile api data": [
+            ""
+        ],
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "The contextual information shows the user is shopping with a friend and they are having a conversation. According to the content of the conversation, the friend is looking for glasses stores nearby. So I should proactively help user by giving him some suggestions. I can use <get_current_gps_coordinates> to determine the user's current location, <get_current_datetime> to get the current date and time, <google_map> to find and list nearby glasses stores that sell glasses, and <google_search> to find and list nearby glasses stores that sell glasses, and check their opening hours.",
+        "Proactive index": "true",
+        "Proactive score": 4,
+        "Tool planning": "<get_current_gps_coordinates><get_current_datetime><google_map><google_search>",
+        "Action": [
+            "Use <get_current_gps_coordinates> to determine the user's current location.",
+            "Use <get_current_datetime> to get the current date and time.",
+            "Use <google_map> to find and list nearby glasses stores that sell glasses.",
+            "Use <google_search> to find and list nearby glasses stores that sell glasses, and check their opening hours ites."
+        ],
+        "Response": "There are a few good glasses stores nearby are all within a 5-minute walk. Would you like directions?",
+        "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}, {\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\":\"current_location\", \"destination\":\"glasses stores\"}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\":\"glasses stores near me\"}}]",
+        "Audio Transcription": "I want to buy a pair of glasses. We don't know where the best glasses store around here.",
+        "Total Frame Number": "225",
+        "Sampled Frames": "[2, 10, 12, 13, 23, 38, 39, 56, 78, 81, 83, 97, 100, 114, 128, 129, 134, 138, 144, 147, 152, 154, 161, 162, 172, 178, 187, 192, 199, 217]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a shopping mall, walking past a ROLEX store. The store features a large display of a ROLEX watch, and the user is looking at the display. The mall floor is shiny and reflective, and there are other shoppers in the background."
+        ],
+        "Rawdata Context": "\"Visual information shows the user is in a shopping mall, walking past a ROLEX store and looking at the display. The content of conversation is: \\\"I want to buy a pair of glasses. We don't know where the best glasses store around here.\\\"\""
+    },
+    "example-420": {
+        "Category": "Travel",
+        "Vision": "The user is on a ferry, standing on the deck and looking at the ocean.",
+        "Audio": "",
+        "Mobile api data": [
+            ""
+        ],
+        "Context information": "The user is on a ferry ride, enjoying the view of the ocean from the deck.",
+        "Personas": [
+            "The user loves listening to ocean-themed music when near the sea."
+        ],
+        "Thoughts": "The user is enjoying the ferry ride and the ocean view. Playing ocean-themed music could enhance their experience by aligning the music with the scenic environment.",
+        "Proactive index": "true",
+        "Proactive score": 5,
+        "Tool planning": "<play_music>",
+        "Action": [
+            "Use <play_music> to play ocean-themed music to complement the user's ferry ride experience."
+        ],
+        "Response": "I can play some ocean-themed music to enhance your ferry ride experience. Would you like me to start a playlist?",
+        "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": {}}]",
+        "Total Frame Number": "385",
+        "Sampled Frames": "[14, 23, 28, 40, 50, 51, 74, 85, 87, 89, 92, 125, 150, 153, 166, 183, 191, 195, 210, 220, 222, 227, 271, 289, 312, 317, 324, 349, 355, 360]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is on a ferry boat, sitting on a wooden deck with black and white benches. The boat is sailing on a calm sea, and the sun is shining brightly in the sky. In the distance, a hilly landscape with buildings can be seen. The user appears to be enjoying the view and the peaceful journey."
+        ],
+        "Rawdata Context": "\"Visual information indicates the user is on a ferry boat, sitting on a wooden deck with black and white benches, sailing on a calm sea under a bright sun, with a hilly landscape and buildings visible in the distance, and appears to be enjoying the view and peaceful journey.\""
+    },
+    "example-429": {
+        "Category": "Shopping",
+        "Vision": "The user is walking through a bustling shopping mall, with various shops displaying clothing and accessories.",
+        "Audio": "",
+        "Mobile api data": [
+            ""
+        ],
+        "Context information": "The user is in a shopping mall, surrounded by various clothing and accessory stores. The environment is lively with announcements about ongoing sales.",
+        "Personas": [
+            "The user enjoys listening to music while shopping to enhance their experience."
+        ],
+        "Thoughts": "Shopping can be an enjoyable experience, especially when accompanied by music. Since the user enjoys listening to music while shopping, providing a music playlist could enhance their shopping trip.",
+        "Proactive index": "true",
+        "Proactive score": 5,
+        "Tool planning": "<play_music>",
+        "Action": [
+            "Use <play_music> to play music for the user to enhance their shopping experience."
+        ],
+        "Response": "Hi! Would you like me to play some music to make your shopping experience even more enjoyable?",
+        "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": \"None\"}]",
+        "Total Frame Number": "145",
+        "Sampled Frames": "[3, 5, 6, 15, 16, 19, 21, 23, 31, 32, 33, 35, 42, 50, 55, 56, 59, 66, 73, 95, 102, 103, 106, 108, 113, 115, 132, 135, 138, 141]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is walking through a shopping mall, passing by various stores and people. The mall has a modern design with white flooring and ceiling lights. The user is carrying a brown bag with text on it and is wearing a beige cap. The scene includes several individuals walking and standing, some wearing masks. The user appears to be in motion, possibly shopping or exploring the mall."
+        ],
+        "Rawdata Context": "\"Visual information shows the user walking through a shopping mall with a modern design, carrying a brown bag with text on it, and wearing a beige cap. The user is in motion, possibly shopping or exploring the mall.\""
+    },
+    "example-218": {
+        "Category": "Cooking",
+        "Vision": "The user is in the kitchen, looking at a collection of spices.",
+        "Audio": "",
+        "Context information": "Visual information shows the user in the kitchen with various spices on the counter.",
+        "Mobile api data": [
+            ""
+        ],
+        "Personas": [
+            "User enjoys learning about international dishes and experimenting with new flavors."
+        ],
+        "Thoughts": "The user is intrigued by global flavors and spices. They would benefit from recipes that incorporate these spices into international dishes. Using <search_rednote> to find recipes that match their interest in global cuisines could be helpful.",
+        "Proactive index": "true",
+        "Proactive score": 4,
+        "Tool planning": "<search_rednote>",
+        "Action": [
+            "Use <search_rednote> to find recipes that use the spices for international dishes."
+        ],
+        "Response": "I found some recipes that incorporate the spices you have, inspired by global cuisines. Would you like to try cooking something new and exciting?",
+        "Tools": "[{\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\":\"international recipes using spices\"}}]",
+        "Total Frame Number": "147",
+        "Sampled Frames": "[2, 8, 16, 18, 20, 25, 27, 33, 44, 52, 61, 64, 66, 67, 68, 76, 80, 101, 107, 112, 117, 119, 121, 131, 133, 135, 139, 142, 143, 144]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a kitchen, opening a drawer filled with various spices in glass jars. The drawer is organized, with each spice in its own compartment. The user takes out a jar of red spice, examines it, and then places it back in the drawer."
+        ],
+        "Rawdata Context": "\"Visual information shows the user is in a kitchen, opening a drawer filled with various spices in glass jars, taking out a jar of red spice, examining it, and then placing it back in the drawer.\""
+    },
+    "example-467": {
+        "Category": "Cooking",
+        "Vision": "The user is in the kitchen, rolling out dough with a rolling pin on a wooden surface.",
+        "Audio": "",
+        "Mobile api data": [
+            ""
+        ],
+        "Context information": "Visual information shows the user is rolling out dough on a countertop, likely preparing to bake or cook.",
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "The user is rolling out dough, a standard task in baking. There are no indications of need for assistance, and the user appears to be handling the task smoothly.",
+        "Proactive index": "false",
+        "Proactive score": 1,
+        "Tool planning": "None",
+        "Action": "None",
+        "Response": "None",
+        "Tools": "None",
+        "Total Frame Number": "969",
+        "Sampled Frames": "[4, 74, 109, 119, 179, 256, 263, 267, 301, 348, 386, 413, 416, 453, 465, 495, 515, 518, 525, 550, 572, 576, 588, 710, 788, 812, 822, 832, 897, 952]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a kitchen, rolling out dough on a wooden surface. The dough is being flattened with a rolling pin, and flour is sprinkled on the surface. The user's hands are actively working with the dough, and there are other pieces of dough visible in the background."
+        ],
+        "Rawdata Context": "\"Visual information shows the user is in a kitchen, rolling out dough on a wooden surface with flour sprinkled around, actively working with the dough.\""
+    },
+    "example-1": {
+        "Category": "Work",
+        "Vision": "The person is engaging in a conversation with a colleague in an office.",
+        "Audio": "Hi, how about going to Hong Kong this weekend? I want to go to the Disneyland and Victoria Harbour.",
+        "Context information": "Vision information suggests the person is engaging in a conversation with a colleague in an office. The user is talking to a partner. The content of conversation is: \"Hi, how about going to Hong Kong this weekend? I want to go to the Disneyland and Victoria Harbour.\"",
+        "Mobile api data": [
+            ""
+        ],
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "Travel planning needs to consider various factors, including the weather, whether it is the off-season or peak season for tourism, passenger flow, schedule, and more.",
+        "Proactive index": "true",
+        "Proactive score": 5,
+        "Tool planning": "<get_city_weather>,<get_current_datetime>,<check_agenda_time_conflict>",
+        "Action": [
+            "Use <get_city_weather> to check the weather forecast for Hong Kong this weekend.",
+            "Use <get_current_datetime> to check the current time and season, and analyze whether it is a peak tourist period, considering passenger flow and overall tourist experience.",
+            "Use <check_agenda_time_conflict> to check the user's agenda to see if there are any conflicts with the proposed travel dates."
+        ],
+        "Response": "The weather in Hong Kong this weekend looks clear and sunny—perfect for outdoor activities like Disneyland and Victoria Harbour. Do you want me to help book tickets or suggest additional activities?",
+        "Tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the weather for a specified city at a given time.\", \"parameters\": {\"city\": \"Hong Kong\", \"time\": \"this weekend\"}},{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time\", \"parameters\": \"None\"},{\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the user's agenda for a given datetime.\", \"parameters\": {\"time\":\"this weekend\"}}]",
+        "Audio Transcription": "Hi, how about to go to Hong Kong this weekend? I want to go to Disneyland and Victoria Harbour.",
+        "Total Frame Number": "305",
+        "Sampled Frames": "[9, 11, 15, 20, 31, 45, 77, 80, 95, 101, 115, 120, 126, 131, 141, 143, 154, 156, 170, 177, 180, 181, 198, 201, 234, 250, 256, 271, 284, 287]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in an office setting, sitting at a desk with a laptop and multiple monitors displaying code. The desk is cluttered with various items, including a water bottle, a wallet, and a green bag. The user appears to be working on a computer, typing on a keyboard. The background shows shelves with electronic equipment and cables."
+        ],
+        "Rawdata Context": "Vision information indicates the user is in an office setting, sitting at a desk with a laptop and multiple monitors displaying code, suggesting they are working on a computer. The content of conversation is: \"Hi, how about to go to Hong Kong this weekend? I want to go to Disneyland and Victoria Harbour.\""
+    },
+    "example-289": {
+        "Category": "Others",
+        "Vision": "The user is in an aquarium, watching jellyfish swim gracefully in a large tank.",
+        "Audio": "",
+        "Mobile api data": [
+            ""
+        ],
+        "Context information": "The user is at an aquarium, observing jellyfish in a tank.",
+        "Personas": [
+            "Marine life enthusiast"
+        ],
+        "Thoughts": "The user might be curious about jellyfish species and their unique biology. Providing information about jellyfish could deepen their appreciation for marine life.",
+        "Proactive index": "true",
+        "Proactive score": 4,
+        "Tool planning": "<wikipedia_search>,<google_search>",
+        "Action": [
+            "Use <wikipedia_search> to find information about jellyfish species and their biology.",
+            "Use <google_search> to provide insights into jellyfish habitats and their role in the ecosystem.",
+            "Provide insights into jellyfish habitats and their role in the ecosystem."
+        ],
+        "Response": "Jellyfish are fascinating creatures that have been around for millions of years. Would you like to learn more about their biology and the different species?",
+        "Tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Tool that searches the Wikipedia API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\", \"parameters\": {\"query\": \"Jellyfish species and biology\"}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"jellyfish habitats and their role in the ecosystem\"}}]",
+        "Total Frame Number": "222",
+        "Sampled Frames": "[9, 10, 11, 16, 34, 44, 46, 51, 75, 79, 80, 86, 101, 117, 118, 122, 131, 139, 161, 164, 175, 178, 183, 198, 199, 200, 207, 208, 212, 221]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is observing a group of jellyfish swimming in an aquarium. The jellyfish are illuminated with a blue light, creating a serene underwater scene. The user appears to be standing in front of the aquarium, focusing on the translucent, glowing jellyfish."
+        ],
+        "Rawdata Context": "Visual information shows the user observing a group of jellyfish swimming in an aquarium, illuminated with a blue light, creating a serene underwater scene."
+    },
+    "example-301": {
+        "Category": "Work",
+        "Vision": "The user is at a coworking space, surrounded by papers and a cup of coffee. They are typing on a laptop.",
+        "Audio": "",
+        "Mobile api data": [
+            ""
+        ],
+        "Context information": "The user is working in a coworking space, focusing on their laptop amidst papers and coffee.",
+        "Personas": [
+            "Freelancer"
+        ],
+        "Thoughts": "The user appears to be deep in work. Without other cues, there is no need for proactive assistance.",
+        "Proactive index": "false",
+        "Proactive score": 1,
+        "Tool planning": "None",
+        "Action": "None",
+        "Response": "None",
+        "Tools": "None",
+        "Total Frame Number": "183",
+        "Sampled Frames": "[0, 5, 6, 12, 17, 28, 32, 33, 37, 44, 52, 53, 54, 55, 59, 62, 64, 70, 84, 85, 138, 141, 144, 150, 152, 159, 163, 164, 179, 181]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is sitting at a wooden table, typing on a laptop. A white mug filled with a beverage is placed nearby. There are papers and a pen on the table, suggesting the user is working or studying. The environment appears to be a home office or a casual workspace."
+        ],
+        "Rawdata Context": "\"Visual information shows the user is sitting at a wooden table, typing on a laptop with a white mug filled with a beverage nearby, and there are papers and a pen on the table, suggesting the user is working or studying in a home office or casual workspace.\""
+    },
+    "example-379": {
+        "Category": "Outdoors",
+        "Vision": "The user is waiting at a bus stop, suggesting they may be traveling.",
+        "Audio": "",
+        "Mobile api data": [
+            ""
+        ],
+        "Context information": "The user is at a bus stop, indicating potential travel plans.",
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "The user might be catching a specific bus for travel purposes. Proactively providing the bus schedule can help them plan their journey effectively.",
+        "Proactive index": "true",
+        "Proactive score": 4,
+        "Tool planning": "<get_current_gps_coordinates>,<get_current_datetime>,<check_bus_schedule>",
+        "Action": [
+            "Use <get_current_gps_coordinates> to determine the user's current location.",
+            "Use <get_current_datetime> to get the current date and time.",
+            "Use <check_bus_schedule> to find the next bus arrival time."
+        ],
+        "Response": "The next bus is scheduled to arrive in 12 minutes. Do you need help with your travel plans?",
+        "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}, {\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time\", \"parameters\": \"None\"}, {\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for a specific bus stop.\", \"parameters\": {\"bus_stop\": \"user current location\"}}]",
+        "Total Frame Number": "222",
+        "Sampled Frames": "[2, 10, 11, 12, 24, 25, 29, 35, 43, 44, 59, 67, 74, 75, 80, 84, 91, 92, 109, 112, 116, 118, 164, 165, 169, 173, 189, 194, 205, 208]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a bus terminal, observing several buses parked and moving around. The terminal is surrounded by buildings and hills in the background. The user is standing near a pole, watching the buses and people in the area."
+        ],
+        "Rawdata Context": "\"Visual information shows the user is in a bus terminal, observing several buses parked and moving around, with buildings and hills in the background. The user is standing near a pole, watching the buses and people in the area.\""
+    },
+    "example-391": {
+        "Category": "Others",
+        "Vision": "The user is looking at a restaurant menu.",
+        "Audio": "",
+        "Context information": "Visual information shows the user is looking at a restaurant menu. GPS detects the user is near a popular dining area. The user's calendar shows no upcoming events.",
+        "Mobile api data": [
+            ""
+        ],
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "The user seems to be deciding on a meal. Since there are no upcoming events, I can suggest popular dishes or nearby attractions. Using <search_rednote>, I can recommend options.",
+        "Proactive index": "true",
+        "Proactive score": 4,
+        "Tool planning": "<search_rednote>",
+        "Action": [
+            "Use <search_rednote> to find recommendations.",
+            "Check reviews using <search_rednote>.",
+            "Ask the user if they'd like suggestions."
+        ],
+        "Response": "I see you’re at a restaurant. Would you like me to recommend popular dishes or nearby dining spots?",
+        "Tools": "[{\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"restaurant recommendations\"}}]",
+        "Total Frame Number": "187",
+        "Sampled Frames": "[5, 9, 12, 22, 25, 34, 48, 58, 60, 68, 71, 76, 77, 79, 82, 84, 86, 95, 101, 102, 106, 113, 121, 125, 154, 155, 174, 175, 176, 177]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a restaurant, looking at a digital menu on a tablet. The menu displays various food items and prices, with a focus on different dishes and beverages. The user appears to be making a selection, as the tablet screen shows a numeric keypad for input. The surrounding area is well-lit, with a warm, inviting ambiance."
+        ],
+        "Rawdata Context": "\"Visual information shows the user is in a restaurant, looking at a digital menu on a tablet and appears to be making a selection using a numeric keypad. The surrounding area is well-lit, with a warm, inviting ambiance.\""
+    },
+    "example-470": {
+        "Category": "Cooking",
+        "Vision": "The user is in a kitchen, preparing food. There is a wooden cutting board with sliced leeks, chopped parsley, and sliced red peppers. In the background, there are bowls containing chopped vegetables, a pepper mill, and a pan on the stove.",
+        "Audio": "",
+        "Mobile api data": [
+            ""
+        ],
+        "Context information": "Visual information shows the user in a kitchen preparing to cook with fresh vegetables, a cutting board, and a pot on the stove.",
+        "Personas": [
+            "The user enjoys trying new and healthy recipes but often seeks guidance on cooking techniques."
+        ],
+        "Thoughts": "The user is preparing to cook with fresh vegetables. Providing a new and healthy recipe could enhance their cooking experience.",
+        "Proactive index": "true",
+        "Proactive score": 5,
+        "Tool planning": "<search_rednote>",
+        "Action": [
+            "Use <search_rednote> to find a healthy and creative recipe using fresh vegetables."
+        ],
+        "Response": "I found a delicious recipe for a vegetable stir-fry that uses the ingredients you have. Would you like the step-by-step instructions?",
+        "Tools": "[{\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"vegetable stir-fry recipe with fresh vegetables\"}}]",
+        "Total Frame Number": "370",
+        "Sampled Frames": "[1, 11, 16, 23, 29, 30, 32, 35, 37, 67, 111, 130, 146, 157, 176, 202, 209, 212, 216, 232, 233, 236, 241, 262, 277, 286, 288, 296, 344, 358]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a kitchen, preparing food. A wooden cutting board is in front of them, with sliced leeks, chopped parsley, and sliced red peppers. In the background, there are bowls containing chopped vegetables, a pepper mill, and a pan on the stove. The kitchen counter is cluttered with various ingredients and utensils."
+        ],
+        "Rawdata Context": "Visual information shows the user is in a kitchen, preparing food with a cutting board of sliced leeks, chopped parsley, and sliced red peppers, surrounded by various ingredients and utensils, with a pan on the stove."
+    },
+    "example-180": {
+        "Category": "Others",
+        "Vision": "The user is in a building and there is an elevator in front of him.",
+        "Audio": "",
+        "Context information": "Visual information shows the user is in a building and there is an elevator in front of him.",
+        "Mobile api data": [
+            ""
+        ],
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "Contextual information shows user is in a building and there is an elevator in front of him. Without explicit input or additional contextual information, no proactive actions are required. The proactive score is set to 1.",
+        "Proactive index": "false",
+        "Proactive score": 1,
+        "Tool planning": "None",
+        "Action": "None",
+        "Response": "None",
+        "Tools": "None",
+        "Total Frame Number": "326",
+        "Sampled Frames": "[15, 22, 31, 33, 37, 41, 55, 64, 75, 113, 140, 154, 164, 166, 205, 218, 227, 231, 234, 245, 251, 257, 266, 280, 299, 303, 311, 314, 319, 324]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in an office setting, standing near an elevator. The elevator doors are closed, and the digital display shows the floor number. There is a trash bin next to the elevator, and a sign above it indicates safety instructions in case of fire. The user appears to be waiting for the elevator to open."
+        ],
+        "Rawdata Context": "\"Visual information indicates the user is in an office setting, standing near an elevator with a closed door, and appears to be waiting for it to open.\""
+    },
+    "example-499": {
+        "Category": "Outdoors",
+        "Vision": "The user is in a park, standing near a pond. The pond is surrounded by trees with autumn-colored leaves.",
+        "Audio": "",
+        "Mobile api data": [
+            ""
+        ],
+        "Context information": "The user is watching the pond in a park , and there are natural vision with trees.",
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "The user seems to be enjoying the scene in the park. There is no indication of a need for assistance, as they are likely immersed in the moment. Proactive engagement would be unnecessary.",
+        "Proactive index": "false",
+        "Proactive score": 1,
+        "Tool planning": "None",
+        "Action": "None",
+        "Response": "None",
+        "Tools": "None",
+        "Total Frame Number": "175",
+        "Sampled Frames": "[0, 11, 21, 25, 33, 34, 58, 59, 65, 72, 89, 94, 97, 104, 107, 108, 109, 110, 122, 123, 133, 135, 138, 139, 147, 150, 154, 166, 168, 174]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a park, standing near a small pond. The pond is surrounded by trees with autumn-colored leaves, and there is a stone retaining wall along the edge. The water is calm, reflecting the trees and the sky. In the foreground, there is a bush with bright green leaves, and the ground is covered with dry leaves and grass. The user appears to be observing the natural surroundings."
+        ],
+        "Rawdata Context": "\"Visual information shows the user is in a park, standing near a small pond surrounded by trees with autumn-colored leaves and a stone retaining wall, observing the natural surroundings.\""
+    },
+    "example-339": {
+        "Category": "Travel",
+        "Vision": "The user is standing in front of a train station, looking at a map of local attractions.",
+        "Audio": "",
+        "Mobile api data": [
+            "Location: Central Train Station, City X"
+        ],
+        "Context information": "The user is at a train station in City X, examining a map for nearby attractions, possibly planning to explore the area.",
+        "Personas": [
+            "The user enjoys exploring new places and trying local cuisines."
+        ],
+        "Thoughts": "The user is looking for local attractions. Providing information on popular nearby sites or dining options could enhance their experience.",
+        "Proactive index": "medium",
+        "Proactive score": 3,
+        "Tool planning": "<google_search>",
+        "Action": [
+            "Use <google_search> to find popular attractions and dining spots near Central Train Station, City X."
+        ],
+        "Response": "There are several popular attractions and local dining spots near the train station. Would you like recommendations or directions to any specific place?",
+        "Tools": "[{\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"attractions and dining near Central Train Station, City X\"}}]",
+        "Total Frame Number": "276",
+        "Sampled Frames": "[10, 20, 30, 36, 58, 63, 72, 76, 82, 84, 101, 110, 112, 115, 135, 136, 139, 147, 153, 154, 155, 157, 188, 206, 217, 224, 227, 239, 252, 256]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a subway station, looking at a large map and information board. The map shows various streets and landmarks, while the information board provides details about the station's exits and nearby locations. The user appears to be studying the map for directions or information."
+        ],
+        "Rawdata Context": "\"Visual information shows the user in a subway station, looking at a large map and information board. Mobile data indicates the location is Central Train Station, City X.\""
+    },
+    "example-35": {
+        "Category": "Health",
+        "Vision": "The user is sitting in front of the computer working or studying",
+        "Audio": "",
+        "Context information": "Visual information indicates that the user is sitting in front of the computer, either working or studying. The user's fitness watch shows an elevated resting heart rate of 102 BPM.",
+        "Mobile api data": [
+            " elevated resting heart rate of 102 BPM"
+        ],
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "The user is experiencing unexpected physical symptoms, including an elevated heart rate and body temperature. I should use the <health_app> to get their vital signs and proactively provide reminders about abnormal physiological indicators. Proactive intervention could help them quickly determine if they need to seek medical advice.",
+        "Proactive index": "true",
+        "Proactive score": 5,
+        "Tool planning": "<get_health_data>,<get_medical_knowledge>,<wikipedia_search>",
+        "Action": [
+            "Use <get_health_data> to check their vital signs",
+            "Search <get_medical_knowledge> and <wikipedia_search> for medical advice."
+        ],
+        "Response": "I notice your heart rate is elevated and you're experiencing flushing. These could be side effects of the medication you started recently. Would you like me to check if these symptoms are listed as potential side effects? These symptoms sometimes warrant medical attention, so I can also help you determine whether you should contact your doctor.",
+        "Tools": "[{\"name\": \"get_health_data\", \"description\": \"Get health data from the user's smart device.\", \"parameters\": \"None\"}, {\"name\": \"get_medical_knowledge\", \"description\": \"Get medical expert knowledge from the up-to-date medical knowledge database.\", \"parameters\": {\"query\":\"advice on elevated heart rate and flushing.\"}},{\"name\": \"wikipedia_search\", \"description\": \"Tool that searches the Wikipedia API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\", \"parameters\":{\"query\":\"advice on elevated heart rate and flushing.\"}}]",
+        "Total Frame Number": "218",
+        "Sampled Frames": "[4, 9, 19, 25, 33, 35, 39, 46, 49, 54, 57, 75, 79, 86, 87, 92, 108, 124, 129, 130, 134, 138, 152, 158, 165, 169, 171, 189, 196, 213]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is sitting at a wooden table in a room, browsing a news website on a laptop. The screen displays multiple articles with images of people in red attire. The user's hand is on the laptop's trackpad, scrolling through the content. A white mug with blue stripes is placed on the table to the right of the laptop."
+        ],
+        "Rawdata Context": "Visual information shows the user is sitting at a wooden table in a room, browsing a news website on a laptop, with multiple articles featuring images of people in red attire. The mobile API data indicates an elevated resting heart rate of 102 BPM."
+    },
+    "example-5": {
+        "Category": "Shopping",
+        "Vision": "The user seems to be shopping in a supermarket. The user is looking at the vegetables in the mall.",
+        "Audio": "",
+        "Context information": "Visual information suggests that the user is shopping in a supermarket. The user is looking at the vegetables in the mall.",
+        "Mobile api data": [
+            ""
+        ],
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "The user might want to buy vegetables, but typically, a person buying vegetables will be concerned about the current market prices, online platform prices, and the freshness of the vegetables. Therefore, I should use the <get_online_product_price> tool, such as Amazon or eBay, to check the online prices of the vegetables. Additionally, I can use the <vllm> tool to assess their freshness.",
+        "Proactive index": "true",
+        "Proactive score": 5,
+        "Tool planning": "<vllm>,<get_online_product_price>",
+        "Action": [
+            "Use <vllm> (Visual Language Model) for vegetable freshness detection",
+            "Use the online shopping platform to check the prices."
+        ],
+        "Response": "I have analyzed the freshness of the vegetables you are looking at. The tomatoes are fresh, and the price is reasonable. Would you like to add them to your cart?",
+        "Tools": "[{\"name\": \"vllm\", \"description\": \"\", \"parameters\":{\"prompt\": \"Detect the freshness of the vegetable.\",\"image_path\":\"\"}},{\"name\": \"get_online_product_price\", \"description\": \"Get the price of a product from an online store such as Amazon or eBay\", \"parameters\": {\"product_name\":\"vegetables\"}}]",
+        "Total Frame Number": "165",
+        "Sampled Frames": "[8, 9, 11, 24, 25, 29, 34, 35, 39, 55, 60, 71, 77, 94, 99, 104, 106, 107, 113, 116, 118, 125, 126, 137, 138, 147, 160, 161, 162, 164]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a grocery store, looking at a display case filled with various packaged vegetables. The display case contains bags of broccoli, spinach, and other leafy greens. The user appears to be considering which items to purchase."
+        ],
+        "Rawdata Context": "\"Visual information shows the user is in a grocery store, looking at a display case filled with various packaged vegetables, including bags of broccoli, spinach, and other leafy greens, and appears to be considering which items to purchase.\""
+    },
+    "example-434": {
+        "Category": "Shopping",
+        "Vision": "The user is in a sports store, checking out various types of running shoes.",
+        "Audio": "",
+        "Mobile api data": [],
+        "Context information": "The user is in a sports store, checking out various types of running shoes, likely with the intention of buying a pair.",
+        "Personas": [
+            "The user is a fitness enthusiast who values performance and comfort in footwear."
+        ],
+        "Thoughts": "The user might appreciate information on the best running shoes for performance and comfort. I can also use <google_search> to find the best running shoes for performance and comfort. I can also use <get_online_product_price> to check the price of the running shoes online.",
+        "Proactive index": "true",
+        "Proactive score": 4,
+        "Tool planning": "<search_rednote>,<google_search>,<get_online_product_price>",
+        "Action": [
+            "Use <search_rednote> to provide recommendations for running shoes based on performance and comfort.",
+            "Use <google_search> to find the best running shoes for performance and comfort.",
+            "Use <get_online_product_price> to check the price of the running shoes online."
+        ],
+        "Response": "I have some recommendations for running shoes that offer great performance and comfort. Would you like to hear them?",
+        "Tools": "[{\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"best running shoes for performance and comfort\"}}, {\"name\": \"google_search\", \"description\": \"Search the web for information.\", \"parameters\": {\"query\": \"best running shoes for performance and comfort\"}}, {\"name\": \"get_online_product_price\", \"description\": \"Get the price of a product from an online store such as Amazon or eBay.\", \"parameters\": {\"product_name\": \"running shoes\"}}]",
+        "Total Frame Number": "285",
+        "Sampled Frames": "[7, 12, 32, 38, 46, 55, 58, 63, 72, 84, 113, 115, 119, 131, 134, 135, 151, 167, 173, 187, 188, 190, 195, 202, 203, 232, 239, 241, 246, 274]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a shoe store, browsing through various pairs of sneakers displayed on shelves. The shelves are filled with shoes of different brands and colors, including Nike and other popular brands. Price tags are visible on the shoes, indicating the cost. The user appears to be examining the shoes, possibly considering a purchase."
+        ],
+        "Rawdata Context": "\"Visual information shows the user is in a shoe store, browsing through various pairs of sneakers displayed on shelves, examining shoes of different brands and colors, possibly considering a purchase.\""
+    },
+    "example-236": {
+        "Category": "Cooking",
+        "Vision": "The user is standing by the stove, checking the temperature of a frying pan.",
+        "Audio": "",
+        "Mobile api data": [
+            ""
+        ],
+        "Context information": "Visual information shows the user is standing by the stove, checking the temperature of a frying pan, likely preparing to cook.",
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "The user is checking the frying pan's temperature, a routine part of cooking preparation. There is no indication of a need for proactive assistance.",
+        "Proactive index": "false",
+        "Proactive score": 1,
+        "Tool planning": "None",
+        "Action": "None",
+        "Response": "None",
+        "Tools": "None",
+        "Total Frame Number": "231",
+        "Sampled Frames": "[0, 32, 44, 49, 53, 73, 75, 77, 79, 83, 97, 103, 104, 107, 110, 129, 140, 141, 145, 148, 155, 157, 170, 173, 178, 191, 201, 211, 225, 228]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a kitchen, standing in front of a stove with a stainless steel pan filled with oil. A wooden spatula is being used to stir the oil, creating small bubbles as it mixes. The stove has a black surface with a white herringbone-patterned backsplash."
+        ],
+        "Rawdata Context": "Visual information shows the user is in a kitchen, standing in front of a stove with a stainless steel pan filled with oil, using a wooden spatula to stir the oil and create small bubbles."
+    },
+    "example-435": {
+        "Category": "Shopping",
+        "Vision": "The user is in a clothing store, examining a rack of jackets.",
+        "Audio": "",
+        "Mobile api data": [],
+        "Context information": "The user is in a clothing store, looking at jackets. They might be considering purchasing one.",
+        "Personas": [
+            "The user is a fashion enthusiast who likes to stay updated with the latest trends."
+        ],
+        "Thoughts": "The user might be interested in knowing the latest fashion trends or comparing prices online for the jackets. I should use the <vllm> to provide fashion advice and <get_online_product_price> to check online prices.",
+        "Proactive index": "true",
+        "Proactive score": 4,
+        "Tool planning": "<vllm>,<get_online_product_price>",
+        "Action": [
+            "Use <vllm> to analyze the style of the jackets and suggest if they align with current fashion trends.",
+            "Check the prices of the jackets on online platforms using <get_online_product_price>."
+        ],
+        "Response": "The jackets you're looking at are in line with the current fashion trends. Would you like to know where you can find the best price online?",
+        "Tools": "[{\"name\": \"vllm\", \"description\": \"Visual Large Language Model (VLM) that can analyze fashion trends based on the given image.\", \"parameters\": {\"prompt\": \"Analyze the style of the jackets and suggest if they align with current fashion trends.\", \"image_path\": \"\"}}, {\"name\": \"get_online_product_price\", \"description\": \"Get the price of a product from an online store such as Amazon or eBay.\", \"parameters\": {\"product_name\": \"jackets\"}}]",
+        "Total Frame Number": "172",
+        "Sampled Frames": "[4, 8, 11, 12, 14, 17, 25, 28, 35, 39, 48, 52, 55, 59, 61, 62, 70, 74, 88, 102, 107, 112, 114, 128, 138, 149, 152, 153, 157, 166]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a clothing store, looking at jackets on a rack. The jackets are priced at $199, as indicated by the price tags. The store has a modern, organized layout with various jackets in different colors and styles."
+        ],
+        "Rawdata Context": "\"Visual information shows the user is in a clothing store, looking at jackets on a rack priced at $199, with a modern, organized layout featuring various jackets in different colors and styles.\""
+    },
+    "example-386": {
+        "Category": "Outdoors",
+        "Vision": "The user is at a beach, sitting on the sand and watching the waves.",
+        "Audio": "",
+        "Mobile api data": [
+            ""
+        ],
+        "Context information": "Visual information shows the user is at a beach, sitting on the sand and watching the waves, indicating a serene and relaxing environment.",
+        "Personas": [
+            "The user enjoys playing music that matches the natural ambiance."
+        ],
+        "Thoughts": "The user is at the beach, a setting where music can enhance the natural ambiance. Since the user enjoys music that complements the environment, playing some beach-themed tunes could enhance their beach experience.",
+        "Proactive index": "true",
+        "Proactive score": 5,
+        "Tool planning": "<play_music>",
+        "Action": [
+            "Use <play_music> to play beach-themed music to enhance the user's beach experience."
+        ],
+        "Response": "You're at the beach enjoying the waves. How about some beach-themed music to complement the relaxing sound of the ocean?",
+        "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": \"None\"}]",
+        "Total Frame Number": "489",
+        "Sampled Frames": "[18, 22, 51, 64, 77, 119, 122, 162, 169, 195, 196, 197, 210, 242, 253, 257, 292, 302, 333, 339, 357, 361, 381, 397, 405, 415, 420, 438, 445, 467]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is sitting on a beach, with their feet visible in the foreground. The beach has black sand and is surrounded by grassy areas. In the distance, there is a large body of water with waves crashing onto the shore. The sky is overcast with clouds, and the overall atmosphere appears calm and serene."
+        ],
+        "Rawdata Context": "\"Visual information indicates the user is sitting on a beach with black sand, surrounded by grassy areas, and observing a large body of water with waves under an overcast sky, suggesting a calm and serene atmosphere.\""
+    },
+    "example-23": {
+        "Category": "Outdoors",
+        "Vision": "The user played basketball this afternoon for about two hours.",
+        "Audio": "",
+        "Context information": "Visual information suggests that the user played basketball this afternoon for about two hours.",
+        "Mobile api data": [
+            ""
+        ],
+        "Personas": [
+            "Users dislike keeping daily logs of their activities on some apps because they find it redundant and it consumes mobile phone memory."
+        ],
+        "Thoughts": "The user exercised this afternoon, and it might be helpful for him to note this activity in his agenda. However, his persona indicates that he dislikes keeping daily logs of his activities on some apps because he finds it redundant and it consumes mobile phone memory. If I proactively note this event in his agenda, it may annoy him. Therefore, the proactive index is set to false and proactive score is set to 1, meaning I will not initiate this proactive service.",
+        "Proactive index": "false",
+        "Proactive score": 1,
+        "Tool planning": "None",
+        "Action": "None",
+        "Response": "None",
+        "Tools": "None",
+        "Total Frame Number": "163",
+        "Sampled Frames": "[6, 8, 17, 19, 29, 32, 35, 39, 47, 60, 63, 71, 80, 92, 93, 94, 95, 98, 99, 101, 112, 113, 115, 127, 132, 135, 145, 155, 156, 160]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in an outdoor basketball court surrounded by trees and buildings. Several people are playing basketball, with one player dribbling the ball and others watching or waiting for their turn. The court is divided into two halves, with one half painted blue. The user's smart glasses detect the presence of a bus stop named 'University' in the background."
+        ],
+        "Rawdata Context": "\"Visual information shows the user is in an outdoor basketball court surrounded by trees and buildings, where several people are playing basketball, and a bus stop named 'University' is detected in the background.\""
+    },
+    "example-108": {
+        "Category": "Shopping",
+        "Vision": "The user is standing in a grocery store aisle, looking at a variety of cereals.",
+        "Audio": "",
+        "Context information": "Visual information shows the user is standing in a grocery store aisle, looking at a variety of cereals.",
+        "Mobile api data": [
+            ""
+        ],
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "Contextual information shows the user might benefit from knowing the nutritional information or price comparisons for the cereals they are considering. So I should use <get_online_product_price> to check the prices of the cereals online and <search_rednote> to find nutritional information and user reviews for the cereals.",
+        "Proactive index": "true",
+        "Proactive score": 4,
+        "Tool planning": "<get_online_product_price>,<search_rednote>",
+        "Action": [
+            "Use <get_online_product_price> to check the prices of the cereals online.",
+            "Use <search_rednote> to find nutritional information and user reviews for the cereals."
+        ],
+        "Response": "Would you like me to provide nutritional information or price comparisons for the cereals you're looking at?",
+        "Tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the price of a product from an online store such as Amazon or eBay\", \"parameters\": {\"product_name\":\"cereal\"}},{\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\":\"cereal nutritional information and reviews\"}}]",
+        "Total Frame Number": "128",
+        "Sampled Frames": "[0, 9, 10, 11, 13, 19, 31, 34, 37, 39, 40, 46, 48, 49, 56, 79, 81, 91, 94, 97, 98, 100, 102, 106, 107, 116, 117, 120, 126, 127]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a grocery store, looking at various bags of rice displayed on shelves. The rice comes in different brands and types, with prominent packaging featuring the brand \"NISHIKI.\" The user appears to be considering which type of rice to purchase."
+        ],
+        "Rawdata Context": "\"Visual information shows the user is in a grocery store, looking at various bags of rice displayed on shelves, with prominent packaging featuring the brand 'NISHIKI,' and appears to be considering which type of rice to purchase.\""
+    },
+    "example-228": {
+        "Category": "Leisure",
+        "Vision": "The user is in a botanical garden, admiring a variety of flowers and plants.",
+        "Audio": "",
+        "Context information": "Visual information shows the user is in a botanical garden, admiring a variety of flowers and plants.",
+        "Mobile api data": [
+            ""
+        ],
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "The user is likely enjoying the beauty of the garden. Proactive assistance is not required unless the user seeks information about specific plants.",
+        "Proactive index": "false",
+        "Proactive score": 1,
+        "Tool planning": "None",
+        "Action": "None",
+        "Response": "None",
+        "Tools": "None",
+        "Total Frame Number": "233",
+        "Sampled Frames": "[30, 34, 39, 40, 56, 75, 78, 79, 94, 95, 103, 106, 116, 119, 120, 122, 128, 137, 140, 155, 157, 163, 175, 176, 179, 180, 191, 193, 197, 217]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a garden, observing a large greenhouse structure in the background. The garden is filled with vibrant flower beds, predominantly featuring yellow and purple flowers arranged in neat circular patterns. The greenhouse has a distinctive dome shape and is surrounded by well-maintained greenery. The sky is clear and blue, indicating a sunny day."
+        ],
+        "Rawdata Context": "Visual information shows the user is in a garden, observing a large dome-shaped greenhouse structure with vibrant flower beds, predominantly featuring yellow and purple flowers arranged in neat circular patterns, under a clear blue sky on a sunny day."
+    },
+    "example-419": {
+        "Category": "Travel",
+        "Vision": "The user is sitting in a quiet compartment of a train, looking out the window at passing landscapes.",
+        "Audio": "",
+        "Mobile api data": [
+            ""
+        ],
+        "Context information": "The user is on a train journey, seated in a quiet compartment watching the scenery pass by.",
+        "Personas": [
+            "The user enjoys listening to calm and relaxing music during travels."
+        ],
+        "Thoughts": "The user might appreciate some calming music to enhance their travel experience and enjoy the scenery passing by. Given the user's persona, offering to play a relaxing playlist could make the journey more pleasant.",
+        "Proactive index": "true",
+        "Proactive score": 5,
+        "Tool planning": "<play_music>",
+        "Action": [
+            "Use <play_music> to play a relaxing music playlist to accompany the user's train journey."
+        ],
+        "Response": "I can play some relaxing music to enhance your train journey. Would you like me to start a calming playlist?",
+        "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": {}}]",
+        "Total Frame Number": "189",
+        "Sampled Frames": "[0, 4, 13, 21, 23, 31, 33, 40, 42, 51, 59, 64, 70, 77, 78, 92, 95, 101, 109, 112, 116, 117, 160, 166, 167, 173, 176, 177, 181, 185]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is inside a moving train, looking out the window at the passing scenery. The train has blue and black patterned seats, yellow handrails, and overhead lighting."
+        ],
+        "Rawdata Context": "\"Visual information indicates the user is inside a moving train, looking out the window at the passing scenery, with blue and black patterned seats, yellow handrails, and overhead lighting.\""
+    },
+    "example-195": {
+        "Category": "Travel",
+        "Vision": "The person is packing beachwear such as swimsuits, flip-flops, and sunglasses into a suitcase. The agenda indicates that the user is departing for Bali.",
+        "Audio": "",
+        "Context information": "Visual information suggests the person is packing beachwear such as swimsuits, flip-flops, and sunglasses. The agenda indicates that the user is departing for Bali.",
+        "Mobile api data": [
+            "The agenda indicates that the user is departing for Bali."
+        ],
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "The user is preparing to travel to Bali. It would be good to check the weather to confirm whether sunny conditions are expected or if there will be rain. I need to use the weather app to check the conditions in Bali.",
+        "Proactive index": "true",
+        "Proactive score": 4,
+        "Tool planning": "<get_city_weather>,<get_current_gps_coordinates>",
+        "Action": [
+            "Use <get_current_gps_coordinates> to check the user's current location.",
+            "Use <get_city_weather> to check the latest weather forecast for both the user's current location and their destination."
+        ],
+        "Response": "I checked the weather for Bali, and it looks like there are scattered thunderstorms predicted for the weekend. Would you like me to provide more details about the weather to help you decide if you need to pack additional items like a raincoat or umbrella?",
+        "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"},{\"name\": \"get_city_weather\", \"description\": \"Get the weather for a specified city at a given time.\", \"parameters\": {\"city\": \"Bali\", \"time\":\"now\"}}]",
+        "Total Frame Number": "188",
+        "Sampled Frames": "[7, 10, 12, 23, 24, 26, 30, 37, 40, 44, 55, 63, 66, 76, 77, 83, 91, 101, 103, 115, 118, 131, 140, 142, 154, 174, 175, 178, 180, 186]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a room with a wooden floor. A suitcase is open on the floor, containing a patterned swimsuit and a pair of white crocs with a perforated design. The user appears to be packing or unpacking the suitcase."
+        ],
+        "Rawdata Context": "\"Visual information indicates the user is in a room with a wooden floor, possibly packing or unpacking a suitcase containing a patterned swimsuit and a pair of white crocs. The agenda indicates that the user is departing for Bali.\""
+    },
+    "example-214": {
+        "Category": "Cooking",
+        "Vision": "The user is pouring batter into a baking tray, preparing to bake.",
+        "Audio": "",
+        "Context information": "Visual information shows the user is pouring batter into a baking tray, preparing to bake.",
+        "Mobile api data": [
+            ""
+        ],
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "The user is performing a straightforward task of pouring batter into a baking tray. There is no indication that proactive assistance is needed or would be beneficial.",
+        "Proactive index": "false",
+        "Proactive score": 1,
+        "Tool planning": "None",
+        "Action": "None",
+        "Response": "None",
+        "Tools": "None",
+        "Total Frame Number": "141",
+        "Sampled Frames": "[7, 11, 15, 21, 24, 29, 38, 44, 47, 49, 52, 53, 57, 66, 67, 68, 69, 70, 75, 85, 94, 96, 103, 104, 107, 112, 114, 119, 131, 136]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a kitchen, pouring pancake batter into a cast-iron skillet. The skillet is placed on a stove, and the batter is being poured from a container into the skillet."
+        ],
+        "Rawdata Context": "\"Visual information shows the user is in a kitchen, pouring pancake batter into a cast-iron skillet placed on a stove.\""
+    },
+    "example-237": {
+        "Category": "Cooking",
+        "Vision": "The user is in the kitchen, measuring flour into a bowl using a measuring cup.",
+        "Audio": "",
+        "Mobile api data": [
+            ""
+        ],
+        "Context information": "Visual information shows the user is measuring flour into a bowl using a measuring cup, which suggests they are preparing to bake or cook.",
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "The task of measuring flour is straightforward and does not require assistance. The user appears to be managing the task without difficulty.",
+        "Proactive index": "false",
+        "Proactive score": 1,
+        "Tool planning": "None",
+        "Action": "None",
+        "Response": "None",
+        "Tools": "None",
+        "Total Frame Number": "159",
+        "Sampled Frames": "[2, 13, 23, 26, 27, 29, 34, 39, 40, 52, 53, 62, 64, 67, 69, 72, 76, 77, 87, 94, 108, 112, 125, 129, 135, 139, 141, 145, 149, 156]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a kitchen, measuring flour into a copper measuring cup. The cup is placed on a wooden surface, and the user is using a knife to level the flour, ensuring it is measured accurately."
+        ],
+        "Rawdata Context": "Visual information shows the user is in a kitchen, measuring flour into a copper measuring cup on a wooden surface and using a knife to level the flour for accurate measurement."
+    },
+    "example-461": {
+        "Category": "Work",
+        "Vision": "The user is in a meeting room, sitting at a long table with several colleagues, each with a laptop open.",
+        "Audio": "",
+        "Mobile api data": [
+            ""
+        ],
+        "Context information": "The user is participating in a meeting, likely discussing work-related topics with colleagues. There is no clear indication of confusion or the need for immediate assistance.",
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "The user is in a professional meeting. They might appreciate having meeting notes or an agenda available, but without explicit requests, proactive assistance is not essential. The proactive score is set to 1.",
+        "Proactive index": "false",
+        "Proactive score": 1,
+        "Tool planning": "None",
+        "Action": "None",
+        "Response": "None",
+        "Tools": "None",
+        "Total Frame Number": "312",
+        "Sampled Frames": "[27, 31, 38, 48, 49, 50, 55, 71, 93, 97, 98, 124, 127, 142, 173, 181, 206, 208, 210, 216, 220, 226, 229, 236, 239, 242, 274, 281, 292, 295]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a modern office setting, seated at a table with colleagues. The table is equipped with laptops, documents, and office supplies. In the background, a whiteboard with diagrams and notes is visible. The user appears to be engaged in a meeting or collaborative discussion with colleagues."
+        ],
+        "Rawdata Context": "\"Vision information indicates the user is in a modern office setting, seated at a table with colleagues, engaging in a meeting or collaborative discussion, with laptops, documents, and a whiteboard with diagrams and notes visible.\""
+    },
+    "example-85": {
+        "Category": "Outdoors",
+        "Vision": "The user is walking in a park, surrounded by trees and flowers.",
+        "Audio": "",
+        "Context information": "The user is enjoying a peaceful walk in the park.",
+        "Mobile api data": [
+            ""
+        ],
+        "Personas": [
+            "Nature lover",
+            "Enjoys peaceful moments"
+        ],
+        "Thoughts": "Since the user is a nature lover and enjoys peaceful moments, it would be inappropriate to interrupt their walk with proactive suggestions. Without additional events or personas, providing proactive services might not be necessary, as it could interrupt their leisure time.",
+        "Proactive index": "false",
+        "Proactive score": 1,
+        "Tool planning": "None",
+        "Action": "None",
+        "Response": "None",
+        "Tools": "None",
+        "Total Frame Number": "175",
+        "Sampled Frames": "[19, 20, 22, 26, 27, 29, 37, 43, 49, 56, 60, 62, 79, 85, 86, 89, 92, 101, 102, 111, 117, 130, 134, 135, 149, 150, 154, 158, 169, 174]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a garden area with multiple potted plants arranged along a concrete edge. The plants vary in size and type, with some appearing healthy and others showing signs of wilting. The garden extends into a grassy area with a few scattered trees and bushes. The user's perspective suggests they are observing the plants and the garden environment."
+        ],
+        "Rawdata Context": "\"Visual information shows the user is in a garden area with multiple potted plants, some healthy and others wilting, and is observing the plants and garden environment.\""
+    },
+    "example-433": {
+        "Category": "Shopping",
+        "Vision": "The user is in the skincare aisle, examining bottles of sunscreen with varying SPF levels.",
+        "Audio": "",
+        "Mobile api data": [
+            ""
+        ],
+        "Context information": "The user is considering purchasing sunscreen, possibly to protect against UV exposure.",
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "Offering information on SPF levels and the product reviews and recommandation by others could help the user select an appropriate product.",
+        "Proactive index": "true",
+        "Proactive score": 4,
+        "Tool planning": "<search_rednote>,<google_search>,<get_online_product_price>",
+        "Action": [
+            "Use <search_rednote> to product reviews and recommandation by others.",
+            "Use <google_search> to find information on SPF levels and product recommendations.",
+            "Use <get_online_product_price> to check the price of the sunscreen online."
+        ],
+        "Response": "Choosing the right SPF can protect your skin from harmful UV rays. Would you like more information on the reviews for different products?",
+        "Tools": "[{\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"SPF levels and product reviews and recommendations\"}}, {\"name\": \"google_search\", \"description\": \"Search the web for information.\", \"parameters\": {\"query\": \"SPF levels and product recommendations\"}}, {\"name\": \"get_online_product_price\", \"description\": \"Get the price of a product from an online store such as Amazon or eBay.\", \"parameters\": {\"product_name\": \"sunscreen\"}}]",
+        "Total Frame Number": "151",
+        "Sampled Frames": "[2, 17, 26, 27, 29, 33, 34, 39, 40, 43, 54, 62, 67, 69, 72, 76, 77, 87, 89, 91, 94, 112, 125, 129, 134, 135, 137, 138, 141, 147]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a store, looking at a display case filled with various skincare products from the brand \"DERMA LAB.\" The products are neatly arranged on shelves, with prices and descriptions visible beneath each item. The display case is well-lit, highlighting the products and their packaging."
+        ],
+        "Rawdata Context": "Visual information shows the user in a store, looking at a display case filled with various skincare products from the brand \"DERMA LAB,\" with neatly arranged items and visible prices and descriptions."
+    },
+    "example-293": {
+        "Category": "Outdoors",
+        "Vision": "The user is sitting by a lake, with a fishing rod in hand, gazing at the water.",
+        "Audio": "",
+        "Mobile api data": [
+            ""
+        ],
+        "Context information": "The user is sitting by a lake, fishing. The environment is calm.",
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "The user is engaged in a relaxing activity by the lake. There is no indication of a need for proactive assistance, as they are likely enjoying the peaceful environment.",
+        "Proactive index": "false",
+        "Proactive score": 1,
+        "Tool planning": "None",
+        "Action": "None",
+        "Response": "None",
+        "Tools": "None",
+        "Total Frame Number": "381",
+        "Sampled Frames": "[16, 28, 33, 71, 73, 108, 112, 117, 126, 134, 135, 137, 161, 166, 202, 205, 219, 234, 255, 275, 285, 287, 290, 299, 327, 329, 335, 350, 352, 367]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is fishing in a serene lake setting. They are holding a fishing rod, with the reel in focus, and are actively casting the line into the water. The background features a calm lake with gentle ripples and a distant shoreline with trees. The sunlight reflects off the water, creating a tranquil atmosphere."
+        ],
+        "Rawdata Context": "Visual information shows the user is fishing in a serene lake setting, holding a fishing rod and casting the line into the water, with a calm lake and distant shoreline in the background."
+    },
+    "example-283": {
+        "Category": "Others",
+        "Vision": "The user is at a local farmer's market, looking at fresh produce such as tomatoes, avocados, and leafy greens.",
+        "Audio": "",
+        "Mobile api data": [
+            ""
+        ],
+        "Context information": "The user is at a local farmer's market, looking at fresh produce such as tomatoes, avocados, and leafy greens. They might be planning to buy ingredients for cooking.",
+        "Personas": [
+            "The user enjoys cooking with fresh ingredients."
+        ],
+        "Thoughts": "The user might be planning to cook a meal and could benefit from recipe suggestions using the ingredients they are looking at.",
+        "Proactive index": "medium",
+        "Proactive score": 3,
+        "Tool planning": "<search_rednote>,<get_online_product_price>,<vllm>",
+        "Action": [
+            "Use <search_rednote> to find recipes that use tomatoes, avocados, and leafy greens.",
+            "Use <get_online_product_price> to check the prices of these ingredients at the market.",
+            "Use <vllm> to check the freshness of the tomatoes, avocados, and leafy greens."
+        ],
+        "Response": "Looking for some cooking inspiration? I can suggest some delicious recipes using the fresh produce you're looking at. Would you like some ideas?",
+        "Tools": "[{\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"recipes with tomatoes, avocados, and leafy greens\"}}, {\"name\": \"get_online_product_price\", \"description\": \"Get the online product price from the user's smart device.\", \"parameters\": {\"product_name\": \"tomatoes, avocados, leafy greens\"}}, {\"name\": \"vllm\", \"description\": \"Visual Large Language Model (VLM) that can answer the user's questions based on the given image.\", \"parameters\": {\"prompt\": \"Check the freshness of tomatoes, avocados, and leafy greens.\",\"image_path\":\"\"}}]",
+        "Total Frame Number": "477",
+        "Sampled Frames": "[0, 18, 27, 45, 59, 96, 129, 147, 161, 165, 185, 205, 206, 211, 232, 236, 263, 265, 277, 281, 318, 336, 339, 387, 389, 395, 416, 422, 442, 445]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a market, looking at a vibrant display of fresh fruits and vegetables. The stand is filled with a variety of colorful produce, including apples, oranges, kiwis, and pears. Price tags are visible, indicating the cost of each item. The user appears to be browsing the selection, possibly considering which fruits to purchase."
+        ],
+        "Rawdata Context": "\"Visual information shows the user is in a market, looking at a vibrant display of fresh fruits and vegetables, including apples, oranges, kiwis, and pears, with visible price tags.\""
+    },
+    "example-140": {
+        "Category": "Leisure",
+        "Vision": "The user is at a theme park, standing in line for a popular roller coaster.",
+        "Audio": "",
+        "Context information": "The user is waiting in line at a theme park for a roller coaster ride.",
+        "Mobile api data": [
+            ""
+        ],
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "The user is at a theme park, enjoying the experience. Providing information about ride wait times or nearby attractions could be helpful if the user asks, but proactive assistance is not critical.",
+        "Proactive index": "false",
+        "Proactive score": 1,
+        "Tool planning": "None",
+        "Action": "None",
+        "Response": "None",
+        "Tools": "None",
+        "Total Frame Number": "175",
+        "Sampled Frames": "[0, 3, 10, 19, 22, 23, 25, 28, 38, 41, 50, 51, 53, 60, 65, 67, 75, 84, 91, 104, 123, 126, 127, 130, 133, 140, 146, 155, 171, 174]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is at an amusement park, observing a large blue roller coaster. The coaster is in motion, climbing a steep incline. A crowd of people is gathered in front of the coaster, waiting to board or watching the ride. Trees and a building with a green roof are visible in the background."
+        ],
+        "Rawdata Context": "\"Visual information indicates the user is at an amusement park, observing a large blue roller coaster in motion, with a crowd gathered in front, and trees and a building with a green roof in the background.\""
+    },
+    "example-488": {
+        "Category": "Leisure",
+        "Vision": "The user is sitting on a park bench, feeding pigeons with breadcrumbs.",
+        "Audio": "",
+        "Mobile api data": [],
+        "Context information": "The user is sitting in a park, leisurely feeding pigeons, suggesting a moment of peace and enjoyment of nature.",
+        "Personas": [
+            "The user appreciates nature sounds and ambient music during leisure activities."
+        ],
+        "Thoughts": "Since the persona shows the user appreciates nature sounds and ambient music during leisure activities. The user is enjoying a peaceful moment in the park. Playing nature sounds or ambient music could complement their experience and enhance relaxation.",
+        "Proactive index": "true",
+        "Proactive score": 5,
+        "Tool planning": "<play_music>",
+        "Action": [
+            "Use <play_music> to play nature sounds or ambient music to complement the user's leisure activity."
+        ],
+        "Response": "Would you like me to play some nature sounds or ambient music to enhance your time in the park?",
+        "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": {}}]",
+        "Total Frame Number": "1047",
+        "Sampled Frames": "[93, 101, 107, 167, 173, 227, 233, 318, 322, 441, 451, 557, 559, 580, 631, 638, 664, 698, 706, 757, 770, 848, 859, 868, 880, 905, 907, 929, 994, 996]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is sitting on the grass near a body of water, feeding a group of ducks. The ducks are scattered across the grass, some eating from the user's hand. The user is wearing a red sweater and blue jeans, and there are a few pigeons in the background. The scene is peaceful, with the ducks and pigeons interacting with the user."
+        ],
+        "Rawdata Context": "\"Visual information shows the user sitting on the grass near a body of water, feeding a group of ducks, while wearing a red sweater and blue jeans, with a peaceful scene including a few pigeons in the background.\""
+    },
+    "example-334": {
+        "Category": "Chitchat",
+        "Vision": "The user is in a pet store, looking at different types of dog food with a friend.",
+        "Audio": "'I'm not sure which brand to choose for my dog. What do you think?'",
+        "Context information": "Visual information shows the user in a pet store with a friend. Audio indicates the user is uncertain about which dog food brand to buy.",
+        "Mobile api data": [
+            ""
+        ],
+        "Personas": [
+            "The user is a pet owner who is conscientious about pet nutrition."
+        ],
+        "Thoughts": "The user is seeking advice on dog food brands. Providing information on the top-rated brands could assist them in making a decision.",
+        "Proactive index": "true",
+        "Proactive score": 4,
+        "Tool planning": "<google_search>",
+        "Action": [
+            "Use <google_search> to find reviews and recommendations for the best dog food brands."
+        ],
+        "Response": "Blue Buffalo and Wellness are highly recommended for their natural ingredients. Would you like detailed reviews or compare prices?",
+        "Tools": "[{\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"best dog food brands\"}}]",
+        "Total Frame Number": "154",
+        "Sampled Frames": "[1, 7, 10, 12, 13, 17, 21, 23, 34, 36, 39, 40, 46, 55, 79, 83, 86, 87, 89, 94, 96, 102, 107, 116, 135, 141, 144, 148, 152, 153]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a pet store, looking at various cat food products on a shelf. The shelf displays bags of cat food from brands like Era, Pronature, and others, featuring images of cats and different flavors such as salmon, turkey, and chicken. The user appears to be examining the products, possibly considering a purchase."
+        ],
+        "Rawdata Context": "\"Visual information shows the user is in a pet store, looking at various cat food products on a shelf, including brands like Era and Pronature, with flavors such as salmon, turkey, and chicken.\""
+    },
+    "example-84": {
+        "Category": "Travel",
+        "Vision": "The user is standing in front of a bus station.",
+        "Audio": "",
+        "Context information": "Visual information shows the user is standing in front of a bus station.",
+        "Mobile api data": [
+            ""
+        ],
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "The user is at the bus station and may be wondering about the next bus time. Providing the schedule for the next available bus or specific train information could be helpful. Therefore, I need to first check the user's location and the current time, and then provide the bus schedule. If it is too late, I can assist the user in calling an Uber or taxi and ask the user whether they need it.",
+        "Proactive index": "true",
+        "Proactive score": 4,
+        "Tool planning": "<get_current_gps_coordinates>,<get_current_datetime>,<check_bus_schedule>,<book_uber>",
+        "Action": [
+            "Use <get_current_gps_coordinates> to determine the user's current location.",
+            "Use <get_current_datetime> to check the current time.",
+            "Use <check_bus_schedule> to provide the next available bus schedule.",
+            "If the bus schedule is not suitable, use <book_uber> to suggest alternative transportation."
+        ],
+        "Response": "The next train to your destination is at 4:15 PM from platform 3. Would you like directions to the platform or any other assistance?",
+        "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for a specific bus stop.\", \"parameters\": {\"bus_stop\":\"'current_location'\"}}, {\"name\": \"book_uber\", \"description\": \"Book an Uber from the current location to the destination.\", \"parameters\": {\"current_location\":\"current_location\", \"destination\":\"user's destination\"}}]",
+        "Total Frame Number": "169",
+        "Sampled Frames": "[1, 17, 18, 25, 32, 39, 43, 49, 50, 60, 64, 72, 74, 78, 80, 81, 84, 91, 93, 109, 115, 124, 143, 144, 145, 148, 160, 161, 164, 166]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is standing on a sidewalk next to a road. A bus stop sign is visible, indicating \"Light Bus Stop\" and \"Ho Tim Bldg.\" The road has a \"Look Right\" marking and a pedestrian crossing sign. The background features a multi-story building with balconies and a staircase leading to an entrance. The scene appears to be in an urban area, possibly in Hong Kong, given the signage and building style."
+        ],
+        "Rawdata Context": "\"Visual information indicates the user is standing on a sidewalk next to a road at a bus stop labeled 'Light Bus Stop' and 'Ho Tim Bldg.' in an urban area, possibly in Hong Kong, with surrounding multi-story buildings and pedestrian crossing signs visible.\""
+    },
+    "example-452": {
+        "Category": "Shopping",
+        "Vision": "The user is in an electronics store, examining different models of wireless headphones.",
+        "Audio": "",
+        "Mobile api data": [],
+        "Context information": "The user is in an electronics store, considering purchasing wireless headphones, possibly comparing features and prices.",
+        "Personas": [
+            "The user is a tech enthusiast who values high-quality sound and innovative features."
+        ],
+        "Thoughts": "The user might appreciate comparisons of features and sound quality of the wireless headphones. I should use <google_search> to find reviews or comparisons of the models they're examining.",
+        "Proactive index": "true",
+        "Proactive score": 4,
+        "Tool planning": "<google_search>,<get_online_product_price>",
+        "Action": [
+            "Use <google_search> to find reviews or feature comparisons of the wireless headphones.",
+            "Use <get_online_product_price> to check the price of the wireless headphones online."
+        ],
+        "Response": "These wireless headphones have excellent reviews for sound quality. Would you like to see a comparison with other similar models?",
+        "Tools": "[{\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"wireless headphones reviews and feature comparisons\"}}, {\"name\": \"get_online_product_price\", \"description\": \"Get the price of a product from an online store such as Amazon or eBay.\", \"parameters\": {\"product_name\": \"wireless headphones\"}}]",
+        "Total Frame Number": "139",
+        "Sampled Frames": "[6, 8, 11, 14, 19, 20, 35, 36, 48, 49, 54, 56, 63, 65, 67, 76, 80, 87, 92, 96, 101, 102, 109, 110, 113, 117, 133, 134, 135, 138]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in an electronics store, looking at various earphones and headphones displayed on shelves and hanging from hooks. The shelves are filled with different models of earphones, each with its price tag and promotional sign. The user appears to be examining the products, possibly considering a purchase."
+        ],
+        "Rawdata Context": "Visual information shows the user is in an electronics store, looking at various earphones and headphones displayed on shelves and hanging from hooks, examining the products, possibly considering a purchase."
+    },
+    "example-299": {
+        "Category": "Work",
+        "Vision": "The user is standing by a photocopier, waiting for copies to finish.",
+        "Audio": "",
+        "Mobile api data": [
+            ""
+        ],
+        "Context information": "Visual information shows the user is at a photocopier, waiting for photocopies to be completed.",
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "The user is engaged in a straightforward task of making photocopies. There is no indication of any difficulty or need for assistance. Proactive intervention would be unnecessary.",
+        "Proactive index": "false",
+        "Proactive score": 1,
+        "Tool planning": "None",
+        "Action": "None",
+        "Response": "None",
+        "Tools": "None",
+        "Total Frame Number": "530",
+        "Sampled Frames": "[12, 14, 46, 52, 55, 66, 102, 105, 116, 129, 183, 188, 198, 232, 258, 280, 283, 289, 291, 299, 303, 309, 348, 369, 451, 480, 489, 490, 495, 502]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in an office environment, standing in front of a large, white multifunction printer. The printer has a digital display panel and is labeled \"VersaLink B405.\" Papers are being processed through the machine, and the user is reaching out to collect the printed documents."
+        ],
+        "Rawdata Context": "\"Visual information indicates the user is in an office environment, standing in front of a large, white multifunction printer labeled 'VersaLink B405,' collecting printed documents.\""
+    },
+    "example-62": {
+        "Category": "Work",
+        "Vision": "The image shows a workspace with a computer setup. The main focus is on a large monitor displaying a colorful desktop background featuring geometric shapes in vibrant colors. The user may be working.",
+        "Audio": "",
+        "Context information": "Visual information shows a workspace with a computer setup. The main focus is on a large monitor displaying a colorful desktop background featuring geometric shapes in vibrant colors. The user may be working.",
+        "Mobile api data": [
+            ""
+        ],
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "The user may be working. Since I don't have any additional information about the user's persona, and working requires concentration. Therefore, I should proactively provide services for the user.",
+        "Proactive index": "false",
+        "Proactive score": 1,
+        "Tool planning": "None",
+        "Action": "None",
+        "Response": "None",
+        "Tools": "None",
+        "Total Frame Number": "353",
+        "Sampled Frames": "[43, 58, 59, 60, 68, 70, 72, 88, 93, 122, 152, 156, 160, 178, 180, 191, 196, 198, 200, 214, 234, 261, 294, 300, 302, 305, 312, 314, 316, 344]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in an office setting, sitting in front of a computer monitor displaying a webpage. The screen shows a search bar and various articles related to technology and sustainability. The user's hands are on a keyboard, suggesting they are typing or navigating the webpage. There are multiple monitors and a laptop on the desk, along with a stack of papers and a power strip with multiple devices plugged in. The user appears to be working or researching something related to technology."
+        ],
+        "Rawdata Context": "\"Visual information indicates the user is in an office setting, working or researching something related to technology and sustainability on a computer monitor.\""
+    },
+    "example-83": {
+        "Category": "Outdoors",
+        "Vision": "The user is hiking on a trail in the mountains, surrounded by trees and nature.",
+        "Audio": "",
+        "Context information": "Visual information shows the user is hiking in the mountains, surrounded by trees and nature.",
+        "Mobile api data": [
+            ""
+        ],
+        "Personas": [
+            "This user enjoys outdoor activities and nature."
+        ],
+        "Thoughts": "The user is hiking and likely enjoying the experience. However, without additional contextual information or personas, proactive assistance might not be necessary unless there are safety concerns or the user needs information about the trail.",
+        "Proactive index": "false",
+        "Proactive score": 1,
+        "Tool planning": "",
+        "Action": [],
+        "Response": "None",
+        "Tools": "None",
+        "Total Frame Number": "202",
+        "Sampled Frames": "[16, 18, 22, 30, 31, 34, 44, 51, 54, 66, 67, 73, 74, 76, 81, 88, 113, 114, 115, 125, 138, 140, 143, 156, 170, 174, 177, 180, 182, 198]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a forested area, walking along a dirt path. The path is surrounded by lush green trees and bushes, with a small stream running parallel to it. The ground is covered with dry leaves and grass, and the trees have dense foliage. The user appears to be exploring the area, moving along the path."
+        ],
+        "Rawdata Context": "\"Visual information shows the user is in a forested area, walking along a dirt path surrounded by lush green trees and bushes, with a small stream running parallel to it, and appears to be exploring the area.\""
+    },
+    "example-286": {
+        "Category": "Others",
+        "Vision": "The user is walking through a historical museum, stopping in front of an exhibit labeled 'Ancient Egypt Artifacts.'",
+        "Audio": "",
+        "Mobile api data": [
+            ""
+        ],
+        "Context information": "The user is in a historical museum, observing an exhibit labeled 'Ancient Egypt Artifacts.'",
+        "Personas": [
+            "History enthusiast"
+        ],
+        "Thoughts": "The user may be interested in learning more about the artifacts and their cultural significance. Providing detailed information about the artifacts and their historical context could enhance the user's experience.",
+        "Proactive index": "true",
+        "Proactive score": 4,
+        "Tool planning": "<wikipedia_search>,<google_search>",
+        "Action": [
+            "Use <wikipedia_search> to find information about Ancient Egyptian artifacts and their cultural significance.",
+            "Use <google_search> to provide insights into the historical context and significance of the artifacts.",
+            "Provide insights into the historical context and significance of the artifacts."
+        ],
+        "Response": "These artifacts are from the Ancient Egyptian civilization, known for its rich history and culture. Would you like to know more about their significance and how they were used in daily life?",
+        "Tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Tool that searches the Wikipedia API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\", \"parameters\": {\"query\": \"Ancient Egyptian artifacts and cultural significance\"}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"historical context and significance of Ancient Egyptian artifacts\"}}]",
+        "Total Frame Number": "229",
+        "Sampled Frames": "[6, 7, 17, 29, 45, 49, 51, 57, 58, 66, 71, 78, 84, 89, 102, 117, 130, 137, 148, 164, 168, 173, 197, 203, 209, 210, 214, 215, 216, 225]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a museum, observing a large, ornate golden mask displayed in a glass case. The mask features intricate designs and is illuminated from behind, casting a warm glow. The user appears to be standing in front of the display, facing the mask directly."
+        ],
+        "Rawdata Context": "Visual information shows the user is in a museum, observing a large, ornate golden mask displayed in a glass case with intricate designs."
+    },
+    "example-134": {
+        "Category": "Leisure",
+        "Vision": "The user is cycling down a forest trail surrounded by trees and wildlife.",
+        "Audio": "",
+        "Context information": "The user is cycling through a forest trail, immersed in a natural setting with no immediate signs of need for assistance.",
+        "Mobile api data": [
+            ""
+        ],
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "The user is likely enjoying a solitary cycling experience in nature. Proactive intervention would be unnecessary unless the user is lost or in need of directions.",
+        "Proactive index": "false",
+        "Proactive score": 1,
+        "Tool planning": "None",
+        "Action": "None",
+        "Response": "None",
+        "Tools": "None",
+        "Total Frame Number": "1030",
+        "Sampled Frames": "[18, 74, 76, 121, 183, 219, 230, 274, 332, 358, 360, 381, 394, 475, 526, 558, 582, 584, 592, 611, 657, 677, 686, 813, 855, 930, 939, 958, 1011, 1014]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is riding a mountain bike through a dense forest. The trail is narrow and covered with fallen leaves, surrounded by tall trees and green foliage. The bike's handlebars are visible, and the rider's hands are gripping the handlebars, guiding the bike along the winding path."
+        ],
+        "Rawdata Context": "Visual information shows the user is riding a mountain bike through a dense forest on a narrow trail covered with fallen leaves, surrounded by tall trees and green foliage."
+    },
+    "example-221": {
+        "Category": "Work",
+        "Vision": "The user is seated at their workstation, surrounded by technical diagrams and notes, with a computer screen displaying a coding environment.",
+        "Audio": "'We need to push the new software update by Friday.'",
+        "Context information": "Visual information shows the user at their workstation, engaged in coding with technical diagrams around. Audio captures a conversation. A colleague saying: 'We need to push the new software update by Friday.'",
+        "Mobile api data": [
+            "Software update deadline is Friday."
+        ],
+        "Personas": [
+            "The user is a software developer responsible for coding and testing."
+        ],
+        "Thoughts": "The user needs to ensure they can meet the software update deadline by Friday. I should check their agenda for any time conflicts and remind them to focus on this task. Additionally, providing tools for efficient coding and testing could be beneficial.",
+        "Proactive index": "true",
+        "Proactive score": 5,
+        "Tool planning": "<get_current_datetime>,<check_agenda_time_conflict>,<add_to_agenda>",
+        "Action": [
+            "Use <get_current_datetime> to get today's date and determine Friday's date.",
+            "Use <check_agenda_time_conflict> to check the user's availability on Friday.",
+            "If free, suggest adding a reminder to focus on the software update and allocate time for it."
+        ],
+        "Response": "The software update is due by Friday. Your schedule is clear for focused work—shall I set a reminder and reserve time for coding and testing?",
+        "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time\", \"parameters\": \"None\"},{\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the user's agenda for a given datetime.\", \"parameters\": {\"time\":\"Friday\"}},{\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda.\", \"parameters\": {\"event\": \"Focus on software update\", \"time\": \"Friday\"}}]",
+        "Audio Transcription": " We need to push the software rear update by tomorrow. Okay.",
+        "Total Frame Number": "154",
+        "Sampled Frames": "[7, 8, 22, 32, 33, 34, 43, 45, 46, 52, 58, 69, 78, 79, 83, 88, 91, 111, 113, 116, 119, 121, 123, 134, 138, 140, 141, 143, 151, 152]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a laboratory setting, sitting at a desk with a laptop and a large monitor. The laptop screen displays a coding interface, and the user appears to be typing on the keyboard. The desk is cluttered with various items, including a box of tissues and a set of earphones. The background features shelves with laboratory equipment and supplies."
+        ],
+        "Rawdata Context": "Visual information indicates the user is in a laboratory setting, sitting at a desk with a laptop displaying a coding interface and typing on the keyboard. The content of conversation is: \"We need to push the software rear update by tomorrow. Okay.\" The mobile data shows a software update deadline is Friday."
+    },
+    "example-78": {
+        "Category": "Shopping",
+        "Vision": "The user is browsing a shelf of kitchen appliances, focusing on a coffee maker priced at $150.",
+        "Audio": "",
+        "Context information": "Visual information shows the user is in a store, looking at a coffee maker. The price tag indicates it costs $150.",
+        "Mobile api data": [
+            ""
+        ],
+        "Personas": [
+            "The user enjoys coffee and values high-quality appliances."
+        ],
+        "Thoughts": "The user is interested in purchasing a coffee maker and might appreciate a price comparison or reviews to make an informed decision.",
+        "Proactive index": "true",
+        "Proactive score": 4,
+        "Tool planning": "<get_online_product_price>,<search_rednote>",
+        "Action": [
+            "Use <get_online_product_price> to compare the price of the coffee maker online.",
+            "Use <search_rednote> to retrieve user reviews and recommendations for the product."
+        ],
+        "Response": "This coffee maker is available online for $140, and reviews mention its durability and strong brewing capabilities. Would you like me to show more details or compare other models?",
+        "Tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the price of a product from an online store such as Amazon or eBay.\", \"parameters\": {\"product_name\": \"coffee maker\"}},{\"name\": \"search_rednote\", \"description\": \"Search for user reviews and recommendations.\", \"parameters\": {\"query\": \"coffee maker reviews\"}}]",
+        "Total Frame Number": "184",
+        "Sampled Frames": "[6, 11, 18, 21, 23, 37, 43, 50, 54, 57, 60, 62, 72, 79, 82, 85, 113, 116, 119, 121, 130, 131, 158, 162, 167, 168, 169, 172, 175, 180]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a store, looking at various coffee machines on display. The shelves are filled with different models of coffee makers, including a prominent espresso machine with a stainless steel finish. The user appears to be examining the machines, possibly considering a purchase."
+        ],
+        "Rawdata Context": "\"Visual information shows the user is in a store, looking at various coffee machines on display, including a prominent espresso machine with a stainless steel finish, and appears to be examining the machines possibly considering a purchase.\""
+    },
+    "example-486": {
+        "Category": "Leisure",
+        "Vision": "The user is on a hiking trail, looking at a map and pointing at a specific location with his finger.",
+        "Audio": "",
+        "Mobile api data": [],
+        "Context information": "The user is hiking and has stopped to check a trail map at a junction.",
+        "Personas": [
+            "The user is an avid hiker who enjoys exploring new trails."
+        ],
+        "Thoughts": "Since the persona shows the user enjoys exploring new trails. The user might appreciate information about the difficulty and duration of the trails ahead. Providing this information can help them choose the best path for their hike. I should first use <get_current_gps_coordinates> to determine their location and then use <google_search> to find relevant trail information.",
+        "Proactive index": "true",
+        "Proactive score": 4,
+        "Tool planning": "<get_current_gps_coordinates>,<google_search>",
+        "Action": [
+            "Use <get_current_gps_coordinates> to get the user's current GPS coordinates.",
+            "Use <google_search> to find information about the trails at this location, including difficulty and duration."
+        ],
+        "Response": "The Ridge Trail is moderate and takes about 2 hours. The Summit Trail is challenging and 3 hours round trip. Need more details or guidance?",
+        "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"hiking trails information for current location\"}}]",
+        "Total Frame Number": "447",
+        "Sampled Frames": "[8, 13, 56, 116, 135, 153, 157, 169, 188, 213, 242, 243, 250, 272, 288, 295, 296, 298, 305, 322, 335, 344, 352, 362, 371, 397, 400, 407, 417, 446]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is holding a map outdoors, pointing at a specific location with their finger. The map shows various geographical features, including rivers and mountains. The user appears to be discussing or explaining the map with someone else, as indicated by the pointing gesture. The background is blurred, suggesting a natural outdoor setting."
+        ],
+        "Rawdata Context": "\"Visual information shows the user holding a map outdoors, pointing at a specific location and seemingly discussing or explaining the map with someone else in a natural outdoor setting.\""
+    },
+    "example-240": {
+        "Category": "Cooking",
+        "Vision": "The user is looking at a recipe book on the counter, with ingredients like pasta, cheese, and basil laid out nearby.",
+        "Audio": "",
+        "Mobile api data": [
+            ""
+        ],
+        "Context information": "The user seems to be following a recipe, potentially for a pasta dish, given the ingredients like pasta, cheese, and basil.",
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "The user appears to be following a recipe, which suggests they are confident in their cooking process. Without specific requests, offering proactive assistance might be unnecessary.",
+        "Proactive index": "false",
+        "Proactive score": 1,
+        "Tool planning": "None",
+        "Action": "None",
+        "Response": "None",
+        "Tools": "None",
+        "Total Frame Number": "217",
+        "Sampled Frames": "[3, 14, 16, 22, 29, 30, 44, 61, 62, 79, 111, 116, 150, 155, 156, 162, 164, 166, 168, 170, 174, 178, 186, 189, 192, 195, 203, 206, 208, 213]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a restaurant, browsing through a digital menu on a tablet. The menu displays various pasta dishes, including \"STEAKHOUSE PENNE,\" \"TOOWOOMBA FETTUCCINE,\" and \"SEAFOOD SPAGHETTI.\" There are also drinks and other food items visible on the table, such as a cup of coffee and a plate of pasta with a lobster tail. The setting appears to be a cozy dining area with a garden view in the background."
+        ],
+        "Rawdata Context": "Visual information shows the user is in a restaurant browsing through a digital menu on a tablet with various pasta dishes and other food items visible on the table, set in a cozy dining area with a garden view in the background."
+    },
+    "example-122": {
+        "Category": "Health",
+        "Vision": "The user is walking in a park, wearing a fitness tracker on their wrist.",
+        "Audio": "",
+        "Context information": "Visual information shows the user is taking a walk in the park while wearing a fitness tracker. It is a sunny day, and the park is relatively busy.",
+        "Mobile api data": [
+            "The user has a daily goal of walking 10,000 steps."
+        ],
+        "Personas": [
+            "The user is health-conscious and enjoys tracking their fitness activities."
+        ],
+        "Thoughts": "The contextual information suggests the user is walking in a park, wearing a fitness tracker on their wrist. Since the user is health-conscious and enjoys tracking their fitness activities, it would be beneficial to provide an update on their progress towards their daily step goal. This proactive assistance will help the user stay motivated and on track.",
+        "Proactive index": "true",
+        "Proactive score": 4,
+        "Tool planning": "<get_health_data>",
+        "Action": [
+            "Use <get_health_data> to check the user's current step count."
+        ],
+        "Response": "You've walked 7,500 steps so far today. Just 2,500 more to reach your goal! Keep it up!",
+        "Tools": "[{\"name\": \"get_health_data\", \"description\": \"Get health data from the user's smart device.\", \"parameters\": \"None\"}]",
+        "Total Frame Number": "163",
+        "Sampled Frames": "[6, 29, 34, 45, 46, 51, 53, 62, 71, 74, 76, 80, 81, 82, 83, 85, 93, 96, 100, 101, 110, 112, 118, 122, 125, 147, 149, 152, 154, 155]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is walking on a brick-paved path in a park. The path is flanked by neatly trimmed green bushes on both sides. The user's left hand is visible, wearing a black wristwatch. The scene is well-lit, suggesting it is daytime."
+        ],
+        "Rawdata Context": "\"Visual information shows the user walking on a brick-paved path in a park during daytime, wearing a black wristwatch. The mobile API data indicates the user has a daily goal of walking 10,000 steps.\""
+    },
+    "example-475": {
+        "Category": "Health",
+        "Vision": "The user is in a yoga studio, performing a series of stretches on a yoga mat.",
+        "Audio": "",
+        "Mobile api data": [
+            ""
+        ],
+        "Context information": "The user is in a yoga studio, engaging in a stretching routine on a yoga mat.",
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "The user is practicing yoga, which is beneficial for both physical and mental health. Providing additional guidance on stretching techniques or meditation music could be beneficial, but since the user might already be following a class or routine, proactive assistance without a request might not be appreciated. Therefore, the proactive score is set to 1.",
+        "Proactive index": "false",
+        "Proactive score": 1,
+        "Tool planning": "None",
+        "Action": "None",
+        "Response": "None",
+        "Tools": "None",
+        "Total Frame Number": "722",
+        "Sampled Frames": "[31, 62, 67, 75, 82, 110, 129, 151, 281, 308, 329, 332, 390, 411, 436, 454, 469, 490, 502, 533, 543, 561, 599, 611, 622, 639, 648, 658, 674, 702]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is practicing yoga in a cozy, well-decorated room. The room features a fireplace with a wooden mantel, a round mirror above it, and various decorative items including a vase with dried flowers and a small bear figurine. The user is wearing a grey sports bra and matching leggings, and has her hair tied back in a braid. She is performing a yoga pose, bending forward with one hand reaching towards the floor and the other arm extended upwards, maintaining a focused and calm expression."
+        ],
+        "Rawdata Context": "Visual information shows the user practicing yoga in a cozy, well-decorated room with a fireplace, a round mirror, and decorative items."
+    },
+    "example-192": {
+        "Category": "Cooking",
+        "Vision": "The user is chopping vegetables on a cutting board, with various colorful produce visible.",
+        "Audio": "",
+        "Context information": "Visual information shows the user is chopping vegetables on a cutting board, with various colorful produce visible.",
+        "Mobile api data": [
+            ""
+        ],
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "Contextual information shows the user is chopping vegetables. This is a straightforward task with no immediate need for proactive assistance.",
+        "Proactive index": "false",
+        "Proactive score": 1,
+        "Tool planning": "None",
+        "Action": "None",
+        "Response": "None",
+        "Tools": "None",
+        "Total Frame Number": "192",
+        "Sampled Frames": "[10, 15, 20, 21, 39, 52, 55, 67, 71, 73, 79, 83, 100, 101, 102, 106, 108, 128, 129, 130, 137, 157, 160, 163, 172, 174, 175, 177, 179, 182]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a kitchen, preparing food. They are slicing a carrot on a wooden cutting board using a knife. Nearby, there is a bowl of tomatoes and other vegetables, indicating a meal preparation activity."
+        ],
+        "Rawdata Context": "\"Visual information shows the user is in a kitchen, preparing food by slicing a carrot on a wooden cutting board, with a bowl of tomatoes and other vegetables nearby, indicating a meal preparation activity.\""
+    },
+    "example-338": {
+        "Category": "Travel",
+        "Vision": "The user is at an airport, looking at a large departure board displaying flight information.",
+        "Audio": "",
+        "Mobile api data": [
+            "Current flight booking: Flight XY123, Departure at 3:00 PM"
+        ],
+        "Context information": "The user is at an airport, checking flight details on a departure board. The user has a flight booked for 3:00 PM.",
+        "Personas": [
+            "The user is a frequent traveler who values efficiency and time management."
+        ],
+        "Thoughts": "The user is at an airport, and their flight is scheduled for 3:00 PM. I should check if the flight is on time and provide any relevant updates or gate information.",
+        "Proactive index": "medium",
+        "Proactive score": 3,
+        "Tool planning": "<google_search>",
+        "Action": [
+            "Use <google_search> to check the status and gate information for Flight XY123."
+        ],
+        "Response": "Your flight XY123 is on time and will depart from Gate 22. Would you like directions to the gate or any other assistance?",
+        "Tools": "[{\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"Flight XY123 status and gate information\"}}]",
+        "Total Frame Number": "231",
+        "Sampled Frames": "[1, 11, 23, 24, 26, 39, 40, 55, 56, 67, 71, 86, 87, 88, 91, 97, 107, 108, 114, 117, 150, 154, 178, 186, 194, 195, 206, 207, 222, 226]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in an airport terminal, walking through a spacious area with a checkered floor and numerous overhead signs directing passengers to various gates and services. The terminal is bustling with travelers, some pulling suitcases, while others are stationary, likely waiting or looking for directions. The ceiling is high and features a glass and metal structure, allowing natural light to flood the space."
+        ],
+        "Rawdata Context": "\"Visual information shows the user in an airport terminal, walking through a spacious area with a checkered floor and numerous overhead signs. The terminal is bustling with travelers. The user's current flight booking is Flight XY123, with a departure at 3:00 PM.\""
+    },
+    "example-457": {
+        "Category": "Travel",
+        "Vision": "The user is on a long-distance bus, seated by the window, watching the countryside go by.",
+        "Audio": "",
+        "Mobile api data": [],
+        "Context information": "The user is on a long-distance bus ride, viewing the countryside scenery.",
+        "Personas": [
+            "The user enjoys listening to podcasts during long journeys."
+        ],
+        "Thoughts": "The user might appreciate having entertainment during the bus ride. Offering to play a podcast could make the journey more enjoyable.",
+        "Proactive index": "true",
+        "Proactive score": 5,
+        "Tool planning": "<play_music>",
+        "Action": [
+            "Use <play_music> to play a podcast from the user's library for entertainment during the bus ride."
+        ],
+        "Response": "I see you're on a bus ride. Would you like me to play a podcast to keep you entertained during your journey?",
+        "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song or podcast from the user's library.\", \"parameters\": {}}]",
+        "Total Frame Number": "190",
+        "Sampled Frames": "[1, 5, 15, 16, 38, 39, 52, 54, 59, 76, 84, 90, 97, 98, 99, 104, 106, 107, 119, 122, 137, 138, 139, 147, 149, 172, 173, 177, 180, 181]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a city environment, possibly near a highway or a busy road. The view shows a fence, trees, and a few parked cars. The user appears to be walking or standing near a bus stop, as indicated by the reflection in the glass. The bus stop is named \"University,\" and there are several people visible, some of whom are walking or standing. The weather seems overcast, and the overall scene is somewhat blurred, suggesting motion or a quick snapshot."
+        ],
+        "Rawdata Context": "\"Visual information indicates the user is in a city environment, near a highway or busy road, standing or walking near a 'University' bus stop with several people nearby. The weather appears overcast.\""
+    },
+    "example-282": {
+        "Category": "Others",
+        "Vision": "The user is in a library, browsing through bookshelves filled with books of various genres.",
+        "Audio": "",
+        "Mobile api data": [
+            ""
+        ],
+        "Context information": "The user is in a library, exploring different books. They might be looking for a specific book or genre.",
+        "Personas": [
+            "The user enjoys reading and exploring new genres."
+        ],
+        "Thoughts": "The user is in a library and may be interested in discovering new books or authors. Providing recommendations based on popular books or genres could be helpful.",
+        "Proactive index": "medium",
+        "Proactive score": 3,
+        "Tool planning": "<search_rednote>",
+        "Action": [
+            "Use <search_rednote> to find popular book recommendations or new authors in the genres the user seems interested in."
+        ],
+        "Response": "I see you're browsing through the library. Would you like some recommendations on popular books or new authors in the genres you're interested in?",
+        "Tools": "[{\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"popular book recommendations or new authors\"}}]",
+        "Total Frame Number": "274",
+        "Sampled Frames": "[5, 13, 20, 41, 46, 63, 117, 128, 139, 147, 150, 155, 157, 165, 172, 195, 206, 210, 214, 220, 221, 224, 239, 243, 246, 252, 253, 256, 271, 272]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a library, browsing through a bookshelf filled with various books. The user's hands are seen sorting through the books, selecting one and removing it from the shelf."
+        ],
+        "Rawdata Context": "\"Visual information shows the user is in a library browsing through a bookshelf filled with various books and selecting one to remove from the shelf.\""
+    },
+    "example-387": {
+        "Category": "Health",
+        "Vision": "The user is in a home gym, standing beside a stationary bike.",
+        "Audio": "",
+        "Mobile api data": [
+            ""
+        ],
+        "Context information": "Visual information shows the user in a home gym, about to use a stationary bike for cardiovascular exercise.",
+        "Personas": [
+            "The user prefers listening to podcasts or music that provides motivation during cardio workouts."
+        ],
+        "Thoughts": "The user is preparing for a cardio workout on the stationary bike. Offering to play motivational music or a podcast could enhance their workout experience.",
+        "Proactive index": "true",
+        "Proactive score": 5,
+        "Tool planning": "<play_music>",
+        "Action": [
+            "Use <play_music> to play motivational music to boost the user's cardio workout experience."
+        ],
+        "Response": "I see you're ready for a session on the stationary bike. Would some motivational music help you get into the groove?",
+        "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": \"None\"}]",
+        "Total Frame Number": "154",
+        "Sampled Frames": "[2, 6, 10, 23, 29, 54, 55, 56, 61, 62, 65, 66, 72, 75, 82, 84, 88, 89, 92, 97, 98, 103, 105, 114, 116, 121, 135, 137, 139, 147]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a gym, observing a stationary exercise bike. The bike is black with yellow accents, positioned on a beige floor. The gym appears to be empty, with no other people visible in the frame."
+        ],
+        "Rawdata Context": "Visual information shows the user is in a gym, observing a stationary exercise bike that is black with yellow accents, positioned on a beige floor. The gym appears to be empty with no other people visible in the frame."
+    },
+    "example-463": {
+        "Category": "Work",
+        "Vision": "The user is at office environment, working at a desk with multiple screens displaying code.",
+        "Audio": "'Please ensure the code review is completed by the end of the day.'",
+        "Mobile api data": [
+            "Code review deadline is today."
+        ],
+        "Context information": "The user is working on multiple monitors with coding and project management tools. A manager requests the code review to be completed by the end of the day.",
+        "Personas": [
+            "The user is a software developer responsible for reviewing and writing code."
+        ],
+        "Thoughts": "The user needs to complete the code review by the end of the day. I should check their agenda for conflicts and suggest blocking time to focus on the review.",
+        "Proactive index": "true",
+        "Proactive score": 5,
+        "Tool planning": "<get_current_datetime>,<check_agenda_time_conflict>,<add_to_agenda>",
+        "Action": [
+            "Use <get_current_datetime> to determine the current date and time.",
+            "Use <check_agenda_time_conflict> to ensure there are no conflicts for completing the code review.",
+            "Suggest adding a time block to the user's agenda to focus on the code review."
+        ],
+        "Response": "The code review is due by the end of the day. Shall I add time to your schedule to focus on it?",
+        "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time\", \"parameters\": \"None\"}, {\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the user's agenda for a given datetime.\", \"parameters\": {\"time\": \"end of the day\"}}, {\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda.\", \"parameters\": {\"event\": \"Complete code review\", \"time\": \"end of the day\"}}]",
+        "Audio Transcription": " Please ensure the code review is completed by the end of the week.",
+        "Total Frame Number": "225",
+        "Sampled Frames": "[2, 25, 33, 34, 37, 38, 45, 50, 58, 60, 69, 80, 97, 107, 110, 121, 127, 132, 136, 142, 146, 147, 161, 175, 184, 189, 204, 205, 208, 217]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a cluttered office environment, working at a desk with multiple screens displaying code. The desk is filled with various items, including a laptop, a monitor, a keyboard, a wallet, a water bottle, and a box of tissues. The user appears to be typing on the keyboard, and there are several cables and electronic devices visible in the background."
+        ],
+        "Rawdata Context": "\"Visual information shows the user in a cluttered office environment, working at a desk with multiple screens displaying code and various items such as a laptop, monitor, keyboard, wallet, water bottle, and box of tissues. The content of conversation is: \\\"Please ensure the code review is completed by the end of the week.\\\" The mobile API data indicates that the code review deadline is today.\""
+    },
+    "example-479": {
+        "Category": "Health",
+        "Vision": "The user is preparing to go for a run, tying their shoelaces on a sports track.",
+        "Audio": "",
+        "Mobile api data": [
+            ""
+        ],
+        "Context information": "Visual information indicates the user is preparing for a run.",
+        "Personas": [
+            "The user enjoys tracking their running performance and improving stamina."
+        ],
+        "Thoughts": "The user might benefit from tracking their run to improve performance. Offering to start a workout session and track their run could enhance their fitness routine.",
+        "Proactive index": "true",
+        "Proactive score": 5,
+        "Tool planning": "<get_health_data>",
+        "Action": [
+            "Use <get_health_data> to track the user's run and provide feedback on their performance."
+        ],
+        "Response": "I can track your run and provide feedback on your performance. Would you like me to start a workout session for you?",
+        "Tools": "[{\"name\": \"get_health_data\", \"description\": \"Get health data from the user's smart device.\", \"parameters\": \"None\"}]",
+        "Total Frame Number": "350",
+        "Sampled Frames": "[19, 22, 39, 51, 67, 78, 83, 84, 92, 119, 121, 145, 151, 172, 186, 192, 210, 224, 227, 229, 259, 269, 273, 276, 305, 312, 316, 319, 338, 346]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is tying the laces of a white sneaker on a textured red surface, likely a sports track or a gym floor. The user's hands are focused on securing the laces, and the sneaker appears to be made of breathable mesh material. The user's wrist is visible, wearing a black wristwatch."
+        ],
+        "Rawdata Context": "\"Visual information shows the user tying the laces of a white sneaker on a textured red surface, likely indicating they are on a sports track or gym floor, while their wrist is adorned with a black wristwatch.\""
+    },
+    "example-227": {
+        "Category": "Leisure",
+        "Vision": "The user is at a café, sitting at a table with a cup of coffee and a book.",
+        "Audio": "",
+        "Context information": "The user is relaxing at a café, sipping coffee and reading a book. The environment is calm and conducive to relaxation.",
+        "Mobile api data": [
+            ""
+        ],
+        "Personas": [
+            "Book lover"
+        ],
+        "Thoughts": "The user is engrossed in their book and coffee. Proactive assistance is not required unless the user indicates a need for additional information or services.",
+        "Proactive index": "false",
+        "Proactive score": 1,
+        "Tool planning": "None",
+        "Action": "None",
+        "Response": "None",
+        "Tools": "None",
+        "Total Frame Number": "165",
+        "Sampled Frames": "[2, 4, 21, 23, 46, 48, 54, 56, 61, 62, 66, 70, 71, 75, 83, 87, 90, 103, 104, 114, 121, 124, 125, 126, 132, 142, 146, 148, 152, 153]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a cozy café or bookstore, sitting at a wooden table with a stack of books and a cup of coffee. The table is adorned with a blue and white polka-dotted saucer and a teapot, suggesting a relaxing atmosphere. Through the window, the user can see a bustling street with pedestrians and vehicles, indicating a lively urban setting."
+        ],
+        "Rawdata Context": "\"Visual information shows the user is in a cozy café or bookstore, sitting at a wooden table with a stack of books and a cup of coffee, in a relaxing atmosphere with a view of a bustling street, indicating a lively urban setting.\""
+    },
+    "example-30": {
+        "Category": "Chitchat",
+        "Vision": "The user is sitting in a café with a friend, discussing weekend plans.",
+        "Audio": "\"What do you think about going to the barbecue this Sunday?\"",
+        "Context information": "Visual information indicates that the user is sitting in a café with a friend, discussing weekend plans. Audio information captures a conversation between the user and others. The partner says: \"What do you think about going to the barbecue this Sunday?\".",
+        "Mobile api data": "",
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "Barbecue is an outdoor activity, so we need to consider the local weather on weekends and whether it conflicts with the user's schedule.",
+        "Proactive index": "true",
+        "Proactive score": 5,
+        "Tool planning": "<get_current_gps_coordinates>,<get_city_weather>,<check_agenda_time_conflict>",
+        "Action": [
+            "Utilize <get_current_gps_coordinates> to check the user's current location.",
+            "Use <get_city_weather> to look up the weather forecast for the user's area this Sunday.",
+            "Review the user's agenda, i.e., use <check_agenda_time_conflict> to check any potential scheduling conflicts."
+        ],
+        "Response": "The weather forecast for this Sunday is sunny with a high of 25°C. Your calendar is clear for that day. Would you like me to help you prepare for the barbecue?",
+        "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"},{\"name\": \"get_city_weather\", \"description\": \"Get the weather for a specified city at a given time.\", \"parameters\": {\"city\": \"Hong Kong\", \"time\":\"this Sunday\"}},{\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the user's agenda for a given datetime.\", \"parameters\": {\"time\":\"this Sunday\"}}]",
+        "Audio Transcription": " We're losing the thought of going to the barbecue this Saturday.",
+        "Total Frame Number": "127",
+        "Sampled Frames": "[1, 5, 6, 14, 15, 20, 21, 25, 27, 30, 32, 35, 38, 39, 41, 46, 55, 61, 66, 70, 74, 80, 81, 85, 93, 95, 112, 119, 123, 126]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a restaurant, sitting at a table with a plate of noodles in front of them. They are using chopsticks to eat the dish, which appears to be a spicy noodle dish with various toppings. The restaurant has a casual atmosphere, with other patrons visible in the background. The user is wearing a white t-shirt with a cartoon character design."
+        ],
+        "Rawdata Context": "Visual information shows the user is in a restaurant, sitting at a table with a plate of spicy noodles, using chopsticks to eat. The content of conversation is: \"We're losing the thought of going to the barbecue this Saturday.\""
+    },
+    "example-395": {
+        "Category": "Work",
+        "Vision": "The user is in a conference room, presenting to colleagues using a projected slide deck.",
+        "Audio": "",
+        "Mobile api data": [
+            ""
+        ],
+        "Context information": "Visual information shows the user is actively presenting to an audience in a conference room using slides.",
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "The user is in the middle of a presentation, requiring focus and engagement with the audience. Interrupting with proactive assistance could distract or disrupt their presentation flow.",
+        "Proactive index": "false",
+        "Proactive score": 1,
+        "Tool planning": "None",
+        "Action": "None",
+        "Response": "None",
+        "Tools": "None",
+        "Total Frame Number": "389",
+        "Sampled Frames": "[0, 8, 32, 34, 43, 56, 73, 95, 123, 149, 180, 184, 213, 219, 234, 255, 263, 268, 269, 274, 278, 292, 294, 305, 314, 318, 323, 340, 342, 367]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a modern office setting, seated at a table with colleagues. The table is equipped with laptops, notebooks, and writing utensils. The room features a large, hanging lamp and a skylight, allowing natural light to enter. The colleagues are engaged in a discussion, with one person holding a tablet and another gesturing with their hands. The atmosphere appears collaborative and focused."
+        ],
+        "Rawdata Context": "\"Visual information indicates the user is in a modern office setting, seated at a table with colleagues, equipped with laptops, notebooks, and writing utensils, in a collaborative and focused atmosphere.\""
+    },
+    "example-368": {
+        "Category": "Outdoors",
+        "Vision": "The user is standing at a crossroads in a large park with various paths leading in different directions.",
+        "Audio": "'I'm not sure which way to go to reach the Grass Island.'",
+        "Mobile api data": [],
+        "Context information": "The user is at a crossroads in a park and seems unsure about which direction to take to reach the Grass Island.",
+        "Personas": [],
+        "Thoughts": "The user is unsure of the direction to take to reach the Grass Island, which suggests they could benefit from navigation assistance. Using <get_current_gps_coordinates> will establish their exact location, and <google_map> can then provide the best route to the Grass Island.",
+        "Proactive index": "true",
+        "Proactive score": 5,
+        "Tool planning": "<get_current_gps_coordinates>,<google_map>",
+        "Action": [
+            "Use <get_current_gps_coordinates> to find the user's exact location.",
+            "Use <google_map> to provide the best route to the Grass Island from the current location."
+        ],
+        "Response": "I can help guide you to the Grass Island. Follow the path to your left for about 10 minutes, and you'll reach it. Would you like directions on your glasses as you walk?",
+        "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": {}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"user's current location\", \"destination\": \"Grass Island\"}}]",
+        "Audio Transcription": " I'm not sure which way to go to reach the grass island.",
+        "Total Frame Number": "162",
+        "Sampled Frames": "[6, 11, 21, 23, 29, 31, 37, 38, 40, 41, 43, 45, 51, 64, 82, 85, 92, 96, 97, 98, 115, 116, 130, 134, 150, 151, 153, 157, 160, 161]",
+        "Qwen2-VL-7B-Instruct Summary": [
+            "The user is in a park, standing on a stone path surrounded by greenery. There are bushes and trees in the background, and a lamp post is visible further down the path. The user appears to be looking around, possibly observing the surroundings."
+        ],
+        "Rawdata Context": "\"Visual information shows the user is in a park, standing on a stone path surrounded by greenery, with bushes, trees, and a lamp post in the background. The content of conversation is: \\\"I'm not sure which way to go to reach the grass island.\\\"\""
+    }
+}

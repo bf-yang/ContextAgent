@@ -38,9 +38,14 @@ In this paper, we introduce ContextAgent, the first context-aware proactive LLM 
 ```
 ContextAgent/
 ├─ data/
+│  ├─ cab/
+│  ├─ cab_lite/
+│  ├─ cab_ood/
 ├─ prompt/
 ├─ results/
 ├─ src/
+│  ├─ cab_lite/
+│  ├─ cab_ood/
 │  ├─ data_process/
 │  ├─ icl/
 │  ├─ sft/
@@ -57,10 +62,9 @@ cd ContextAgent
 ```
 2. Install packages.
 ```bash
-
+conda env create -f environment.yml
+conda activate contextagent
 ```
-
-
 
 ## Evaluation
 ### ICL Evaluation

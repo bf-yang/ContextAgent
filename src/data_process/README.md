@@ -1,3 +1,9 @@
+# Split dataset
+Split the dataset into training and testing.
+```shell
+bash src/data_process/dataset_split.sh
+```
+
 # Generation of SFT data
 Running the following script to prepare the json files for each SFT settings.
 ```shell

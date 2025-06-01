@@ -51,7 +51,10 @@ if __name__ == "__main__":
     model_base_sft = args.model_base_sft # qwen7b, llama8b
 
     if methods == 'icl':
-        pred_path = f'results/{dataset_name}/predictions/{methods}/pred_{model_base_icl}_fs_10_{args.personas}_{args.think}.json'
+        if args.zs == 'true':
+            pred_path = f'results/{dataset_name}/predictions/{methods}/pred_{model_base_icl}_zs.json'
+        else:
+            pred_path = f'results/{dataset_name}/predictions/{methods}/pred_{model_base_icl}_fs_10_{args.personas}_{args.think}.json'
     elif methods == 'sft':
         pred_path = f'results/{dataset_name}/predictions/{methods}/pred_{model_base_sft}_{args.personas}_{args.think}.json'
 
@@ -372,7 +375,10 @@ if __name__ == "__main__":
 
     # save scores to csv
     if methods == 'icl':
-        csv_file = f'results/{dataset_name}/scores/metrics_{methods}_{model_base_icl}_fs_10_{args.personas}_{args.think}.csv'
+        if args.zs == 'true':
+            csv_file = f'results/{dataset_name}/scores/metrics_{methods}_{model_base_icl}_zs.csv'
+        else:
+            csv_file = f'results/{dataset_name}/scores/metrics_{methods}_{model_base_icl}_fs_10_{args.personas}_{args.think}.csv'
     else:
         csv_file = f'results/{dataset_name}/scores/metrics_{methods}_{model_base_sft}_{args.personas}_{args.think}.csv'
 

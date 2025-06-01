@@ -83,8 +83,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use get_online_product_price to check the price of the SUV the user is interested in.\", \"Use wikipedia_search to gather more information about the safety ratings of the SUV.\"]",
-            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the current online price of a product\", \"parameters\": \"product_name\"}, {\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for the given query\", \"parameters\": \"query\"}]",
+            "actions": "[\"Use get_online_product_price to check the current price of the SUV the user is interested in.\", \"Use wikipedia_search to gather information about safety ratings and features of the SUV.\"]",
+            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the current price of a product online\", \"parameters\": \"product_name\"}, {\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for more details\", \"parameters\": \"query\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_online_product_price",
@@ -127,15 +127,9 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use 'add_to_agenda' to remind the user to schedule the team retrospective by Friday.\"]",
-            "tools": "[{\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda\", \"parameters\": \"(event='Team Retrospective', time='Friday')\"}]",
-            "tools_results": [
-                {
-                    "tool_name": "add_to_agenda",
-                    "tool_parameters": "(event='Team Retrospective', time='Friday')",
-                    "results": "{\"error\": \"functions.add_to_agenda() argument after ** must be a mapping, not str\"}"
-                }
-            ],
+            "actions": "[\"Use 'add_to_agenda' to set up an event for the team retrospective.\", \"Use 'check_agenda_time_conflict' to ensure there are no conflicting meetings by Friday.\"]",
+            "tools": "[{\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda\", \"parameters\": (event=\"Team Retrospective\", time=\"Friday\")}, {\"name\": \"check_agenda_time_conflict\", \"description\": \"Check for any time conflicts in the user's schedule\", \"parameters\": \"Friday\"}] Max attempts reached. Unable to parse tools.",
+            "tools_results": [],
             "response": "outputs."
         }
     },
@@ -219,13 +213,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "3",
-            "actions": "[\"Use google_search to find reviews and ratings of the board game to provide more information.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for a query using Google\", \"parameters\": \"board game name\"}]",
+            "actions": "[\"Use 'wikipedia_search' to find reviews and information about the new board game mentioned at the party.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for more information on a topic\", \"parameters\": \"query\"}]",
             "tools_results": [
                 {
-                    "tool_name": "google_search",
-                    "tool_parameters": "board game name",
-                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
+                    "tool_name": "wikipedia_search",
+                    "tool_parameters": "query",
+                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -368,13 +362,18 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "Suggest a new recipe based on available ingredients.",
-            "tools": "[\"Use 'wikipedia_search' with query 'fresh vegetables and spices recipes' to find suitable recipes.\"]",
+            "actions": "[\"Suggest recipes based on available ingredients.\", \"Use wikipedia_search to find popular recipes using the current ingredients.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information in Wikipedia\", \"parameters\": \"query\"}, {\"name\": \"get_health_data\", \"description\": \"Get health-related data from the user's wearable device\", \"parameters\": \"None\"}]",
             "tools_results": [
                 {
-                    "tool_name": "error",
-                    "tool_parameters": "error",
-                    "results": "error"
+                    "tool_name": "wikipedia_search",
+                    "tool_parameters": "query",
+                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
+                },
+                {
+                    "tool_name": "get_health_data",
+                    "tool_parameters": "None",
+                    "results": "\"The user's heart rate is 70 bpm, oxygen saturation is 98%, respiration rate is 16 bpm, body temperature is 36.5 degrees Celsius, total steps today is 5000, and total calories burned today is 2000.\""
                 }
             ],
             "response": "outputs."
@@ -432,12 +431,12 @@
         "Tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Tool that searches the Wikipedia API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\", \"parameters\": {\"query\": \"Rose varieties and gardening tips\"}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"rose care and popular varieties\"}}]",
         "predictions": {
             "thoughts": "None",
-            "proactive_idx": "True",
-            "proactive_score": "4",
-            "actions": "[\"Use wikipedia_search with query 'rose' to gather information about the roses.\", \"Use vllm with prompt='A close-up photo of a red rose' and image_path='path_to_image' to provide context-related content.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for specific topics\", \"parameters\": \"query='rose'\"}, {\"name\": \"vllm\", \"description\": \"Generate text based on a given prompt and image\", \"parameters\": \"(prompt='A close-up photo of a red rose', image_path='path_to_image')}] Max attempts reached. Unable to parse tools.",
-            "tools_results": [],
-            "response": "outputs."
+            "proactive_idx": "False",
+            "proactive_score": "0",
+            "actions": "None",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-762": {
@@ -574,12 +573,23 @@
         "Tools": "[{\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"new dessert recipes or baking tips\"}}]",
         "predictions": {
             "thoughts": "None",
-            "proactive_idx": "False",
-            "proactive_score": "0",
-            "actions": "None",
-            "tools": "None",
-            "tools_results": "None",
-            "response": "None"
+            "proactive_idx": "True",
+            "proactive_score": "4",
+            "actions": "[\"Use wikipedia_search with query 'baking tips' to provide some baking tips.\", \"Use get_health_data to check if the user has any dietary restrictions that might affect their baking.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for information related to the query\", \"parameters\": \"query='baking tips'\"}, {\"name\": \"get_health_data\", \"description\": \"Retrieve health-related data of the user\", \"parameters\": \"None\"}]",
+            "tools_results": [
+                {
+                    "tool_name": "wikipedia_search",
+                    "tool_parameters": "query='baking tips'",
+                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
+                },
+                {
+                    "tool_name": "get_health_data",
+                    "tool_parameters": "None",
+                    "results": "\"The user's heart rate is 70 bpm, oxygen saturation is 98%, respiration rate is 16 bpm, body temperature is 36.5 degrees Celsius, total steps today is 5000, and total calories burned today is 2000.\""
+                }
+            ],
+            "response": "outputs."
         }
     },
     "example-13": {
@@ -607,8 +617,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use 'wikipedia_search' with query 'how to tell if bananas are ripe' to provide information on how to determine banana ripeness.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for information related to the given query\", \"parameters\": \"how to tell if bananas are ripe\"}]",
+            "actions": "[\"Use 'wikipedia_search' with query 'how to tell if bananas are ripe' to provide information on how to determine the ripeness of bananas.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for more details.\", \"parameters\": \"how to tell if bananas are ripe\"}]",
             "tools_results": [
                 {
                     "tool_name": "wikipedia_search",
@@ -644,17 +654,17 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use <get_online_product_price> to check the price of the grey sectional sofa.\", \"Use <wikipedia_search> to gather more information about the materials used in the sofa.\"]",
-            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the current online price of a product\", \"parameters\": \"product_name\"}, {\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for more information on a topic\", \"parameters\": \"query\"}]",
+            "actions": "[\"Use <get_online_product_price> to check the price of the grey sectional sofa online.\", \"Use <wikipedia_search> to gather more information about the materials used in making the sofa.\"]",
+            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the current price of a product from the internet\", \"parameters\": \"product_name='grey sectional sofa'\"}, {\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for information related to the query\", \"parameters\": \"query='materials used in making sofas'\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_online_product_price",
-                    "tool_parameters": "product_name",
+                    "tool_parameters": "product_name='grey sectional sofa'",
                     "results": "{\"error\": \"functions.get_online_product_price() argument after ** must be a mapping, not str\"}"
                 },
                 {
                     "tool_name": "wikipedia_search",
-                    "tool_parameters": "query",
+                    "tool_parameters": "query='materials used in making sofas'",
                     "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -740,13 +750,18 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use wikipedia_search with query 'Roman coin with laurel wreath' to provide more information about the coin.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information on Wikipedia\", \"parameters\": \"query='Roman coin with laurel wreath'\"}]",
+            "actions": "[\"Use 'wikipedia_search' with query 'antique roman coin with laurel wreath' to provide more information about the coin.\", \"Use 'google_search' with query 'valuation of antique roman coins' to help determine its potential value.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for the given query\", \"parameters\": \"antique roman coin with laurel wreath\"}, {\"name\": \"google_search\", \"description\": \"Search Google for the given query\", \"parameters\": \"valuation of antique roman coins\"}]",
             "tools_results": [
                 {
                     "tool_name": "wikipedia_search",
-                    "tool_parameters": "query='Roman coin with laurel wreath'",
+                    "tool_parameters": "antique roman coin with laurel wreath",
                     "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
+                },
+                {
+                    "tool_name": "google_search",
+                    "tool_parameters": "valuation of antique roman coins",
+                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -802,8 +817,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use 'get_health_data' to check if the user has any upcoming health check-ups or vitamin D levels to discuss.\", \"Use 'wikipedia_search' with query 'vitamin D benefits' to gather more information on the importance of vitamin D.\"]",
-            "tools": "[{\"name\": \"get_health_data\", \"description\": \"Retrieve health-related data for the user\", \"parameters\": None}, {\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for the given query\", \"parameters\": \"vitamin D benefits\"}]",
+            "actions": "[\"Use 'get_health_data' to check the user's recent health data and suggest if they need more vitamin D supplements.\", \"Use 'wikipedia_search' with query 'vitamin D benefits' to provide information on why they might need more of it.\"]",
+            "tools": "[{\"name\": \"get_health_data\", \"description\": \"Retrieve the user's recent health data\", \"parameters\": None}, {\"name\": \"wikipedia_search\", \"description\": \"Search for information on a given topic\", \"parameters\": \"vitamin D benefits\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_health_data",
@@ -874,8 +889,8 @@
         "predictions": {
             "thoughts": "None",
             "proactive_idx": "True",
-            "proactive_score": "4",
-            "actions": "[\"Use get_current_datetime to check how much time is left until Thursday for the user to complete the task.\", \"Use add_to_agenda: (event='Send Budget Forecast', time='Thursday') to remind the user when it's time to send the forecast.\"]",
+            "proactive_score": "3",
+            "actions": "[\"Use get_current_datetime to confirm if it's close to the deadline.\", \"Use add_to_agenda to remind the user to send the budget forecast by Thursday.\"]",
             "tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current datetime information\", \"parameters\": None}, {\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda\", \"parameters\": \"(event='Send Budget Forecast', time='Thursday')\"}]",
             "tools_results": [
                 {
@@ -944,13 +959,18 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use get_online_product_price with product_name='red hardshell suitcase' to check if there's any discount or sale happening for the same model.\"]",
-            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the online price of a specific product\", \"parameters\": \"product_name='red hardshell suitcase'\"}]",
+            "actions": "[\"Use get_online_product_price with product_name='red hardshell suitcase' to check if there's a better deal online.\", \"Use google_search with query='Tokyo airport luggage guidelines' to find out the baggage allowance for international flights to Tokyo.\"]",
+            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the current price of an online product\", \"parameters\": \"product_name='red hardshell suitcase'\"}, {\"name\": \"google_search\", \"description\": \"Search Google for information related to the query\", \"parameters\": \"query='Tokyo airport luggage guidelines'\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_online_product_price",
                     "tool_parameters": "product_name='red hardshell suitcase'",
                     "results": "{\"error\": \"functions.get_online_product_price() argument after ** must be a mapping, not str\"}"
+                },
+                {
+                    "tool_name": "google_search",
+                    "tool_parameters": "query='Tokyo airport luggage guidelines'",
+                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -1064,13 +1084,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use google_search to find more music albums similar to the one mentioned by the user's friend.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for information on Google\", \"parameters\": \"query\"}]",
+            "actions": "[\"Use get_online_product_price to find similar records based on the current one.\"]",
+            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the price of a specific product online\", \"parameters\": \"product_name\"}]",
             "tools_results": [
                 {
-                    "tool_name": "google_search",
-                    "tool_parameters": "query",
-                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
+                    "tool_name": "get_online_product_price",
+                    "tool_parameters": "product_name",
+                    "results": "{\"error\": \"functions.get_online_product_price() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -1127,18 +1147,12 @@
         "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time\", \"parameters\": {}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page\", \"parameters\": {\"query\": \"Stellar Voyages new season release date spring\"}}]",
         "predictions": {
             "thoughts": "None",
-            "proactive_idx": "True",
-            "proactive_score": "4",
-            "actions": "[\"Use 'google_search' to find out the release date of the new season of 'Stellar Voyages'.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for information on Google\", \"parameters\": \"release date Stellar Voyages new season\"}]",
-            "tools_results": [
-                {
-                    "tool_name": "google_search",
-                    "tool_parameters": "release date Stellar Voyages new season",
-                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
-                }
-            ],
-            "response": "outputs."
+            "proactive_idx": "False",
+            "proactive_score": "0",
+            "actions": "None",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-453": {
@@ -1219,8 +1233,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use get_current_gps_coordinates to determine if the user is near a fitness trail or park that offers real-time health and wellness programs.\", \"Use wikipedia_search with query 'city park workout classes' to find any scheduled classes in the vicinity.\"]",
-            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": None}, {\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for information related to the query\", \"parameters\": \"city park workout classes\"}]",
+            "actions": "[\"Use 'get_current_gps_coordinates' to determine if the user is near a water fountain or playground, which could be their destination.\", \"Use 'play_music' to suggest some relaxing music to enhance the user's experience in the park.\"]",
+            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": None}, {\"name\": \"play_music\", \"description\": \"Play music for the user\", \"parameters\": None}]",
             "tools_results": [
                 {
                     "tool_name": "get_current_gps_coordinates",
@@ -1228,9 +1242,9 @@
                     "results": "{\"error\": \"functions.get_current_gps_coordinates() argument after ** must be a mapping, not NoneType\"}"
                 },
                 {
-                    "tool_name": "wikipedia_search",
-                    "tool_parameters": "city park workout classes",
-                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
+                    "tool_name": "play_music",
+                    "tool_parameters": null,
+                    "results": "{\"error\": \"functions.play_music() argument after ** must be a mapping, not NoneType\"}"
                 }
             ],
             "response": "outputs."
@@ -1322,12 +1336,12 @@
             "proactive_idx": "True",
             "proactive_score": "4",
             "actions": "[\"Use get_current_gps_coordinates to confirm the bus route the user is waiting for.\", \"Use check_bus_schedule to find out if there are any updates on the bus schedule.\"]",
-            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": None}, {\"name\": \"check_bus_schedule\", \"description\": \"Check for updates on the bus schedule at a specific stop\", \"parameters\": \"bus_stop\"}]",
+            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}, {\"name\": \"check_bus_schedule\", \"description\": \"Check for any updates or changes in the bus schedule at a specific stop\", \"parameters\": \"bus_stop\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_current_gps_coordinates",
-                    "tool_parameters": null,
-                    "results": "{\"error\": \"functions.get_current_gps_coordinates() argument after ** must be a mapping, not NoneType\"}"
+                    "tool_parameters": "None",
+                    "results": "\"Sha Tin, Sha Tin, HK\""
                 },
                 {
                     "tool_name": "check_bus_schedule",
@@ -1364,8 +1378,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "Use \"google_search\" with query 'good places to grab lunch near [current location]' to find nearby dining options.",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search the web for information\", \"parameters\": \"query='good places to grab lunch near [current location] Max attempts reached. Unable to parse tools.",
+            "actions": "Use \"google_search\" with query '\"good nearby places to grab lunch' near <current location>\" to find suitable lunch spots for the user and their colleague.",
+            "tools": "[{\"name\": \"google_search\", \"description\": \"Search the web for information\", \"parameters\": \"'good nearby places to grab lunch' near get_current_gps_coordinates()}\"] Max attempts reached. Unable to parse tools.",
             "tools_results": [],
             "response": "outputs."
         }
@@ -1395,16 +1409,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Suggest weather forecast for Saturday's beach trip using get_city_weather.\"]",
-            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the current and future weather conditions of a city\", \"parameters\": (\"city\", None)}]",
+            "actions": "[\"Use get_bus_schedule to check if there are any bus routes going to the beach on Saturday.\"]",
+            "tools": "[{\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule at a specific bus stop\", \"parameters\": \"bus_stop\"}]",
             "tools_results": [
                 {
-                    "tool_name": "get_city_weather",
-                    "tool_parameters": [
-                        "city",
-                        null
-                    ],
-                    "results": "{\"error\": \"functions.get_city_weather() argument after ** must be a mapping, not tuple\"}"
+                    "tool_name": "check_bus_schedule",
+                    "tool_parameters": "bus_stop",
+                    "results": "{\"error\": \"functions.check_bus_schedule() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -1434,10 +1445,10 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "3",
-            "actions": "Suggest to the user if they would like to use the break for a quick walk or get refreshments.",
-            "tools": "None",
-            "tools_results": "None",
-            "response": "None"
+            "actions": "[\"Use 'get_current_datetime' to check if it's time for the break.\", \"Use 'add_to_agenda' to schedule a reminder for the start of the next session.\"]",
+            "tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current datetime\", \"parameters\": None}, {\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda\", \"parameters\": \"(event='Start of next session', time='10 minutes from now')}\"] Max attempts reached. Unable to parse tools.",
+            "tools_results": [],
+            "response": "outputs."
         }
     },
     "example-60": {
@@ -1522,20 +1533,9 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use 'google_search' to find out what people are saying about the controversial ending of the book.\", \"Use 'wikipedia_search' to gather more background information on the book and its author.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for information online using Google\", \"parameters\": \"controversial ending of the book\"}, {\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for more detailed information\", \"parameters\": \"the book name and its author\"}]",
-            "tools_results": [
-                {
-                    "tool_name": "google_search",
-                    "tool_parameters": "controversial ending of the book",
-                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
-                },
-                {
-                    "tool_name": "wikipedia_search",
-                    "tool_parameters": "the book name and its author",
-                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
-                }
-            ],
+            "actions": "[\"Use 'wikipedia_search' with query 'controversial ending of [book name]' to find more information about the book’s controversial ending and ongoing discussions.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for detailed information on a specific topic.\", \"parameters\": \"query='controversial ending of [book name] Max attempts reached. Unable to parse tools.",
+            "tools_results": [],
             "response": "outputs."
         }
     },
@@ -1670,9 +1670,14 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use google_map to show directions from the current location to Grass Island.\", \"Ask the user if they want step-by-step navigation.\"]",
-            "tools": "[{\"name\": \"google_map\", \"description\": \"Get directions between two locations\", \"parameters\": \"(current_location, destination)\"}]",
+            "actions": "[\"Use 'google_map' with (current_location, destination) arguments to guide the user to Grass Island.\", \"Use 'get_current_gps_coordinates' to confirm the user's current location at the crossroads.\"]",
+            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"},\n {\"name\": \"google_map\", \"description\": \"Find the shortest path between two locations\", \"parameters\": \"(current_location, destination)\"}]",
             "tools_results": [
+                {
+                    "tool_name": "get_current_gps_coordinates",
+                    "tool_parameters": "None",
+                    "results": "\"Sha Tin, Sha Tin, HK\""
+                },
                 {
                     "tool_name": "google_map",
                     "tool_parameters": "(current_location, destination)",
@@ -1707,15 +1712,9 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use <vllm> to help the user visualize how the sectional sofa might look in their living room based on the measurements and photos they have taken.\"]",
-            "tools": "[{\"name\": \"vllm\", \"description\": \"Load an image and a text prompt, return an image with the described content.\", \"parameters\": \"(prompt, image_path)\"}]",
-            "tools_results": [
-                {
-                    "tool_name": "vllm",
-                    "tool_parameters": "(prompt, image_path)",
-                    "results": "{\"error\": \"functions.vllm() argument after ** must be a mapping, not str\"}"
-                }
-            ],
+            "actions": "[\"Use <vllm> to compare the size of the sectional sofa with the user's living room dimensions based on the images they have taken.\"]",
+            "tools": "[{\"name\": \"vllm\", \"description\": \"Call a large language model to generate text and image responses.\", \"parameters\": \"('Compare the size of the potential sectional sofa with the measurements of the user\\'s living room based on the photos they took.'\", None)}] Max attempts reached. Unable to parse tools.",
+            "tools_results": [],
             "response": "outputs."
         }
     },
@@ -1830,20 +1829,18 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "3",
-            "actions": "[\"Use wikipedia_search with query 'antihistamine' to provide more detailed information about the medications.\", \"Use get_health_data to check if the user has any recorded allergies or medical conditions that might affect their choice.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for specific information\", \"parameters\": {\"query\": \"antihistamine\"}}, {\"name\": \"get_health_data\", \"description\": \"Get health data related to the user\", \"parameters\": None}]",
+            "actions": "[\"Use <google_search> to find reviews and comparisons of different over-the-counter allergy medications.\", \"Use <get_health_data> to check the user's current medication list and suggest appropriate treatments.\"]",
+            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for information on the web\", \"parameters\": \"query\"}, {\"name\": \"get_health_data\", \"description\": \"Retrieve health data related to the user\", \"parameters\": \"None\"}]",
             "tools_results": [
                 {
-                    "tool_name": "wikipedia_search",
-                    "tool_parameters": {
-                        "query": "antihistamine"
-                    },
-                    "results": "\"Search results for 'antihistamine' in Wikipedia.\""
+                    "tool_name": "google_search",
+                    "tool_parameters": "query",
+                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
                 },
                 {
                     "tool_name": "get_health_data",
-                    "tool_parameters": null,
-                    "results": "{\"error\": \"functions.get_health_data() argument after ** must be a mapping, not NoneType\"}"
+                    "tool_parameters": "None",
+                    "results": "\"The user's heart rate is 70 bpm, oxygen saturation is 98%, respiration rate is 16 bpm, body temperature is 36.5 degrees Celsius, total steps today is 5000, and total calories burned today is 2000.\""
                 }
             ],
             "response": "outputs."
@@ -1874,13 +1871,15 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use get_current_gps_coordinates to confirm the bus route the user is waiting for.\"]",
-            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}]",
+            "actions": "[\"Use `check_bus_schedule` to get the schedule of buses stopping at 'University' bus stop.\"]",
+            "tools": "[{\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for a given bus stop\", \"parameters\": {\"bus_stop\": \"University\"}}]",
             "tools_results": [
                 {
-                    "tool_name": "get_current_gps_coordinates",
-                    "tool_parameters": "None",
-                    "results": "\"Sha Tin, Sha Tin, HK\""
+                    "tool_name": "check_bus_schedule",
+                    "tool_parameters": {
+                        "bus_stop": "University"
+                    },
+                    "results": "\"The next bus at University is at 9:30 AM.\""
                 }
             ],
             "response": "outputs."
@@ -1937,14 +1936,19 @@
         "predictions": {
             "thoughts": "None",
             "proactive_idx": "True",
-            "proactive_score": "3",
-            "actions": "[\"Use get_health_data to check the user's fitness data before the run.\"]",
-            "tools": "[{\"name\": \"get_health_data\", \"description\": \"Get the current health data of the user\", \"parameters\": \"None\"}]",
+            "proactive_score": "4",
+            "actions": "[\"Use get_health_data to check if there are any fitness goals set for the user.\", \"Use play_music to suggest some motivating music for the run.\"]",
+            "tools": "[{\"name\": \"get_health_data\", \"description\": \"Get the health data of the user\", \"parameters\": None}, {\"name\": \"play_music\", \"description\": \"Play music according to the user's preference\", \"parameters\": None}]",
             "tools_results": [
                 {
                     "tool_name": "get_health_data",
-                    "tool_parameters": "None",
-                    "results": "\"The user's heart rate is 70 bpm, oxygen saturation is 98%, respiration rate is 16 bpm, body temperature is 36.5 degrees Celsius, total steps today is 5000, and total calories burned today is 2000.\""
+                    "tool_parameters": null,
+                    "results": "{\"error\": \"functions.get_health_data() argument after ** must be a mapping, not NoneType\"}"
+                },
+                {
+                    "tool_name": "play_music",
+                    "tool_parameters": null,
+                    "results": "{\"error\": \"functions.play_music() argument after ** must be a mapping, not NoneType\"}"
                 }
             ],
             "response": "outputs."
@@ -1973,9 +1977,9 @@
         "predictions": {
             "thoughts": "None",
             "proactive_idx": "True",
-            "proactive_score": "3",
-            "actions": "[\"Use get_current_gps_coordinates to determine the specific location of the beach and suggest nearby running routes or scenic spots.\", \"Use wikipedia_search with 'morning jogging tips' as query to provide some jogging advice for the user.\"]",
-            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": None}, {\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for information related to the query\", \"parameters\": \"morning jogging tips\"}]",
+            "proactive_score": "4",
+            "actions": "[\"Use 'get_current_gps_coordinates' to determine if there are any nearby health facilities or points of interest for the jogger.\", \"Use 'play_music' to suggest playing some jogging music.\"]",
+            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": None}, {\"name\": \"play_music\", \"description\": \"Play music on the user's device\", \"parameters\": None}]",
             "tools_results": [
                 {
                     "tool_name": "get_current_gps_coordinates",
@@ -1983,9 +1987,9 @@
                     "results": "{\"error\": \"functions.get_current_gps_coordinates() argument after ** must be a mapping, not NoneType\"}"
                 },
                 {
-                    "tool_name": "wikipedia_search",
-                    "tool_parameters": "morning jogging tips",
-                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
+                    "tool_name": "play_music",
+                    "tool_parameters": null,
+                    "results": "{\"error\": \"functions.play_music() argument after ** must be a mapping, not NoneType\"}"
                 }
             ],
             "response": "outputs."
@@ -2075,24 +2079,9 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use 'google_search' with query 'mountain destinations near me' to find nearby mountain locations.\", \"Use 'wikipedia_search' with query 'activities in mountains' to gather information on activities available in the mountains.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search the web for specific information\", \"parameters\": {\"query\": \"mountain destinations near me\"}}, {\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for detailed information\", \"parameters\": {\"query\": \"activities in mountains\"}}]",
-            "tools_results": [
-                {
-                    "tool_name": "google_search",
-                    "tool_parameters": {
-                        "query": "mountain destinations near me"
-                    },
-                    "results": "\"url:https://en.tripadvisor.com.hk/Attractions-g294217-Activities-c57-t66-Hong_Kong.html,\\ndescription: Tai Mo Shan is the highest peak in Hong Kong at 957 metres above sea level. This was once an active volcano during the Jurassic period that is found in the\\u00a0... \""
-                },
-                {
-                    "tool_name": "wikipedia_search",
-                    "tool_parameters": {
-                        "query": "activities in mountains"
-                    },
-                    "results": "\"Search results for 'activities in mountains' in Wikipedia.\""
-                }
-            ],
+            "actions": "[\"Use 'google_search' with query 'best mountain destinations in [current region]' to find suitable places for the user's weekend trip.\", \"Use 'get_current_gps_coordinates' to get the current location and suggest local mountain spots nearby.\"]",
+            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for information on the internet\", \"parameters\": \"query 'best mountain destinations in [current region] Max attempts reached. Unable to parse tools.",
+            "tools_results": [],
             "response": "outputs."
         }
     },
@@ -2260,13 +2249,18 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use get_online_product_price to check the current price of the wireless earbuds and compare it with the discounted price suggested by the store announcement.\"]",
-            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the current price of a product online\", \"parameters\": \"product_name\"}]",
+            "actions": "[\"Use 'get_online_product_price' to check the current online price of the wireless earbuds.\", \"Use 'google_search' to find any additional discount offers from the manufacturer's website.\"]",
+            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the current online price of a product\", \"parameters\": \"product_name\"}, {\"name\": \"google_search\", \"description\": \"Search for information using Google search engine\", \"parameters\": \"query\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_online_product_price",
                     "tool_parameters": "product_name",
                     "results": "{\"error\": \"functions.get_online_product_price() argument after ** must be a mapping, not str\"}"
+                },
+                {
+                    "tool_name": "google_search",
+                    "tool_parameters": "query",
+                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -2382,8 +2376,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use get_online_product_price to check the prices of similar smart home devices online.\", \"Use google_search to find reviews and comparisons of popular smart home devices.\"]",
-            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the current price of a product\", \"parameters\": \"product_name\"}, {\"name\": \"google_search\", \"description\": \"Search for information on the web\", \"parameters\": \"query\"}]",
+            "actions": "[\"Use get_online_product_price to check the current price of the smart home devices the user is looking at.\", \"Use wikipedia_search to gather more information about the features and benefits of these devices.\"]",
+            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the current price of a product online\", \"parameters\": \"product_name\"}, {\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for general information on a query\", \"parameters\": \"query\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_online_product_price",
@@ -2391,9 +2385,9 @@
                     "results": "{\"error\": \"functions.get_online_product_price() argument after ** must be a mapping, not str\"}"
                 },
                 {
-                    "tool_name": "google_search",
+                    "tool_name": "wikipedia_search",
                     "tool_parameters": "query",
-                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
+                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -2425,18 +2419,18 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use get_health_data to fetch any relevant health information from the user's wearable device.\", \"Use google_search with query 'twice daily medication reminder' to find a suitable reminder app for the user.\"]",
-            "tools": "[{\"name\": \"get_health_data\", \"description\": \"Retrieve health data from the user’s wearable devices\", \"parameters\": None}, {\"name\": \"google_search\", \"description\": \"Search for information on the internet\", \"parameters\": \"twice daily medication reminder\"}]",
+            "actions": "[\"Use get_medical_knowledge to understand more about the medication the user needs to take.\", \"Use add_to_agenda to schedule a reminder for the follow-up visit in one month.\"]",
+            "tools": "[{\"name\": \"get_medical_knowledge\", \"description\": \"Get medical knowledge related to the query\", \"parameters\": \"query\"}, {\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda\", \"parameters\": \"(event, time)\"}]",
             "tools_results": [
                 {
-                    "tool_name": "get_health_data",
-                    "tool_parameters": null,
-                    "results": "{\"error\": \"functions.get_health_data() argument after ** must be a mapping, not NoneType\"}"
+                    "tool_name": "get_medical_knowledge",
+                    "tool_parameters": "query",
+                    "results": "{\"error\": \"functions.get_medical_knowledge() argument after ** must be a mapping, not str\"}"
                 },
                 {
-                    "tool_name": "google_search",
-                    "tool_parameters": "twice daily medication reminder",
-                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
+                    "tool_name": "add_to_agenda",
+                    "tool_parameters": "(event, time)",
+                    "results": "{\"error\": \"functions.add_to_agenda() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -2469,13 +2463,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Suggest to the user based on the conversation.\", \"Use get_current_datetime to confirm if next Saturday is suitable for the user.\"]",
-            "tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time\", \"parameters\": None}]",
+            "actions": "[\"Ask if the user is interested in the hiking plan.\", \"Use get_online_product_price('hiking gear') to find affordable hiking equipment for the user.\"]",
+            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the price of a product from online shopping websites\", \"parameters\": \"product_name='hiking gear'\"}]",
             "tools_results": [
                 {
-                    "tool_name": "get_current_datetime",
-                    "tool_parameters": null,
-                    "results": "{\"error\": \"functions.get_current_datetime() argument after ** must be a mapping, not NoneType\"}"
+                    "tool_name": "get_online_product_price",
+                    "tool_parameters": "product_name='hiking gear'",
+                    "results": "{\"error\": \"functions.get_online_product_price() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -2534,21 +2528,16 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use get_city_weather to check the weather in Canada.\", \"Use google_search to find travel tips for Canada.\"]",
-            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the current or future weather of a specific city\", \"parameters\": (\"Canada\", None)}, {\"name\": \"google_search\", \"description\": \"Search for information on Google\", \"parameters\": \"travel tips for Canada\"}]",
+            "actions": "[\"Use get_city_weather to fetch the weather forecast for Canada to advise on suitable clothing.\"]",
+            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the current or future weather in a city\", \"parameters\": (\"city\", None)}]",
             "tools_results": [
                 {
                     "tool_name": "get_city_weather",
                     "tool_parameters": [
-                        "Canada",
+                        "city",
                         null
                     ],
                     "results": "{\"error\": \"functions.get_city_weather() argument after ** must be a mapping, not tuple\"}"
-                },
-                {
-                    "tool_name": "google_search",
-                    "tool_parameters": "travel tips for Canada",
-                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -2579,18 +2568,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use 'google_search' to find the contact information of Dr. Emily Chen, including her office hours and specializations.\", \"Use 'get_current_gps_coordinates' to confirm the user's current location before suggesting directions.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for specific information on Google\", \"parameters\": \"Dr. Emily Chen pediatric dentist contact information\"}, {\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}]",
+            "actions": "[\"Use 'google_search' with query 'Dr. Emily Chen Pediatric Dentist reviews' to gather more information about the dentist.\"]",
+            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for a web page using a given query.\", \"parameters\": \"query='Dr. Emily Chen Pediatric Dentist reviews'\"}]",
             "tools_results": [
                 {
                     "tool_name": "google_search",
-                    "tool_parameters": "Dr. Emily Chen pediatric dentist contact information",
+                    "tool_parameters": "query='Dr. Emily Chen Pediatric Dentist reviews'",
                     "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
-                },
-                {
-                    "tool_name": "get_current_gps_coordinates",
-                    "tool_parameters": "None",
-                    "results": "\"Sha Tin, Sha Tin, HK\""
                 }
             ],
             "response": "outputs."
@@ -2730,7 +2714,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "3",
-            "actions": "Suggest some recipes based on the available ingredients.",
+            "actions": "Suggest recipes based on the available ingredients.",
             "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for information\", \"parameters\": \"query\"}]",
             "tools_results": [
                 {
@@ -2851,8 +2835,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use wikipedia_search with query 'multi-head attention mechanism' to provide more details about the topic.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for detailed information on a specific topic\", \"parameters\": \"query='multi-head attention mechanism'\"}]",
+            "actions": "[\"Use wikipedia_search with query as 'multi-head attention mechanism' to provide more details about the topic.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for detailed information on a given topic\", \"parameters\": \"query='multi-head attention mechanism'\"}]",
             "tools_results": [
                 {
                     "tool_name": "wikipedia_search",
@@ -2911,23 +2895,12 @@
         "Tools": "[{\"name\": \"set_timer\", \"description\": \"Set a timer for a specific duration.\", \"parameters\": {\"duration\": \"12 minutes\"}}]",
         "predictions": {
             "thoughts": "None",
-            "proactive_idx": "True",
-            "proactive_score": "4",
-            "actions": "[\"Use <google_search> to find recipes for cookies that match the user's preferences.\", \"Use <get_current_gps_coordinates> to suggest nearby stores if ingredients are missing.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for information on the web\", \"parameters\": \"query\"},\n {\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}]",
-            "tools_results": [
-                {
-                    "tool_name": "google_search",
-                    "tool_parameters": "query",
-                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
-                },
-                {
-                    "tool_name": "get_current_gps_coordinates",
-                    "tool_parameters": "None",
-                    "results": "\"Sha Tin, Sha Tin, HK\""
-                }
-            ],
-            "response": "outputs."
+            "proactive_idx": "False",
+            "proactive_score": "0",
+            "actions": "None",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-866": {
@@ -3124,9 +3097,9 @@
         "predictions": {
             "thoughts": "None",
             "proactive_idx": "True",
-            "proactive_score": "3",
-            "actions": "[\"Use get_bus_schedule to check the nearest bus schedule in case the user needs transportation after their appointment.\"]",
-            "tools": "[{\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule at a specific bus stop\", \"parameters\": \"bus_stop\"}]",
+            "proactive_score": "4",
+            "actions": "[\"Use get_bus_schedule to check the next bus schedule as the user might be considering alternative transportation methods.\"]",
+            "tools": "[{\"name\": \"check_bus_schedule\", \"description\": \"Get the bus schedule for a specific bus stop\", \"parameters\": \"bus_stop\"}]",
             "tools_results": [
                 {
                     "tool_name": "check_bus_schedule",
@@ -3187,23 +3160,12 @@
         "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"},{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time\", \"parameters\": \"None\"}]",
         "predictions": {
             "thoughts": "None",
-            "proactive_idx": "True",
-            "proactive_score": "4",
-            "actions": "[\"Use google_search to find nearby restaurants and attractions for the user while they wait.\", \"Use play_music to suggest some background music that can help pass the time.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for information on the web\", \"parameters\": \"nearby restaurants and attractions\"}, {\"name\": \"play_music\", \"description\": \"Play music from a music player\", \"parameters\": None}]",
-            "tools_results": [
-                {
-                    "tool_name": "google_search",
-                    "tool_parameters": "nearby restaurants and attractions",
-                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
-                },
-                {
-                    "tool_name": "play_music",
-                    "tool_parameters": null,
-                    "results": "{\"error\": \"functions.play_music() argument after ** must be a mapping, not NoneType\"}"
-                }
-            ],
-            "response": "outputs."
+            "proactive_idx": "False",
+            "proactive_score": "0",
+            "actions": "None",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-942": {
@@ -3258,8 +3220,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use 'wikipedia_search' with query 'Rothko color field paintings' to provide more context on the discussion topic.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for information on a given topic\", \"parameters\": \"Rothko color field paintings\"}]",
+            "actions": "[\"Use 'wikipedia_search' with query 'Rothko color field paintings' to provide more information about Rothko's work.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information on a given topic\", \"parameters\": \"Rothko color field paintings\"}]",
             "tools_results": [
                 {
                     "tool_name": "wikipedia_search",
@@ -3323,8 +3285,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use 'google_map' to provide directions from the current GPS coordinates to the waterfall.\", \"Use 'vllm' with an image of a fork in the trail to guide them based on visual recognition.\"]",
-            "tools": "[{\"name\": \"google_map\", \"description\": \"Provide directions using Google Maps\", \"parameters\": \"(current_location, destination)\"}, {\"name\": \"vllm\", \"description\": \"Use a language model with an image to provide guidance\", \"parameters\": \"(prompt, image_path)\"}]",
+            "actions": "[\"Use 'google_map' with (current_location, destination) arguments to provide a map that highlights the path to the waterfall.\", \"Use 'vllm' with ('Please describe the scenery around us and point out potential landmarks to identify our location on the map.', image_path) arguments to help users recognize their current position.\"]",
+            "tools": "[{\"name\": \"google_map\", \"description\": \"Provides a map for navigation purposes\", \"parameters\": \"(current_location, destination)\"}, {\"name\": \"vllm\", \"description\": \"Generates text and image based on the provided prompt\", \"parameters\": \"('Please describe the scenery around us and point out potential landmarks to identify our location on the map.', image_path)\"}]",
             "tools_results": [
                 {
                     "tool_name": "google_map",
@@ -3333,7 +3295,7 @@
                 },
                 {
                     "tool_name": "vllm",
-                    "tool_parameters": "(prompt, image_path)",
+                    "tool_parameters": "('Please describe the scenery around us and point out potential landmarks to identify our location on the map.', image_path)",
                     "results": "{\"error\": \"functions.vllm() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -3367,7 +3329,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use get_current_datetime to confirm the current date and time.\", \"If the difference between the current date and May 1st (two weeks before May 15th) is less than or equal to 3 days, use add_to_agenda to remind the user of the final review meeting.\"]",
+            "actions": "[\"Use get_current_datetime to check the current date.\", \"If the difference between the current date and May 1st is less than or equal to 7 days, use add_to_agenda to schedule a reminder for the final review meeting.\"]",
             "tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current datetime\", \"parameters\": None}, {\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda\", \"parameters\": \"(event, time)\"}]",
             "tools_results": [
                 {
@@ -3438,14 +3400,9 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use get_health_data to check if there are any other abnormal conditions.\", \"Use get_medical_knowledge to find possible causes and advice.\"]",
-            "tools": "[{\"name\": \"get_health_data\", \"description\": \"Get the current health data of the user\", \"parameters\": None}, {\"name\": \"get_medical_knowledge\", \"description\": \"Get medical knowledge based on query\", \"parameters\": \"query\"}]",
+            "actions": "[\"Use get_medical_knowledge to understand more about possible causes of abnormal heart rate during jogging.\"]",
+            "tools": "[{\"name\": \"get_medical_knowledge\", \"description\": \"Get medical knowledge based on the query provided\", \"parameters\": \"query\"}]",
             "tools_results": [
-                {
-                    "tool_name": "get_health_data",
-                    "tool_parameters": null,
-                    "results": "{\"error\": \"functions.get_health_data() argument after ** must be a mapping, not NoneType\"}"
-                },
                 {
                     "tool_name": "get_medical_knowledge",
                     "tool_parameters": "query",
@@ -3480,8 +3437,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "3",
-            "actions": "[\"Use 'get_current_gps_coordinates' to track the user's location and suggest nearby points of interest.\", \"Use 'play_music' to enhance the jogging experience with some motivational music.\"]",
-            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": None}, {\"name\": \"play_music\", \"description\": \"Play music for the user\", \"parameters\": None}]",
+            "actions": "[\"Use get_current_gps_coordinates to determine if there are any nearby scenic spots or recommended routes for the user.\", \"Use wikipedia_search with query 'jogging tips' to gather some jogging advice for the user.\"]",
+            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": None}, {\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for information related to the query\", \"parameters\": \"jogging tips\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_current_gps_coordinates",
@@ -3489,9 +3446,9 @@
                     "results": "{\"error\": \"functions.get_current_gps_coordinates() argument after ** must be a mapping, not NoneType\"}"
                 },
                 {
-                    "tool_name": "play_music",
-                    "tool_parameters": null,
-                    "results": "{\"error\": \"functions.play_music() argument after ** must be a mapping, not NoneType\"}"
+                    "tool_name": "wikipedia_search",
+                    "tool_parameters": "jogging tips",
+                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -3548,23 +3505,12 @@
         "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"},{\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\":\"Popular menu options at this restaurant\"}}]",
         "predictions": {
             "thoughts": "None",
-            "proactive_idx": "True",
-            "proactive_score": "4",
-            "actions": "[\"Use wikipedia_search with query 'Thai cuisine' to provide information about Thai food.\", \"Use get_current_gps_coordinates to confirm the user's location and suggest nearby restaurants if needed.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information on Wikipedia\", \"parameters\": \"query='Thai cuisine'\"}, {\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}]",
-            "tools_results": [
-                {
-                    "tool_name": "wikipedia_search",
-                    "tool_parameters": "query='Thai cuisine'",
-                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
-                },
-                {
-                    "tool_name": "get_current_gps_coordinates",
-                    "tool_parameters": "None",
-                    "results": "\"Sha Tin, Sha Tin, HK\""
-                }
-            ],
-            "response": "outputs."
+            "proactive_idx": "False",
+            "proactive_score": "0",
+            "actions": "None",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-935": {
@@ -3648,8 +3594,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use <get_online_product_price> to check the current online price of the headphones the user is interested in.\", \"Use <google_search> to find customer reviews and ratings of the headphones.\"]",
-            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the current online price of a product\", \"parameters\": \"product_name\"}, {\"name\": \"google_search\", \"description\": \"Search for information on the web\", \"parameters\": \"query\"}]",
+            "actions": "[\"Use get_online_product_price to check the current online price of the headphones the user is considering.\", \"Use wikipedia_search to gather more information about the headphones if needed.\"]",
+            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the current online price of a product\", \"parameters\": \"product_name\"}, {\"name\": \"wikipedia_search\", \"description\": \"Search for information on Wikipedia\", \"parameters\": \"query\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_online_product_price",
@@ -3657,9 +3603,9 @@
                     "results": "{\"error\": \"functions.get_online_product_price() argument after ** must be a mapping, not str\"}"
                 },
                 {
-                    "tool_name": "google_search",
+                    "tool_name": "wikipedia_search",
                     "tool_parameters": "query",
-                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
+                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -3745,8 +3691,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use get_health_data to fetch the latest health stats of the user.\", \"Use vllm with prompt 'How long should I use the rowing machine today?' to suggest workout duration.\"]",
-            "tools": "[{\"name\": \"get_health_data\", \"description\": \"Get the current health data of the user\", \"parameters\": None}, {\"name\": \"vllm\", \"description\": \"Get a language model to provide information based on the prompt and image path\", \"parameters\": (\"How long should I use the rowing machine today?\", None)}]",
+            "actions": "[\"Use get_health_data to fetch the user's recent fitness data.\", \"Use google_search with query 'rowing machine workout tips' to provide useful advice.\"]",
+            "tools": "[{\"name\": \"get_health_data\", \"description\": \"Get the current health and fitness data of the user\", \"parameters\": None}, {\"name\": \"google_search\", \"description\": \"Search Google for information related to the query\", \"parameters\": \"rowing machine workout tips\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_health_data",
@@ -3754,12 +3700,9 @@
                     "results": "{\"error\": \"functions.get_health_data() argument after ** must be a mapping, not NoneType\"}"
                 },
                 {
-                    "tool_name": "vllm",
-                    "tool_parameters": [
-                        "How long should I use the rowing machine today?",
-                        null
-                    ],
-                    "results": "{\"error\": \"functions.vllm() argument after ** must be a mapping, not tuple\"}"
+                    "tool_name": "google_search",
+                    "tool_parameters": "rowing machine workout tips",
+                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -3925,12 +3868,23 @@
         "Tools": "None",
         "predictions": {
             "thoughts": "None",
-            "proactive_idx": "False",
-            "proactive_score": "0",
-            "actions": "None",
-            "tools": "None",
-            "tools_results": "None",
-            "response": "None"
+            "proactive_idx": "True",
+            "proactive_score": "3",
+            "actions": "[\"Use <get_health_data> to check the user's current fitness status and suggest suitable workouts.\", \"Use <wikipedia_search> with query 'treadmill workout routines' to find some recommended treadmill exercise plans.\"]",
+            "tools": "[{\"name\": \"get_health_data\", \"description\": \"Get the health data of the user\", \"parameters\": None}, {\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for information related to the query\", \"parameters\": \"treadmill workout routines\"}]",
+            "tools_results": [
+                {
+                    "tool_name": "get_health_data",
+                    "tool_parameters": null,
+                    "results": "{\"error\": \"functions.get_health_data() argument after ** must be a mapping, not NoneType\"}"
+                },
+                {
+                    "tool_name": "wikipedia_search",
+                    "tool_parameters": "treadmill workout routines",
+                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
+                }
+            ],
+            "response": "outputs."
         }
     },
     "example-249": {
@@ -3957,8 +3911,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use wikipedia_search with query 'Indian cooking tips' to provide some cooking tips.\", \"Use get_health_data to check if the user has any dietary restrictions that need to be considered while preparing an Indian dish.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for information related to the query\", \"parameters\": \"query='Indian cooking tips'\"}, {\"name\": \"get_health_data\", \"description\": \"Get health data from user profile, such as dietary restrictions\", \"parameters\": \"None\"}]",
+            "actions": "[\"Use wikipedia_search with query 'Indian cooking tips' to gather some cooking tips for the user.\", \"Use get_health_data to check if the user needs any dietary considerations like recipes suitable for a specific diet.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for the given query\", \"parameters\": \"query='Indian cooking tips'\"}, {\"name\": \"get_health_data\", \"description\": \"Get health-related data such as dietary restrictions\", \"parameters\": None}]",
             "tools_results": [
                 {
                     "tool_name": "wikipedia_search",
@@ -3967,8 +3921,8 @@
                 },
                 {
                     "tool_name": "get_health_data",
-                    "tool_parameters": "None",
-                    "results": "\"The user's heart rate is 70 bpm, oxygen saturation is 98%, respiration rate is 16 bpm, body temperature is 36.5 degrees Celsius, total steps today is 5000, and total calories burned today is 2000.\""
+                    "tool_parameters": null,
+                    "results": "{\"error\": \"functions.get_health_data() argument after ** must be a mapping, not NoneType\"}"
                 }
             ],
             "response": "outputs."
@@ -3999,17 +3953,17 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use get_current_datetime to confirm if it's currently early morning or late evening as per local time in Bali, which would determine the best time to suggest packing sunscreen and a hat.\", \"Use wikipedia_search with query 'Bali weather' to check the current weather conditions for packing recommendations.\"]",
-            "tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current datetime information\", \"parameters\": None}, {\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for general knowledge\", \"parameters\": \"Bali weather\"}]",
+            "actions": "[\"Use get_city_weather to fetch the current weather conditions in Bali.\", \"Use wikipedia_search to gather information on local customs and traditions in Bali.\"]",
+            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the current weather conditions in a specified city\", \"parameters\": \"city='Bali'\"}, {\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for information related to a query\", \"parameters\": \"query='customs and traditions in Bali'\"}]",
             "tools_results": [
                 {
-                    "tool_name": "get_current_datetime",
-                    "tool_parameters": null,
-                    "results": "{\"error\": \"functions.get_current_datetime() argument after ** must be a mapping, not NoneType\"}"
+                    "tool_name": "get_city_weather",
+                    "tool_parameters": "city='Bali'",
+                    "results": "{\"error\": \"functions.get_city_weather() argument after ** must be a mapping, not str\"}"
                 },
                 {
                     "tool_name": "wikipedia_search",
-                    "tool_parameters": "Bali weather",
+                    "tool_parameters": "query='customs and traditions in Bali'",
                     "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -4042,18 +3996,22 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use get_current_datetime to check if there is any upcoming event or meeting in the user's agenda.\", \"Use wikipedia_search with query 'client meeting preparation' to find relevant resources and tips.\"]",
-            "tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time of the device\", \"parameters\": None}, {\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for the provided query\", \"parameters\": \"client meeting preparation\"}]",
+            "actions": "[\"Use get_online_product_price with product_name 'presentation template' to find affordable options for the user.\", \"Use search_rednote with query 'client meeting preparation' to gather any relevant notes or information the user might need.\"]",
+            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the price of an online product\", \"parameters\": {\"product_name\": \"presentation template\"}}, {\"name\": \"search_rednote\", \"description\": \"Search for existing notes in RedNote app\", \"parameters\": {\"query\": \"client meeting preparation\"}}]",
             "tools_results": [
                 {
-                    "tool_name": "get_current_datetime",
-                    "tool_parameters": null,
-                    "results": "{\"error\": \"functions.get_current_datetime() argument after ** must be a mapping, not NoneType\"}"
+                    "tool_name": "get_online_product_price",
+                    "tool_parameters": {
+                        "product_name": "presentation template"
+                    },
+                    "results": "\"The price of the presentation template is $600\""
                 },
                 {
-                    "tool_name": "wikipedia_search",
-                    "tool_parameters": "client meeting preparation",
-                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
+                    "tool_name": "search_rednote",
+                    "tool_parameters": {
+                        "query": "client meeting preparation"
+                    },
+                    "results": "\"Search results for 'client meeting preparation' in rednote.\""
                 }
             ],
             "response": "outputs."
@@ -4373,22 +4331,18 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use get_online_product_price with product_name as 'mid-range DSLR camera' to provide price comparisons for the user.\", \"Use wikipedia_search with query as 'DSLR camera features and specifications' to gather more detailed information about the camera's specifications.\"]",
-            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the online prices of a specific product\", \"parameters\": {\"product_name\": \"mid-range DSLR camera\"}}, {\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for more information on a topic\", \"parameters\": {\"query\": \"DSLR camera features and specifications\"}}]",
+            "actions": "[\"Use get_online_product_price with 'mid-range DSLR camera' as argument to provide current pricing information.\", \"Use wikipedia_search with 'DSLR camera features' as query to offer a detailed guide on what to look for in a mid-range DSLR camera.\"]",
+            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the current online price of a product\", \"parameters\": \"product_name='mid-range DSLR camera'\"}, {\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for information related to the query\", \"parameters\": \"query='DSLR camera features'\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_online_product_price",
-                    "tool_parameters": {
-                        "product_name": "mid-range DSLR camera"
-                    },
-                    "results": "\"The price of the mid-range DSLR camera is $600\""
+                    "tool_parameters": "product_name='mid-range DSLR camera'",
+                    "results": "{\"error\": \"functions.get_online_product_price() argument after ** must be a mapping, not str\"}"
                 },
                 {
                     "tool_name": "wikipedia_search",
-                    "tool_parameters": {
-                        "query": "DSLR camera features and specifications"
-                    },
-                    "results": "\"Search results for 'DSLR camera features and specifications' in Wikipedia.\""
+                    "tool_parameters": "query='DSLR camera features'",
+                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -4418,9 +4372,15 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use 'add_to_agenda' to schedule a meeting with the entire team.\", \"Use 'get_medical_knowledge' to gather relevant information about treatment protocols.\"]",
-            "tools": "[{\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda\", \"parameters\": (event, time)}, {\"name\": \"get_medical_knowledge\", \"description\": \"Get medical knowledge related to a query\", \"parameters\": \"treatment protocols\"}] Max attempts reached. Unable to parse tools.",
-            "tools_results": [],
+            "actions": "[\"Use 'add_to_agenda' to schedule a meeting with the entire team regarding patient cases and treatment protocols.\"]",
+            "tools": "[{\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda\", \"parameters\": \"(event, time)\"}]",
+            "tools_results": [
+                {
+                    "tool_name": "add_to_agenda",
+                    "tool_parameters": "(event, time)",
+                    "results": "{\"error\": \"functions.add_to_agenda() argument after ** must be a mapping, not str\"}"
+                }
+            ],
             "response": "outputs."
         }
     },
@@ -4449,18 +4409,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use wikipedia_search with query as 'distinctive flowering plant' to find more information about the plant.\", \"Use vllm with prompt as 'Picture of a distinctive flowering plant', and image_path as the path to the user's current picture to identify the plant.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for specific queries\", \"parameters\": \"query='distinctive flowering plant'\"}, {\"name\": \"vllm\", \"description\": \"Use vllm model to understand and respond to users with the help of an image.\", \"parameters\": \"(prompt='Picture of a distinctive flowering plant', image_path='/path/to/image')\"}]",
+            "actions": "[\"Use wikipedia_search with query 'distinctive flowering plant in botanical garden' to identify the plant the user is observing.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for information on a specific topic\", \"parameters\": \"query='distinctive flowering plant in botanical garden'\"}]",
             "tools_results": [
                 {
                     "tool_name": "wikipedia_search",
-                    "tool_parameters": "query='distinctive flowering plant'",
+                    "tool_parameters": "query='distinctive flowering plant in botanical garden'",
                     "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
-                },
-                {
-                    "tool_name": "vllm",
-                    "tool_parameters": "(prompt='Picture of a distinctive flowering plant', image_path='/path/to/image')",
-                    "results": "{\"error\": \"functions.vllm() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -4576,8 +4531,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use <google_search> to find reviews and ratings of the recommended headphones.\", \"Use <get_online_product_price> to check the current prices of the headphones on popular e-commerce platforms.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for information using Google search engine\", \"parameters\": \"query\"}, {\"name\": \"get_online_product_price\", \"description\": \"Get the online price of a product\", \"parameters\": \"product_name\"}]",
+            "actions": "[\"Use <google_search> to find reviews and ratings of the headphones the user is interested in.\", \"Use <get_online_product_price> to check current prices for the selected headphones.\"]",
+            "tools": "[{\"name\": \"google_search\", \"description\": \"Search the web for information on a given topic\", \"parameters\": \"query\"}, {\"name\": \"get_online_product_price\", \"description\": \"Get the current price of an online product\", \"parameters\": \"product_name\"}]",
             "tools_results": [
                 {
                     "tool_name": "google_search",
@@ -4675,9 +4630,20 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use get_online_product_price('server') and set_timer(1440) to remind user about the deadline.\", \"Use add_to_agenda('Review new software update', 'Friday') to ensure all tasks are covered.\"]",
-            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the price of a specific product online\", \"parameters\": \"product_name='server'\"}, {\"name\": \"set_timer\", \"description\": \"Set a timer for a specific duration\", \"parameters\": \"duration=1440\"}, {\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda at a specific time\", \"parameters\": \"(event='Review new software update', time='Friday')}] Max attempts reached. Unable to parse tools.",
-            "tools_results": [],
+            "actions": "[\"Use get_current_datetime to check if today is before Friday and if not, suggest creating an updated deadline in the agenda.\", \"Use wikipedia_search to find resources or guides related to pushing software updates.\"]",
+            "tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time\", \"parameters\": None}, {\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for information on a given topic\", \"parameters\": \"pushing software updates\"}]",
+            "tools_results": [
+                {
+                    "tool_name": "get_current_datetime",
+                    "tool_parameters": null,
+                    "results": "{\"error\": \"functions.get_current_datetime() argument after ** must be a mapping, not NoneType\"}"
+                },
+                {
+                    "tool_name": "wikipedia_search",
+                    "tool_parameters": "pushing software updates",
+                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
+                }
+            ],
             "response": "outputs."
         }
     },
@@ -4737,23 +4703,27 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use get_current_gps_coordinates to confirm the user's location.\", \"Use google_search with query 'nearest shelter hiking trails' to find nearby shelters.\", \"Use set_timer with duration=30 to remind the user to check weather updates.\"]",
-            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}, {\"name\": \"google_search\", \"description\": \"Search for information on the web\", \"parameters\": \"query='nearest shelter hiking trails'\"}, {\"name\": \"set_timer\", \"description\": \"Set a timer to remind the user of something in the future\", \"parameters\": \"duration=30\"}]",
+            "actions": "[\"Use get_current_gps_coordinates to confirm the user's location.\", \"Use google_search with query 'nearest shelters and safe zones' to find nearby safe locations.\", \"Use check_agenda_time_conflict with time to ensure there is enough time to reach a safe place.\"]",
+            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": None}, {\"name\": \"google_search\", \"description\": \"Search for information using Google search engine\", \"parameters\": {\"query\": \"nearest shelters and safe zones\"}}, {\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the agenda\", \"parameters\": {\"time\": None}}]",
             "tools_results": [
                 {
                     "tool_name": "get_current_gps_coordinates",
-                    "tool_parameters": "None",
-                    "results": "\"Sha Tin, Sha Tin, HK\""
+                    "tool_parameters": null,
+                    "results": "{\"error\": \"functions.get_current_gps_coordinates() argument after ** must be a mapping, not NoneType\"}"
                 },
                 {
                     "tool_name": "google_search",
-                    "tool_parameters": "query='nearest shelter hiking trails'",
-                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
+                    "tool_parameters": {
+                        "query": "nearest shelters and safe zones"
+                    },
+                    "results": "\"url:https://www.had.gov.hk/en/public_services/emergency_services/emergency.htm,\\ndescription: Please click the following links to browse the addresses of different types of shelters: Temporary shelters; Temporary Cold Shelters; Temporary Heat Shelters. \""
                 },
                 {
-                    "tool_name": "set_timer",
-                    "tool_parameters": "duration=30",
-                    "results": "{\"error\": \"functions.set_timer() argument after ** must be a mapping, not str\"}"
+                    "tool_name": "check_agenda_time_conflict",
+                    "tool_parameters": {
+                        "time": null
+                    },
+                    "results": "\"Agenda Summary:\\n\\ns\\nu\\nc\\nc\\ne\\ns\\ns\""
                 }
             ],
             "response": "outputs."
@@ -4818,8 +4788,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "3",
-            "actions": "[\"Use 'get_online_product_price' with the product_name argument set as 'tomatoes', 'avocados', and 'leafy greens' to check the online prices for these items.\"]",
-            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the current price of a product from an online store\", \"parameters\": {\"product_name\": \"tomatoes\"}}, {\"name\": \"get_online_product_price\", \"description\": \"Get the current price of a product from an online store\", \"parameters\": {\"product_name\": \"avocados\"}}, {\"name\": \"get_online_product_price\", \"description\": \"Get the current price of a product from an online store\", \"parameters\": {\"product_name\": \"leafy greens\"}}]",
+            "actions": "[\"Use 'get_online_product_price' with product_name set to 'tomatoes', 'avocados', and 'leafy greens' to find the current prices of these items online.\"]",
+            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the price of a specific product from online stores\", \"parameters\": {\"product_name\": \"tomatoes\"}}, {\"name\": \"get_online_product_price\", \"description\": \"Get the price of a specific product from online stores\", \"parameters\": {\"product_name\": \"avocados\"}}, {\"name\": \"get_online_product_price\", \"description\": \"Get the price of a specific product from online stores\", \"parameters\": {\"product_name\": \"leafy greens\"}}]",
             "tools_results": [
                 {
                     "tool_name": "get_online_product_price",
@@ -4873,8 +4843,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use 'google_map' to check the nearest bus stop and estimated arrival time for the next bus.\", \"Use 'check_bus_schedule' to confirm the schedule of the last bus from this bus stop.\"]",
-            "tools": "[{\"name\": \"google_map\", \"description\": \"Find the route between current location and destination\", \"parameters\": \"(current_location, destination)\"}, {\"name\": \"check_bus_schedule\", \"description\": \"Check the scheduled times for a specific bus stop\", \"parameters\": \"bus_stop\"}]",
+            "actions": "[\"Use \"google_map\" to find the nearest bus stop from the current location and check the bus schedule.\", \"Use \"check_bus_schedule\" with the identified bus stop to determine if there is still time for the friend to catch the last bus.\"]",
+            "tools": "[{\"name\": \"google_map\", \"description\": \"Get directions or information about locations\", \"parameters\": \"(current_location, destination)\"}, {\"name\": \"check_bus_schedule\", \"description\": \"Check the schedule of a specific bus stop\", \"parameters\": \"bus_stop\"}]",
             "tools_results": [
                 {
                     "tool_name": "google_map",
@@ -4998,9 +4968,9 @@
         "predictions": {
             "thoughts": "None",
             "proactive_idx": "True",
-            "proactive_score": "3",
-            "actions": "[\"Suggest the user to check their blood pressure.\", \"Use get_health_data to fetch the latest health data if available.\"]",
-            "tools": "[{\"name\": \"get_health_data\", \"description\": \"Fetch the latest health data of the user\", \"parameters\": \"None\"}]",
+            "proactive_score": "4",
+            "actions": "[\"Suggest the user to check their blood pressure.\", \"Use get_health_data to retrieve any recent health records related to blood pressure.\"]",
+            "tools": "[{\"name\": \"get_health_data\", \"description\": \"Retrieve the latest health data from the wearable device\", \"parameters\": \"None\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_health_data",
@@ -5091,9 +5061,9 @@
         "predictions": {
             "thoughts": "None",
             "proactive_idx": "True",
-            "proactive_score": "4",
-            "actions": "[\"Use get_current_gps_coordinates to confirm the user's current location and use google_map to find the nearest taxi stand to The Ritz-Carlton, Hong Kong.\"]",
-            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": None}, {\"name\": \"google_map\", \"description\": \"Find the route from the current location to the destination\", \"parameters\": (current_location, destination)}] Max attempts reached. Unable to parse tools.",
+            "proactive_score": "3",
+            "actions": "[\"Use get_current_gps_coordinates to confirm the user's current location and use google_map with (get_current_gps_coordinates(), 'The Ritz-Carlton, Hong Kong') to find the closest route to the hotel.\"]",
+            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": None}, {\"name\": \"google_map\", \"description\": \"Find the shortest path between two locations\", \"parameters\": [\"get_current_gps_coordinates()\", \"'The Ritz-Carlton, Hong Kong'\"] Max attempts reached. Unable to parse tools.",
             "tools_results": [],
             "response": "outputs."
         }
@@ -5122,8 +5092,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use get_city_weather to check the weather in Irvine, USA.\", \"Use google_search to find winter packing tips.\"]",
-            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the current and forecasted weather of a specified city\", \"parameters\": (\"Irvine, USA\", None)}, {\"name\": \"google_search\", \"description\": \"Search for information on the web\", \"parameters\": \"winter packing tips\"}]",
+            "actions": "[\"Use get_city_weather to check the weather in Irvine, USA.\", \"Use google_search to find travel tips or common items to bring when visiting Irvine.\"]",
+            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the current city weather\", \"parameters\": (\"Irvine, USA\", None)}, {\"name\": \"google_search\", \"description\": \"Search for information on the web\", \"parameters\": \"travel tips Irvine\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_city_weather",
@@ -5135,7 +5105,7 @@
                 },
                 {
                     "tool_name": "google_search",
-                    "tool_parameters": "winter packing tips",
+                    "tool_parameters": "travel tips Irvine",
                     "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -5190,12 +5160,23 @@
         "Tools": "None",
         "predictions": {
             "thoughts": "None",
-            "proactive_idx": "False",
-            "proactive_score": "0",
-            "actions": "None",
-            "tools": "None",
-            "tools_results": "None",
-            "response": "None"
+            "proactive_idx": "True",
+            "proactive_score": "4",
+            "actions": "[\"Use 'wikipedia_search' with query 'beach weather guide' to provide more details on the current weather and water conditions.\", \"Use 'play_music' to suggest some relaxing beach music.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for additional information\", \"parameters\": \"query='beach weather guide'\"}, {\"name\": \"play_music\", \"description\": \"Play music on the user's device\", \"parameters\": None}]",
+            "tools_results": [
+                {
+                    "tool_name": "wikipedia_search",
+                    "tool_parameters": "query='beach weather guide'",
+                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
+                },
+                {
+                    "tool_name": "play_music",
+                    "tool_parameters": null,
+                    "results": "{\"error\": \"functions.play_music() argument after ** must be a mapping, not NoneType\"}"
+                }
+            ],
+            "response": "outputs."
         }
     },
     "example-696": {
@@ -5220,12 +5201,23 @@
         "Tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Tool that searches the Wikipedia API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\", \"parameters\": {\"query\": \"Maximilien Robespierre French Revolution historical role Reign of Terror\"}}]",
         "predictions": {
             "thoughts": "None",
-            "proactive_idx": "False",
-            "proactive_score": "0",
-            "actions": "None",
-            "tools": "None",
-            "tools_results": "None",
-            "response": "None"
+            "proactive_idx": "True",
+            "proactive_score": "4",
+            "actions": "[\"Use 'wikipedia_search' to find more information about Robespierre and his role during the French Revolution.\", \"Use 'google_search' to gather opinions on historical accuracy in modern portrayals of Robespierre.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for detailed information\", \"parameters\": \"Robespierre\"}, {\"name\": \"google_search\", \"description\": \"Search Google for diverse and up-to-date information\", \"parameters\": \"historical accuracy in modern portrayals of Robespierre\"}]",
+            "tools_results": [
+                {
+                    "tool_name": "wikipedia_search",
+                    "tool_parameters": "Robespierre",
+                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
+                },
+                {
+                    "tool_name": "google_search",
+                    "tool_parameters": "historical accuracy in modern portrayals of Robespierre",
+                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
+                }
+            ],
+            "response": "outputs."
         }
     },
     "example-92": {
@@ -5283,18 +5275,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use google_search to find the best sports stores in the nearby shopping mall.\", \"Use get_current_gps_coordinates to confirm the location of the user and their friend.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for information on the internet\", \"parameters\": \"best sports stores in the nearby shopping mall\"}, {\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}]",
+            "actions": "[\"Use google_search to find the best sports stores in the vicinity of the shopping mall.\"]",
+            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for information on the internet\", \"parameters\": \"best sports stores near shopping mall\"}]",
             "tools_results": [
                 {
                     "tool_name": "google_search",
-                    "tool_parameters": "best sports stores in the nearby shopping mall",
+                    "tool_parameters": "best sports stores near shopping mall",
                     "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
-                },
-                {
-                    "tool_name": "get_current_gps_coordinates",
-                    "tool_parameters": "None",
-                    "results": "\"Sha Tin, Sha Tin, HK\""
                 }
             ],
             "response": "outputs."
@@ -5407,23 +5394,18 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use <wikipedia_search> to find local fishing tips and regulations for the area.\", \"Use <google_map> to suggest nearby points of interest or restaurants.\", \"Use <get_current_gps_coordinates> to check bus schedules for transportation back home.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for information related to the query\", \"parameters\": \"local fishing tips and regulations\"},\n {\"name\": \"google_map\", \"description\": \"Find locations on Google Maps\", \"parameters\": None},\n {\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}]",
+            "actions": "[\"Use 'get_current_gps_coordinates' to confirm the user's location and suggest local fishing spots or regulations.\", \"Use 'wikipedia_search' with query 'fishing tips for beginners' to provide some basic advice.\"]",
+            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": None}, {\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for the given query\", \"parameters\": \"fishing tips for beginners\"}]",
             "tools_results": [
                 {
-                    "tool_name": "wikipedia_search",
-                    "tool_parameters": "local fishing tips and regulations",
-                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
-                },
-                {
-                    "tool_name": "google_map",
-                    "tool_parameters": null,
-                    "results": "{\"error\": \"functions.google_map() argument after ** must be a mapping, not NoneType\"}"
-                },
-                {
                     "tool_name": "get_current_gps_coordinates",
-                    "tool_parameters": "None",
-                    "results": "\"Sha Tin, Sha Tin, HK\""
+                    "tool_parameters": null,
+                    "results": "{\"error\": \"functions.get_current_gps_coordinates() argument after ** must be a mapping, not NoneType\"}"
+                },
+                {
+                    "tool_name": "wikipedia_search",
+                    "tool_parameters": "fishing tips for beginners",
+                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -5513,17 +5495,12 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use wikipedia_search with query 'Japanese low sodium dishes' to find suitable low-sodium options.\", \"Use google_search with query 'low sodium Japanese restaurant menu' to look for specific options in this restaurant.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for information on the topic provided\", \"parameters\": \"query='Japanese low sodium dishes'\"}, {\"name\": \"google_search\", \"description\": \"Search Google for information on the query\", \"parameters\": \"query='low sodium Japanese restaurant menu'\"}]",
+            "actions": "[\"Use 'google_search' with query 'lower sodium options in Japanese restaurants' to find suitable menu items.\"]",
+            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for information on the internet\", \"parameters\": \"query='lower sodium options in Japanese restaurants'\"}]",
             "tools_results": [
                 {
-                    "tool_name": "wikipedia_search",
-                    "tool_parameters": "query='Japanese low sodium dishes'",
-                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
-                },
-                {
                     "tool_name": "google_search",
-                    "tool_parameters": "query='low sodium Japanese restaurant menu'",
+                    "tool_parameters": "query='lower sodium options in Japanese restaurants'",
                     "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -5555,21 +5532,18 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use get_city_weather to check the weather in Japan.\", \"Use google_search to find travel tips or packing advice for Japan.\"]",
-            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the current and future weather conditions of a city\", \"parameters\": (\"Japan\", None)}, {\"name\": \"google_search\", \"description\": \"Search for information on the web\", \"parameters\": \"travel tips Japan\"}]",
+            "actions": "[\"Use get_city_weather to fetch the weather conditions in Japan.\", \"Use wikipedia_search to gather cultural tips for Japan.\"]",
+            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the current or future weather of a specified city\", \"parameters\": \"city, time\"}, {\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for information based on a query\", \"parameters\": \"query\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_city_weather",
-                    "tool_parameters": [
-                        "Japan",
-                        null
-                    ],
-                    "results": "{\"error\": \"functions.get_city_weather() argument after ** must be a mapping, not tuple\"}"
+                    "tool_parameters": "city, time",
+                    "results": "{\"error\": \"functions.get_city_weather() argument after ** must be a mapping, not str\"}"
                 },
                 {
-                    "tool_name": "google_search",
-                    "tool_parameters": "travel tips Japan",
-                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
+                    "tool_name": "wikipedia_search",
+                    "tool_parameters": "query",
+                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -5653,23 +5627,12 @@
         "Tools": "[{\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\":\"creamy Alfredo sauce recipe for pasta\"}}]",
         "predictions": {
             "thoughts": "None",
-            "proactive_idx": "True",
-            "proactive_score": "4",
-            "actions": "[\"Use <wikipedia_search> to find popular pasta recipes.\", \"Use <get_current_gps_coordinates> to identify nearby grocery stores if the user needs ingredients.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for detailed information\", \"parameters\": \"popular pasta recipes\"}, {\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}]",
-            "tools_results": [
-                {
-                    "tool_name": "wikipedia_search",
-                    "tool_parameters": "popular pasta recipes",
-                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
-                },
-                {
-                    "tool_name": "get_current_gps_coordinates",
-                    "tool_parameters": "None",
-                    "results": "\"Sha Tin, Sha Tin, HK\""
-                }
-            ],
-            "response": "outputs."
+            "proactive_idx": "False",
+            "proactive_score": "0",
+            "actions": "None",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-590": {
@@ -5756,12 +5719,17 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use google_search to find top Bali vacation spots that include beaches, cultural sites, and surfing options.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for information on the internet\", \"parameters\": \"top Bali vacation spots including beaches, cultural sites, and surfing\"}]",
+            "actions": "[\"Use 'search_rednote' to find any relevant vacation packages or articles about Bali.\", \"Use 'google_search' to gather more information on cultural sightseeing and surfing spots in Bali.\"]",
+            "tools": "[{\"name\": \"search_rednote\", \"description\": \"Search for relevant information from RedNote database\", \"parameters\": \"query\"}, {\"name\": \"google_search\", \"description\": \"Google search query\", \"parameters\": \"query\"}]",
             "tools_results": [
                 {
+                    "tool_name": "search_rednote",
+                    "tool_parameters": "query",
+                    "results": "{\"error\": \"functions.search_rednote() argument after ** must be a mapping, not str\"}"
+                },
+                {
                     "tool_name": "google_search",
-                    "tool_parameters": "top Bali vacation spots including beaches, cultural sites, and surfing",
+                    "tool_parameters": "query",
                     "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -5875,18 +5843,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use get_agenda_time_conflict to check if there's any conflict with the user's upcoming event.\", \"Use add_to_agenda to schedule the conference in their agenda.\"]",
-            "tools": "[{\"name\": \"check_agenda_time_conflict\", \"description\": \"Check for any time conflicts in the user's agenda\", \"parameters\": \"time\"}, {\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda\", \"parameters\": \"(event, time)\"}]",
+            "actions": "[\"Use `check_agenda_time_conflict` with time '2023-10-10 09:00:00' to ensure there are no conflicting events.\"]",
+            "tools": "[{\"name\": \"check_agenda_time_conflict\", \"description\": \"Check for any time conflicts in the user's agenda at a given time\", \"parameters\": \"time='2023-10-10 09:00:00'\"}]",
             "tools_results": [
                 {
                     "tool_name": "check_agenda_time_conflict",
-                    "tool_parameters": "time",
+                    "tool_parameters": "time='2023-10-10 09:00:00'",
                     "results": "{\"error\": \"functions.check_agenda_time_conflict() argument after ** must be a mapping, not str\"}"
-                },
-                {
-                    "tool_name": "add_to_agenda",
-                    "tool_parameters": "(event, time)",
-                    "results": "{\"error\": \"functions.add_to_agenda() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -6059,7 +6022,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Suggest organizing the concert and ask for confirmation.\", \"Use get_current_datetime to check if the date suits everyone.\"]",
+            "actions": "[\"Suggest organizing a small concert and ask if the user is interested.\", \"Use get_current_datetime to confirm the availability of the user.\"]",
             "tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time\", \"parameters\": None}]",
             "tools_results": [
                 {
@@ -6095,13 +6058,21 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use get_health_data to check the user's heart rate and prepare personalized yoga tips.\"]",
-            "tools": "[{\"name\": \"get_health_data\", \"description\": \"Get the current health data of the user\", \"parameters\": None}]",
+            "actions": "[\"Use get_health_data to check the user's heart rate and prepare personalized yoga tips.\", \"Use vllm with prompt 'how to perform downward dog pose correctly' and image_path for a picture of the pose to provide visual guidance.\"]",
+            "tools": "[{\"name\": \"get_health_data\", \"description\": \"Get the current health data of the user, such as heart rate\", \"parameters\": None}, {\"name\": \"vllm\", \"description\": \"Generate text and images based on the given prompt and image path\", \"parameters\": (\"how to perform downward dog pose correctly\", None)}]",
             "tools_results": [
                 {
                     "tool_name": "get_health_data",
                     "tool_parameters": null,
                     "results": "{\"error\": \"functions.get_health_data() argument after ** must be a mapping, not NoneType\"}"
+                },
+                {
+                    "tool_name": "vllm",
+                    "tool_parameters": [
+                        "how to perform downward dog pose correctly",
+                        null
+                    ],
+                    "results": "{\"error\": \"functions.vllm() argument after ** must be a mapping, not tuple\"}"
                 }
             ],
             "response": "outputs."
@@ -6129,18 +6100,12 @@
         "Tools": "[{\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"movie reviews and ratings\"}}]",
         "predictions": {
             "thoughts": "None",
-            "proactive_idx": "True",
-            "proactive_score": "3",
-            "actions": "[\"Use google_search to find the latest reviews and ratings of the movies playing.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for information on the internet\", \"parameters\": \"query\"}]",
-            "tools_results": [
-                {
-                    "tool_name": "google_search",
-                    "tool_parameters": "query",
-                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
-                }
-            ],
-            "response": "outputs."
+            "proactive_idx": "False",
+            "proactive_score": "0",
+            "actions": "None",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-341": {
@@ -6167,12 +6132,17 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "3",
-            "actions": "[\"Use 'wikipedia_search' with query 'local tours and activities in the area' to gather more detailed information about available tours and activities.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for the given query\", \"parameters\": \"local tours and activities in the area\"}]",
+            "actions": "[\"Use google_search to find popular local tours and activities.\", \"Use wikipedia_search to gather more detailed information about the local area.\"]",
+            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for information on the internet\", \"parameters\": \"local tours and activities\"}, {\"name\": \"wikipedia_search\", \"description\": \"Search for information in Wikipedia\", \"parameters\": \"query\"}]",
             "tools_results": [
                 {
+                    "tool_name": "google_search",
+                    "tool_parameters": "local tours and activities",
+                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
+                },
+                {
                     "tool_name": "wikipedia_search",
-                    "tool_parameters": "local tours and activities in the area",
+                    "tool_parameters": "query",
                     "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -6205,13 +6175,18 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use 'get_health_data' to check if there are any irregularities in the user's heart rate or sleep patterns.\", \"Suggest using relaxation techniques such as deep breathing exercises.\"]",
-            "tools": "[{\"name\": \"get_health_data\", \"description\": \"Get health data of the user, like heart rate and sleep quality\", \"parameters\": None}]",
+            "actions": "[\"Use 'get_health_data' to check if there are any sleep-related issues.\", \"Use 'google_search' to find relaxation techniques or sleep aids that might help the user.\"]",
+            "tools": "[{\"name\": \"get_health_data\", \"description\": \"Retrieve health data from the user's wearable device\", \"parameters\": None}, {\"name\": \"google_search\", \"description\": \"Search for information on the internet\", \"parameters\": \"relaxation techniques for sleep\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_health_data",
                     "tool_parameters": null,
                     "results": "{\"error\": \"functions.get_health_data() argument after ** must be a mapping, not NoneType\"}"
+                },
+                {
+                    "tool_name": "google_search",
+                    "tool_parameters": "relaxation techniques for sleep",
+                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -6328,9 +6303,20 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use get_current_gps_coordinates to confirm the user's current location and use google_map with (current_location, Italian Garden Restaurant) to provide directions.\", \"Use check_bus_schedule at the nearest bus stop to suggest alternative public transportation methods if applicable.\"]",
-            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": None}, {\"name\": \"google_map\", \"description\": \"(current_location, destination) Get directions from point A to point B\", \"parameters\": [\"current_location\", \"Italian Garden Restaurant\"] Max attempts reached. Unable to parse tools.",
-            "tools_results": [],
+            "actions": "[\"Use get_current_gps_coordinates to confirm the user's current location.\", \"Use google_map with (current_location, Italian Garden Restaurant) to find the best route from the current location to the restaurant.\"]",
+            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": None}, {\"name\": \"google_map\", \"description\": \"Find the best route from one place to another\", \"parameters\": \"(current_location, Italian Garden Restaurant)\"}]",
+            "tools_results": [
+                {
+                    "tool_name": "get_current_gps_coordinates",
+                    "tool_parameters": null,
+                    "results": "{\"error\": \"functions.get_current_gps_coordinates() argument after ** must be a mapping, not NoneType\"}"
+                },
+                {
+                    "tool_name": "google_map",
+                    "tool_parameters": "(current_location, Italian Garden Restaurant)",
+                    "results": "{\"error\": \"functions.google_map() argument after ** must be a mapping, not str\"}"
+                }
+            ],
             "response": "outputs."
         }
     },
@@ -6360,14 +6346,14 @@
         "predictions": {
             "thoughts": "None",
             "proactive_idx": "True",
-            "proactive_score": "4",
-            "actions": "Suggest to add a game night event to the user's agenda.",
-            "tools": "[{\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda with specified time and details.\", \"parameters\": \"(event='Game Night', time='Next Saturday')\"}]",
+            "proactive_score": "3",
+            "actions": "Suggest organizing a game night and check the user's agenda to avoid any conflicts.",
+            "tools": "[{\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict with the user's existing plans\", \"parameters\": \"time\"}]",
             "tools_results": [
                 {
-                    "tool_name": "add_to_agenda",
-                    "tool_parameters": "(event='Game Night', time='Next Saturday')",
-                    "results": "{\"error\": \"functions.add_to_agenda() argument after ** must be a mapping, not str\"}"
+                    "tool_name": "check_agenda_time_conflict",
+                    "tool_parameters": "time",
+                    "results": "{\"error\": \"functions.check_agenda_time_conflict() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -6427,17 +6413,17 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use get_current_gps_coordinates to confirm the location of the suggested trail loop and check if there are any nearby shelters or camping spots.\", \"Use wikipedia_search with query '8-mile hiking loop trail next Saturday' to gather more information about the proposed hike.\"]",
-            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": None},\n {\"name\": \"wikipedia_search\", \"description\": \"Search for information on a specific topic\", \"parameters\": \"8-mile hiking loop trail next Saturday\"}]",
+            "actions": "[\"Use 'google_search' to find alternative shorter trails near the current location.\", \"Use 'wikipedia_search' to gather more information about the suggested 8-mile loop trail.\"]",
+            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for information on internet\", \"parameters\": \"alternative shorter trails near the current location\"}, {\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for detailed information\", \"parameters\": \"8-mile loop trail\"}]",
             "tools_results": [
                 {
-                    "tool_name": "get_current_gps_coordinates",
-                    "tool_parameters": null,
-                    "results": "{\"error\": \"functions.get_current_gps_coordinates() argument after ** must be a mapping, not NoneType\"}"
+                    "tool_name": "google_search",
+                    "tool_parameters": "alternative shorter trails near the current location",
+                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
                 },
                 {
                     "tool_name": "wikipedia_search",
-                    "tool_parameters": "8-mile hiking loop trail next Saturday",
+                    "tool_parameters": "8-mile loop trail",
                     "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -6469,12 +6455,12 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use 'google_search' with query 'Amazon Whole Foods acquisition stock market impact' to provide the user with relevant information.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search the web for specific queries\", \"parameters\": \"Amazon Whole Foods acquisition stock market impact\"}]",
+            "actions": "[\"Use 'google_search' to find more information about the potential impact of Amazon's acquisition of Whole Foods on stock prices.\"]",
+            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for general information based on the query\", \"parameters\": \"potential impact of Amazon's acquisition of Whole Foods on stock prices\"}]",
             "tools_results": [
                 {
                     "tool_name": "google_search",
-                    "tool_parameters": "Amazon Whole Foods acquisition stock market impact",
+                    "tool_parameters": "potential impact of Amazon's acquisition of Whole Foods on stock prices",
                     "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -6708,8 +6694,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "3",
-            "actions": "[\"Use get_online_product_price to compare the prices of these two bottles online.\"]",
-            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the current market price of a product\", \"parameters\": [\"2018 Cabernet Sauvignon from [vineyard name] Max attempts reached. Unable to parse tools.",
+            "actions": "[\"Use get_online_product_price to compare the online prices of both bottles.\"]",
+            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the current price of a product from online stores\", \"parameters\": [\"2018 Cabernet Sauvignon\", \"2015 Cabernet Sauvignon\"] Max attempts reached. Unable to parse tools.",
             "tools_results": [],
             "response": "outputs."
         }
@@ -6799,8 +6785,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use get_current_gps_coordinates to confirm the user's location.\", \"Use google_map with current_location=get_current_gps_coordinates() and destination=Sushi Matsumoto to find the route to the restaurant.\"]",
-            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": None}, {\"name\": \"google_map\", \"description\": \"Find a route from one place to another using Google Maps.\", \"parameters\": {\"current_location\": \"get_current_gps_coordinates()\", \"destination\": \"Sushi Matsumoto\"}}]",
+            "actions": "[\"Use get_current_gps_coordinates to confirm the user's location and use google_map with (current_location, 'Sushi Matsumoto') to provide directions.\", \"Use wikipedia_search with 'Japanese street signs' to understand common signs in Japan and assist the user if needed.\"]",
+            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": None}, {\"name\": \"google_map\", \"description\": \"Provide directions from the user's current location to a destination\", \"parameters\": \"(current_location, 'Sushi Matsumoto')\"}, {\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for information on a query\", \"parameters\": \"'Japanese street signs'\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_current_gps_coordinates",
@@ -6809,11 +6795,13 @@
                 },
                 {
                     "tool_name": "google_map",
-                    "tool_parameters": {
-                        "current_location": "get_current_gps_coordinates()",
-                        "destination": "Sushi Matsumoto"
-                    },
-                    "results": "\"The distance from get_current_gps_coordinates() to Sushi Matsumoto is 2 km.\""
+                    "tool_parameters": "(current_location, 'Sushi Matsumoto')",
+                    "results": "{\"error\": \"functions.google_map() argument after ** must be a mapping, not str\"}"
+                },
+                {
+                    "tool_name": "wikipedia_search",
+                    "tool_parameters": "'Japanese street signs'",
+                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -6844,8 +6832,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use get_current_gps_coordinates to confirm the user's current location before they leave.\", \"Use get_city_weather to check the weather in London at their travel time.\"]",
-            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": None}, {\"name\": \"get_city_weather\", \"description\": \"Get the weather information for a specific city\", \"parameters\": (\"London\", None)}]",
+            "actions": "[\"Use get_current_gps_coordinates to confirm the location where the user is packing their clothes.\", \"Use google_search with query 'formal business attire guidelines london' to find out the latest dress code requirements for business trips in London.\"]",
+            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": None}, {\"name\": \"google_search\", \"description\": \"Search Google for information based on the query\", \"parameters\": {\"query\": \"formal business attire guidelines london\"}}]",
             "tools_results": [
                 {
                     "tool_name": "get_current_gps_coordinates",
@@ -6853,12 +6841,11 @@
                     "results": "{\"error\": \"functions.get_current_gps_coordinates() argument after ** must be a mapping, not NoneType\"}"
                 },
                 {
-                    "tool_name": "get_city_weather",
-                    "tool_parameters": [
-                        "London",
-                        null
-                    ],
-                    "results": "{\"error\": \"functions.get_city_weather() argument after ** must be a mapping, not tuple\"}"
+                    "tool_name": "google_search",
+                    "tool_parameters": {
+                        "query": "formal business attire guidelines london"
+                    },
+                    "results": "\"url:https://uk.indeed.com/career-advice/career-development/business-attire,\\ndescription: 10 Feb 2025  \\u00b7  Tops: suits, skirt suits, tidy and pencil dresses, button-down shirts, blouses, blazers \\u00b7 Bottoms: pencil skirts, cotton or wool dress pants\\u00a0... \""
                 }
             ],
             "response": "outputs."
@@ -6890,8 +6877,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use get_online_product_price with product_name='running shoes' to check for any discounts or promotions.\"]",
-            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the online price of a specific product\", \"parameters\": \"product_name='running shoes'\"}]",
+            "actions": "[\"Use get_online_product_price with product_name='running shoes' to check if there's any discount available.\"]",
+            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the price of a specific online product\", \"parameters\": \"product_name='running shoes'\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_online_product_price",
@@ -6986,18 +6973,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Suggest dog food brands based on reviews and nutritional value.\", \"Use wikipedia_search or google_search to find top-rated dog food brands.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search the web for information\", \"parameters\": \"query\"}, {\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for encyclopedic knowledge\", \"parameters\": \"query\"}]",
+            "actions": "[\"Use 'google_search' to find reviews and ratings of popular dog food brands.\"]",
+            "tools": "[{\"name\": \"google_search\", \"description\": \"Search the web for information\", \"parameters\": \"popular dog food brands\"}]",
             "tools_results": [
                 {
                     "tool_name": "google_search",
-                    "tool_parameters": "query",
+                    "tool_parameters": "popular dog food brands",
                     "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
-                },
-                {
-                    "tool_name": "wikipedia_search",
-                    "tool_parameters": "query",
-                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -7055,17 +7037,12 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Suggest recipes from the cooking app.\", \"Recommend ingredients or tools needed for preparing seafood dishes.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search the web for information\", \"parameters\": \"seafood dish recipes\"}, {\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for detailed information on a topic\", \"parameters\": \"seafood cooking tools\"}]",
+            "actions": "[\"Use wikipedia_search with query 'seafood cooking tips' to gather some cooking tips for the user.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for the provided query\", \"parameters\": \"query='seafood cooking tips'\"}]",
             "tools_results": [
                 {
-                    "tool_name": "google_search",
-                    "tool_parameters": "seafood dish recipes",
-                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
-                },
-                {
                     "tool_name": "wikipedia_search",
-                    "tool_parameters": "seafood cooking tools",
+                    "tool_parameters": "query='seafood cooking tips'",
                     "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -7148,12 +7125,18 @@
         "Tools": "None",
         "predictions": {
             "thoughts": "None",
-            "proactive_idx": "False",
-            "proactive_score": "0",
-            "actions": "None",
-            "tools": "None",
-            "tools_results": "None",
-            "response": "None"
+            "proactive_idx": "True",
+            "proactive_score": "3",
+            "actions": "[\"Use get_health_data to fetch recent health data from the fitness watch.\"]",
+            "tools": "[{\"name\": \"get_health_data\", \"description\": \"Retrieve health data such as steps, heart rate, etc., from wearable devices.\", \"parameters\": \"None\"}]",
+            "tools_results": [
+                {
+                    "tool_name": "get_health_data",
+                    "tool_parameters": "None",
+                    "results": "\"The user's heart rate is 70 bpm, oxygen saturation is 98%, respiration rate is 16 bpm, body temperature is 36.5 degrees Celsius, total steps today is 5000, and total calories burned today is 2000.\""
+                }
+            ],
+            "response": "outputs."
         }
     },
     "example-506": {
@@ -7181,18 +7164,18 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use get_city_weather with city='New York' and time='next hour' to check if there is a high chance of rainfall in the next hour.\", \"Use vllm with prompt='The clouds are moving quickly. Is it going to rain soon?' and image_path=None to provide an answer based on current weather conditions.\"]",
-            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the weather forecast for a specific city at a certain time\", \"parameters\": \"city='New York', time='next hour'\"}, {\"name\": \"vllm\", \"description\": \"Generate an answer based on the input prompt and image (if provided)\", \"parameters\": \"(prompt='The clouds are moving quickly. Is it going to rain soon?', image_path=None)\"}]",
+            "actions": "[\"Use get_city_weather with city='New York' and time='now' to check if there's a sudden weather change.\", \"Use wikipedia_search with query='cloud movement and rain' to provide an explanation for the user.\"]",
+            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the current weather in a specific city\", \"parameters\": \"city='New York', time='now'\"}, {\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for information related to the query\", \"parameters\": \"query='cloud movement and rain'\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_city_weather",
-                    "tool_parameters": "city='New York', time='next hour'",
+                    "tool_parameters": "city='New York', time='now'",
                     "results": "{\"error\": \"functions.get_city_weather() argument after ** must be a mapping, not str\"}"
                 },
                 {
-                    "tool_name": "vllm",
-                    "tool_parameters": "(prompt='The clouds are moving quickly. Is it going to rain soon?', image_path=None)",
-                    "results": "{\"error\": \"functions.vllm() argument after ** must be a mapping, not str\"}"
+                    "tool_name": "wikipedia_search",
+                    "tool_parameters": "query='cloud movement and rain'",
+                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -7308,8 +7291,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use wikipedia_search with query 'history of [nearby church name]' to gather more information about the church.\", \"Use get_current_gps_coordinates to confirm the user's location and provide relevant local history details.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for detailed information on a topic\", \"parameters\": \"query 'history of [nearby church name] Max attempts reached. Unable to parse tools.",
+            "actions": "[\"Use 'wikipedia_search' with query 'history of [neighborhood name]' to provide more detailed information about the neighborhood's history.\", \"Use 'vllm' with prompt 'Take a look at this old church, can you find any interesting stories or facts?' and image_path as the path to the image of the nearby church to engage in conversation.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for additional information\", \"parameters\": \"query='history of [neighborhood name] Max attempts reached. Unable to parse tools.",
             "tools_results": [],
             "response": "outputs."
         }
@@ -7366,14 +7349,9 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use \"google_map\" to find the location of the bus stop based on its surroundings.\", \"Use \"check_bus_schedule\" to find out when the next bus will arrive.\"]",
-            "tools": "[{\"name\": \"google_map\", \"description\": \"Get directions or locate places using Google Maps\", \"parameters\": \"(current_location, destination)\"}, {\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule at a specific bus stop\", \"parameters\": \"bus_stop\"}]",
+            "actions": "[\"Use 'check_bus_schedule' with argument 'bus_stop' to find the next bus arrival time.\"]",
+            "tools": "[{\"name\": \"check_bus_schedule\", \"description\": \"Check the schedule of a specific bus stop\", \"parameters\": \"bus_stop\"}]",
             "tools_results": [
-                {
-                    "tool_name": "google_map",
-                    "tool_parameters": "(current_location, destination)",
-                    "results": "{\"error\": \"functions.google_map() argument after ** must be a mapping, not str\"}"
-                },
                 {
                     "tool_name": "check_bus_schedule",
                     "tool_parameters": "bus_stop",
@@ -7437,8 +7415,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use 'check_bus_schedule' with the current bus stop as an argument to confirm if there are any updated schedules or delays.\"]",
-            "tools": "[{\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for a specific bus stop\", \"parameters\": \"bus_stop\"}]",
+            "actions": "[\"Use 'check_bus_schedule' with the current bus stop as argument to confirm if there are any delays.\"]",
+            "tools": "[{\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule at a specific bus stop\", \"parameters\": \"bus_stop\"}]",
             "tools_results": [
                 {
                     "tool_name": "check_bus_schedule",
@@ -7471,13 +7449,18 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use get_medical_knowledge to understand more about the potential causes and solutions for discolored leaves.\"]",
-            "tools": "[{\"name\": \"get_medical_knowledge\", \"description\": \"Get medical knowledge related to the query\", \"parameters\": \"query\"}]",
+            "actions": "[\"Use get_medical_knowledge to understand the potential causes and solutions for the discolored leaf.\", \"Use wikipedia_search to gather more detailed information about plant care and health issues.\"]",
+            "tools": "[{\"name\": \"get_medical_knowledge\", \"description\": \"Get medical knowledge related to the query\", \"parameters\": \"query\"}, {\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for more detailed information\", \"parameters\": \"query\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_medical_knowledge",
                     "tool_parameters": "query",
                     "results": "{\"error\": \"functions.get_medical_knowledge() argument after ** must be a mapping, not str\"}"
+                },
+                {
+                    "tool_name": "wikipedia_search",
+                    "tool_parameters": "query",
+                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -7629,26 +7612,10 @@
         "predictions": {
             "thoughts": "None",
             "proactive_idx": "True",
-            "proactive_score": "5",
-            "actions": "[\"Use get_current_datetime to check the current time.\", \"Use google_search to find indoor alternatives for the walking tour.\", \"Use add_to_agenda: (event, 'Indoor museum visit', time) to suggest an alternative activity.\"]",
-            "tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current datetime of the user\", \"parameters\": None}, {\"name\": \"google_search\", \"description\": \"Search for information on the web\", \"parameters\": \"indoor alternatives for walking tour\"}, {\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda\", \"parameters\": \"(event, 'Indoor museum visit', time)\"}]",
-            "tools_results": [
-                {
-                    "tool_name": "get_current_datetime",
-                    "tool_parameters": null,
-                    "results": "{\"error\": \"functions.get_current_datetime() argument after ** must be a mapping, not NoneType\"}"
-                },
-                {
-                    "tool_name": "google_search",
-                    "tool_parameters": "indoor alternatives for walking tour",
-                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
-                },
-                {
-                    "tool_name": "add_to_agenda",
-                    "tool_parameters": "(event, 'Indoor museum visit', time)",
-                    "results": "{\"error\": \"functions.add_to_agenda() argument after ** must be a mapping, not str\"}"
-                }
-            ],
+            "proactive_score": "4",
+            "actions": "[\"Use get_current_datetime to check if it is close to 2:00 PM and use google_search to find updates on the weather conditions.\", \"If the weather is still bad, suggest the user reschedule their outdoor tour to a indoor activity or provide them with local indoor attraction suggestions using search_rednote.\"]",
+            "tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get current datetime to check if it's close to the scheduled time\", \"parameters\": None},\n {\"name\": \"google_search\", \"description\": \"Search for updates on weather conditions\", \"parameters\": \"current weather in [city name] Max attempts reached. Unable to parse tools.",
+            "tools_results": [],
             "response": "outputs."
         }
     },
@@ -7676,12 +7643,12 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use 'get_online_product_price' with the product name as 'bag' to find the best deal.\"]",
-            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the current price of a specific product online\", \"parameters\": \"product_name='bag'\"}]",
+            "actions": "[\"Use 'get_online_product_price' with the product name as 'bag' to find the best price.\"]",
+            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the current online price of a specific product\", \"parameters\": \"product_name\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_online_product_price",
-                    "tool_parameters": "product_name='bag'",
+                    "tool_parameters": "product_name",
                     "results": "{\"error\": \"functions.get_online_product_price() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -7741,18 +7708,18 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use wikipedia_search with 'popular author' to get more information about the author.\", \"Use google_search with 'book signing event details' to find out when and where the event is happening.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for the given query\", \"parameters\": \"popular author\"}, {\"name\": \"google_search\", \"description\": \"Google search for relevant information\", \"parameters\": \"book signing event details\"}]",
+            "actions": "[\"Use wikipedia_search to find more information about the author.\", \"Use add_to_agenda to schedule a reminder for the book signing event.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for detailed information\", \"parameters\": \"query\"}, {\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda\", \"parameters\": \"(event, time)\"}]",
             "tools_results": [
                 {
                     "tool_name": "wikipedia_search",
-                    "tool_parameters": "popular author",
+                    "tool_parameters": "query",
                     "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
                 },
                 {
-                    "tool_name": "google_search",
-                    "tool_parameters": "book signing event details",
-                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
+                    "tool_name": "add_to_agenda",
+                    "tool_parameters": "(event, time)",
+                    "results": "{\"error\": \"functions.add_to_agenda() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -7871,7 +7838,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use 'check_bus_schedule' to find the nearest bus schedule for the user.\"]",
+            "actions": "[\"Use `check_bus_schedule` to find out the next bus schedule for the user's location.\"]",
             "tools": "[{\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule at a specific bus stop\", \"parameters\": \"bus_stop\"}]",
             "tools_results": [
                 {
@@ -7908,19 +7875,14 @@
         "predictions": {
             "thoughts": "None",
             "proactive_idx": "True",
-            "proactive_score": "4",
-            "actions": "[\"Use wikipedia_search to find more information about the pottery class.\", \"Use add_to_agenda: (event, time) to suggest adding the pottery class to the user's agenda.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for detailed information on a specific topic\", \"parameters\": \"query\"}, {\"name\": \"add_to_agenda\", \"description\": \"Add an event and its time to the user's agenda\", \"parameters\": \"(event, time)\"}]",
+            "proactive_score": "3",
+            "actions": "[\"Use wikipedia_search with query 'pottery class' to gather more information about the pottery class mentioned in the conversation.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for the given query\", \"parameters\": \"query='pottery class'\"}]",
             "tools_results": [
                 {
                     "tool_name": "wikipedia_search",
-                    "tool_parameters": "query",
+                    "tool_parameters": "query='pottery class'",
                     "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
-                },
-                {
-                    "tool_name": "add_to_agenda",
-                    "tool_parameters": "(event, time)",
-                    "results": "{\"error\": \"functions.add_to_agenda() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -7950,17 +7912,17 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use get_online_product_price with product_name='recently released novel' to find out if there's a cheaper option online.\", \"Use wikipedia_search with query='recently released novel' to gather more information about the book.\"]",
-            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the price of a specific product from online stores\", \"parameters\": \"product_name='recently released novel'\"}, {\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for the given query\", \"parameters\": \"query='recently released novel'\"}]",
+            "actions": "[\"Use get_online_product_price to find if there is any discount for this book online.\", \"Use wikipedia_search to gather more information about the author and the book.\"]",
+            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the current price of a product from online shopping websites.\", \"parameters\": \"product_name\"}, {\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for the given query.\", \"parameters\": \"query\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_online_product_price",
-                    "tool_parameters": "product_name='recently released novel'",
+                    "tool_parameters": "product_name",
                     "results": "{\"error\": \"functions.get_online_product_price() argument after ** must be a mapping, not str\"}"
                 },
                 {
                     "tool_name": "wikipedia_search",
-                    "tool_parameters": "query='recently released novel'",
+                    "tool_parameters": "query",
                     "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -8046,12 +8008,12 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use 'wikipedia_search' with query 'artist of the contemporary art piece in the museum' to find information about the artist.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for information related to the input query.\", \"parameters\": \"query 'artist of the contemporary art piece in the museum'\"}]",
+            "actions": "[\"Use 'wikipedia_search' with query 'contemporary artist' to find information about the artist of the current exhibit.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for detailed information on the given topic\", \"parameters\": \"query='contemporary artist'\"}]",
             "tools_results": [
                 {
                     "tool_name": "wikipedia_search",
-                    "tool_parameters": "query 'artist of the contemporary art piece in the museum'",
+                    "tool_parameters": "query='contemporary artist'",
                     "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -8141,8 +8103,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use get_online_product_price to fetch the prices of the Vitamin C serums being compared by the user.\", \"Use wikipedia_search to gather information on the benefits and potential side effects of Vitamin C serums.\"]",
-            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the current price of a specific product online\", \"parameters\": \"product_name\"}, {\"name\": \"wikipedia_search\", \"description\": \"Search for general knowledge articles on a given query\", \"parameters\": \"Vitamin C serums\"}]",
+            "actions": "[\"Use get_online_product_price to find the current prices of the Vitamin C serums the user is comparing.\", \"Use wikipedia_search to gather more information on the benefits and ingredients of Vitamin C serums.\"]",
+            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the current prices of products online\", \"parameters\": \"product_name\"}, {\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for information\", \"parameters\": \"query\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_online_product_price",
@@ -8151,7 +8113,7 @@
                 },
                 {
                     "tool_name": "wikipedia_search",
-                    "tool_parameters": "Vitamin C serums",
+                    "tool_parameters": "query",
                     "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -8208,12 +8170,12 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "3",
-            "actions": "[\"Use wikipedia_search with query 'attractions near City X train station' to find relevant places of interest for the user.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for more information on a topic\", \"parameters\": \"query='attractions near City X train station'\"}]",
+            "actions": "[\"Use wikipedia_search with query 'nearby attractions in City X' to find recommended places for the user to visit.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for information related to the given query\", \"parameters\": \"query='nearby attractions in City X'\"}]",
             "tools_results": [
                 {
                     "tool_name": "wikipedia_search",
-                    "tool_parameters": "query='attractions near City X train station'",
+                    "tool_parameters": "query='nearby attractions in City X'",
                     "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -8331,13 +8293,15 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use 'check_bus_schedule' to see if there are any updates on the bus schedule.\"]",
-            "tools": "[{\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule at a specific bus stop\", \"parameters\": \"bus_stop\"}]",
+            "actions": "[\"Use 'check_bus_schedule' to get the current bus schedule for the route the user is waiting for.\"]",
+            "tools": "[{\"name\": \"check_bus_schedule\", \"description\": \"Get the current bus schedule for a specific bus stop\", \"parameters\": {\"bus_stop\": \"\"}}]",
             "tools_results": [
                 {
                     "tool_name": "check_bus_schedule",
-                    "tool_parameters": "bus_stop",
-                    "results": "{\"error\": \"functions.check_bus_schedule() argument after ** must be a mapping, not str\"}"
+                    "tool_parameters": {
+                        "bus_stop": ""
+                    },
+                    "results": "\"The next bus at  is at 9:30 AM.\""
                 }
             ],
             "response": "outputs."
@@ -8458,8 +8422,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use google_search with query 'best glasses stores in [current_location]' to find nearby good glasses stores.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for information on the internet\", \"parameters\": \"query='best glasses stores in [current_location] Max attempts reached. Unable to parse tools.",
+            "actions": "[\"Use google_search with query 'best glasses stores in [shopping mall name]' to find the top rated glasses stores nearby.\"]",
+            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for information on the web\", \"parameters\": \"query='best glasses stores in [shopping mall name] Max attempts reached. Unable to parse tools.",
             "tools_results": [],
             "response": "outputs."
         }
@@ -8548,23 +8512,18 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use get_current_datetime to check the current time and set a timer for the remaining hours until tomorrow.\", \"Use wikipedia_search to find resources on how to quickly compile performance metrics.\"]",
-            "tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current datetime\", \"parameters\": None}, {\"name\": \"set_timer\", \"description\": \"Set a timer for a specific duration\", \"parameters\": \"duration\"}, {\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for the query\", \"parameters\": \"query\"}]",
+            "actions": "[\"Use get_health_data to check if the user has access to the required data on their wearable device.\", \"Use google_search to find templates or examples of performance metrics reports that could guide the user.\"]",
+            "tools": "[{\"name\": \"get_health_data\", \"description\": \"Get health-related data from the user's wearable device\", \"parameters\": None}, {\"name\": \"google_search\", \"description\": \"Search for information on the web\", \"parameters\": \"performance metrics report template\"}]",
             "tools_results": [
                 {
-                    "tool_name": "get_current_datetime",
+                    "tool_name": "get_health_data",
                     "tool_parameters": null,
-                    "results": "{\"error\": \"functions.get_current_datetime() argument after ** must be a mapping, not NoneType\"}"
+                    "results": "{\"error\": \"functions.get_health_data() argument after ** must be a mapping, not NoneType\"}"
                 },
                 {
-                    "tool_name": "set_timer",
-                    "tool_parameters": "duration",
-                    "results": "{\"error\": \"functions.set_timer() argument after ** must be a mapping, not str\"}"
-                },
-                {
-                    "tool_name": "wikipedia_search",
-                    "tool_parameters": "query",
-                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
+                    "tool_name": "google_search",
+                    "tool_parameters": "performance metrics report template",
+                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -8598,18 +8557,18 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use get_current_gps_coordinates to confirm the user's current location and use check_bus_schedule to find nearby bus routes to the concert venue.\"]",
-            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}, {\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule at a specified bus stop\", \"parameters\": \"bus_stop\"}]",
+            "actions": "[\"Suggest a nearby café for the user to grab a drink before the show.\", \"Remind the user about the show time in 30 minutes.\"]",
+            "tools": "[{\"name\": \"google_search\", \"description\": \"Search the web for information related to the query\", \"parameters\": \"nearby cafes\"},\n {\"name\": \"set_timer\", \"description\": \"Set a timer for a specific duration\", \"parameters\": \"30 minutes\"}]",
             "tools_results": [
                 {
-                    "tool_name": "get_current_gps_coordinates",
-                    "tool_parameters": "None",
-                    "results": "\"Sha Tin, Sha Tin, HK\""
+                    "tool_name": "google_search",
+                    "tool_parameters": "nearby cafes",
+                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
                 },
                 {
-                    "tool_name": "check_bus_schedule",
-                    "tool_parameters": "bus_stop",
-                    "results": "{\"error\": \"functions.check_bus_schedule() argument after ** must be a mapping, not str\"}"
+                    "tool_name": "set_timer",
+                    "tool_parameters": "30 minutes",
+                    "results": "{\"error\": \"functions.set_timer() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -8641,18 +8600,18 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use wikipedia_search with query 'outdoor music festivals' to gather more information about the upcoming event.\", \"Use get_online_product_price with product_name 'camping gear' to find affordable options nearby.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information on Wikipedia\", \"parameters\": \"query='outdoor music festivals'\"}, {\"name\": \"get_online_product_price\", \"description\": \"Get the price of a product online\", \"parameters\": \"product_name='camping gear'\"}]",
+            "actions": "[\"Use get_current_datetime to check if the current time is appropriate for providing more information about the festival.\", \"Use wikipedia_search with query 'outdoor music festival July' to gather more details about the event.\"]",
+            "tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time of day\", \"parameters\": None}, {\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for information related to the query\", \"parameters\": \"outdoor music festival July\"}]",
             "tools_results": [
                 {
-                    "tool_name": "wikipedia_search",
-                    "tool_parameters": "query='outdoor music festivals'",
-                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
+                    "tool_name": "get_current_datetime",
+                    "tool_parameters": null,
+                    "results": "{\"error\": \"functions.get_current_datetime() argument after ** must be a mapping, not NoneType\"}"
                 },
                 {
-                    "tool_name": "get_online_product_price",
-                    "tool_parameters": "product_name='camping gear'",
-                    "results": "{\"error\": \"functions.get_online_product_price() argument after ** must be a mapping, not str\"}"
+                    "tool_name": "wikipedia_search",
+                    "tool_parameters": "outdoor music festival July",
+                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -8710,8 +8669,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use get_health_data to fetch the latest health metrics including weight.\"]",
-            "tools": "[{\"name\": \"get_health_data\", \"description\": \"Get the current health data of the user\", \"parameters\": \"None\"}]",
+            "actions": "[\"Use get_health_data to fetch any recent health data and compare it with the current weight.\"]",
+            "tools": "[{\"name\": \"get_health_data\", \"description\": \"Get the user's latest health data\", \"parameters\": \"None\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_health_data",
@@ -8924,9 +8883,15 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "Suggest to the user about planning the picnic by providing some information or help in choosing a location.",
-            "tools": "[\"Use 'google_search' with query 'best picnic spots near [current_location] Max attempts reached. Unable to parse tools.",
-            "tools_results": [],
+            "actions": "[\"Suggest the user to add a picnic planning event to their agenda.\", \"Use get_online_product_price to find affordable picnic supplies and suggest them.\"]",
+            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the current price of an online product\", \"parameters\": \"product_name\"}]",
+            "tools_results": [
+                {
+                    "tool_name": "get_online_product_price",
+                    "tool_parameters": "product_name",
+                    "results": "{\"error\": \"functions.get_online_product_price() argument after ** must be a mapping, not str\"}"
+                }
+            ],
             "response": "outputs."
         }
     },
@@ -8984,8 +8949,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use <wikipedia_search> to provide tips on how to make perfect pancakes.\", \"Use <play_music> to play some background music while cooking.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for detailed information\", \"parameters\": \"query\"}, {\"name\": \"play_music\", \"description\": \"Play music through the user's earphones\", \"parameters\": \"None\"}]",
+            "actions": "[\"Use <wikipedia_search> to provide tips on how to make perfect pancakes.\", \"Use <get_health_data> to check if the user has any dietary restrictions that might affect pancake-making.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for information\", \"parameters\": \"query\"}, {\"name\": \"get_health_data\", \"description\": \"Get the health data of the user\", \"parameters\": \"None\"}]",
             "tools_results": [
                 {
                     "tool_name": "wikipedia_search",
@@ -8993,9 +8958,9 @@
                     "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
                 },
                 {
-                    "tool_name": "play_music",
+                    "tool_name": "get_health_data",
                     "tool_parameters": "None",
-                    "results": "\"Now playing music.\""
+                    "results": "\"The user's heart rate is 70 bpm, oxygen saturation is 98%, respiration rate is 16 bpm, body temperature is 36.5 degrees Celsius, total steps today is 5000, and total calories burned today is 2000.\""
                 }
             ],
             "response": "outputs."
@@ -9049,23 +9014,12 @@
         "Tools": "None",
         "predictions": {
             "thoughts": "None",
-            "proactive_idx": "True",
-            "proactive_score": "4",
-            "actions": "[\"Use <google_search> to find information about local flora and fauna that can help the user identify the wildflower species and potential other wildlife.\", \"Use <vllm> with an image of a butterfly to suggest relevant photography settings.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for general or specific information using Google\", \"parameters\": \"query\"},\n {\"name\": \"vllm\", \"description\": \"Get recommendations based on the input prompt and optional image\", \"parameters\": \"(prompt, image_path)\"}]",
-            "tools_results": [
-                {
-                    "tool_name": "google_search",
-                    "tool_parameters": "query",
-                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
-                },
-                {
-                    "tool_name": "vllm",
-                    "tool_parameters": "(prompt, image_path)",
-                    "results": "{\"error\": \"functions.vllm() argument after ** must be a mapping, not str\"}"
-                }
-            ],
-            "response": "outputs."
+            "proactive_idx": "False",
+            "proactive_score": "0",
+            "actions": "None",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-598": {
@@ -9120,7 +9074,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "3",
-            "actions": "[\"Use 'check_agenda_time_conflict' to verify if the user has any prior commitments on Friday.\"]",
+            "actions": "[\"Use 'check_agenda_time_conflict' to verify if there are any conflicting events on Friday.\"]",
             "tools": "[{\"name\": \"check_agenda_time_conflict\", \"description\": \"Check for time conflicts in the user's agenda\", \"parameters\": \"time\"}]",
             "tools_results": [
                 {
@@ -9185,14 +9139,19 @@
         "predictions": {
             "thoughts": "None",
             "proactive_idx": "True",
-            "proactive_score": "3",
-            "actions": "Suggest planning a cocktail party based on the conversation.",
-            "tools": "[{\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda\", \"parameters\": \"(event, time)\"}]",
+            "proactive_score": "4",
+            "actions": "[\"Use wikipedia_search with query 'cocktail party planning ideas' to gather some inspiration for the user.\", \"Use google_search with query 'theme cocktail parties' to find potential themes the user might like.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for information related to the given topic\", \"parameters\": \"query='cocktail party planning ideas'\"}, {\"name\": \"google_search\", \"description\": \"Search Google for a wide range of results\", \"parameters\": \"query='theme cocktail parties'\"}]",
             "tools_results": [
                 {
-                    "tool_name": "add_to_agenda",
-                    "tool_parameters": "(event, time)",
-                    "results": "{\"error\": \"functions.add_to_agenda() argument after ** must be a mapping, not str\"}"
+                    "tool_name": "wikipedia_search",
+                    "tool_parameters": "query='cocktail party planning ideas'",
+                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
+                },
+                {
+                    "tool_name": "google_search",
+                    "tool_parameters": "query='theme cocktail parties'",
+                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -9306,8 +9265,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use get_current_gps_coordinates to confirm the location and suggest nearby cafes if needed.\", \"Use check_bus_schedule to find bus schedules from the current location to the friend's meeting place.\"]",
-            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": None}, {\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule at a specific bus stop\", \"parameters\": \"bus_stop\"}]",
+            "actions": "[\"Use get_current_gps_coordinates to confirm the user's current location and check_bus_schedule to find the nearest bus stop.\", \"Use add_to_agenda to remind the friend of their meeting time.\"]",
+            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": None}, {\"name\": \"check_bus_schedule\", \"description\": \"Check the schedule for the nearest bus stop\", \"parameters\": None}, {\"name\": \"add_to_agenda\", \"description\": \"Add an event to the agenda\", \"parameters\": (\"Meeting in 30 minutes\", 30)}]",
             "tools_results": [
                 {
                     "tool_name": "get_current_gps_coordinates",
@@ -9316,8 +9275,16 @@
                 },
                 {
                     "tool_name": "check_bus_schedule",
-                    "tool_parameters": "bus_stop",
-                    "results": "{\"error\": \"functions.check_bus_schedule() argument after ** must be a mapping, not str\"}"
+                    "tool_parameters": null,
+                    "results": "{\"error\": \"functions.check_bus_schedule() argument after ** must be a mapping, not NoneType\"}"
+                },
+                {
+                    "tool_name": "add_to_agenda",
+                    "tool_parameters": [
+                        "Meeting in 30 minutes",
+                        30
+                    ],
+                    "results": "{\"error\": \"functions.add_to_agenda() argument after ** must be a mapping, not tuple\"}"
                 }
             ],
             "response": "outputs."
@@ -9375,12 +9342,17 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use vllm with an image of the wildflower to identify the species and provide more information about it.\", \"Use wikipedia_search or google_search to find interesting facts about the wildflowers.\"]",
-            "tools": "[{\"name\": \"vllm\", \"description\": \"Get information from a large language model given an input prompt and an optional image path\", \"parameters\": \"(prompt, image_path)\"}]",
+            "actions": "[\"Use wikipedia_search with query 'wildflower' to gather more information about the flowers the user is interested in.\", \"Use vllm with prompt='Take a picture of the wildflower' and image_path='path_to_image' to describe the flower and provide useful information.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for detailed information on Wikipedia based on the query provided\", \"parameters\": \"query='wildflower'\"}, {\"name\": \"vllm\", \"description\": \"Generate a description of an image and provide relevant context\", \"parameters\": \"(prompt='Take a picture of the wildflower', image_path='path_to_image')\"}]",
             "tools_results": [
                 {
+                    "tool_name": "wikipedia_search",
+                    "tool_parameters": "query='wildflower'",
+                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
+                },
+                {
                     "tool_name": "vllm",
-                    "tool_parameters": "(prompt, image_path)",
+                    "tool_parameters": "(prompt='Take a picture of the wildflower', image_path='path_to_image')",
                     "results": "{\"error\": \"functions.vllm() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -9438,7 +9410,7 @@
             "proactive_idx": "True",
             "proactive_score": "3",
             "actions": "[\"Use wikipedia_search with query 'Sapiens' to provide more information about the book.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information on Wikipedia\", \"parameters\": \"query='Sapiens'\"}]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search Wikipedia for additional information\", \"parameters\": \"query='Sapiens'\"}]",
             "tools_results": [
                 {
                     "tool_name": "wikipedia_search",
@@ -9472,14 +9444,19 @@
         "predictions": {
             "thoughts": "None",
             "proactive_idx": "True",
-            "proactive_score": "4",
-            "actions": "[\"Use 'google_search' with query 'average wait time for department stores' to estimate how long the user might have to wait.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search Google for information related to the query\", \"parameters\": \"average wait time for department stores\"}]",
+            "proactive_score": "3",
+            "actions": "[\"Use 'google_search' to find average wait times for department stores nearby.\", \"Use 'set_timer' to set a timer based on the estimated wait time.\"]",
+            "tools": "[{\"name\": \"google_search\", \"description\": \"Google search for relevant information\", \"parameters\": \"average wait times for department stores nearby\"}, {\"name\": \"set_timer\", \"description\": \"Set a timer for a specific duration\", \"parameters\": \"duration\"}]",
             "tools_results": [
                 {
                     "tool_name": "google_search",
-                    "tool_parameters": "average wait time for department stores",
+                    "tool_parameters": "average wait times for department stores nearby",
                     "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
+                },
+                {
+                    "tool_name": "set_timer",
+                    "tool_parameters": "duration",
+                    "results": "{\"error\": \"functions.set_timer() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."

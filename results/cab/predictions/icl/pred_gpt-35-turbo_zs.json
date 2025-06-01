@@ -21,15 +21,9 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer to provide information about the medications and supplies the user owns.\"]",
-            "tools": "[{\"name\": \"get_medical_knowledge\", \"description\": \"Retrieve information about medications and medical supplies\", \"parameters\": \"query\"}]",
-            "tools_results": [
-                {
-                    "tool_name": "get_medical_knowledge",
-                    "tool_parameters": "query",
-                    "results": "{\"error\": \"functions.get_medical_knowledge() argument after ** must be a mapping, not str\"}"
-                }
-            ],
+            "actions": "[\"Offer to provide information on any medication or medical supplies the user is unsure about.\"]",
+            "tools": "[{\"name\": \"get_medical_knowledge\", \"description\": \"Retrieve information about a specific medication or medical supply\", \"parameters\": query}] Max attempts reached. Unable to parse tools.",
+            "tools_results": [],
             "response": "outputs."
         }
     },
@@ -55,13 +49,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Initiate playing music to enhance the user's music festival experience.\"]",
-            "tools": "[{\"name\": \"play_music\", \"description\": \"Play music to enhance user's experience at the music festival\", \"parameters\": None}]",
+            "actions": "[\"Offer to play music to enhance the user's music festival experience.\"]",
+            "tools": "[{\"name\": \"play_music\", \"description\": \"Play music for the user\", \"parameters\": \"None\"}]",
             "tools_results": [
                 {
                     "tool_name": "play_music",
-                    "tool_parameters": null,
-                    "results": "{\"error\": \"functions.play_music() argument after ** must be a mapping, not NoneType\"}"
+                    "tool_parameters": "None",
+                    "results": "\"Now playing music.\""
                 }
             ],
             "response": "outputs."
@@ -95,12 +89,17 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer to check online the price of the SUV model the user is examining.\"]",
-            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the online price of a product\", \"parameters\": \"SUV model\"}]",
+            "actions": "[\"Offer to search for SUV options within the user's budget and provide safety ratings.\"]",
+            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for SUV options within the user's budget and provide safety ratings\", \"parameters\": \"family SUVs under $35,000\"},\n{\"name\": \"get_online_product_price\", \"description\": \"Get the online prices of SUV options within the user's budget\", \"parameters\": \"SUV\"}]",
             "tools_results": [
                 {
+                    "tool_name": "google_search",
+                    "tool_parameters": "family SUVs under $35,000",
+                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
+                },
+                {
                     "tool_name": "get_online_product_price",
-                    "tool_parameters": "SUV model",
+                    "tool_parameters": "SUV",
                     "results": "{\"error\": \"functions.get_online_product_price() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -134,7 +133,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Schedule a team retrospective by Friday.\"]",
+            "actions": "[\"Initiate scheduling a team retrospective for the user by Friday.\"]",
             "tools": "None",
             "tools_results": "None",
             "response": "None"
@@ -161,17 +160,11 @@
         "predictions": {
             "thoughts": "None",
             "proactive_idx": "True",
-            "proactive_score": "4",
+            "proactive_score": "3",
             "actions": "[\"Offer book recommendations based on the user's browsing history.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for book recommendations based on user's browsing history\", \"parameters\": \"book recommendations\"}]",
-            "tools_results": [
-                {
-                    "tool_name": "wikipedia_search",
-                    "tool_parameters": "book recommendations",
-                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
-                }
-            ],
-            "response": "outputs."
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-739": {
@@ -194,18 +187,12 @@
         "Tools": "None",
         "predictions": {
             "thoughts": "None",
-            "proactive_idx": "True",
-            "proactive_score": "4",
-            "actions": "[\"Offer information on different types of vegetables and herbs that can be grown in a community garden.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information on different types of vegetables and herbs that can be grown in a community garden\", \"parameters\": \"community garden vegetables and herbs\"}]",
-            "tools_results": [
-                {
-                    "tool_name": "wikipedia_search",
-                    "tool_parameters": "community garden vegetables and herbs",
-                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
-                }
-            ],
-            "response": "outputs."
+            "proactive_idx": "False",
+            "proactive_score": "0",
+            "actions": "None",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-690": {
@@ -230,12 +217,18 @@
         "Tools": "[{\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"board game [name] rules setup instructions play time reviews how difficult\"}}]",
         "predictions": {
             "thoughts": "None",
-            "proactive_idx": "False",
-            "proactive_score": "0",
-            "actions": "None",
-            "tools": "None",
-            "tools_results": "None",
-            "response": "None"
+            "proactive_idx": "True",
+            "proactive_score": "4",
+            "actions": "[\"Initiate a search to find more information about the new board game mentioned.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information about a topic on Wikipedia\", \"parameters\": \"new board game\"}]",
+            "tools_results": [
+                {
+                    "tool_name": "wikipedia_search",
+                    "tool_parameters": "new board game",
+                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
+                }
+            ],
+            "response": "outputs."
         }
     },
     "example-868": {
@@ -345,8 +338,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer to search for information on a specific book or author the user is interested in.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information on a specific topic\", \"parameters\": \"query\"}]",
+            "actions": "[\"Offer to search for more information about a specific book or author the user is interested in.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information about a specific book or author\", \"parameters\": \"query\"}]",
             "tools_results": [
                 {
                     "tool_name": "wikipedia_search",
@@ -381,13 +374,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Suggest searching for a recipe using the fresh vegetables and spices.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for a recipe using fresh vegetables and spices\", \"parameters\": \"recipe with fresh vegetables and spices\"}]",
+            "actions": "[\"Suggest recipe ideas based on the available fresh vegetables and spices.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for recipe ideas based on available ingredients\", \"parameters\": \"fresh vegetables and spices\"}]",
             "tools_results": [
                 {
-                    "tool_name": "google_search",
-                    "tool_parameters": "recipe with fresh vegetables and spices",
-                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
+                    "tool_name": "wikipedia_search",
+                    "tool_parameters": "fresh vegetables and spices",
+                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -415,14 +408,14 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer to identify the plants in the photos using VLLM model.\"]",
-            "tools": "[{\"name\": \"vllm\", \"description\": \"Utilize VLLM model to identify plants in the photos\", \"parameters\": (\"Identify the plant species in the photos the user captured in the botanical garden.\", \"image_path\")}]",
+            "actions": "[\"Offer to provide information about the plants in the botanical garden.\"]",
+            "tools": "[{\"name\": \"vllm\", \"description\": \"Generate a description of the plants in the botanical garden based on the user's photos\", \"parameters\": (\"Describe the plants in the botanical garden using the captured photos\", \"path/to/captured/photos\")}]",
             "tools_results": [
                 {
                     "tool_name": "vllm",
                     "tool_parameters": [
-                        "Identify the plant species in the photos the user captured in the botanical garden.",
-                        "image_path"
+                        "Describe the plants in the botanical garden using the captured photos",
+                        "path/to/captured/photos"
                     ],
                     "results": "{\"error\": \"functions.vllm() argument after ** must be a mapping, not tuple\"}"
                 }
@@ -457,11 +450,11 @@
             "proactive_idx": "True",
             "proactive_score": "4",
             "actions": "[\"Offer information about different types of roses and their care tips.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information about roses and their care tips\", \"parameters\": \"roses care tips\"}]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information about roses\", \"parameters\": \"roses\"}]",
             "tools_results": [
                 {
                     "tool_name": "wikipedia_search",
-                    "tool_parameters": "roses care tips",
+                    "tool_parameters": "roses",
                     "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -490,13 +483,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Initiate a proactive service to provide information about the local weather.\"]",
-            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the weather information for the user's current location\", \"parameters\": \"city: user's current location, time: current time\"}]",
+            "actions": "[\"Provide information about the local attractions or activities near the beach.\"]",
+            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for local attractions near the beach area\", \"parameters\": \"beach activities\"}]",
             "tools_results": [
                 {
-                    "tool_name": "get_city_weather",
-                    "tool_parameters": "city: user's current location, time: current time",
-                    "results": "{\"error\": \"functions.get_city_weather() argument after ** must be a mapping, not str\"}"
+                    "tool_name": "google_search",
+                    "tool_parameters": "beach activities",
+                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -550,12 +543,18 @@
         "Tools": "None",
         "predictions": {
             "thoughts": "None",
-            "proactive_idx": "False",
-            "proactive_score": "0",
-            "actions": "None",
-            "tools": "None",
-            "tools_results": "None",
-            "response": "None"
+            "proactive_idx": "True",
+            "proactive_score": "4",
+            "actions": "[\"Offer to play calming music to enhance the relaxation experience.\"]",
+            "tools": "[{\"name\": \"play_music\", \"description\": \"Play calming music for relaxation\", \"parameters\": None}]",
+            "tools_results": [
+                {
+                    "tool_name": "play_music",
+                    "tool_parameters": null,
+                    "results": "{\"error\": \"functions.play_music() argument after ** must be a mapping, not NoneType\"}"
+                }
+            ],
+            "response": "outputs."
         }
     },
     "example-81": {
@@ -610,10 +609,16 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer recipe suggestions based on the ingredients being prepared.\"]",
-            "tools": "None",
-            "tools_results": "None",
-            "response": "None"
+            "actions": "[\"Offer to set a timer for the baking process.\"]",
+            "tools": "[{\"name\": \"set_timer\", \"description\": \"Set a timer for the baking process\", \"parameters\": \"duration\"}]",
+            "tools_results": [
+                {
+                    "tool_name": "set_timer",
+                    "tool_parameters": "duration",
+                    "results": "{\"error\": \"functions.set_timer() argument after ** must be a mapping, not str\"}"
+                }
+            ],
+            "response": "outputs."
         }
     },
     "example-13": {
@@ -641,12 +646,12 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer to search online for tips on how to check the ripeness of bananas.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for tips on how to check the ripeness of bananas\", \"parameters\": \"how to check banana ripeness\"}]",
+            "actions": "[\"Offer to search for information on how to pick ripe bananas.\"]",
+            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for information on how to pick ripe bananas\", \"parameters\": \"how to pick ripe bananas\"}]",
             "tools_results": [
                 {
                     "tool_name": "google_search",
-                    "tool_parameters": "how to check banana ripeness",
+                    "tool_parameters": "how to pick ripe bananas",
                     "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -678,8 +683,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Initiate a proactive service to search for online prices of grey sectional sofas to provide the user with price comparisons.\"]",
-            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the online price of a specific product\", \"parameters\": \"grey sectional sofa\"}]",
+            "actions": "[\"Provide information on the pricing and availability of the grey sectional sofa.\"]",
+            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the online price of a product\", \"parameters\": \"grey sectional sofa\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_online_product_price",
@@ -767,18 +772,12 @@
         "Tools": "[{\"name\": \"vllm\", \"description\": \"Visual Large Language Model (VLM) that can answer the user's questions based on the given image.\", \"parameters\": {\"prompt\": \"Identify features and potential age of this Roman coin\", \"image_path\": \"\"}}, {\"name\": \"wikipedia_search\", \"description\": \"Tool that searches the Wikipedia API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\", \"parameters\": {\"query\": \"Roman imperial coinage denarius identification laurel wreath symbolism\"}}]",
         "predictions": {
             "thoughts": "None",
-            "proactive_idx": "True",
-            "proactive_score": "4",
-            "actions": "[\"Initiate a Wikipedia search to provide information about the antique Roman coin and its historical significance.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information about the antique Roman coin\", \"parameters\": \"Roman coin\"}]",
-            "tools_results": [
-                {
-                    "tool_name": "wikipedia_search",
-                    "tool_parameters": "Roman coin",
-                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
-                }
-            ],
-            "response": "outputs."
+            "proactive_idx": "False",
+            "proactive_score": "0",
+            "actions": "None",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-398": {
@@ -831,7 +830,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Check if the user needs a reminder to refill their vitamin D supplements.\"]",
+            "actions": "[\"Check if the user needs a refill of vitamin D supplements.\"]",
             "tools": "None",
             "tools_results": "None",
             "response": "None"
@@ -861,10 +860,16 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer assistance with paying for parking.\"]",
-            "tools": "None",
-            "tools_results": "None",
-            "response": "None"
+            "actions": "[\"Use <get_current_gps_coordinates> to track the location of the user and suggest nearby parking garages with better rates.\"]",
+            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}]",
+            "tools_results": [
+                {
+                    "tool_name": "get_current_gps_coordinates",
+                    "tool_parameters": "None",
+                    "results": "\"Sha Tin, Sha Tin, HK\""
+                }
+            ],
+            "response": "outputs."
         }
     },
     "example-319": {
@@ -893,10 +898,10 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Suggest sending a reminder to update the budget forecast before Thursday.\"]",
-            "tools": "None",
-            "tools_results": "None",
-            "response": "None"
+            "actions": "[\"Propose to set a reminder to update and send the budget forecast by Thursday.\"]",
+            "tools": "[{\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda\", \"parameters\": (\"Update and send budget forecast\", Thursday)}] Max attempts reached. Unable to parse tools.",
+            "tools_results": [],
+            "response": "outputs."
         }
     },
     "example-885": {
@@ -921,10 +926,16 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer assistance in finding specific electronic components or providing circuit assembly tips.\"]",
-            "tools": "None",
-            "tools_results": "None",
-            "response": "None"
+            "actions": "[\"Offer assistance in finding additional information or tutorials on circuit board assembly.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information on circuit board assembly\", \"parameters\": \"circuit board assembly\"}]",
+            "tools_results": [
+                {
+                    "tool_name": "wikipedia_search",
+                    "tool_parameters": "circuit board assembly",
+                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
+                }
+            ],
+            "response": "outputs."
         }
     },
     "example-583": {
@@ -951,16 +962,10 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Suggest checking the current exchange rate for USD to JPY.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for the current exchange rate for USD to JPY\", \"parameters\": \"USD to JPY exchange rate\"}]",
-            "tools_results": [
-                {
-                    "tool_name": "google_search",
-                    "tool_parameters": "USD to JPY exchange rate",
-                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
-                }
-            ],
-            "response": "outputs."
+            "actions": "[\"Suggest the user to check if the suitcase meets the carry-on size requirements for their international flight to Tokyo.\"]",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-420": {
@@ -985,18 +990,12 @@
         "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": {}}]",
         "predictions": {
             "thoughts": "None",
-            "proactive_idx": "True",
-            "proactive_score": "4",
-            "actions": "[\"Use <get_current_gps_coordinates> to confirm the user's current location.\"]",
-            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}]",
-            "tools_results": [
-                {
-                    "tool_name": "get_current_gps_coordinates",
-                    "tool_parameters": "None",
-                    "results": "\"Sha Tin, Sha Tin, HK\""
-                }
-            ],
-            "response": "outputs."
+            "proactive_idx": "False",
+            "proactive_score": "0",
+            "actions": "None",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-698": {
@@ -1077,8 +1076,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Recommend similar music albums to the user.\"]",
-            "tools": "[{\"name\": \"play_music\", \"description\": \"Play music similar to the current album being listened to\", \"parameters\": None}]",
+            "actions": "[\"Suggesting music similar to the current record.\"]",
+            "tools": "[{\"name\": \"play_music\", \"description\": \"Play music similar to the current record\", \"parameters\": None}]",
             "tools_results": [
                 {
                     "tool_name": "play_music",
@@ -1110,11 +1109,17 @@
         "predictions": {
             "thoughts": "None",
             "proactive_idx": "True",
-            "proactive_score": "4",
-            "actions": "[\"Offer to call an elevator to the user's current floor.\"]",
-            "tools": "None",
-            "tools_results": "None",
-            "response": "None"
+            "proactive_score": "3",
+            "actions": "[\"Use <get_current_gps_coordinates> to determine the user's current location.\"]",
+            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}]",
+            "tools_results": [
+                {
+                    "tool_name": "get_current_gps_coordinates",
+                    "tool_parameters": "None",
+                    "results": "\"Sha Tin, Sha Tin, HK\""
+                }
+            ],
+            "response": "outputs."
         }
     },
     "example-682": {
@@ -1170,13 +1175,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use <get_current_gps_coordinates> to confirm the airport lounge the user is currently in.\"]",
-            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}]",
+            "actions": "[\"Offer to check the flight status and gate information for the user.\"]",
+            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for flight status and gate information for the user\", \"parameters\": \"flight status and gate information\"}]",
             "tools_results": [
                 {
-                    "tool_name": "get_current_gps_coordinates",
-                    "tool_parameters": "None",
-                    "results": "\"Sha Tin, Sha Tin, HK\""
+                    "tool_name": "google_search",
+                    "tool_parameters": "flight status and gate information",
+                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -1202,9 +1207,9 @@
         "Tools": "None",
         "predictions": {
             "thoughts": "None",
-            "proactive_idx": "True",
-            "proactive_score": "4",
-            "actions": "[\"Offer gardening tips or suggest nearby gardening stores.\"]",
+            "proactive_idx": "False",
+            "proactive_score": "0",
+            "actions": "None",
             "tools": "None",
             "tools_results": "None",
             "response": "None"
@@ -1232,10 +1237,16 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"The user seems to be engaging in physical activity by walking in the park. They have been walking for 20 minutes. It might be helpful to suggest some nearby places to rest or grab a healthy snack.\"]",
-            "tools": "None",
-            "tools_results": "None",
-            "response": "None"
+            "actions": "[\"Check if the user might be interested in knowing the weather for their current location.\"]",
+            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the weather information for the city park\", \"parameters\": \"city: user's current location, time: current time\"}]",
+            "tools_results": [
+                {
+                    "tool_name": "get_city_weather",
+                    "tool_parameters": "city: user's current location, time: current time",
+                    "results": "{\"error\": \"functions.get_city_weather() argument after ** must be a mapping, not str\"}"
+                }
+            ],
+            "response": "outputs."
         }
     },
     "example-953": {
@@ -1329,13 +1340,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use <check_bus_schedule> to confirm the bus arrival time.\"]",
-            "tools": "[{\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for the nearest bus stop\", \"parameters\": \"bus_stop: technology park\"}]",
+            "actions": "[\"Use <get_current_gps_coordinates> to confirm the bus route the user is waiting for.\"]",
+            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}]",
             "tools_results": [
                 {
-                    "tool_name": "check_bus_schedule",
-                    "tool_parameters": "bus_stop: technology park",
-                    "results": "{\"error\": \"functions.check_bus_schedule() argument after ** must be a mapping, not str\"}"
+                    "tool_name": "get_current_gps_coordinates",
+                    "tool_parameters": "None",
+                    "results": "\"Sha Tin, Sha Tin, HK\""
                 }
             ],
             "response": "outputs."
@@ -1367,7 +1378,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Initiate a proactive service to search for nearby lunch recommendations.\"]",
+            "actions": "[\"Initiate a proactive service to suggest nearby lunch places.\"]",
             "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}]",
             "tools_results": [
                 {
@@ -1404,7 +1415,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Suggesting to check the weather forecast for Saturday to help plan the beach trip.\"]",
+            "actions": "[\"Initiate a proactive service to check the weather forecast for Saturday.\"]",
             "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the weather forecast for a specific city and time\", \"parameters\": (\"beach\", \"Saturday\")}]",
             "tools_results": [
                 {
@@ -1443,7 +1454,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Initiate a timer for a 10-minute break.\"]",
+            "actions": "[\"Offer to set a 10-minute timer to remind the user when the break is over.\"]",
             "tools": "[{\"name\": \"set_timer\", \"description\": \"Set a timer for a specified duration\", \"parameters\": \"10 minutes\"}]",
             "tools_results": [
                 {
@@ -1479,7 +1490,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer laundry tips or suggest nearby laundromats for convenience.\"]",
+            "actions": "[\"Offer laundry tips or recommend laundry products.\"]",
             "tools": "None",
             "tools_results": "None",
             "response": "None"
@@ -1537,8 +1548,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Initiate a Wikipedia search to provide more information about the book's controversial ending.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information about a topic on Wikipedia\", \"parameters\": \"controversial ending of [book title] Max attempts reached. Unable to parse tools.",
+            "actions": "[\"Initiate a Wikipedia search to find more information about the book and its controversial ending.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information about the book and its controversial ending\", \"parameters\": \"query='[book name] Max attempts reached. Unable to parse tools.",
             "tools_results": [],
             "response": "outputs."
         }
@@ -1563,12 +1574,18 @@
         "Tools": "None",
         "predictions": {
             "thoughts": "None",
-            "proactive_idx": "False",
-            "proactive_score": "0",
-            "actions": "None",
-            "tools": "None",
-            "tools_results": "None",
-            "response": "None"
+            "proactive_idx": "True",
+            "proactive_score": "4",
+            "actions": "[\"Use <get_city_weather> to check the weather in the city.\"]",
+            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the weather information of a city\", \"parameters\": \"city: European city, time: current time\"}]",
+            "tools_results": [
+                {
+                    "tool_name": "get_city_weather",
+                    "tool_parameters": "city: European city, time: current time",
+                    "results": "{\"error\": \"functions.get_city_weather() argument after ** must be a mapping, not str\"}"
+                }
+            ],
+            "response": "outputs."
         }
     },
     "example-174": {
@@ -1622,17 +1639,8 @@
             "proactive_idx": "True",
             "proactive_score": "4",
             "actions": "[\"Suggest adding the project kickoff meeting to the agenda.\"]",
-            "tools": "[{\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda\", \"parameters\": (\"Project kickoff meeting\", \"TBD\")}]",
-            "tools_results": [
-                {
-                    "tool_name": "add_to_agenda",
-                    "tool_parameters": [
-                        "Project kickoff meeting",
-                        "TBD"
-                    ],
-                    "results": "{\"error\": \"functions.add_to_agenda() argument after ** must be a mapping, not tuple\"}"
-                }
-            ],
+            "tools": "[{\"name\": \"add_to_agenda\", \"description\": \"Add an event to the agenda\", \"parameters\": (\"Project kickoff meeting\", time)}] Max attempts reached. Unable to parse tools.",
+            "tools_results": [],
             "response": "outputs."
         }
     },
@@ -1684,8 +1692,17 @@
             "proactive_idx": "True",
             "proactive_score": "4",
             "actions": "[\"Use <google_map> to provide directions to Grass Island.\"]",
-            "tools": "[{\"name\": \"google_map\", \"description\": \"Get directions to a specific location using Google Maps\", \"parameters\": (\"current_location\": \"current GPS coordinates\", \"destination\": \"Grass Island\")}] Max attempts reached. Unable to parse tools.",
-            "tools_results": [],
+            "tools": "[{\"name\": \"google_map\", \"description\": \"Get directions to a specific location using Google Maps\", \"parameters\": (\"current location: current coordinates\", \"destination: Grass Island\")}]",
+            "tools_results": [
+                {
+                    "tool_name": "google_map",
+                    "tool_parameters": [
+                        "current location: current coordinates",
+                        "destination: Grass Island"
+                    ],
+                    "results": "{\"error\": \"functions.google_map() argument after ** must be a mapping, not tuple\"}"
+                }
+            ],
             "response": "outputs."
         }
     },
@@ -1714,13 +1731,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer to search for sectional sofas that fit the user's living room measurements.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for sectional sofas that fit the user's living room measurements\", \"parameters\": \"sectional sofas for living room measurements\"}]",
+            "actions": "[\"Initiate a search to find similar sectional sofas based on the user's saved measurements.\"]",
+            "tools": "[{\"name\": \"search_rednote\", \"description\": \"Search for similar sectional sofas based on the user's saved measurements\", \"parameters\": \"sectional sofa\"}]",
             "tools_results": [
                 {
-                    "tool_name": "google_search",
-                    "tool_parameters": "sectional sofas for living room measurements",
-                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
+                    "tool_name": "search_rednote",
+                    "tool_parameters": "sectional sofa",
+                    "results": "{\"error\": \"functions.search_rednote() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -1776,10 +1793,16 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer cooking instructions or recipes.\"]",
-            "tools": "None",
-            "tools_results": "None",
-            "response": "None"
+            "actions": "[\"Offer to set a timer for the rice cooking process.\"]",
+            "tools": "[{\"name\": \"set_timer\", \"description\": \"Set a timer for the rice cooking process\", \"parameters\": \"30 minutes\"}]",
+            "tools_results": [
+                {
+                    "tool_name": "set_timer",
+                    "tool_parameters": "30 minutes",
+                    "results": "{\"error\": \"functions.set_timer() argument after ** must be a mapping, not str\"}"
+                }
+            ],
+            "response": "outputs."
         }
     },
     "example-841": {
@@ -1805,16 +1828,10 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Recommend nearby restaurants with gluten-free options.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for nearby restaurants with gluten-free options\", \"parameters\": \"gluten-free restaurants near current location\"}]",
-            "tools_results": [
-                {
-                    "tool_name": "google_search",
-                    "tool_parameters": "gluten-free restaurants near current location",
-                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
-                }
-            ],
-            "response": "outputs."
+            "actions": "[\"Offer nutritional information or healthy eating tips based on the user's menu options.\"]",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-759": {
@@ -1843,9 +1860,15 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer to search for more information on the active ingredients of the allergy medications the user is comparing.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for information on active ingredients of allergy medications\", \"parameters\": query}] Max attempts reached. Unable to parse tools.",
-            "tools_results": [],
+            "actions": "[\"Provide information on common side effects of antihistamines and potential drug interactions.\"]",
+            "tools": "[{\"name\": \"get_medical_knowledge\", \"description\": \"Retrieve medical knowledge about antihistamines\", \"parameters\": \"query='antihistamines'\"}]",
+            "tools_results": [
+                {
+                    "tool_name": "get_medical_knowledge",
+                    "tool_parameters": "query='antihistamines'",
+                    "results": "{\"error\": \"functions.get_medical_knowledge() argument after ** must be a mapping, not str\"}"
+                }
+            ],
             "response": "outputs."
         }
     },
@@ -1874,7 +1897,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use <get_current_gps_coordinates> to confirm the user's current location.\"]",
+            "actions": "[\"Use <get_current_gps_coordinates> to confirm the bus route the user is waiting for.\"]",
             "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}]",
             "tools_results": [
                 {
@@ -1938,13 +1961,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use <get_current_gps_coordinates> to track the user's running route.\"]",
-            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}]",
+            "actions": "[\"Use <get_weather> to check the weather for the user's running route.\"]",
+            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the weather forecast for a specific city\", \"parameters\": \"user's location, current time\"}]",
             "tools_results": [
                 {
-                    "tool_name": "get_current_gps_coordinates",
-                    "tool_parameters": "None",
-                    "results": "\"Sha Tin, Sha Tin, HK\""
+                    "tool_name": "get_city_weather",
+                    "tool_parameters": "user's location, current time",
+                    "results": "{\"error\": \"functions.get_city_weather() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -1974,12 +1997,12 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use <get_current_weather> to check the weather for the user's current location.\"]",
-            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the current weather for a specific city\", \"parameters\": \"current_location, time\"}]",
+            "actions": "[\"Use <get_city_weather> to check the weather for jogging.\"]",
+            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the weather information for the city\", \"parameters\": \"city: beach, time: morning\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_city_weather",
-                    "tool_parameters": "current_location, time",
+                    "tool_parameters": "city: beach, time: morning",
                     "results": "{\"error\": \"functions.get_city_weather() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -2008,10 +2031,16 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer to provide information about nearby attractions or recommend popular local dishes.\"]",
-            "tools": "None",
-            "tools_results": "None",
-            "response": "None"
+            "actions": "[\"Check the current weather at the user's location to see if it's a good time to stay outdoors.\"]",
+            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the current weather at the user's location\", \"parameters\": \"city: European plaza, time: current time\"}]",
+            "tools_results": [
+                {
+                    "tool_name": "get_city_weather",
+                    "tool_parameters": "city: European plaza, time: current time",
+                    "results": "{\"error\": \"functions.get_city_weather() argument after ** must be a mapping, not str\"}"
+                }
+            ],
+            "response": "outputs."
         }
     },
     "example-185": {
@@ -2041,7 +2070,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer recipe suggestions based on the user's current location in the meat and seafood section.\"]",
+            "actions": "[\"Offer recipes or cooking tips related to meat and seafood.\"]",
             "tools": "None",
             "tools_results": "None",
             "response": "None"
@@ -2070,13 +2099,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use <get_current_gps_coordinates> to confirm the user's current location for planning the trip.\"]",
-            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}]",
+            "actions": "[\"Suggest checking the weather forecast for the mountain area.\"]",
+            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the weather forecast for a specific city\", \"parameters\": \"mountain area, weekend\"}]",
             "tools_results": [
                 {
-                    "tool_name": "get_current_gps_coordinates",
-                    "tool_parameters": "None",
-                    "results": "\"Sha Tin, Sha Tin, HK\""
+                    "tool_name": "get_city_weather",
+                    "tool_parameters": "mountain area, weekend",
+                    "results": "{\"error\": \"functions.get_city_weather() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -2104,22 +2133,11 @@
         "predictions": {
             "thoughts": "None",
             "proactive_idx": "True",
-            "proactive_score": "3",
-            "actions": "[\"Offer nutritional information about the menu items.\"]",
-            "tools": "[\"search_rednote\", {\"query\": \"nutritional information cheeseburger fries soda\"}]",
-            "tools_results": [
-                {
-                    "tool_name": "error",
-                    "tool_parameters": "error",
-                    "results": "error"
-                },
-                {
-                    "tool_name": "error",
-                    "tool_parameters": "error",
-                    "results": "error"
-                }
-            ],
-            "response": "outputs."
+            "proactive_score": "4",
+            "actions": "[\"Recommend healthy food options on the menu.\"]",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-882": {
@@ -2170,8 +2188,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Confirm the remaining time of the washing machine cycle.\"]",
-            "tools": "[{\"name\": \"set_timer\", \"description\": \"Set a timer for the remaining time of the washing machine cycle\", \"parameters\": \"duration\"}]",
+            "actions": "[\"Offer to set a timer for the user to remind them when the washing cycle is complete.\"]",
+            "tools": "[{\"name\": \"set_timer\", \"description\": \"Set a timer for the user to remind them when the washing cycle is complete\", \"parameters\": \"duration\"}]",
             "tools_results": [
                 {
                     "tool_name": "set_timer",
@@ -2202,18 +2220,12 @@
         "Tools": "None",
         "predictions": {
             "thoughts": "None",
-            "proactive_idx": "True",
-            "proactive_score": "4",
-            "actions": "[\"Offer to play music for the user.\"]",
-            "tools": "[{\"name\": \"play_music\", \"description\": \"Play music for the user\", \"parameters\": \"None\"}]",
-            "tools_results": [
-                {
-                    "tool_name": "play_music",
-                    "tool_parameters": "None",
-                    "results": "\"Now playing music.\""
-                }
-            ],
-            "response": "outputs."
+            "proactive_idx": "False",
+            "proactive_score": "0",
+            "actions": "None",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-227": {
@@ -2269,16 +2281,10 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer to check online for the prices of wireless earbuds to find the best deal.\"]",
-            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the online price of a product\", \"parameters\": \"wireless earbuds\"}]",
-            "tools_results": [
-                {
-                    "tool_name": "get_online_product_price",
-                    "tool_parameters": "wireless earbuds",
-                    "results": "{\"error\": \"functions.get_online_product_price() argument after ** must be a mapping, not str\"}"
-                }
-            ],
-            "response": "outputs."
+            "actions": "[\"Offer assistance in finding the best deals for wireless earbuds.\"]",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-851": {
@@ -2397,13 +2403,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer assistance in finding more information about smart home devices or comparing prices.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for information on smart home devices\", \"parameters\": \"smart home devices\"}]",
+            "actions": "[\"Offer to search for online prices of the smart home devices the user is interested in.\"]",
+            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get online prices of the smart home devices\", \"parameters\": \"smart home devices\"}]",
             "tools_results": [
                 {
-                    "tool_name": "google_search",
+                    "tool_name": "get_online_product_price",
                     "tool_parameters": "smart home devices",
-                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
+                    "results": "{\"error\": \"functions.get_online_product_price() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -2435,10 +2441,27 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Remind the user to set up a reminder for taking the medication twice daily for the next four weeks.\"]",
-            "tools": "None",
-            "tools_results": "None",
-            "response": "None"
+            "actions": "[\"Initiate a reminder for the user to take the medication twice daily for the next four weeks and schedule a follow-up appointment with the doctor in one month.\"]",
+            "tools": "[{\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda\", \"parameters\": (\"Take medication twice daily for four weeks\", \"Every day for the next four weeks\")}, \n{\"name\": \"add_to_agenda\", \"description\": \"Schedule a follow-up appointment\", \"parameters\": (\"Follow-up appointment with doctor\", \"One month from now\")}]",
+            "tools_results": [
+                {
+                    "tool_name": "add_to_agenda",
+                    "tool_parameters": [
+                        "Take medication twice daily for four weeks",
+                        "Every day for the next four weeks"
+                    ],
+                    "results": "{\"error\": \"functions.add_to_agenda() argument after ** must be a mapping, not tuple\"}"
+                },
+                {
+                    "tool_name": "add_to_agenda",
+                    "tool_parameters": [
+                        "Follow-up appointment with doctor",
+                        "One month from now"
+                    ],
+                    "results": "{\"error\": \"functions.add_to_agenda() argument after ** must be a mapping, not tuple\"}"
+                }
+            ],
+            "response": "outputs."
         }
     },
     "example-24": {
@@ -2468,8 +2491,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Suggest adding the hiking plan to the user's agenda for next Saturday.\"]",
-            "tools": "[{\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda\", \"parameters\": (\"Hiking with seven people\", \"Next Saturday\")}]",
+            "actions": "[\"Suggest adding the hiking plan to the user's agenda.\"]",
+            "tools": "[{\"name\": \"add_to_agenda\", \"description\": \"Add the hiking plan to the user's agenda\", \"parameters\": (\"Hiking with seven people\", \"Next Saturday\")}]",
             "tools_results": [
                 {
                     "tool_name": "add_to_agenda",
@@ -2536,16 +2559,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer weather information for the destination.\"]",
-            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the weather information for a specific city at a certain time\", \"parameters\": (\"Canada\", None)}]",
+            "actions": "[\"Use <get_city_weather> to check the weather forecast in Canada.\"]",
+            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the weather forecast for a specific city\", \"parameters\": \"Canada\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_city_weather",
-                    "tool_parameters": [
-                        "Canada",
-                        null
-                    ],
-                    "results": "{\"error\": \"functions.get_city_weather() argument after ** must be a mapping, not tuple\"}"
+                    "tool_parameters": "Canada",
+                    "results": "{\"error\": \"functions.get_city_weather() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -2577,7 +2597,7 @@
             "proactive_idx": "True",
             "proactive_score": "4",
             "actions": "[\"Initiate a search for more information about Dr. Emily Chen, Pediatric Dentist.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for more information about Dr. Emily Chen, Pediatric Dentist\", \"parameters\": \"Dr. Emily Chen, Pediatric Dentist\"}]",
+            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for information about Dr. Emily Chen, Pediatric Dentist\", \"parameters\": \"Dr. Emily Chen, Pediatric Dentist\"}]",
             "tools_results": [
                 {
                     "tool_name": "google_search",
@@ -2610,7 +2630,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer cooking tips or recipes for roasted vegetables.\"]",
+            "actions": "[\"Offer cooking tips or recipes for roasting vegetables.\"]",
             "tools": "None",
             "tools_results": "None",
             "response": "None"
@@ -2638,7 +2658,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use <get_current_gps_coordinates> to confirm the user's current location.\"]",
+            "actions": "[\"Use <get_current_gps_coordinates> to confirm the train station the user is currently at.\"]",
             "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}]",
             "tools_results": [
                 {
@@ -2700,13 +2720,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use <get_current_gps_coordinates> to confirm the user's current location.\"]",
-            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}]",
+            "actions": "[\"Offer information about the city park or nearby attractions.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information about the city park or nearby attractions\", \"parameters\": \"city park\"}]",
             "tools_results": [
                 {
-                    "tool_name": "get_current_gps_coordinates",
-                    "tool_parameters": "None",
-                    "results": "\"Sha Tin, Sha Tin, HK\""
+                    "tool_name": "wikipedia_search",
+                    "tool_parameters": "city park",
+                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -2734,19 +2754,10 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Suggest recipe ideas based on the ingredients in the refrigerator.\"]",
-            "tools": "[{\"name\": \"vllm\", \"description\": \"Generate recipe ideas based on ingredients in the refrigerator\", \"parameters\": (\"Recipe ideas based on milk, eggs, and vegetables\", \"image_path_of_refrigerator\")}]",
-            "tools_results": [
-                {
-                    "tool_name": "vllm",
-                    "tool_parameters": [
-                        "Recipe ideas based on milk, eggs, and vegetables",
-                        "image_path_of_refrigerator"
-                    ],
-                    "results": "{\"error\": \"functions.vllm() argument after ** must be a mapping, not tuple\"}"
-                }
-            ],
-            "response": "outputs."
+            "actions": "[\"Suggest recipes based on the ingredients in the refrigerator.\"]",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-200": {
@@ -2772,12 +2783,12 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Initiate a proactive service to provide information on federated learning.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information on federated learning\", \"parameters\": \"federated learning\"}]",
+            "actions": "[\"Initiate a search on federated learning techniques to provide more information to the user.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information on federated learning techniques\", \"parameters\": \"federated learning techniques\"}]",
             "tools_results": [
                 {
                     "tool_name": "wikipedia_search",
-                    "tool_parameters": "federated learning",
+                    "tool_parameters": "federated learning techniques",
                     "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -2870,8 +2881,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Provide more information about 'multi-head attention mechanism'.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information about 'multi-head attention mechanism'\", \"parameters\": \"multi-head attention mechanism\"}]",
+            "actions": "[\"Offer to search for more information on 'multi-head attention mechanism'.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information on Wikipedia\", \"parameters\": \"multi-head attention mechanism\"}]",
             "tools_results": [
                 {
                     "tool_name": "wikipedia_search",
@@ -2904,12 +2915,12 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer suggestions for nearby restaurants or cafes with ocean views.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for nearby restaurants or cafes with ocean views\", \"parameters\": \"restaurants with ocean views near current location\"}]",
+            "actions": "[\"Offer to search for nearby cafes or restaurants for the user to grab a drink or snack while enjoying the sunset.\"]",
+            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for nearby cafes or restaurants\", \"parameters\": \"cafes near me\"}]",
             "tools_results": [
                 {
                     "tool_name": "google_search",
-                    "tool_parameters": "restaurants with ocean views near current location",
+                    "tool_parameters": "cafes near me",
                     "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -2938,12 +2949,12 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Remind the user to set a timer for the cookies in the oven.\"]",
-            "tools": "[{\"name\": \"set_timer\", \"description\": \"Set a timer for the cookies in the oven\", \"parameters\": \"10 minutes\"}]",
+            "actions": "[\"Offer to set a timer for the cookies to remind the user when they are ready.\"]",
+            "tools": "[{\"name\": \"set_timer\", \"description\": \"Set a timer for the cookies to remind the user when they are ready\", \"parameters\": \"15 minutes\"}]",
             "tools_results": [
                 {
                     "tool_name": "set_timer",
-                    "tool_parameters": "10 minutes",
+                    "tool_parameters": "15 minutes",
                     "results": "{\"error\": \"functions.set_timer() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -2972,13 +2983,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer to play music to help the user pass the time while waiting in line.\"]",
-            "tools": "[{\"name\": \"play_music\", \"description\": \"Play music to help the user pass the time\", \"parameters\": \"None\"}]",
+            "actions": "[\"Offer to play music to enhance the user's excitement while waiting in line.\"]",
+            "tools": "[{\"name\": \"play_music\", \"description\": \"Play music to enhance the user's excitement while waiting in line\", \"parameters\": None}]",
             "tools_results": [
                 {
                     "tool_name": "play_music",
-                    "tool_parameters": "None",
-                    "results": "\"Now playing music.\""
+                    "tool_parameters": null,
+                    "results": "{\"error\": \"functions.play_music() argument after ** must be a mapping, not NoneType\"}"
                 }
             ],
             "response": "outputs."
@@ -3151,13 +3162,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Provide the user with entertainment options to pass the time while waiting.\"]",
-            "tools": "[{\"name\": \"play_music\", \"description\": \"Play music for the user to pass the time\", \"parameters\": \"None\"}]",
+            "actions": "[\"Offer to search for nearby cafes or restaurants where the user can pass time while waiting.\"]",
+            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for nearby cafes or restaurants\", \"parameters\": \"cafes near current location\"}]",
             "tools_results": [
                 {
-                    "tool_name": "play_music",
-                    "tool_parameters": "None",
-                    "results": "\"Now playing music.\""
+                    "tool_name": "google_search",
+                    "tool_parameters": "cafes near current location",
+                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -3181,18 +3192,12 @@
         "Tools": "None",
         "predictions": {
             "thoughts": "None",
-            "proactive_idx": "True",
-            "proactive_score": "4",
-            "actions": "[\"Offer to show a tutorial on solving a Rubik's Cube.\"]",
-            "tools": "[{\"name\": \"youtube_search\", \"description\": \"Search for a Rubik's Cube solving tutorial on YouTube\", \"parameters\": \"Rubik's Cube solving tutorial\"}]",
-            "tools_results": [
-                {
-                    "tool_name": "youtube_search",
-                    "tool_parameters": "Rubik's Cube solving tutorial",
-                    "results": "{\"error\": \"Function youtube_search is not implemented.\"}"
-                }
-            ],
-            "response": "outputs."
+            "proactive_idx": "False",
+            "proactive_score": "0",
+            "actions": "None",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-28": {
@@ -3285,12 +3290,12 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Initiate a search for more information on Rothko's color field paintings and abstract art to provide the user with additional context.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information on Wikipedia\", \"parameters\": \"Rothko's color field paintings and abstract art\"}]",
+            "actions": "[\"Initiate a Wikipedia search to provide more information on Rothko's color field paintings.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information on Rothko's color field paintings\", \"parameters\": \"Rothko's color field paintings\"}]",
             "tools_results": [
                 {
                     "tool_name": "wikipedia_search",
-                    "tool_parameters": "Rothko's color field paintings and abstract art",
+                    "tool_parameters": "Rothko's color field paintings",
                     "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -3351,7 +3356,7 @@
             "proactive_idx": "True",
             "proactive_score": "4",
             "actions": "[\"Use <google_map> to provide directions to the waterfall.\"]",
-            "tools": "[{\"name\": \"google_map\", \"description\": \"Get directions from current location to destination\", \"parameters\": (\"current_location\", \"waterfall\")}]",
+            "tools": "[{\"name\": \"google_map\", \"description\": \"Get directions to the destination\", \"parameters\": (\"current_location\", \"waterfall\")}]",
             "tools_results": [
                 {
                     "tool_name": "google_map",
@@ -3392,7 +3397,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Add a reminder for the final review meeting for the product launch.\"]",
+            "actions": "[\"Schedule a final review meeting for the product launch.\"]",
             "tools": "[{\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda\", \"parameters\": (\"Final review meeting for product launch\", \"May 1st\")}]",
             "tools_results": [
                 {
@@ -3461,13 +3466,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Check the user's health data for more details and suggest contacting a healthcare provider.\"]",
-            "tools": "[{\"name\": \"get_health_data\", \"description\": \"Retrieve the user's health data for analysis\", \"parameters\": None}]",
+            "actions": "[\"Alert the user about the abnormal heart rate during the routine jog.\"]",
+            "tools": "[{\"name\": \"get_health_data\", \"description\": \"Retrieve the user's health data\", \"parameters\": \"None\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_health_data",
-                    "tool_parameters": null,
-                    "results": "{\"error\": \"functions.get_health_data() argument after ** must be a mapping, not NoneType\"}"
+                    "tool_parameters": "None",
+                    "results": "\"The user's heart rate is 70 bpm, oxygen saturation is 98%, respiration rate is 16 bpm, body temperature is 36.5 degrees Celsius, total steps today is 5000, and total calories burned today is 2000.\""
                 }
             ],
             "response": "outputs."
@@ -3498,13 +3503,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer to play music to enhance the jogging experience.\"]",
-            "tools": "[{\"name\": \"play_music\", \"description\": \"Play music to enhance the jogging experience\", \"parameters\": \"None\"}]",
+            "actions": "[\"Use <get_current_gps_coordinates> to track the user's location and provide information on nearby landmarks or points of interest.\"]",
+            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}]",
             "tools_results": [
                 {
-                    "tool_name": "play_music",
+                    "tool_name": "get_current_gps_coordinates",
                     "tool_parameters": "None",
-                    "results": "\"Now playing music.\""
+                    "results": "\"Sha Tin, Sha Tin, HK\""
                 }
             ],
             "response": "outputs."
@@ -3563,12 +3568,12 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer to search for the menu or reviews of the Thai restaurant.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for information about the Thai restaurant\", \"parameters\": \"Thai restaurant reviews\"}]",
+            "actions": "[\"Offer restaurant reviews or menu recommendations.\"]",
+            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for reviews and menu of the Thai restaurant\", \"parameters\": \"Thai restaurant reviews and menu\"}]",
             "tools_results": [
                 {
                     "tool_name": "google_search",
-                    "tool_parameters": "Thai restaurant reviews",
+                    "tool_parameters": "Thai restaurant reviews and menu",
                     "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -3597,7 +3602,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use <get_current_gps_coordinates> to suggest nearby attractions or restaurants for the user to explore.\"]",
+            "actions": "[\"Use <get_current_gps_coordinates> to provide nearby recommendations for the user.\"]",
             "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}]",
             "tools_results": [
                 {
@@ -3629,18 +3634,12 @@
         "Tools": "None",
         "predictions": {
             "thoughts": "None",
-            "proactive_idx": "True",
-            "proactive_score": "4",
-            "actions": "[\"Offer to play more classical music or suggest a relaxing playlist.\"]",
-            "tools": "[{\"name\": \"play_music\", \"description\": \"Play relaxing music for the user\", \"parameters\": None}]",
-            "tools_results": [
-                {
-                    "tool_name": "play_music",
-                    "tool_parameters": null,
-                    "results": "{\"error\": \"functions.play_music() argument after ** must be a mapping, not NoneType\"}"
-                }
-            ],
-            "response": "outputs."
+            "proactive_idx": "False",
+            "proactive_score": "0",
+            "actions": "None",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-437": {
@@ -3668,8 +3667,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer to search for online prices of the headphones the user is interested in.\"]",
-            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the online price of a product\", \"parameters\": \"headphones\"}]",
+            "actions": "[\"Offer to search for online product prices to help the user compare options.\"]",
+            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the price of headphones online\", \"parameters\": \"headphones\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_online_product_price",
@@ -3760,8 +3759,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer to play workout music to accompany the user's rowing machine exercise.\"]",
-            "tools": "[{\"name\": \"play_music\", \"description\": \"Play music to accompany the user's workout\", \"parameters\": None}]",
+            "actions": "[\"Offer to play workout music to enhance the user's exercise experience.\"]",
+            "tools": "[{\"name\": \"play_music\", \"description\": \"Play music to enhance the user's workout experience\", \"parameters\": None}]",
             "tools_results": [
                 {
                     "tool_name": "play_music",
@@ -3795,12 +3794,12 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer information about the different plants and flowers in the botanical garden.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information about plants and flowers in the botanical garden\", \"parameters\": \"botanical garden plants and flowers\"}]",
+            "actions": "[\"Offer information about the different flowers and plants in the botanical garden.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information about flowers and plants in the botanical garden\", \"parameters\": \"botanical garden flowers and plants\"}]",
             "tools_results": [
                 {
                     "tool_name": "wikipedia_search",
-                    "tool_parameters": "botanical garden plants and flowers",
+                    "tool_parameters": "botanical garden flowers and plants",
                     "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -3829,13 +3828,18 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Suggest searching for salad dressing recipes to complement the fresh vegetables.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for salad dressing recipes\", \"parameters\": \"salad dressing recipes\"}]",
+            "actions": "[\"Offer a recipe suggestion based on the fresh vegetables being prepared.\"]",
+            "tools": "[\"wikipedia_search\", {\"query\": \"Salad recipes with fresh vegetables\"}]",
             "tools_results": [
                 {
-                    "tool_name": "google_search",
-                    "tool_parameters": "salad dressing recipes",
-                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
+                    "tool_name": "error",
+                    "tool_parameters": "error",
+                    "results": "error"
+                },
+                {
+                    "tool_name": "error",
+                    "tool_parameters": "error",
+                    "results": "error"
                 }
             ],
             "response": "outputs."
@@ -3890,7 +3894,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer assistance in finding specific items or checking for discounts.\"]",
+            "actions": "[\"Recommend recipes based on the produce items in the user's shopping cart.\"]",
             "tools": "None",
             "tools_results": "None",
             "response": "None"
@@ -3946,13 +3950,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer to play music to motivate the user during their workout.\"]",
-            "tools": "[{\"name\": \"play_music\", \"description\": \"Play music to motivate the user during their workout\", \"parameters\": \"None\"}]",
+            "actions": "[\"Offer to play music to accompany the user's workout session.\"]",
+            "tools": "[{\"name\": \"play_music\", \"description\": \"Play music to accompany the user's workout session\", \"parameters\": None}]",
             "tools_results": [
                 {
                     "tool_name": "play_music",
-                    "tool_parameters": "None",
-                    "results": "\"Now playing music.\""
+                    "tool_parameters": null,
+                    "results": "{\"error\": \"functions.play_music() argument after ** must be a mapping, not NoneType\"}"
                 }
             ],
             "response": "outputs."
@@ -3983,17 +3987,12 @@
             "proactive_idx": "True",
             "proactive_score": "4",
             "actions": "[\"Offer recipe suggestions for Indian dishes.\"]",
-            "tools": "[\"wikipedia_search\", {\"query\": \"Indian cuisine recipes\"}]",
+            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for Indian recipes online\", \"parameters\": \"Indian recipes\"}]",
             "tools_results": [
                 {
-                    "tool_name": "error",
-                    "tool_parameters": "error",
-                    "results": "error"
-                },
-                {
-                    "tool_name": "error",
-                    "tool_parameters": "error",
-                    "results": "error"
+                    "tool_name": "google_search",
+                    "tool_parameters": "Indian recipes",
+                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -4062,12 +4061,12 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer to search for relevant information or templates for the presentation.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for relevant information for the presentation\", \"parameters\": \"client meeting presentation\"}]",
+            "actions": "[\"Initiate a proactive service to search for tips on preparing a professional presentation.\"]",
+            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for tips on preparing a professional presentation\", \"parameters\": \"tips for preparing a professional presentation\"}]",
             "tools_results": [
                 {
                     "tool_name": "google_search",
-                    "tool_parameters": "client meeting presentation",
+                    "tool_parameters": "tips for preparing a professional presentation",
                     "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -4124,8 +4123,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer to set a timer for brewing the coffee.\"]",
-            "tools": "[{\"name\": \"set_timer\", \"description\": \"Set a timer for brewing coffee\", \"parameters\": \"5 minutes\"}]",
+            "actions": "[\"Offer to set a timer for the user to remind them when the coffee beans are ground to the desired consistency.\"]",
+            "tools": "[{\"name\": \"set_timer\", \"description\": \"Set a timer to remind the user\", \"parameters\": \"5 minutes\"}]",
             "tools_results": [
                 {
                     "tool_name": "set_timer",
@@ -4158,7 +4157,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer information about the current weather to enhance the sunset-watching experience.\"]",
+            "actions": "[\"Offer information about the current weather at the user's location.\"]",
             "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the current weather information for the user's city\", \"parameters\": \"None\"}]",
             "tools_results": [
                 {
@@ -4195,8 +4194,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Suggesting online price comparison for the shirts the user is interested in.\"]",
-            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the online price of a product to compare\", \"parameters\": \"shirt\"}]",
+            "actions": "[\"Offer to search for online product prices to compare with the store prices.\"]",
+            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the online price of a product to compare with the store prices\", \"parameters\": \"shirt\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_online_product_price",
@@ -4229,13 +4228,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer to play calming music to enhance the peaceful atmosphere.\"]",
-            "tools": "[{\"name\": \"play_music\", \"description\": \"Play calming music to enhance the peaceful atmosphere\", \"parameters\": \"None\"}]",
+            "actions": "[\"Offer to search for soothing rain sounds to enhance the peaceful atmosphere.\"]",
+            "tools": "[{\"name\": \"search_rednote\", \"description\": \"Search for soothing rain sounds to enhance the peaceful atmosphere\", \"parameters\": \"soothing rain sounds\"}]",
             "tools_results": [
                 {
-                    "tool_name": "play_music",
-                    "tool_parameters": "None",
-                    "results": "\"Now playing music.\""
+                    "tool_name": "search_rednote",
+                    "tool_parameters": "soothing rain sounds",
+                    "results": "{\"error\": \"functions.search_rednote() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -4295,7 +4294,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use <get_current_gps_coordinates> to ensure the user's safety and provide location-based recommendations.\"]",
+            "actions": "[\"Use <get_current_gps_coordinates> to suggest nearby points of interest for the user.\"]",
             "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}]",
             "tools_results": [
                 {
@@ -4330,7 +4329,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer food suggestions based on the menu items available in the cafeteria.\"]",
+            "actions": "[\"Offer recipe suggestions based on the menu options.\"]",
             "tools": "None",
             "tools_results": "None",
             "response": "None"
@@ -4358,16 +4357,10 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer weather information to help the user decide if it is a good time to water the seedlings.\"]",
-            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the weather information for the user's city\", \"parameters\": \"city: user's city, time: current time\"}]",
-            "tools_results": [
-                {
-                    "tool_name": "get_city_weather",
-                    "tool_parameters": "city: user's city, time: current time",
-                    "results": "{\"error\": \"functions.get_city_weather() argument after ** must be a mapping, not str\"}"
-                }
-            ],
-            "response": "outputs."
+            "actions": "[\"Offer tips on watering techniques and plant care.\"]",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-718": {
@@ -4392,7 +4385,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer gardening tips or suggest checking the weather forecast for optimal gardening conditions.\"]",
+            "actions": "[\"Offer gardening tips or plant care information.\"]",
             "tools": "None",
             "tools_results": "None",
             "response": "None"
@@ -4424,13 +4417,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Provide information about the price of the mid-range DSLR camera the user is examining.\"]",
-            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the online price of a product\", \"parameters\": \"mid-range DSLR camera\"}]",
+            "actions": "[\"Offer to look up online reviews or compare prices for the mid-range camera the user is interested in.\"]",
+            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for online reviews of the mid-range DSLR camera\", \"parameters\": \"mid-range DSLR camera reviews\"}]",
             "tools_results": [
                 {
-                    "tool_name": "get_online_product_price",
-                    "tool_parameters": "mid-range DSLR camera",
-                    "results": "{\"error\": \"functions.get_online_product_price() argument after ** must be a mapping, not str\"}"
+                    "tool_name": "google_search",
+                    "tool_parameters": "mid-range DSLR camera reviews",
+                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -4460,19 +4453,10 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Suggest adding a meeting with the entire team to the user's agenda.\"]",
-            "tools": "[{\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda\", \"parameters\": (\"Meeting with entire team\", \"TBD\")}]",
-            "tools_results": [
-                {
-                    "tool_name": "add_to_agenda",
-                    "tool_parameters": [
-                        "Meeting with entire team",
-                        "TBD"
-                    ],
-                    "results": "{\"error\": \"functions.add_to_agenda() argument after ** must be a mapping, not tuple\"}"
-                }
-            ],
-            "response": "outputs."
+            "actions": "[\"Suggest setting up a meeting with the entire team to review patient cases and update treatment protocols.\"]",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-505": {
@@ -4500,8 +4484,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Initiate a proactive service to search for information about the distinctive flowering plant.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information about the distinctive flowering plant in the botanical garden\", \"parameters\": \"distinctive flowering plant\"}]",
+            "actions": "[\"Initiate a Wikipedia search to identify the distinctive flowering plant the user is examining.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information about a specific topic on Wikipedia\", \"parameters\": \"distinctive flowering plant\"}]",
             "tools_results": [
                 {
                     "tool_name": "wikipedia_search",
@@ -4562,18 +4546,12 @@
         "Tools": "[{\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"popular book recommendations or new authors\"}}]",
         "predictions": {
             "thoughts": "None",
-            "proactive_idx": "True",
-            "proactive_score": "4",
-            "actions": "[\"Initiate a search for book recommendations based on the user's interests.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for book recommendations based on user's interests\", \"parameters\": \"book recommendations\"}]",
-            "tools_results": [
-                {
-                    "tool_name": "google_search",
-                    "tool_parameters": "book recommendations",
-                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
-                }
-            ],
-            "response": "outputs."
+            "proactive_idx": "False",
+            "proactive_score": "0",
+            "actions": "None",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-594": {
@@ -4596,8 +4574,8 @@
         "Tools": "None",
         "predictions": {
             "thoughts": "None",
-            "proactive_idx": "False",
-            "proactive_score": "0",
+            "proactive_idx": "True",
+            "proactive_score": "3",
             "actions": "None",
             "tools": "None",
             "tools_results": "None",
@@ -4626,12 +4604,18 @@
         "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": \"None\"}]",
         "predictions": {
             "thoughts": "None",
-            "proactive_idx": "False",
-            "proactive_score": "0",
-            "actions": "None",
-            "tools": "None",
-            "tools_results": "None",
-            "response": "None"
+            "proactive_idx": "True",
+            "proactive_score": "3",
+            "actions": "[\"Offer to search for online product prices to help the user compare different options.\"]",
+            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the prices of products online for comparison\", \"parameters\": \"headphones\"}]",
+            "tools_results": [
+                {
+                    "tool_name": "get_online_product_price",
+                    "tool_parameters": "headphones",
+                    "results": "{\"error\": \"functions.get_online_product_price() argument after ** must be a mapping, not str\"}"
+                }
+            ],
+            "response": "outputs."
         }
     },
     "example-604": {
@@ -4684,7 +4668,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer dental hygiene tips or recommendations.\"]",
+            "actions": "[\"Offer dental hygiene tips or reminders.\"]",
             "tools": "None",
             "tools_results": "None",
             "response": "None"
@@ -4716,19 +4700,10 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Initiate a reminder for the user to push the new software update by Friday.\"]",
-            "tools": "[{\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda\", \"parameters\": (\"Push new software update\", \"Friday\")}]",
-            "tools_results": [
-                {
-                    "tool_name": "add_to_agenda",
-                    "tool_parameters": [
-                        "Push new software update",
-                        "Friday"
-                    ],
-                    "results": "{\"error\": \"functions.add_to_agenda() argument after ** must be a mapping, not tuple\"}"
-                }
-            ],
-            "response": "outputs."
+            "actions": "[\"Initiate a proactive service to remind the user to schedule time for pushing the new software update.\"]",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-242": {
@@ -4755,8 +4730,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer cooking timer assistance to help the user keep track of the rice cooking time.\"]",
-            "tools": "[{\"name\": \"set_timer\", \"description\": \"Set a timer for the rice cooking time\", \"parameters\": \"15 minutes\"}]",
+            "actions": "[\"Offer to set a timer for cooking the rice.\"]",
+            "tools": "[{\"name\": \"set_timer\", \"description\": \"Set a timer for cooking rice\", \"parameters\": \"15 minutes\"}]",
             "tools_results": [
                 {
                     "tool_name": "set_timer",
@@ -4793,12 +4768,12 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "5",
-            "actions": "[\"Use <get_city_weather> to check the weather forecast for the current location.\"]",
-            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the weather forecast for the city\", \"parameters\": \"current location, time\"}]",
+            "actions": "[\"Use <get_city_weather> to check the weather forecast for the user's current location.\"]",
+            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the weather forecast for a specific city\", \"parameters\": \"current_location, time\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_city_weather",
-                    "tool_parameters": "current location, time",
+                    "tool_parameters": "current_location, time",
                     "results": "{\"error\": \"functions.get_city_weather() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -4832,16 +4807,10 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Recommend checking the movie's reviews and ratings before pre-booking tickets.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for reviews and ratings of the upcoming blockbuster movie\", \"parameters\": \"upcoming blockbuster movie reviews and ratings\"}]",
-            "tools_results": [
-                {
-                    "tool_name": "google_search",
-                    "tool_parameters": "upcoming blockbuster movie reviews and ratings",
-                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
-                }
-            ],
-            "response": "outputs."
+            "actions": "[\"Suggest booking tickets for the upcoming blockbuster movie.\"]",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-283": {
@@ -4870,7 +4839,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Suggest recipe ideas based on the fresh produce available at the farmer's market.\"]",
+            "actions": "[\"Suggest recipes based on the fresh produce at the farmer's market.\"]",
             "tools": "None",
             "tools_results": "None",
             "response": "None"
@@ -4904,12 +4873,12 @@
             "proactive_idx": "True",
             "proactive_score": "4",
             "actions": "[\"Use <check_bus_schedule> to confirm the bus schedule for the nearest bus stop.\"]",
-            "tools": "[{\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for the nearest bus stop\", \"parameters\": \"bus_stop\"}]",
+            "tools": "[{\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for the nearest bus stop\", \"parameters\": \"None\"}]",
             "tools_results": [
                 {
                     "tool_name": "check_bus_schedule",
-                    "tool_parameters": "bus_stop",
-                    "results": "{\"error\": \"functions.check_bus_schedule() argument after ** must be a mapping, not str\"}"
+                    "tool_parameters": "None",
+                    "results": "{\"error\": \"check_bus_schedule() missing 1 required positional argument: 'bus_stop'\"}"
                 }
             ],
             "response": "outputs."
@@ -4967,15 +4936,15 @@
         "predictions": {
             "thoughts": "None",
             "proactive_idx": "True",
-            "proactive_score": "4",
-            "actions": "[\"Add a reminder to discuss the paper in a month.\"]",
-            "tools": "[{\"name\": \"add_to_agenda\", \"description\": \"Add an event to the agenda\", \"parameters\": (\"Discuss paper\", \"in a month\")}]",
+            "proactive_score": "3",
+            "actions": "[\"Set a reminder to discuss the paper in a month.\"]",
+            "tools": "[{\"name\": \"add_to_agenda\", \"description\": \"Add an event to the agenda\", \"parameters\": (\"Discuss paper\", \"1 month later\")}]",
             "tools_results": [
                 {
                     "tool_name": "add_to_agenda",
                     "tool_parameters": [
                         "Discuss paper",
-                        "in a month"
+                        "1 month later"
                     ],
                     "results": "{\"error\": \"functions.add_to_agenda() argument after ** must be a mapping, not tuple\"}"
                 }
@@ -5031,9 +5000,9 @@
         "Tools": "None",
         "predictions": {
             "thoughts": "None",
-            "proactive_idx": "False",
-            "proactive_score": "0",
-            "actions": "None",
+            "proactive_idx": "True",
+            "proactive_score": "4",
+            "actions": "[\"Offer to provide information on how to use the blood pressure monitor.\"]",
             "tools": "None",
             "tools_results": "None",
             "response": "None"
@@ -5089,16 +5058,10 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer to play relaxing music for the user.\"]",
-            "tools": "[{\"name\": \"play_music\", \"description\": \"Play relaxing music for the user\", \"parameters\": \"None\"}]",
-            "tools_results": [
-                {
-                    "tool_name": "play_music",
-                    "tool_parameters": "None",
-                    "results": "\"Now playing music.\""
-                }
-            ],
-            "response": "outputs."
+            "actions": "[\"Initiate a virtual guided meditation session to enhance the user's relaxation.\"]",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-40": {
@@ -5162,8 +5125,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use <get_city_weather> to check the weather in Irvine, USA.\"]",
-            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the weather forecast for a specific city\", \"parameters\": \"Irvine, USA\"}]",
+            "actions": "[\"Offer weather information for Irvine to help the user pack accordingly.\"]",
+            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the weather information for a specific city\", \"parameters\": \"Irvine, USA\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_city_weather",
@@ -5224,13 +5187,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use <get_city_weather> to check the current weather conditions at the beach.\"]",
-            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the weather information for the city\", \"parameters\": \"beach\"}]",
+            "actions": "[\"Initiate a proactive service to provide information about the current weather.\"]",
+            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the current weather for the user's location\", \"parameters\": \"None\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_city_weather",
-                    "tool_parameters": "beach",
-                    "results": "{\"error\": \"functions.get_city_weather() argument after ** must be a mapping, not str\"}"
+                    "tool_parameters": "None",
+                    "results": "{\"error\": \"get_city_weather() missing 2 required positional arguments: 'city' and 'time'\"}"
                 }
             ],
             "response": "outputs."
@@ -5260,12 +5223,12 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Initiate a Wikipedia search to provide more information about Robespierre's role during the French Revolution.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information about Robespierre's role during the French Revolution\", \"parameters\": \"Robespierre French Revolution\"}]",
+            "actions": "[\"Initiate a Wikipedia search to provide more information on Robespierre's portrayal in historical novels set during the French Revolution.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information on Wikipedia\", \"parameters\": \"Robespierre's portrayal in historical novels set during the French Revolution\"}]",
             "tools_results": [
                 {
                     "tool_name": "wikipedia_search",
-                    "tool_parameters": "Robespierre French Revolution",
+                    "tool_parameters": "Robespierre's portrayal in historical novels set during the French Revolution",
                     "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -5294,7 +5257,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer cleaning tips or suggest related products.\"]",
+            "actions": "[\"Offer tips on efficient cleaning techniques.\"]",
             "tools": "None",
             "tools_results": "None",
             "response": "None"
@@ -5327,7 +5290,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Initiate a proactive service to provide information about the best sports stores nearby.\"]",
+            "actions": "[\"Initiate a proactive service to provide information about the best sports stores nearby for running shoes.\"]",
             "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}]",
             "tools_results": [
                 {
@@ -5418,12 +5381,12 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Initiate a proactive service to provide information about the specific constellation the user is looking at.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information about a specific topic on Wikipedia\", \"parameters\": \"query='specific constellation in the night sky'\"}]",
+            "actions": "[\"Use <wikipedia_search> to find information about the specific constellation the user is looking at.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information about a specific topic on Wikipedia\", \"parameters\": \"specific constellation\"}]",
             "tools_results": [
                 {
                     "tool_name": "wikipedia_search",
-                    "tool_parameters": "query='specific constellation in the night sky'",
+                    "tool_parameters": "specific constellation",
                     "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -5452,13 +5415,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer to check the weather to see how much time is left before sunset.\"]",
-            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the weather information for the city\", \"parameters\": \"city: 'current city', time: 'current time'\"}]",
+            "actions": "[\"Offer to check the weather forecast to see how much time the user has left for fishing.\"]",
+            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the weather forecast for the user's current city\", \"parameters\": \"None\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_city_weather",
-                    "tool_parameters": "city: 'current city', time: 'current time'",
-                    "results": "{\"error\": \"functions.get_city_weather() argument after ** must be a mapping, not str\"}"
+                    "tool_parameters": "None",
+                    "results": "{\"error\": \"get_city_weather() missing 2 required positional arguments: 'city' and 'time'\"}"
                 }
             ],
             "response": "outputs."
@@ -5491,16 +5454,10 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer to play music for the user to enhance their jogging experience.\"]",
-            "tools": "[{\"name\": \"play_music\", \"description\": \"Play music for the user while jogging\", \"parameters\": \"None\"}]",
-            "tools_results": [
-                {
-                    "tool_name": "play_music",
-                    "tool_parameters": "None",
-                    "results": "\"Now playing music.\""
-                }
-            ],
-            "response": "outputs."
+            "actions": "[\"Offer to track the user's jogging route and provide guidance on pacing or suggest nearby resting spots.\"]",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-192": {
@@ -5554,16 +5511,10 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use <google_search> to find lower-sodium options at Japanese restaurants.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for lower-sodium options at Japanese restaurants\", \"parameters\": \"lower-sodium options Japanese restaurants\"}]",
-            "tools_results": [
-                {
-                    "tool_name": "google_search",
-                    "tool_parameters": "lower-sodium options Japanese restaurants",
-                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
-                }
-            ],
-            "response": "outputs."
+            "actions": "[\"Offer suggestions for lower-sodium options on the menu.\"]",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-194": {
@@ -5591,7 +5542,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Confirm the weather forecast for Japan to ensure the user is prepared for the trip.\"]",
+            "actions": "[\"Confirm the weather in Japan to ensure the user is packing appropriately.\"]",
             "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the weather forecast for a specific city\", \"parameters\": \"Japan\"}]",
             "tools_results": [
                 {
@@ -5623,12 +5574,18 @@
         "Tools": "None",
         "predictions": {
             "thoughts": "None",
-            "proactive_idx": "False",
-            "proactive_score": "0",
-            "actions": "None",
-            "tools": "None",
-            "tools_results": "None",
-            "response": "None"
+            "proactive_idx": "True",
+            "proactive_score": "4",
+            "actions": "[\"Use <get_current_gps_coordinates> to provide information about the city skyline the user is currently overlooking.\"]",
+            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}]",
+            "tools_results": [
+                {
+                    "tool_name": "get_current_gps_coordinates",
+                    "tool_parameters": "None",
+                    "results": "\"Sha Tin, Sha Tin, HK\""
+                }
+            ],
+            "response": "outputs."
         }
     },
     "example-298": {
@@ -5683,10 +5640,16 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer cooking tips or recipes for pasta dishes.\"]",
-            "tools": "None",
-            "tools_results": "None",
-            "response": "None"
+            "actions": "[\"Offer cooking timer assistance to help the user avoid overcooking the pasta.\"]",
+            "tools": "[{\"name\": \"set_timer\", \"description\": \"Set a timer for the pasta cooking\", \"parameters\": \"10 minutes\"}]",
+            "tools_results": [
+                {
+                    "tool_name": "set_timer",
+                    "tool_parameters": "10 minutes",
+                    "results": "{\"error\": \"functions.set_timer() argument after ** must be a mapping, not str\"}"
+                }
+            ],
+            "response": "outputs."
         }
     },
     "example-590": {
@@ -5713,10 +5676,16 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Remind the user to take a break in 20 minutes.\"]",
-            "tools": "None",
-            "tools_results": "None",
-            "response": "None"
+            "actions": "[\"Recommend setting a timer for the break in 20 minutes.\"]",
+            "tools": "[{\"name\": \"set_timer\", \"description\": \"Set a timer for the break in 20 minutes\", \"parameters\": \"20 minutes\"}]",
+            "tools_results": [
+                {
+                    "tool_name": "set_timer",
+                    "tool_parameters": "20 minutes",
+                    "results": "{\"error\": \"functions.set_timer() argument after ** must be a mapping, not str\"}"
+                }
+            ],
+            "response": "outputs."
         }
     },
     "example-325": {
@@ -5773,13 +5742,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use <google_search> to find popular temples to visit in Bali.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for popular temples to visit in Bali\", \"parameters\": \"popular temples in Bali\"}]",
+            "actions": "[\"Use <get_current_gps_coordinates> to confirm the bus route the user is waiting for.\"]",
+            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}]",
             "tools_results": [
                 {
-                    "tool_name": "google_search",
-                    "tool_parameters": "popular temples in Bali",
-                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
+                    "tool_name": "get_current_gps_coordinates",
+                    "tool_parameters": "None",
+                    "results": "\"Sha Tin, Sha Tin, HK\""
                 }
             ],
             "response": "outputs."
@@ -5835,9 +5804,15 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer to add hiking plans to the user's agenda for the next day.\"]",
-            "tools": "[{\"name\": \"add_to_agenda\", \"description\": \"Add hiking plans to the agenda for the next day\", \"parameters\": (\"Hiking trip\", tomorrow)}] Max attempts reached. Unable to parse tools.",
-            "tools_results": [],
+            "actions": "[\"Offer to check the weather forecast for the hiking destination to help plan for the next day.\"]",
+            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the weather forecast for a specific city at a certain time\", \"parameters\": \"Hiking destination, tomorrow\"}]",
+            "tools_results": [
+                {
+                    "tool_name": "get_city_weather",
+                    "tool_parameters": "Hiking destination, tomorrow",
+                    "results": "{\"error\": \"functions.get_city_weather() argument after ** must be a mapping, not str\"}"
+                }
+            ],
             "response": "outputs."
         }
     },
@@ -5863,7 +5838,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Check if the user needs any safety reminders or guidance on soldering techniques.\"]",
+            "actions": "[\"Ensure the user's safety and well-being due to the visible smoke from soldering iron.\"]",
             "tools": "None",
             "tools_results": "None",
             "response": "None"
@@ -5892,13 +5867,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Add the conference to the user's agenda.\"]",
-            "tools": "[{\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda\", \"parameters\": (\"Conference\", \"9:00 AM\")}]",
+            "actions": "[\"Use <add_to_agenda> to add the conference at 9:00 AM to the user's schedule.\"]",
+            "tools": "[{\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda\", \"parameters\": (\"Conference at 9:00 AM\", \"9:00 AM\")}]",
             "tools_results": [
                 {
                     "tool_name": "add_to_agenda",
                     "tool_parameters": [
-                        "Conference",
+                        "Conference at 9:00 AM",
                         "9:00 AM"
                     ],
                     "results": "{\"error\": \"functions.add_to_agenda() argument after ** must be a mapping, not tuple\"}"
@@ -6041,10 +6016,19 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer to take a photo of the user enjoying the view.\"]",
-            "tools": "None",
-            "tools_results": "None",
-            "response": "None"
+            "actions": "[\"Offer to take a photo of the user with the panoramic view as the background.\"]",
+            "tools": "[{\"name\": \"vllm\", \"description\": \"Generate a visually pleasing photo with the panoramic view as the background\", \"parameters\": (\"Capture a photo with the user at the mountain summit\", \"hiking_supplies_image.jpg\")}]",
+            "tools_results": [
+                {
+                    "tool_name": "vllm",
+                    "tool_parameters": [
+                        "Capture a photo with the user at the mountain summit",
+                        "hiking_supplies_image.jpg"
+                    ],
+                    "results": "{\"error\": \"functions.vllm() argument after ** must be a mapping, not tuple\"}"
+                }
+            ],
+            "response": "outputs."
         }
     },
     "example-209": {
@@ -6074,10 +6058,16 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Suggest to the user about checking for any local regulations or permits required to organize a concert in the park.\"]",
-            "tools": "None",
-            "tools_results": "None",
-            "response": "None"
+            "actions": "[\"Suggest searching for information on how to organize a small concert in the park.\"]",
+            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for information on organizing a small concert in the park\", \"parameters\": \"how to organize a small concert in the park\"}]",
+            "tools_results": [
+                {
+                    "tool_name": "google_search",
+                    "tool_parameters": "how to organize a small concert in the park",
+                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
+                }
+            ],
+            "response": "outputs."
         }
     },
     "example-554": {
@@ -6104,13 +6094,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer to play calming music for the yoga session.\"]",
-            "tools": "[{\"name\": \"play_music\", \"description\": \"Play calming music for the yoga session\", \"parameters\": None}]",
+            "actions": "[\"Initiate a yoga timer to track the user's yoga session.\"]",
+            "tools": "[{\"name\": \"set_timer\", \"description\": \"Set a timer for the yoga session\", \"parameters\": \"60 minutes\"}]",
             "tools_results": [
                 {
-                    "tool_name": "play_music",
-                    "tool_parameters": null,
-                    "results": "{\"error\": \"functions.play_music() argument after ** must be a mapping, not NoneType\"}"
+                    "tool_name": "set_timer",
+                    "tool_parameters": "60 minutes",
+                    "results": "{\"error\": \"functions.set_timer() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -6140,13 +6130,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use <get_current_gps_coordinates> to check the nearest movie theater.\"]",
-            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}]",
+            "actions": "[\"Offer to search for more information about the movies playing.\"]",
+            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for more information about the movies playing at the theater\", \"parameters\": \"movie showtimes\"}]",
             "tools_results": [
                 {
-                    "tool_name": "get_current_gps_coordinates",
-                    "tool_parameters": "None",
-                    "results": "\"Sha Tin, Sha Tin, HK\""
+                    "tool_name": "google_search",
+                    "tool_parameters": "movie showtimes",
+                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -6176,7 +6166,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use <get_current_gps_coordinates> to provide nearby tour options.\"]",
+            "actions": "[\"Use <get_current_gps_coordinates> to provide recommendations for nearby tours and activities.\"]",
             "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}]",
             "tools_results": [
                 {
@@ -6246,9 +6236,9 @@
         "Tools": "None",
         "predictions": {
             "thoughts": "None",
-            "proactive_idx": "False",
-            "proactive_score": "0",
-            "actions": "None",
+            "proactive_idx": "True",
+            "proactive_score": "3",
+            "actions": "[\"Offer nearby restaurant recommendations.\"]",
             "tools": "None",
             "tools_results": "None",
             "response": "None"
@@ -6337,7 +6327,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Check the current traffic conditions and estimate the travel time to Italian Garden Restaurant to ensure the user arrives on time.\"]",
+            "actions": "[\"Use <get_current_gps_coordinates> to check the traffic conditions and estimate the user's arrival time at the Italian Garden Restaurant.\"]",
             "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}]",
             "tools_results": [
                 {
@@ -6376,12 +6366,12 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Suggest adding 'Game Night with Friends' to the user's agenda for next Saturday.\"]",
-            "tools": "[{\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda\", \"parameters\": \"('Game Night with Friends', 'next Saturday')\"}]",
+            "actions": "[\"Suggest adding 'Game Night' to the user's agenda for next Saturday.\"]",
+            "tools": "[{\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda\", \"parameters\": \"('Game Night', 'next Saturday')\"}]",
             "tools_results": [
                 {
                     "tool_name": "add_to_agenda",
-                    "tool_parameters": "('Game Night with Friends', 'next Saturday')",
+                    "tool_parameters": "('Game Night', 'next Saturday')",
                     "results": "{\"error\": \"functions.add_to_agenda() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -6410,7 +6400,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer cleaning tips or remind the user to defrost the freezer for better maintenance.\"]",
+            "actions": "[\"Suggest the user defrost the freezer to ensure optimal performance.\"]",
             "tools": "None",
             "tools_results": "None",
             "response": "None"
@@ -6442,8 +6432,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Check the weather forecast for next Saturday to confirm the rain alert.\"]",
-            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the weather forecast for a specific city and time\", \"parameters\": (\"city\": user's location, \"time\": next Saturday)}] Max attempts reached. Unable to parse tools.",
+            "actions": "[\"Check the weather forecast for next Saturday to confirm if it will rain during the hike.\"]",
+            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the weather forecast for a specific city and time\", \"parameters\": (\"city\": \"current_location\", \"time\": \"next Saturday\")}] Max attempts reached. Unable to parse tools.",
             "tools_results": [],
             "response": "outputs."
         }
@@ -6471,12 +6461,18 @@
         "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": {}}, {\"name\": \"query_stock\", \"description\": \"This API queries the stock price of a given stock code and date.\", \"parameters\": {\"stock_code\": \"AMZN\", \"date\": \"current_date\"}}]",
         "predictions": {
             "thoughts": "None",
-            "proactive_idx": "False",
-            "proactive_score": "0",
-            "actions": "None",
-            "tools": "None",
-            "tools_results": "None",
-            "response": "None"
+            "proactive_idx": "True",
+            "proactive_score": "4",
+            "actions": "[\"Initiate a search for the current stock prices of Amazon and Whole Foods.\"]",
+            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for the current stock prices of Amazon and Whole Foods\", \"parameters\": \"Amazon stock price\"}]",
+            "tools_results": [
+                {
+                    "tool_name": "google_search",
+                    "tool_parameters": "Amazon stock price",
+                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
+                }
+            ],
+            "response": "outputs."
         }
     },
     "example-328": {
@@ -6503,12 +6499,12 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Suggest searching for reviews and prices of the desks and chairs.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for reviews and prices of desks and chairs in the furniture store\", \"parameters\": \"desks and chairs reviews prices\"}]",
+            "actions": "[\"Offer to search for reviews and prices of the desks and chairs the user is interested in.\"]",
+            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for reviews and prices of furniture items\", \"parameters\": \"desks and chairs\"}]",
             "tools_results": [
                 {
                     "tool_name": "google_search",
-                    "tool_parameters": "desks and chairs reviews prices",
+                    "tool_parameters": "desks and chairs",
                     "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -6537,10 +6533,16 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer to show nearby hiking trails or provide information about the local wildlife.\"]",
-            "tools": "None",
-            "tools_results": "None",
-            "response": "None"
+            "actions": "[\"Use <get_current_gps_coordinates> to track the user's location and provide hiking trail recommendations.\"]",
+            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}]",
+            "tools_results": [
+                {
+                    "tool_name": "get_current_gps_coordinates",
+                    "tool_parameters": "None",
+                    "results": "\"Sha Tin, Sha Tin, HK\""
+                }
+            ],
+            "response": "outputs."
         }
     },
     "example-94": {
@@ -6622,7 +6624,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer to provide information about the history or facts of the dinosaur skeleton exhibit.\"]",
+            "actions": "[\"Offer information about the dinosaur skeleton exhibit.\"]",
             "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information about the dinosaur skeleton exhibit\", \"parameters\": \"dinosaur skeleton exhibit\"}]",
             "tools_results": [
                 {
@@ -6657,11 +6659,11 @@
             "proactive_idx": "True",
             "proactive_score": "4",
             "actions": "[\"Offer to set a timer for the rice cooking process.\"]",
-            "tools": "[{\"name\": \"set_timer\", \"description\": \"Set a timer for the rice cooking process\", \"parameters\": \"30 minutes\"}]",
+            "tools": "[{\"name\": \"set_timer\", \"description\": \"Set a timer for the rice cooking process\", \"parameters\": \"20 minutes\"}]",
             "tools_results": [
                 {
                     "tool_name": "set_timer",
-                    "tool_parameters": "30 minutes",
+                    "tool_parameters": "20 minutes",
                     "results": "{\"error\": \"functions.set_timer() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -6693,7 +6695,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Recommend the user to take a short break and do some stretching exercises.\"]",
+            "actions": "[\"Recommend taking a short break to rest eyes and stretch.\"]",
             "tools": "None",
             "tools_results": "None",
             "response": "None"
@@ -6724,10 +6726,16 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Provide information on the differences between the 2018 and 2015 vintages of the Cabernet Sauvignon from the same vineyard.\"]",
-            "tools": "None",
-            "tools_results": "None",
-            "response": "None"
+            "actions": "[\"Provide a comparison of the tasting notes and reviews for the 2018 and 2015 bottles of Cabernet Sauvignon.\"]",
+            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for tasting notes and reviews of Cabernet Sauvignon 2018 and 2015 bottles\", \"parameters\": \"Cabernet Sauvignon 2018 vs 2015 tasting notes\"}]",
+            "tools_results": [
+                {
+                    "tool_name": "google_search",
+                    "tool_parameters": "Cabernet Sauvignon 2018 vs 2015 tasting notes",
+                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
+                }
+            ],
+            "response": "outputs."
         }
     },
     "example-245": {
@@ -6754,16 +6762,10 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Suggest setting a timer to remind the user to check on the chicken.\"]",
-            "tools": "[{\"name\": \"set_timer\", \"description\": \"Set a timer for the user\", \"parameters\": \"20 minutes\"}]",
-            "tools_results": [
-                {
-                    "tool_name": "set_timer",
-                    "tool_parameters": "20 minutes",
-                    "results": "{\"error\": \"functions.set_timer() argument after ** must be a mapping, not str\"}"
-                }
-            ],
-            "response": "outputs."
+            "actions": "[\"Offer cooking tips or recipes for frying chicken.\"]",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-228": {
@@ -6788,13 +6790,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use <get_current_gps_coordinates> to provide information about the botanical garden and nearby attractions.\"]",
-            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}]",
+            "actions": "[\"Offer information about the different types of flowers and plants in the botanical garden.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information about the different types of flowers and plants in the botanical garden\", \"parameters\": \"botanical garden flowers and plants\"}]",
             "tools_results": [
                 {
-                    "tool_name": "get_current_gps_coordinates",
-                    "tool_parameters": "None",
-                    "results": "\"Sha Tin, Sha Tin, HK\""
+                    "tool_name": "wikipedia_search",
+                    "tool_parameters": "botanical garden flowers and plants",
+                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -6827,9 +6829,18 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use <google_map> to navigate the user to Sushi Matsumoto for their dinner reservation.\"]",
-            "tools": "[{\"name\": \"google_map\", \"description\": \"Get directions to the destination\", \"parameters\": (\"current_location\": \"current GPS coordinates\", \"destination\": \"Sushi Matsumoto\")}] Max attempts reached. Unable to parse tools.",
-            "tools_results": [],
+            "actions": "[\"Use <google_map> to navigate the user to Sushi Matsumoto for their 7:00 PM dinner reservation.\"]",
+            "tools": "[{\"name\": \"google_map\", \"description\": \"Get directions from current location to destination\", \"parameters\": (\"current location: current GPS coordinates in Japan\", \"destination: Sushi Matsumoto\")}]",
+            "tools_results": [
+                {
+                    "tool_name": "google_map",
+                    "tool_parameters": [
+                        "current location: current GPS coordinates in Japan",
+                        "destination: Sushi Matsumoto"
+                    ],
+                    "results": "{\"error\": \"functions.google_map() argument after ** must be a mapping, not tuple\"}"
+                }
+            ],
             "response": "outputs."
         }
     },
@@ -6858,12 +6869,12 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Confirm the weather in London to ensure the user packs accordingly.\"]",
-            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the weather forecast for a specific city\", \"parameters\": \"London\"}]",
+            "actions": "[\"Confirm the weather in London for the user's business trip.\"]",
+            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the weather forecast for a specific city at a given time\", \"parameters\": \"London, time\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_city_weather",
-                    "tool_parameters": "London",
+                    "tool_parameters": "London, time",
                     "results": "{\"error\": \"functions.get_city_weather() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -6896,8 +6907,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Initiate a search for online prices of the running shoes.\"]",
-            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the online price of the running shoes\", \"parameters\": \"running shoes\"}]",
+            "actions": "[\"Initiate a proactive service to check the online price of the running shoes.\"]",
+            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the online price of a specific product\", \"parameters\": \"running shoes\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_online_product_price",
@@ -6930,12 +6941,12 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer to set a timer for the soup to ensure it doesn't overcook.\"]",
-            "tools": "[{\"name\": \"set_timer\", \"description\": \"Set a timer to avoid overcooking the soup\", \"parameters\": \"20 minutes\"}]",
+            "actions": "[\"Offer to set a timer for the soup to remind the user when it's ready.\"]",
+            "tools": "[{\"name\": \"set_timer\", \"description\": \"Set a timer for the soup to remind the user when it's ready\", \"parameters\": \"30 minutes\"}]",
             "tools_results": [
                 {
                     "tool_name": "set_timer",
-                    "tool_parameters": "20 minutes",
+                    "tool_parameters": "30 minutes",
                     "results": "{\"error\": \"functions.set_timer() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -6968,13 +6979,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Suggest searching for movie reviews to help the user and their friend decide on a movie.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for movie reviews\", \"parameters\": \"movie reviews\"}]",
+            "actions": "[\"Initiate a movie recommendation based on the user's preferences.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for movie recommendations based on user's preferences\", \"parameters\": \"movie recommendations\"}]",
             "tools_results": [
                 {
-                    "tool_name": "google_search",
-                    "tool_parameters": "movie reviews",
-                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
+                    "tool_name": "wikipedia_search",
+                    "tool_parameters": "movie recommendations",
+                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -7004,16 +7015,10 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Assist the user in choosing a dog food brand.\"]",
-            "tools": "[{\"name\": \"search_rednote\", \"description\": \"Search for information about dog food brands\", \"parameters\": \"dog food brands\"}]",
-            "tools_results": [
-                {
-                    "tool_name": "search_rednote",
-                    "tool_parameters": "dog food brands",
-                    "results": "{\"error\": \"functions.search_rednote() argument after ** must be a mapping, not str\"}"
-                }
-            ],
-            "response": "outputs."
+            "actions": "[\"Offer assistance in choosing the dog food brand.\"]",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-943": {
@@ -7068,15 +7073,9 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Initiate a proactive service to provide seafood recipes and cooking tips.\"]",
-            "tools": "[\"search_rednote: 'seafood recipes'\"]",
-            "tools_results": [
-                {
-                    "tool_name": "error",
-                    "tool_parameters": "error",
-                    "results": "error"
-                }
-            ],
+            "actions": "[\"Offer cooking tips or recipes for seafood dishes.\"]",
+            "tools": "[\"search_rednote\": \"seafood recipes\"] Max attempts reached. Unable to parse tools.",
+            "tools_results": [],
             "response": "outputs."
         }
     },
@@ -7158,7 +7157,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer to log the current weight reading in the health journal.\"]",
+            "actions": "[\"Suggest recording the current weight in the health journal.\"]",
             "tools": "None",
             "tools_results": "None",
             "response": "None"
@@ -7189,8 +7188,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Initiate a weather check to see if it is going to rain soon.\"]",
-            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the weather information for the city\", \"parameters\": \"current city, current time\"}]",
+            "actions": "[\"Initiate a weather check to see if it will rain soon.\"]",
+            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the weather forecast for the city\", \"parameters\": \"current city, current time\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_city_weather",
@@ -7221,12 +7220,18 @@
         "Tools": "None",
         "predictions": {
             "thoughts": "None",
-            "proactive_idx": "False",
-            "proactive_score": "0",
-            "actions": "None",
-            "tools": "None",
-            "tools_results": "None",
-            "response": "None"
+            "proactive_idx": "True",
+            "proactive_score": "4",
+            "actions": "[\"Offer to play calming music to enhance the meditation experience.\"]",
+            "tools": "[{\"name\": \"play_music\", \"description\": \"Play calming music for meditation\", \"parameters\": None}]",
+            "tools_results": [
+                {
+                    "tool_name": "play_music",
+                    "tool_parameters": null,
+                    "results": "{\"error\": \"functions.play_music() argument after ** must be a mapping, not NoneType\"}"
+                }
+            ],
+            "response": "outputs."
         }
     },
     "example-2": {
@@ -7250,12 +7255,18 @@
         "Tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Tool that searches the Wikipedia API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\", \"parameters\": {\"query\":\"simplified explanation of SFT and RL.\"}}]",
         "predictions": {
             "thoughts": "None",
-            "proactive_idx": "False",
-            "proactive_score": "0",
-            "actions": "None",
-            "tools": "None",
-            "tools_results": "None",
-            "response": "None"
+            "proactive_idx": "True",
+            "proactive_score": "4",
+            "actions": "[\"Initiate a search for relevant information on 'SFT and RL based on human feedback to align model outputs'.\"]",
+            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for information on a specific topic using Google\", \"parameters\": \"SFT and RL based on human feedback to align model outputs\"}]",
+            "tools_results": [
+                {
+                    "tool_name": "google_search",
+                    "tool_parameters": "SFT and RL based on human feedback to align model outputs",
+                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
+                }
+            ],
+            "response": "outputs."
         }
     },
     "example-641": {
@@ -7280,7 +7291,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use <get_current_gps_coordinates> to provide information about the current location and nearby points of interest.\"]",
+            "actions": "[\"Use <get_current_gps_coordinates> to provide information about nearby attractions or facilities in Mount Rainier National Park.\"]",
             "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}]",
             "tools_results": [
                 {
@@ -7317,12 +7328,12 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Initiate a Wikipedia search to provide information about the historical church nearby.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information about the historical church nearby\", \"parameters\": \"historical church nearby\"}]",
+            "actions": "[\"Initiate a Wikipedia search to provide information on the historical church nearby.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information on a historical church nearby\", \"parameters\": \"historical church\"}]",
             "tools_results": [
                 {
                     "tool_name": "wikipedia_search",
-                    "tool_parameters": "historical church nearby",
+                    "tool_parameters": "historical church",
                     "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -7353,16 +7364,10 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer to set a timer for 2 minutes to help the user time their tooth brushing.\"]",
-            "tools": "[{\"name\": \"set_timer\", \"description\": \"Set a timer for 2 minutes\", \"parameters\": \"120\"}]",
-            "tools_results": [
-                {
-                    "tool_name": "set_timer",
-                    "tool_parameters": "120",
-                    "results": "{\"error\": \"functions.set_timer() argument after ** must be a mapping, not str\"}"
-                }
-            ],
-            "response": "outputs."
+            "actions": "[\"Remind the user to floss after brushing.\"]",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-845": {
@@ -7387,7 +7392,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use <get_current_gps_coordinates> to confirm the user's current location and help identify the bus stop.\"]",
+            "actions": "[\"Use <get_current_gps_coordinates> to confirm the user's current location.\"]",
             "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}]",
             "tools_results": [
                 {
@@ -7453,13 +7458,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use <check_bus_schedule> to check for any potential delays in the bus schedule.\"]",
-            "tools": "[{\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for potential delays\", \"parameters\": \"bus_stop\"}]",
+            "actions": "[\"Use <get_city_weather> to check the weather conditions for the bus route.\"]",
+            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the weather conditions for a specific city at a given time\", \"parameters\": \"city: bus route city, time: current time\"}]",
             "tools_results": [
                 {
-                    "tool_name": "check_bus_schedule",
-                    "tool_parameters": "bus_stop",
-                    "results": "{\"error\": \"functions.check_bus_schedule() argument after ** must be a mapping, not str\"}"
+                    "tool_name": "get_city_weather",
+                    "tool_parameters": "city: bus route city, time: current time",
+                    "results": "{\"error\": \"functions.get_city_weather() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -7487,8 +7492,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer information on common plant health issues and remedies.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information on common plant health issues and remedies\", \"parameters\": \"plant health issues\"}]",
+            "actions": "[\"Offer information on common plant health issues and how to address them.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information on common plant health issues\", \"parameters\": \"plant health issues\"}]",
             "tools_results": [
                 {
                     "tool_name": "wikipedia_search",
@@ -7521,7 +7526,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer to take a photo of the user with the scenic view in the background.\"]",
+            "actions": "[\"Offer to take a photo of the user with the scenic view as the background.\"]",
             "tools": "None",
             "tools_results": "None",
             "response": "None"
@@ -7549,16 +7554,10 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Recommend playing music to enhance the user's leisurely bike ride.\"]",
-            "tools": "[{\"name\": \"play_music\", \"description\": \"Play music to enhance the user's experience\", \"parameters\": \"None\"}]",
-            "tools_results": [
-                {
-                    "tool_name": "play_music",
-                    "tool_parameters": "None",
-                    "results": "\"Now playing music.\""
-                }
-            ],
-            "response": "outputs."
+            "actions": "[\"Provide information on nearby parks or scenic routes for the user to explore.\"]",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-15": {
@@ -7586,13 +7585,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer to play music to accompany the user's workout.\"]",
-            "tools": "[{\"name\": \"play_music\", \"description\": \"Play music to accompany the user's workout\", \"parameters\": None}]",
+            "actions": "[\"Offer to play music for the user while they workout.\"]",
+            "tools": "[{\"name\": \"play_music\", \"description\": \"Play music for the user during workout\", \"parameters\": \"None\"}]",
             "tools_results": [
                 {
                     "tool_name": "play_music",
-                    "tool_parameters": null,
-                    "results": "{\"error\": \"functions.play_music() argument after ** must be a mapping, not NoneType\"}"
+                    "tool_parameters": "None",
+                    "results": "\"Now playing music.\""
                 }
             ],
             "response": "outputs."
@@ -7625,15 +7624,9 @@
             "proactive_idx": "True",
             "proactive_score": "4",
             "actions": "[\"Offer recipe suggestions based on available ingredients.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for recipes based on available ingredients\", \"parameters\": \"query\"}]",
-            "tools_results": [
-                {
-                    "tool_name": "wikipedia_search",
-                    "tool_parameters": "query",
-                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
-                }
-            ],
-            "response": "outputs."
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-825": {
@@ -7664,21 +7657,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Check the weather forecast for the user's current location and the tour location to provide updates and recommendations.\"]",
-            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the weather forecast for a specific city at a certain time\", \"parameters\": (\"current location\", \"2:00 PM\")}, \n{\"name\": \"get_city_weather\", \"description\": \"Get the weather forecast for a specific city at a certain time\", \"parameters\": (\"tour location\", \"2:00 PM\")}]",
+            "actions": "[\"Check the weather forecast for the user's location to assess the severity of the storm and provide alternative indoor activities.\"]",
+            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the weather forecast for a specific city and time\", \"parameters\": (\"current city\", \"2:00 PM\")}]",
             "tools_results": [
                 {
                     "tool_name": "get_city_weather",
                     "tool_parameters": [
-                        "current location",
-                        "2:00 PM"
-                    ],
-                    "results": "{\"error\": \"functions.get_city_weather() argument after ** must be a mapping, not tuple\"}"
-                },
-                {
-                    "tool_name": "get_city_weather",
-                    "tool_parameters": [
-                        "tour location",
+                        "current city",
                         "2:00 PM"
                     ],
                     "results": "{\"error\": \"functions.get_city_weather() argument after ** must be a mapping, not tuple\"}"
@@ -7711,8 +7696,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Initiate a search to compare prices online for the bag the user is interested in.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search online for the best prices of the bag the user is interested in\", \"parameters\": \"bag name\"}]",
+            "actions": "[\"Initiate an online search to compare prices for the bag the user is interested in.\"]",
+            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for the best prices online for the bag the user is interested in\", \"parameters\": \"bag name\"}]",
             "tools_results": [
                 {
                     "tool_name": "google_search",
@@ -7743,7 +7728,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer to play relaxing music to enhance the beach experience.\"]",
+            "actions": "[\"Offer to play relaxing music for the user.\"]",
             "tools": "[{\"name\": \"play_music\", \"description\": \"Play relaxing music for the user\", \"parameters\": None}]",
             "tools_results": [
                 {
@@ -7782,9 +7767,15 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer information about the book signing event and suggest adding it to the user's agenda.\"]",
-            "tools": "[{\"name\": \"add_to_agenda\", \"description\": \"Add the book signing event to the user's agenda\", \"parameters\": (\"Book signing event with popular author\", time)}] Max attempts reached. Unable to parse tools.",
-            "tools_results": [],
+            "actions": "[\"Check the user's calendar for any conflicting events.\"]",
+            "tools": "[{\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there are any conflicting events in the user's calendar\", \"parameters\": \"time\"}]",
+            "tools_results": [
+                {
+                    "tool_name": "check_agenda_time_conflict",
+                    "tool_parameters": "time",
+                    "results": "{\"error\": \"functions.check_agenda_time_conflict() argument after ** must be a mapping, not str\"}"
+                }
+            ],
             "response": "outputs."
         }
     },
@@ -7868,13 +7859,13 @@
         "predictions": {
             "thoughts": "None",
             "proactive_idx": "True",
-            "proactive_score": "4",
-            "actions": "[\"Offer to look up popular Mexican dishes or provide recommendations.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for popular Mexican dishes\", \"parameters\": \"Mexican dishes\"}]",
+            "proactive_score": "3",
+            "actions": "[\"Offer to search for the top-rated dishes at the Mexican restaurant.\"]",
+            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for the top-rated dishes at a specific restaurant\", \"parameters\": \"Mexican restaurant menu items\"}]",
             "tools_results": [
                 {
                     "tool_name": "google_search",
-                    "tool_parameters": "Mexican dishes",
+                    "tool_parameters": "Mexican restaurant menu items",
                     "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -7945,13 +7936,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Suggest the user check the schedule for the pottery class and add it to their agenda.\"]",
-            "tools": "[{\"name\": \"check_agenda_time_conflict\", \"description\": \"Check the user's agenda for any time conflicts\", \"parameters\": \"next week\"}]",
+            "actions": "[\"Suggesting the user to add the pottery class to their agenda.\"]",
+            "tools": "[{\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda\", \"parameters\": \"(event='Pottery class', time='next week')\"}]",
             "tools_results": [
                 {
-                    "tool_name": "check_agenda_time_conflict",
-                    "tool_parameters": "next week",
-                    "results": "{\"error\": \"functions.check_agenda_time_conflict() argument after ** must be a mapping, not str\"}"
+                    "tool_name": "add_to_agenda",
+                    "tool_parameters": "(event='Pottery class', time='next week')",
+                    "results": "{\"error\": \"functions.add_to_agenda() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -7981,12 +7972,12 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Check the online price of the novel to see if there are any discounts available.\"]",
-            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the online price of a product\", \"parameters\": \"novel\"}]",
+            "actions": "[\"Offer to search for the online price of the novel.\"]",
+            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the online price of a product\", \"parameters\": \"recently released novel\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_online_product_price",
-                    "tool_parameters": "novel",
+                    "tool_parameters": "recently released novel",
                     "results": "{\"error\": \"functions.get_online_product_price() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -8045,8 +8036,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Add a reminder to prepare and send the proposal to the client by next week.\"]",
-            "tools": "[{\"name\": \"add_to_agenda\", \"description\": \"Add an event to the agenda\", \"parameters\": (\"Send proposal to client\", next week)}] Max attempts reached. Unable to parse tools.",
+            "actions": "[\"Set a reminder to work on the proposal for the client by next week.\"]",
+            "tools": "[{\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda\", \"parameters\": (\"Proposal for client due next week\", next week)}] Max attempts reached. Unable to parse tools.",
             "tools_results": [],
             "response": "outputs."
         }
@@ -8073,7 +8064,7 @@
             "proactive_idx": "True",
             "proactive_score": "4",
             "actions": "[\"Initiate a Wikipedia search to provide information about the artist.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information about the artist of the contemporary art piece\", \"parameters\": \"query: artist name\"}]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Retrieve information about the artist of the contemporary art piece\", \"parameters\": \"query: artist name\"}]",
             "tools_results": [
                 {
                     "tool_name": "wikipedia_search",
@@ -8107,13 +8098,18 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer to search for the history and preparation of a specific Chinese dish from the menu.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information about a specific Chinese dish from the menu\", \"parameters\": \"dumplings\"}]",
+            "actions": "[\"Recommend nearby Chinese restaurants based on user's current location.\"]",
+            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}, {\"name\": \"google_search\", \"description\": \"Search for nearby Chinese restaurants\", \"parameters\": \"Chinese restaurants near <current_location>\"}]",
             "tools_results": [
                 {
-                    "tool_name": "wikipedia_search",
-                    "tool_parameters": "dumplings",
-                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
+                    "tool_name": "get_current_gps_coordinates",
+                    "tool_parameters": "None",
+                    "results": "\"Sha Tin, Sha Tin, HK\""
+                },
+                {
+                    "tool_name": "google_search",
+                    "tool_parameters": "Chinese restaurants near <current_location>",
+                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -8141,7 +8137,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use <get_current_gps_coordinates> to track the user's location and suggest nearby dog-friendly parks.\"]",
+            "actions": "[\"Use <get_current_gps_coordinates> to track the user's location and suggest nearby pet-friendly amenities.\"]",
             "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}]",
             "tools_results": [
                 {
@@ -8179,8 +8175,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer to search for online product prices to help find the best deal.\"]",
-            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the price of skincare products online\", \"parameters\": \"Vitamin C serum\"}]",
+            "actions": "[\"Offer to search for online product prices to help the user compare and make an informed decision.\"]",
+            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the online price of a skincare product to assist the user in making a decision\", \"parameters\": \"Vitamin C serum\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_online_product_price",
@@ -8211,7 +8207,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Initiate a search for nearby attractions or events the user might be interested in.\"]",
+            "actions": "[\"Offer recommendations for nearby attractions or events.\"]",
             "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}]",
             "tools_results": [
                 {
@@ -8247,7 +8243,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use <get_current_gps_coordinates> to provide the user with directions to the nearby attractions in City X.\"]",
+            "actions": "[\"Use <get_current_gps_coordinates> to suggest nearby attractions in City X.\"]",
             "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}]",
             "tools_results": [
                 {
@@ -8309,7 +8305,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer cooking tips or recipe suggestions based on the user's current activity.\"]",
+            "actions": "[\"Offer cooking tips or recipes based on the user's current activity.\"]",
             "tools": "None",
             "tools_results": "None",
             "response": "None"
@@ -8462,21 +8458,12 @@
         "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time\", \"parameters\": \"None\"},{\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the user's agenda for a given datetime.\", \"parameters\": {\"time\":\"end of the quarter\"}},{\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda.\", \"parameters\": {\"event\": \"Monitor project milestones\", \"time\": \"end of the quarter\"}}]",
         "predictions": {
             "thoughts": "None",
-            "proactive_idx": "True",
-            "proactive_score": "4",
-            "actions": "[\"Suggest adding the project timeline and deadlines to the user's agenda for better organization.\"]",
-            "tools": "[{\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda\", \"parameters\": (\"Project timeline discussion\", \"End of quarter\")}]",
-            "tools_results": [
-                {
-                    "tool_name": "add_to_agenda",
-                    "tool_parameters": [
-                        "Project timeline discussion",
-                        "End of quarter"
-                    ],
-                    "results": "{\"error\": \"functions.add_to_agenda() argument after ** must be a mapping, not tuple\"}"
-                }
-            ],
-            "response": "outputs."
+            "proactive_idx": "False",
+            "proactive_score": "0",
+            "actions": "None",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-151": {
@@ -8506,8 +8493,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use <google_search> to find the best glasses stores near the user's current location.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for the best glasses stores near the user's current location\", \"parameters\": \"glasses stores near current location\"}]",
+            "actions": "[\"Offer assistance in finding the best glasses stores nearby.\"]",
+            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for the best glasses stores nearby\", \"parameters\": \"glasses stores near current location\"}]",
             "tools_results": [
                 {
                     "tool_name": "google_search",
@@ -8538,18 +8525,12 @@
         "Tools": "None",
         "predictions": {
             "thoughts": "None",
-            "proactive_idx": "True",
-            "proactive_score": "3",
-            "actions": "[\"Offer to search for nearby pet-friendly cafes or stores for the user.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for nearby pet-friendly cafes or stores\", \"parameters\": \"pet-friendly cafes near me\"}]",
-            "tools_results": [
-                {
-                    "tool_name": "google_search",
-                    "tool_parameters": "pet-friendly cafes near me",
-                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
-                }
-            ],
-            "response": "outputs."
+            "proactive_idx": "False",
+            "proactive_score": "0",
+            "actions": "None",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-617": {
@@ -8574,12 +8555,18 @@
         "Tools": "None",
         "predictions": {
             "thoughts": "None",
-            "proactive_idx": "False",
-            "proactive_score": "0",
-            "actions": "None",
-            "tools": "None",
-            "tools_results": "None",
-            "response": "None"
+            "proactive_idx": "True",
+            "proactive_score": "4",
+            "actions": "[\"Offer to search for additional information on lower back stretching exercises to supplement the user's physical therapy session.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information on lower back stretching exercises\", \"parameters\": \"lower back stretching exercises\"}]",
+            "tools_results": [
+                {
+                    "tool_name": "wikipedia_search",
+                    "tool_parameters": "lower back stretching exercises",
+                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
+                }
+            ],
+            "response": "outputs."
         }
     },
     "example-830": {
@@ -8608,7 +8595,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Initiate a proactive service to remind the user to gather and organize the last quarter's performance metrics for the marketing strategy meeting.\"]",
+            "actions": "[\"Initiate a proactive service to remind the user to gather and analyze last quarter's performance metrics for the meeting tomorrow.\"]",
             "tools": "None",
             "tools_results": "None",
             "response": "None"
@@ -8642,16 +8629,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Confirm the concert venue location and the estimated time to walk there.\"]",
-            "tools": "[{\"name\": \"google_map\", \"description\": \"Get directions from current location to destination\", \"parameters\": (\"Block C Level 2, parking garage\", \"concert venue\")}]",
+            "actions": "[\"Check the current time and suggest nearby activities or places the user can visit before the concert.\"]",
+            "tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time\", \"parameters\": \"None\"}]",
             "tools_results": [
                 {
-                    "tool_name": "google_map",
-                    "tool_parameters": [
-                        "Block C Level 2, parking garage",
-                        "concert venue"
-                    ],
-                    "results": "{\"error\": \"functions.google_map() argument after ** must be a mapping, not tuple\"}"
+                    "tool_name": "get_current_datetime",
+                    "tool_parameters": "None",
+                    "results": "\"Date: May 31, 2025 Time: 14:13:26\""
                 }
             ],
             "response": "outputs."
@@ -8683,9 +8667,15 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer information about the weather forecast for the festival weekend.\"]",
-            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the weather forecast for a specific city and time\", \"parameters\": (\"city\": \"festival location\", \"time\": \"next weekend\")}] Max attempts reached. Unable to parse tools.",
-            "tools_results": [],
+            "actions": "[\"Offer information about the festival lineup, camping options, and ticket prices.\"]",
+            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for information about the outdoor music festival\", \"parameters\": \"outdoor music festival lineup, camping options, ticket prices\"}]",
+            "tools_results": [
+                {
+                    "tool_name": "google_search",
+                    "tool_parameters": "outdoor music festival lineup, camping options, ticket prices",
+                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
+                }
+            ],
             "response": "outputs."
         }
     },
@@ -8709,12 +8699,18 @@
         "Tools": "None",
         "predictions": {
             "thoughts": "None",
-            "proactive_idx": "False",
-            "proactive_score": "0",
-            "actions": "None",
-            "tools": "None",
-            "tools_results": "None",
-            "response": "None"
+            "proactive_idx": "True",
+            "proactive_score": "4",
+            "actions": "[\"Use <get_current_gps_coordinates> to confirm the user's current location.\"]",
+            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}]",
+            "tools_results": [
+                {
+                    "tool_name": "get_current_gps_coordinates",
+                    "tool_parameters": "None",
+                    "results": "\"Sha Tin, Sha Tin, HK\""
+                }
+            ],
+            "response": "outputs."
         }
     },
     "example-257": {
@@ -8741,16 +8737,10 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer to track the user's weight over time for better health monitoring.\"]",
-            "tools": "[{\"name\": \"get_health_data\", \"description\": \"Get the user's health data for tracking\", \"parameters\": \"None\"}]",
-            "tools_results": [
-                {
-                    "tool_name": "get_health_data",
-                    "tool_parameters": "None",
-                    "results": "\"The user's heart rate is 70 bpm, oxygen saturation is 98%, respiration rate is 16 bpm, body temperature is 36.5 degrees Celsius, total steps today is 5000, and total calories burned today is 2000.\""
-                }
-            ],
-            "response": "outputs."
+            "actions": "[\"Offer to track the user's weight over time to provide insights and trends.\"]",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-819": {
@@ -8773,9 +8763,9 @@
         "Tools": "None",
         "predictions": {
             "thoughts": "None",
-            "proactive_idx": "False",
-            "proactive_score": "0",
-            "actions": "None",
+            "proactive_idx": "True",
+            "proactive_score": "4",
+            "actions": "[\"Offer to add 'buy sticky notes' to the user's shopping list.\"]",
             "tools": "None",
             "tools_results": "None",
             "response": "None"
@@ -8803,7 +8793,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Use <get_current_gps_coordinates> to track the user's location and ensure they are on the right trail.\"]",
+            "actions": "[\"Use <get_current_gps_coordinates> to track the user's location and ensure they stay on the marked trail.\"]",
             "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}]",
             "tools_results": [
                 {
@@ -8896,7 +8886,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer food recommendations based on the menu the user is reviewing.\"]",
+            "actions": "[\"Recommend popular dishes on the menu.\"]",
             "tools": "None",
             "tools_results": "None",
             "response": "None"
@@ -8927,13 +8917,13 @@
         "predictions": {
             "thoughts": "None",
             "proactive_idx": "True",
-            "proactive_score": "3",
-            "actions": "[\"Offer information about jellyfish species in the tank.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information about jellyfish species\", \"parameters\": \"jellyfish species\"}]",
+            "proactive_score": "4",
+            "actions": "[\"Initiate a search to provide information about jellyfish.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information about jellyfish\", \"parameters\": \"jellyfish\"}]",
             "tools_results": [
                 {
                     "tool_name": "wikipedia_search",
-                    "tool_parameters": "jellyfish species",
+                    "tool_parameters": "jellyfish",
                     "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -8967,18 +8957,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Suggest searching for picnic locations and weather forecast for next weekend.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for picnic locations\", \"parameters\": \"picnic locations\"},\n{\"name\": \"get_city_weather\", \"description\": \"Get the weather forecast for next weekend\", \"parameters\": \"next weekend\"}]",
+            "actions": "[\"Initiate a search for picnic spots for next weekend.\"]",
+            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for picnic spots for next weekend\", \"parameters\": \"picnic spots for next weekend\"}]",
             "tools_results": [
                 {
                     "tool_name": "google_search",
-                    "tool_parameters": "picnic locations",
+                    "tool_parameters": "picnic spots for next weekend",
                     "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
-                },
-                {
-                    "tool_name": "get_city_weather",
-                    "tool_parameters": "next weekend",
-                    "results": "{\"error\": \"functions.get_city_weather() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -9008,7 +8993,7 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer gardening tips or information about the seedlings being planted.\"]",
+            "actions": "[\"Offer gardening tips or information on plant care.\"]",
             "tools": "None",
             "tools_results": "None",
             "response": "None"
@@ -9038,12 +9023,12 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer to set a timer for the pancakes to prevent burning.\"]",
-            "tools": "[{\"name\": \"set_timer\", \"description\": \"Set a timer for the pancakes to prevent burning\", \"parameters\": \"5 minutes\"}]",
+            "actions": "[\"Offer to set a timer for cooking the pancakes.\"]",
+            "tools": "[{\"name\": \"set_timer\", \"description\": \"Set a timer for cooking the pancakes\", \"parameters\": \"10 minutes\"}]",
             "tools_results": [
                 {
                     "tool_name": "set_timer",
-                    "tool_parameters": "5 minutes",
+                    "tool_parameters": "10 minutes",
                     "results": "{\"error\": \"functions.set_timer() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -9072,8 +9057,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer to track the user's swimming session and provide feedback on their performance.\"]",
-            "tools": "[{\"name\": \"get_health_data\", \"description\": \"Retrieve health data for the user\", \"parameters\": \"None\"}]",
+            "actions": "[\"Offer to track the user's swimming progress and provide feedback on their performance.\"]",
+            "tools": "[{\"name\": \"get_health_data\", \"description\": \"Get the user's health data including exercise metrics\", \"parameters\": \"None\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_health_data",
@@ -9106,17 +9091,12 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer to search for information about the types of wildflowers and butterflies found in the area.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information about wildflowers and butterflies\", \"parameters\": \"wildflowers\"}, {\"name\": \"wikipedia_search\", \"description\": \"Search for information about wildflowers and butterflies\", \"parameters\": \"butterflies\"}]",
+            "actions": "[\"Offer to search for information about the types of wildflowers and butterflies commonly found in the area.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information about the types of wildflowers and butterflies commonly found in the area\", \"parameters\": \"wildflowers and butterflies in the forest clearing\"}]",
             "tools_results": [
                 {
                     "tool_name": "wikipedia_search",
-                    "tool_parameters": "wildflowers",
-                    "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
-                },
-                {
-                    "tool_name": "wikipedia_search",
-                    "tool_parameters": "butterflies",
+                    "tool_parameters": "wildflowers and butterflies in the forest clearing",
                     "results": "{\"error\": \"functions.wikipedia_search() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -9143,9 +9123,9 @@
         "Tools": "None",
         "predictions": {
             "thoughts": "None",
-            "proactive_idx": "True",
-            "proactive_score": "4",
-            "actions": "[\"Offer to track the user's workout progress and provide insights for optimization.\"]",
+            "proactive_idx": "False",
+            "proactive_score": "0",
+            "actions": "None",
             "tools": "None",
             "tools_results": "None",
             "response": "None"
@@ -9175,15 +9155,9 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Initiate a search for movie showtimes on Friday to assist with planning.\"]",
-            "tools": "[{\"name\": \"google_search\", \"description\": \"Search for movie showtimes on Friday\", \"parameters\": \"movie showtimes Friday\"}]",
-            "tools_results": [
-                {
-                    "tool_name": "google_search",
-                    "tool_parameters": "movie showtimes Friday",
-                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
-                }
-            ],
+            "actions": "[\"Suggest checking the weather forecast for Friday to ensure suitable conditions for the movie night.\"]",
+            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the weather forecast for a specific city and time\", \"parameters\": (\"city\": \"current_city\", \"time\": \"this Friday\")}] Max attempts reached. Unable to parse tools.",
+            "tools_results": [],
             "response": "outputs."
         }
     },
@@ -9207,23 +9181,12 @@
         "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": {}}]",
         "predictions": {
             "thoughts": "None",
-            "proactive_idx": "True",
-            "proactive_score": "4",
-            "actions": "[\"Offer to provide information about the current weather or suggest nearby places to visit.\"]",
-            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the current weather of the city\", \"parameters\": \"city: user's current city\"}, {\"name\": \"google_search\", \"description\": \"Search for nearby places to visit\", \"parameters\": \"query: places to visit in the city\"}]",
-            "tools_results": [
-                {
-                    "tool_name": "get_city_weather",
-                    "tool_parameters": "city: user's current city",
-                    "results": "{\"error\": \"functions.get_city_weather() argument after ** must be a mapping, not str\"}"
-                },
-                {
-                    "tool_name": "google_search",
-                    "tool_parameters": "query: places to visit in the city",
-                    "results": "{\"error\": \"functions.google_search() argument after ** must be a mapping, not str\"}"
-                }
-            ],
-            "response": "outputs."
+            "proactive_idx": "False",
+            "proactive_score": "0",
+            "actions": "None",
+            "tools": "None",
+            "tools_results": "None",
+            "response": "None"
         }
     },
     "example-311": {
@@ -9314,13 +9277,13 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Prepare a calming music playlist for the user to listen to while waiting for the yoga class to begin.\"]",
-            "tools": "[{\"name\": \"play_music\", \"description\": \"Play calming music playlist for the user\", \"parameters\": None}]",
+            "actions": "[\"Offer to set a timer for the user to ensure they are ready for the yoga class.\"]",
+            "tools": "[{\"name\": \"set_timer\", \"description\": \"Set a timer for the user\", \"parameters\": \"duration\"}]",
             "tools_results": [
                 {
-                    "tool_name": "play_music",
-                    "tool_parameters": null,
-                    "results": "{\"error\": \"functions.play_music() argument after ** must be a mapping, not NoneType\"}"
+                    "tool_name": "set_timer",
+                    "tool_parameters": "duration",
+                    "results": "{\"error\": \"functions.set_timer() argument after ** must be a mapping, not str\"}"
                 }
             ],
             "response": "outputs."
@@ -9378,12 +9341,12 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Remind the user to check the agenda for any conflicting events.\"]",
-            "tools": "[{\"name\": \"check_agenda_time_conflict\", \"description\": \"Check the agenda for any conflicting events\", \"parameters\": \"30 minutes\"}]",
+            "actions": "[\"Remind the user to check the agenda for any potential conflicts with the friend's meeting time.\"]",
+            "tools": "[{\"name\": \"check_agenda_time_conflict\", \"description\": \"Check for any time conflicts in the user's agenda\", \"parameters\": \"30 minutes before the friend's meeting\"}]",
             "tools_results": [
                 {
                     "tool_name": "check_agenda_time_conflict",
-                    "tool_parameters": "30 minutes",
+                    "tool_parameters": "30 minutes before the friend's meeting",
                     "results": "{\"error\": \"functions.check_agenda_time_conflict() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -9442,8 +9405,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Initiate a Wikipedia search to provide information about the wildflowers the user is examining.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information about the wildflowers along the trail\", \"parameters\": \"wildflowers\"}]",
+            "actions": "[\"Initiate a proactive service to provide information about the wildflowers the user is examining.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information about wildflowers\", \"parameters\": \"wildflowers\"}]",
             "tools_results": [
                 {
                     "tool_name": "wikipedia_search",
@@ -9503,9 +9466,9 @@
         "predictions": {
             "thoughts": "None",
             "proactive_idx": "True",
-            "proactive_score": "4",
-            "actions": "[\"Offer to search more information about the book 'Sapiens' on Wikipedia.\"]",
-            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information about a topic on Wikipedia\", \"parameters\": \"Sapiens\"}]",
+            "proactive_score": "3",
+            "actions": "[\"Initiate a Wikipedia search to provide more information about the book 'Sapiens'.\"]",
+            "tools": "[{\"name\": \"wikipedia_search\", \"description\": \"Search for information about a specific topic on Wikipedia\", \"parameters\": \"Sapiens\"}]",
             "tools_results": [
                 {
                     "tool_name": "wikipedia_search",
@@ -9540,8 +9503,8 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer to search for online products to compare prices and potentially save time and money.\"]",
-            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the price of a product online for comparison shopping\", \"parameters\": \"None\"}]",
+            "actions": "[\"Offer to search for online products that are available at a lower price.\"]",
+            "tools": "[{\"name\": \"get_online_product_price\", \"description\": \"Get the prices of online products for comparison\", \"parameters\": \"None\"}]",
             "tools_results": [
                 {
                     "tool_name": "get_online_product_price",
@@ -9574,17 +9537,12 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer nearby weather updates to ensure a pleasant fishing experience.\"]",
-            "tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}, {\"name\": \"get_city_weather\", \"description\": \"Get the weather information for the current location\", \"parameters\": \"current_location\"}]",
+            "actions": "[\"Check the weather forecast to ensure the user is prepared for any changes.\"]",
+            "tools": "[{\"name\": \"get_city_weather\", \"description\": \"Get the weather forecast for the user's current location\", \"parameters\": \"city: mountain lake, time: current\"}]",
             "tools_results": [
                 {
-                    "tool_name": "get_current_gps_coordinates",
-                    "tool_parameters": "None",
-                    "results": "\"Sha Tin, Sha Tin, HK\""
-                },
-                {
                     "tool_name": "get_city_weather",
-                    "tool_parameters": "current_location",
+                    "tool_parameters": "city: mountain lake, time: current",
                     "results": "{\"error\": \"functions.get_city_weather() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -9613,12 +9571,12 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Suggest a timer for the user to remind them to check on the soup.\"]",
-            "tools": "[{\"name\": \"set_timer\", \"description\": \"Set a timer to remind the user to check on the soup\", \"parameters\": \"20 minutes\"}]",
+            "actions": "[\"Suggest setting a timer for the soup to avoid overcooking.\"]",
+            "tools": "[{\"name\": \"set_timer\", \"description\": \"Set a timer for a specific duration\", \"parameters\": \"15 minutes\"}]",
             "tools_results": [
                 {
                     "tool_name": "set_timer",
-                    "tool_parameters": "20 minutes",
+                    "tool_parameters": "15 minutes",
                     "results": "{\"error\": \"functions.set_timer() argument after ** must be a mapping, not str\"}"
                 }
             ],
@@ -9675,10 +9633,16 @@
             "thoughts": "None",
             "proactive_idx": "True",
             "proactive_score": "4",
-            "actions": "[\"Offer safety tips for whittling wood and using a pocket knife.\"]",
-            "tools": "None",
-            "tools_results": "None",
-            "response": "None"
+            "actions": "[\"Offer to play some relaxing music to enhance the camping experience.\"]",
+            "tools": "[{\"name\": \"play_music\", \"description\": \"Play relaxing music for the user\", \"parameters\": None}]",
+            "tools_results": [
+                {
+                    "tool_name": "play_music",
+                    "tool_parameters": null,
+                    "results": "{\"error\": \"functions.play_music() argument after ** must be a mapping, not NoneType\"}"
+                }
+            ],
+            "response": "outputs."
         }
     }
 }

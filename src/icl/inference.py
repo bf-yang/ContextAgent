@@ -102,7 +102,10 @@ if __name__ == "__main__":
         print("="*50)
 
         # sensory context
-        contextual_info = sample['Context information']
+        if dataset_name == 'cab' or dataset_name == 'cab_ood':
+            contextual_info = sample['Context information']
+        elif dataset_name == 'cab_lite':
+            contextual_info = sample['Rawdata Context']
         # persona context
         personas_str = ".".join(sample['Personas'])
         print("\033[1;36mSensory Context:\033[0m\n", contextual_info)  

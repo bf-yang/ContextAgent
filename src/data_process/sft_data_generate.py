@@ -13,11 +13,11 @@ if __name__ == "__main__":
     parser.add_argument("--personas", type=str, default='w_p',help='w_p, wo_p')
     args = parser.parse_args()
 
-    dataset = args.dataset
+    dataset_name = args.dataset
     mode = args.mode
-    PATH_BASE = f"data/{dataset}/"
-    filename = f"{dataset}_{mode}.json"
-    filename = f"{dataset}_{mode}.json"
+    PATH_BASE = f"data/{dataset_name}/"
+    filename = f"{dataset_name}_{mode}.json"
+    filename = f"{dataset_name}_{mode}.json"
 
     # Load dataset
     data_path = os.path.join(PATH_BASE, filename)
@@ -35,7 +35,12 @@ if __name__ == "__main__":
         print("Example: ", example)
         data = dataset[example]
         instruction = prompt_sys # system prompt
-        contextual = data['Context information'] # contexual
+        if dataset_name == "cab" or dataset_name == "cab_ood":
+            contextual = data['Context information'] # contexual
+        elif dataset_name == "cab_lite":
+            contextual = data['Rawdata Context']
+        else:
+            raise ValueError(f"Unsupported dataset: {dataset_name}. Only 'cab' and 'cab_lite' are supported.")
         persona = data['Personas']       # persona
         think = data['Thoughts'] # think
         action = data['Action'] # actions
