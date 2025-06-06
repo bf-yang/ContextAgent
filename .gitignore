@@ -1,3 +1,5 @@
 LLaMA-Factory/saves/
 data/cab_lite/raw_sensor_data/
+src/motivation/
+src/persona_retrieval/
 **.log

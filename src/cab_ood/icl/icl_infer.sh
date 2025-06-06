@@ -15,9 +15,9 @@ for model in "${models[@]}"; do
         echo "Running experiment for model: $model, zs: $zs, think: $think, persona: $persona"
         
         # icl inference
-        CUDA_VISIBLE_DEVICES=CUDA_DEVICES=2,3,4,7 python src/icl/inference.py --dataset cab --model_base $model --zs $zs --think $think --personas $persona
+        CUDA_VISIBLE_DEVICES=CUDA_DEVICES=2,3,4,7 python src/icl/inference.py --dataset cab_ood --model_base $model --zs $zs --think $think --personas $persona
         
         # score calculation
-        python src/calculate_scores.py --dataset cab --methods icl --model_base_icl $model --zs $zs --think $think --personas $persona
+        python src/calculate_scores.py --dataset cab_ood --methods icl --model_base_icl $model --zs $zs --think $think --personas $persona
     done
 done

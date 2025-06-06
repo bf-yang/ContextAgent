@@ -2,21 +2,21 @@
 API_PORT=8000
 
 echo "Checking and killing processes on port $API_PORT before starting..."
-lsof -i:$API_PORT | awk 'NR>1 {print $2}' | xargs -r kill -9
-
+fuser -k 8000/tcp
+sleep 2
 
 experiments=(
-    # # Qwen-7B
+    # # # Qwen-7B
+    # "experiments/configs/cab/inference/qwen_lora_sft_wo_t.yaml|qwen7b|--think wo_t"
     # "experiments/configs/cab/inference/qwen_lora_sft.yaml|qwen7b|"
     # "experiments/configs/cab/inference/qwen_lora_sft_wo_p.yaml|qwen7b|--personas wo_p"
-    # "experiments/configs/cab/inference/qwen_lora_sft_wo_t.yaml|qwen7b|--think wo_t"
     # "experiments/configs/cab/inference/qwen_lora_sft_wo_t_wo_p.yaml|qwen7b|--think wo_t --personas wo_p"
 
-    # Llama3-8B
-    # "experiments/configs/cab/inference/llama3_lora_sft.yaml|llama8b|"
-    "experiments/configs/cab/inference/llama3_lora_sft_wo_p.yaml|llama8b|--personas wo_p"
-    # "experiments/configs/cab/inference/llama3_lora_sft_wo_t.yaml|llama8b|--think wo_t"
-    "experiments/configs/cab/inference/llama3_lora_sft_wo_t_wo_p.yaml|llama8b|--think wo_t --personas wo_p"
+#     # Llama3-8B
+    "experiments/configs/cab/inference/llama3_lora_sft_wo_t.yaml|llama8b|--think wo_t"
+    "experiments/configs/cab/inference/llama3_lora_sft.yaml|llama8b|"
+    # "experiments/configs/cab/inference/llama3_lora_sft_wo_p.yaml|llama8b|--personas wo_p"
+    # "experiments/configs/cab/inference/llama3_lora_sft_wo_t_wo_p.yaml|llama8b|--think wo_t --personas wo_p"
 )
 
 for exp in "${experiments[@]}"; do
@@ -29,7 +29,7 @@ for exp in "${experiments[@]}"; do
     # Start the API service in the background
     (
         cd /home/bufang/ContextAgent/LLaMA-Factory && \
-        CUDA_VISIBLE_DEVICES=3,4 llamafactory-cli api "$config_file"
+        CUDA_VISIBLE_DEVICES=6,7 llamafactory-cli api "$config_file"
     ) &> "api_${model_base_value}.log" &
     API_PID=$!
 
@@ -44,7 +44,7 @@ for exp in "${experiments[@]}"; do
     (
         cd /home/bufang/ContextAgent && \
         echo "Starting evaluation..."
-        CUDA_VISIBLE_DEVICES=3,4 python src/sft/inference.py \
+        CUDA_VISIBLE_DEVICES=6,7 python src/sft/inference.py \
             --dataset cab \
             --model_base $model_base_value \
             $eval_args
@@ -52,13 +52,15 @@ for exp in "${experiments[@]}"; do
         echo "Calculating scores..."
         python src/calculate_scores.py \
             --dataset cab \
-            --methods "sft" \
+            --methods sft \
             --model_base_sft $model_base_value \
             $eval_args
     )
 
     # Kill the API service
     echo "Checking and killing processes on port $API_PORT after finishing..."
-    lsof -i:$API_PORT | awk 'NR>1 {print $2}' | xargs -r kill -9
-
+    # lsof -i:$API_PORT | awk 'NR>1 {print $2}' | xargs -r kill -9
+    fuser -k 8000/tcp
+    echo "Waiting for port to be released..."
+    sleep 5  # 等待5秒
 done
