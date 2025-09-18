@@ -20,7 +20,7 @@ with Open-World Sensory Perceptions</strong></h1>
 </p>
 
 
-# 🏠 About
+## 🏠 About
 <div style="text-align: center;">
     <img src="assets/teaser_contextagent.png" alt="Dialogue_Teaser" width=100% >
 </div>
@@ -29,12 +29,12 @@ In this paper, we introduce ContextAgent, the first context-aware proactive LLM 
 
 <!-- ## Overview -->
 
-# 🗺️ Overview
+## 🗺️ Overview
 <div style="text-align: center;">
     <img src="assets/overview_contextagent.png" alt="Dialogue_Teaser" width=100% >
 </div>
 
-# 📂 Project Structure
+## 📂 Project Structure
 ```
 ContextAgent/
 ├─ data/
@@ -49,7 +49,7 @@ ContextAgent/
 ├─ README.md
 ```
 
-# ⚙️ Installation
+## ⚙️ Installation
 1. Clone the repository.
 ```bash
 git clone https://github.com/bf-yang/ContextAgent.git
@@ -61,8 +61,8 @@ conda env create -f environment.yml
 conda activate contextagent
 ```
 
-# 📊 Evaluation
-## 🔑 API Keys
+## 📊 Evaluation
+### 🔑 API Keys
 Several experiments rely on external APIs (e.g., Google Maps, AMap, LocationIQ, SerpAPI). Please configure the required keys via environment variables:
 
 ```bash
@@ -73,8 +73,8 @@ export SERPAPI_KEY=<YOUR_SERPAPI_KEY>
 export GOOGLE_CALENDAR_ACCOUNT=<GOOGLE_CALENDAR_ACCOUNT>
 ```
 
-## ️▶️ Usage
-### ⚙️ 1. ICL Setting
+### ️▶️ Usage
+#### ⚙️ 1. ICL Setting
 The following provides scripts for evaluating different LLMs under In-Context Learning (ICL) settings.  It supports multiple base models (e.g., GPT-4o, Qwen, LLaMA, and DeepSeek series) and two execution modes: **`live`** and **`sandbox`**.
 
 - **Open-source models.** Test open-source LLMs (e.g., Llama-3.1-8B-Instruct and Qwen2.5-7BInstruct).
@@ -100,7 +100,7 @@ python src/calculate_scores.py --methods icl --model_base_icl <MODEL_NAME>
 ```
 👉 For more details, see [README.md](src/icl/README.md).
 
-### ⚙️ 2. SFT Setting
+#### ⚙️ 2. SFT Setting
 Launch supervised fine-tuning (SFT) experiments via:
 ```
 bash src/sft/sft_exp.sh
