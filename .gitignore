@@ -1,5 +1,16 @@
 LLaMA-Factory/saves/
+results/
 data/cab_lite/raw_sensor_data/
+src/data_generation/
+src/data_process/
+src/context_extraction/
+src/cab_lite/
+src/cab_ood/
 src/motivation/
 src/persona_retrieval/
+src/tool_testing/
+src/tool_failure/
+src/wo_sensor/
+src/wo_pce_wo_t/
+src/tool_testing/
 **.log

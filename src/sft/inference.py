@@ -1,184 +1,284 @@
-# Evaluate SFT-based approaches
-import json
+# Evaluate SFT-based approaches (modular version, with apply_mode and two-stage tool execution)
+
 import os
-from typing import Sequence
-from openai import OpenAI
-from transformers.utils.versions import require_version
-require_version("openai>=1.5.0", "To fix: pip install openai>=1.5.0")
+import sys
 import json
-import sys 
-sys.path.append("/home/bufang/ContextAgent/src") 
-from functions import *
-import ollama
-from openai import AzureOpenAI
-from utils import azure_inference,parse_proactive_agent_results
-import argparse
-import re
-from tqdm import tqdm
-import csv
 import ast
-import time
+import argparse
+from typing import Dict, Any, List, Tuple
+from datetime import datetime
+from tqdm import tqdm
 
-api_key = "4d2ff10a8c3d4d09883a4411832b6718" # Azure API key
-client = AzureOpenAI(
-    api_key = api_key,  
-    api_version = "2023-05-15",
-    azure_endpoint = "https://cuhk-aiot-gpt4.openai.azure.com/"
+# Make 'src' importable
+sys.path.append("/home/bufang/ContextAgent/src")
+
+# Project imports
+import config
+from tool_registry import functions, process_function_call
+from utils import (
+    parse_proactive_agent_results,
+    convert_sets_to_lists,
+    execute_tools_with_memory,   # two-stage tool executor
 )
+from openai import OpenAI  # local SFT server, OpenAI-compatible API
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--model_base", type=str, default='qwen7b',
-                    help='base SFT model: qwen7b, llama8b, deepseek7b')
-    parser.add_argument("--dataset", type=str, default='cab',help='cab, cab_lite, cab_ood')
-    parser.add_argument("--think", type=str, default='w_t',help='w_t, wo_t')
-    parser.add_argument("--personas", type=str, default='w_p',help='w_p, wo_p')
-    args = parser.parse_args()
+# =========================
+# Args & Mode
+# =========================
+def parse_args():
+    p = argparse.ArgumentParser()
+    p.add_argument("--mode", choices=["live", "sandbox"], default="sandbox")
+    p.add_argument("--port", type=int, default=8009, help="port for your local SFT model server")
+    p.add_argument("--model_base", type=str, default="qwen7b",
+                  help='base SFT model on your local server: qwen7b, llama8b, deepseek7b')
+    p.add_argument("--dataset", type=str, default="cab", help="cab, cab_lite, cab_ood")
+    p.add_argument("--think", type=str, default="w_t", help="w_t, wo_t")
+    p.add_argument("--personas", type=str, default="w_p", help="w_p, wo_p")
+    return p.parse_args()
 
-    # load the proactive agent's system prompt
-    with open('prompt/prompt_sys.txt', 'r') as f:
-        prompt_sys = f.read()
+def apply_mode(mode: str):
+    """Propagate global mode to all tools via config."""
+    try:
+        from config import set_mode
+        set_mode(mode)
+    except Exception:
+        config.MODE = mode
 
-    # load sample data for evaluation
-    dataset_name = args.dataset # dataset
-    filepath = f'data/{dataset_name}/{dataset_name}_test.json'
-    with open(filepath, 'r', encoding='utf-8') as file:
-        dataset = json.load(file)
+# =========================
+# Client & IO
+# =========================
+def get_sft_client(API_PORT=8009) -> OpenAI:
+    """
+    Build a local OpenAI-compatible client for your SFT model server.
+    Controlled by environment variables:
+      API_KEY  (default: "0")
+      API_PORT (default: 8009)
+    """
+    api_key = os.environ.get("API_KEY", "0")
+    port = int(os.environ.get("API_PORT", API_PORT))
+    return OpenAI(api_key=api_key, base_url=f"http://localhost:{port}/v1")
+
+def load_json(path: str) -> Dict[str, Any]:
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+def load_prompt_base(think_flag: str) -> str:
+    path = "prompt/prompt_sys_wo_t.txt" if think_flag == "wo_t" else "prompt/prompt_sys.txt"
+    with open(path, "r", encoding="utf-8") as f:
+        return f.read()
+
+# =========================
+# Planning / Tools / Summary
+# =========================
+def get_contextual_info(dataset_name: str, sample: Dict[str, Any]) -> str:
+    if dataset_name in ("cab", "cab_ood"):
+        return sample["Context information"]
+    if dataset_name == "cab_lite":
+        return sample["Rawdata Context"]
+    return sample.get("Context information", "")
+
+def sft_infer_planning(client: OpenAI,
+                       model_name: str,
+                       sys_prompt: str,
+                       contextual_info: str,
+                       personas_str: str,
+                       personas_flag: str) -> str:
+    """Call the local SFT model to produce the proactive planning output."""
+    messages = [{"role": "system", "content": sys_prompt}]
+    if personas_flag == "w_p":
+        user = f"Sensory Context:\n{contextual_info}\nPersona Context:\n{personas_str}"
+    else:
+        user = f"Sensory Context:\n{contextual_info}"
+    messages.append({"role": "user", "content": user})
+
+    try:
+        resp = client.chat.completions.create(messages=messages, model=model_name)
+        return resp.choices[0].message.content
+    except Exception as e:
+        return f"[sft planning error] {e}"
+
+def parse_tool_spec(tools_str: str) -> List[Dict[str, Any]]:
+    if tools_str == "None":
+        return []
+    try:
+        parsed = ast.literal_eval(tools_str)
+        return parsed if isinstance(parsed, list) else []
+    except Exception:
+        return []
+
+def run_tools(json_tool: List[Dict[str, Any]]) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
+    """Two-stage executor + memory (no-params first, then param tools)."""
+    memory = {"now_iso": datetime.now().isoformat()}
+    results_tool = execute_tools_with_memory(json_tool, process_function_call, memory)
+    return results_tool, memory
+
+def summarize_with_sft(client: OpenAI,
+                       model_name: str,
+                       contextual_info: str,
+                       personas_str: str,
+                       thoughts: str,
+                       results_tool: Any,
+                       personas_flag: str) -> str:
+    """
+    Optional: summarize with the same SFT model.
+    If you prefer a stub for speed/cost, return a fixed string instead.
+    """
+    try:
+        with open("prompt/prompt_summarize.txt", "r", encoding="utf-8") as f:
+            prompt_summarize = f.read()
+    except Exception:
+        prompt_summarize = "Summarize the following context and tool results."
+
+    if personas_flag == "wo_p":
+        content = (
+            "# Sensory Contexts:\n" + contextual_info +
+            "\n\n# Thoughts:\n" + thoughts +
+            "\n\n# Tool results:\n" + str(results_tool)
+        )
+    else:
+        content = (
+            "# Sensory Contexts:\n" + contextual_info +
+            "\n\n# Persona Contexts:\n" + personas_str +
+            "\n\n# Thoughts:\n" + thoughts +
+            "\n\n# Tool results:\n" + str(results_tool)
+        )
+
+    # Sandbox mode: avoid a second model call and just return a stub
+    if config.MODE == "sandbox":
+        return "sandbox outputs."
+
+    messages = [
+        {"role": "system", "content": prompt_summarize},
+        {"role": "user", "content": content},
+    ]
+    try:
+        resp = client.chat.completions.create(messages=messages, model=model_name)
+        return resp.choices[0].message.content
+    except Exception as e:
+        return f"[sft summarize error] {e}"
+
+# =========================
+# Per-sample
+# =========================
+def run_single_sample(client: OpenAI,
+                      sample_key: str,
+                      sample: Dict[str, Any],
+                      args,
+                      sys_prompt: str,
+                      dataset_name: str) -> Dict[str, Any]:
+    print("Sample ID:\n", sample_key)
+    print("=" * 50)
+
+    contextual_info = get_contextual_info(dataset_name, sample)
+    personas_str = ".".join(sample.get("Personas", []))
+    print("\033[1;36mSensory Context:\033[0m\n", contextual_info)
+    print("=" * 50)
+    print("\033[1;36mPersona Context:\033[0m\n", personas_str)
+    print("=" * 50)
+
+    # 1) Planning with SFT model
+    planning = sft_infer_planning(
+        client=client,
+        model_name=args.model_base,
+        sys_prompt=sys_prompt,
+        contextual_info=contextual_info,
+        personas_str=personas_str,
+        personas_flag=args.personas,
+    )
+    print("\033[1;36mProactive LLM Agent Predictions:\033[0m\n", planning)
+    print("=" * 50)
+
+    # 2) Parse plan
+    thoughts, p_idx, p_score, actions, tools_str = parse_proactive_agent_results(planning)
+    print("\033[1;36mThoughts:\033[0;36m\n", thoughts, "\033[0m")
+    print("\033[1;34mProactive Index:\033[0;34m\n", p_idx, "\033[0m")
+    print("\033[1;34mProactive Score:\033[0;34m\n", p_score, "\033[0m")
+    print("\033[1;37mActions:\033[0;37m\n", actions, "\033[0m")
+    print("\033[1;35mTools:\033[0;35m\n", tools_str, "\033[0m")
+
+    # 3) Tools
+    if tools_str != "None":
+        json_tool = parse_tool_spec(tools_str)
+        results_tool, memory = run_tools(json_tool)
+        print("=" * 50)
+        print("\033[1;36mTool Results:\033[0m\n", results_tool)
+        print("=" * 50)
+        print("\033[1;36mMemory State:\033[0m\n", memory)
+
+        # 4) Summarize with SFT (or stub in sandbox)
+        response = summarize_with_sft(
+            client=client,
+            model_name=args.model_base,
+            contextual_info=contextual_info,
+            personas_str=personas_str,
+            thoughts=thoughts,
+            results_tool=results_tool,
+            personas_flag=args.personas,
+        )
+        print("=" * 50)
+        print("\033[1;36mProactive Response:\033[0m\n", response)
+    else:
+        results_tool = "None"
+        response = "None"
+
+    return {
+        "thoughts": thoughts,
+        "proactive_idx": p_idx,
+        "proactive_score": p_score,
+        "actions": actions,
+        "tools": tools_str,
+        "tools_results": results_tool,
+        "response": response,
+    }
+
+# =========================
+# Save
+# =========================
+def save_results_incremental(ds: Dict[str, Any], args) -> str:
+    """Save the full dataset (with predictions) after each sample."""
+    ds = convert_sets_to_lists(ds)
+    path = f"results/{args.dataset}/predictions/sft/pred_{args.model_base}_{args.personas}_{args.think}.json"
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(ds, f, ensure_ascii=False, indent=4)
+    return path
+
+# =========================
+# Main Orchestration
+# =========================
+def main():
+    args = parse_args()
+    apply_mode(args.mode)
+    client = get_sft_client(args.port)
+
+    print(f"[main] MODE = {config.MODE}")
+    print(f"[main] Loaded tools: {', '.join(sorted(functions.keys()))}")
+
+    # Load prompt
+    sys_prompt = load_prompt_base(args.think)
+    print(sys_prompt)
+
+    # Load test set
+    dataset_name = args.dataset
+    test_path = f"data/{dataset_name}/{dataset_name}_test.json"
+    dataset = load_json(test_path)
     print(dataset.keys())
 
-    results_list = []
-    for key in tqdm(dataset.keys()):
-        sample = dataset[key]
-        print("Sample ID:\n", key)
-        print("="*50)
+    # Progress bar + separators
+    keys_list = list(dataset.keys())
+    total = len(keys_list)
+    sep = "=" * 80
 
-        # sensory context
-        if dataset_name == 'cab' or dataset_name == 'cab_ood':
-            contextual_info = sample['Context information']
-        elif dataset_name == 'cab_lite':
-            contextual_info = sample['Rawdata Context']
-        # persona context
-        personas_str = ".".join(sample['Personas'])
-        print("\033[1;36mSensory Context:\033[0m\n", contextual_info)  
-        print("="*50)
-        print("\033[1;36mPersona Context:\033[0m\n", personas_str)  
-        print("="*50)
+    for idx, key in enumerate(tqdm(keys_list, total=total, desc="Evaluating samples", unit="sample"), start=1):
+        print(f"\n{sep}\n[Sample {idx}/{total}] ID: {key}\n{sep}")
+        preds = run_single_sample(client, key, dataset[key], args, sys_prompt, dataset_name)
+        dataset[key]["predictions"] = preds
 
-        # proactive LLM agent inference
-        client = OpenAI(
-            api_key="{}".format(os.environ.get("API_KEY", "0")),
-            base_url="http://localhost:{}/v1".format(os.environ.get("API_PORT", 8000)),
-        )
-        messages = []
-        messages.append({"role": "system", "content": prompt_sys})
-        if args.personas == 'w_p':
-            messages.append({"role": "user", "content": "Sensory Context:\n"+contextual_info+"\nPersona Context:\n"+personas_str})
-        else:
-            messages.append({"role": "user", "content": "Sensory Context:\n"+contextual_info})
+        save_path = save_results_incremental(dataset, args)
+        print(f"[main] Saved: {save_path}")
+        print(f"{'-'*80}\n[Completed] {key} ({idx}/{total})\n{'-'*80}")
 
-        result = client.chat.completions.create(messages=messages, model="test")
-        result = result.choices[0].message.content
-        print("\033[1;36mProactive LLM Agent Predictions:\033[0m\n", result)  
-        print("="*50)
+    print("\nAll samples finished ✅")
 
-        # Parse the proactive agent's results
-        thoughts, proactive_idx, proactive_score, actions, tools = parse_proactive_agent_results(result)
-        print("\033[1;36mThoughts:\033[0;36m\n", thoughts, "\033[0m")  
-        print("\033[1;34mProactive Index:\033[0;34m\n", proactive_idx, "\033[0m")  
-        print("\033[1;34mProactive Score:\033[0;34m\n", proactive_score, "\033[0m")  
-        print("\033[1;37mActions:\033[0;37m\n", actions, "\033[0m")  
-        print("\033[1;35mTools:\033[0;35m\n", tools, "\033[0m") 
-
-        # tool calling
-        if tools != 'None':
-            max_attempts = 1
-            attempt = 0
-            json_tool = None
-            while attempt < max_attempts:
-                try:
-                    json_tool = ast.literal_eval(tools)
-                    break
-                except (ValueError, SyntaxError) as e:
-                    print(f"Attempt {attempt + 1}: Error parsing tools with ast.literal_eval: {e}")
-                    attempt += 1
-                    if attempt < max_attempts:
-                        # Regenerate the tools
-                        response = client.chat.completions.create(messages=messages, model="test")
-                        result = response.choices[0].message.content
-                        thoughts, proactive_idx, proactive_score, actions, tools = parse_proactive_agent_results(result)
-                    else:
-                        print("Max attempts reached. Unable to parse tools.")
-                        json_tool = []
-                        tools = tools + f" Max attempts reached. Unable to parse tools."
-
-            results_tool = []
-            # iterate over the tool calls
-            if json_tool is not None: 
-                for tool_call in json_tool:
-                    print(50*"=")
-                    if 'name' not in tool_call or 'parameters' not in tool_call:
-                        results_tool.append({
-                                    "tool_name": 'error',
-                                    "tool_parameters": 'error',
-                                    "results": 'error'
-                                })
-                    else:
-                        print("Calling Function: ",tool_call['name'])
-                        print("Function Params: ",tool_call['parameters'])
-                        result_tool = process_function_call(tool_call)
-                        print("Function Results: ",result_tool)
-                        results_tool.append({
-                                "tool_name": tool_call['name'],
-                                "tool_parameters": tool_call['parameters'],
-                                "results": result_tool
-                            })
-            print(50*"=")
-            print("\033[1;36mTool Results:\033[0m\n", results_tool)  
-
-            # LLM reasoning on contextual and function results 
-            with open('prompt/prompt_summarize.txt', 'r', encoding='utf-8') as file:
-                prompt_summarize = file.read()
-            if args.personas == 'wo_p':
-                content = "# Sensory Contexts:\n"+contextual_info+"\n\n# Thoughts:\n"+thoughts+"\n\n# Tool results:\n"+str(results_tool)
-            else:
-                content = "# Sensory Contexts:\n"+contextual_info+"\n\n# Persona Contexts:\n"+personas_str+"\n\n# Thoughts:\n"+thoughts+"\n\n# Tool results:\n"+str(results_tool) 
-            massages = [
-                {'role': 'system','content': prompt_summarize},
-                {'role': 'user','content': content}
-                ]
-
-            print(50*"=")
-            print(massages)
-            print(50*"=")
-            # LLM reasoning
-            # response = ollama.chat(model='qwen2.5', messages=massages)
-            # response = response['message']['content']
-            # response = azure_inference(client, args.model_base, massages, temperature=0.7, max_tokens=100)
-            # print(response)
-            response = 'outputs.'
-            print("\033[1;36mResponse:\033[0m\n", response)  
-
-            sample['predictions'] = {
-                'thoughts': thoughts,
-                'proactive_idx': proactive_idx,
-                'proactive_score': proactive_score,
-                'actions': actions,
-                'tools': tools,
-                'tools_results': results_tool,
-                'response': response
-            }
-        else:
-            sample['predictions'] = {
-                'thoughts': thoughts,
-                'proactive_idx': proactive_idx,
-                'proactive_score': proactive_score,
-                'actions': actions,
-                'tools': tools,
-                'tools_results': 'None',
-                'response': 'None'
-            }
-
-        # Save results to json
-        save_path = f'results/{dataset_name}/predictions/sft/pred_{args.model_base}_{args.personas}_{args.think}.json'
-        with open(save_path, 'w', encoding='utf-8') as new_file:
-            json.dump(dataset, new_file, ensure_ascii=False, indent=4)    
+if __name__ == "__main__":
+    main()

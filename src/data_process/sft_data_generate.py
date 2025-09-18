@@ -26,8 +26,13 @@ if __name__ == "__main__":
     print("Statistics of dataset:\n",dataset.keys())
 
     # Load prompt
-    with open('prompt/prompt_sys.txt', 'r') as f:
-        prompt_sys = f.read()
+    if args.think == "w_t":
+        with open('prompt/prompt_sys.txt', 'r') as f:
+            prompt_sys = f.read()
+    elif args.think == "wo_t":
+        with open('prompt/prompt_sys_wo_t.txt', 'r') as f:
+            prompt_sys = f.read()
+
 
     # Build sft dataset
     dataset_processed = []

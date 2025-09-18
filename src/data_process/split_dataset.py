@@ -14,7 +14,7 @@ if __name__ == "__main__":
     num_samples = len(dataset)            # length of the dataset
     indices = list(range(1,num_samples+1))    # list of indices
     random.shuffle(indices)               # shuffle the indices
-    split_point = int(num_samples * 0.7) 
+    split_point = int(num_samples * 0.6)  # submit version: 70% train, 30% test
     train_indices = indices[:split_point] # train indices
     test_indices = indices[split_point:]  # test indices
     print(f"Train: {train_indices}, Test: {test_indices}")

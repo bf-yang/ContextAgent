@@ -1,22 +1,20 @@
 #!/bin/bash
-API_PORT=8000
+API_PORT=8009
+
+# Get the base directory (project root) based on script location
+BASE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/../.." && pwd )"
+FACTORY_DIR="$BASE_DIR/LLaMA-Factory"
 
 echo "Checking and killing processes on port $API_PORT before starting..."
-fuser -k 8000/tcp
+fuser -k ${API_PORT}/tcp
 sleep 2
 
 experiments=(
-    # # # Qwen-7B
-    # "experiments/configs/cab/inference/qwen_lora_sft_wo_t.yaml|qwen7b|--think wo_t"
-    # "experiments/configs/cab/inference/qwen_lora_sft.yaml|qwen7b|"
-    # "experiments/configs/cab/inference/qwen_lora_sft_wo_p.yaml|qwen7b|--personas wo_p"
-    # "experiments/configs/cab/inference/qwen_lora_sft_wo_t_wo_p.yaml|qwen7b|--think wo_t --personas wo_p"
+    # Qwen-7B
+    "experiments/configs/cab/inference/qwen_lora_sft.yaml|qwen7b|"
 
-#     # Llama3-8B
-    "experiments/configs/cab/inference/llama3_lora_sft_wo_t.yaml|llama8b|--think wo_t"
+    # Llama3-8B
     "experiments/configs/cab/inference/llama3_lora_sft.yaml|llama8b|"
-    # "experiments/configs/cab/inference/llama3_lora_sft_wo_p.yaml|llama8b|--personas wo_p"
-    # "experiments/configs/cab/inference/llama3_lora_sft_wo_t_wo_p.yaml|llama8b|--think wo_t --personas wo_p"
 )
 
 for exp in "${experiments[@]}"; do
@@ -28,8 +26,8 @@ for exp in "${experiments[@]}"; do
 
     # Start the API service in the background
     (
-        cd /home/bufang/ContextAgent/LLaMA-Factory && \
-        CUDA_VISIBLE_DEVICES=6,7 llamafactory-cli api "$config_file"
+        cd "$FACTORY_DIR" && \
+        API_PORT=$API_PORT CUDA_VISIBLE_DEVICES=0 llamafactory-cli api "$config_file"
     ) &> "api_${model_base_value}.log" &
     API_PID=$!
 
@@ -42,9 +40,10 @@ for exp in "${experiments[@]}"; do
 
     # Run evaluation
     (
-        cd /home/bufang/ContextAgent && \
+        cd "$BASE_DIR" && \
         echo "Starting evaluation..."
-        CUDA_VISIBLE_DEVICES=6,7 python src/sft/inference.py \
+        CUDA_VISIBLE_DEVICES=0 python src/sft/inference.py \
+            --mode sandbox \
             --dataset cab \
             --model_base $model_base_value \
             $eval_args
@@ -57,10 +56,8 @@ for exp in "${experiments[@]}"; do
             $eval_args
     )
 
-    # Kill the API service
     echo "Checking and killing processes on port $API_PORT after finishing..."
-    # lsof -i:$API_PORT | awk 'NR>1 {print $2}' | xargs -r kill -9
-    fuser -k 8000/tcp
+    fuser -k ${API_PORT}/tcp
     echo "Waiting for port to be released..."
-    sleep 5  # 等待5秒
+    sleep 5
 done

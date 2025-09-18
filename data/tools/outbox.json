@@ -1,0 +1,12 @@
+[
+  {
+    "to": "alice@example.com",
+    "subject": "Meeting Notes",
+    "content": "Here are the notes..."
+  },
+  {
+    "to": "alice@example.com",
+    "subject": "Meeting Notes",
+    "content": "Here are the notes..."
+  }
+]

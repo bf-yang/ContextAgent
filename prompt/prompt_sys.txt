@@ -19,6 +19,9 @@ functions = {
     "check_bus_schedule": arguments: bus_stop,
     "set_timer": arguments: duration,
     "search_rednote": arguments: query,
+    "add_meeting": arguments: (meeting_topic, start_time, meeting_location),
+    "send_email": arguments: (receiver, subject,content),
+    "query_stock": arguments: (stock_code, date),
     }
 
 Now you will receive the sensory and persona contexts.

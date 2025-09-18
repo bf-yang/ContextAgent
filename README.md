@@ -20,7 +20,7 @@ with Open-World Sensory Perceptions</strong></h1>
 </p>
 
 
-## 🏠 About
+# 🏠 About
 <div style="text-align: center;">
     <img src="assets/teaser_contextagent.png" alt="Dialogue_Teaser" width=100% >
 </div>
@@ -29,32 +29,27 @@ In this paper, we introduce ContextAgent, the first context-aware proactive LLM 
 
 <!-- ## Overview -->
 
-## Overview
+# 🗺️ Overview
 <div style="text-align: center;">
     <img src="assets/overview_contextagent.png" alt="Dialogue_Teaser" width=100% >
 </div>
 
-## Project Structure
+# 📂 Project Structure
 ```
 ContextAgent/
 ├─ data/
 │  ├─ cab/
-│  ├─ cab_lite/
-│  ├─ cab_ood/
 ├─ prompt/
-├─ results/
 ├─ src/
-│  ├─ cab_lite/
-│  ├─ cab_ood/
-│  ├─ data_process/
 │  ├─ icl/
 │  ├─ sft/
+│  ├─ tools/
 │  ├─ utils/
 ├─ .gitignore
 ├─ README.md
 ```
 
-## Installation
+# ⚙️ Installation
 1. Clone the repository.
 ```bash
 git clone https://github.com/bf-yang/ContextAgent.git
@@ -66,27 +61,71 @@ conda env create -f environment.yml
 conda activate contextagent
 ```
 
-## Evaluation
-### ICL Evaluation
-- **Proprietary LLMs.** Use API inference for proprietary LLMs (e.g., GPT-4o)
-```shell
-bash src/icl/icl_infer_api.sh
+# 📊 Evaluation
+## 🔑 API Keys
+Several experiments rely on external APIs (e.g., Google Maps, AMap, LocationIQ, SerpAPI). Please configure the required keys via environment variables:
+
+```bash
+export GOOGLE_MAP_API_KEY=<YOUR_GOOGLE_MAP_API_KEY>
+export AMAP_API_KEY=<YOUR_AMAP_API_KEY>
+export LOCATIONIQ_API_KEY=<YOUR_LOCATIONIQ_API_KEY>
+export SERPAPI_KEY=<YOUR_SERPAPI_KEY>
+export GOOGLE_CALENDAR_ACCOUNT=<GOOGLE_CALENDAR_ACCOUNT>
 ```
 
-- **Local LLM Inference.** Test open-source LLMs (e.g., Llama-3.1-8B-Instruct and Qwen2.5-7BInstruct)
-```shell
-bash src/icl/icl_infer.sh
+## ️▶️ Usage
+### ⚙️ 1. ICL Setting
+The following provides scripts for evaluating different LLMs under In-Context Learning (ICL) settings.  It supports multiple base models (e.g., GPT-4o, Qwen, LLaMA, and DeepSeek series) and two execution modes: **`live`** and **`sandbox`**.
+
+- **Open-source models.** Test open-source LLMs (e.g., Llama-3.1-8B-Instruct and Qwen2.5-7BInstruct).
+```
+CUDA_VISIBLE_DEVICES=0,2 python src/icl/inference.py --model <MODEL_NAME> --mode sandbox
 ```
 
-### SFT Evaluation
-Running the following script for full SFT experiments, including model training, inference on benchmark, and generate scores.
-```shell
+- **Proprietary LLMs.** Use API inference for proprietary LLMs (e.g., GPT-4o).
+```
+python src/icl/inference_api.py --model <MODEL_NAME> --mode sandbox
+```
+
+| Argument  | Type   | Description                                                                 |
+|-----------|--------|-----------------------------------------------------------------------------|
+| `--model` | string | Base model to evaluate (e.g., `qwen2.5:latest`, `llama3.1:8b`, `deepseek-r1`) 
+| `--mode`  | string | • **`live`** – the agent actually executes external tools and APIs <br>• **`sandbox`** – the agent uses predefined sandboxed results without making real API calls |
+
+- **Metrics**. After inference finishes, compute metrics per model.
+Run one command per model you want to score (don’t pass two models at once).
+Calculte score:
+```
+python src/calculate_scores.py --methods icl --model_base_icl <MODEL_NAME>
+```
+👉 For more details, see [README.md](src/icl/README.md).
+
+### ⚙️ 2. SFT Setting
+Launch supervised fine-tuning (SFT) experiments via:
+```
 bash src/sft/sft_exp.sh
 ```
-> Note that ```sft_exp.sh``` contains two scripts. The fisrt one ```LLaMA-Factory/experiments/configs/lora_train.sh``` is used for model training. The second one ```src/sft/eval_sft.sh``` is used for evaluation of the fine-tuned LLMs.
+> [!NOTE]
+> 
+> **What the script does**
+> - Training – calls `LLaMA-Factory/experiments/cab_lora_train.sh` (LoRA/SFT configs).
+> - Evaluation – runs `src/sft/eval_sft.sh` to evaluate fine-tuned models.
+>
+> **Customize**
+> - Edit `LLaMA-Factory/experiments/cab_lora_train.sh` to set the base model and SFT/LoRA parameters.
+> - Edit `src/sft/eval_sft.sh` to choose the base model and evaluation mode.
+>
+> **Tip**
+> - Keep the same base model name across training and evaluation for consistency.
+
+👉 For more details, see [README.md](src/sft/README.md).
 
 
-## Experiment Results
+
+
+
+
+<!-- # 📈 Experiment Results
 Please refer to our paper for more results.
 ### Quantitative Results
 <div style="text-align: center;">
@@ -102,7 +141,7 @@ Please refer to our paper for more results.
 - Non-proactive Examples
 <div style="text-align: center;">
     <img src="assets/qualitative_results_overall_noproactive.png" alt="Dialogue_Teaser" width=100% >
-</div>
+</div> -->
 
 ## 🔗 Citation
 

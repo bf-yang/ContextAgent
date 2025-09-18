@@ -2,10 +2,10 @@ models=("gpt-35-turbo")
 # models=("gpt-35-turbo" "gpt-4o-2" "gpt-4o-mini-2b" )
 combinations=(
     "true wo_t wo_p"  # zs
-    # "false w_t w_p"   # 
-    # "false wo_t wo_p" # Context-only (ICL)
-    # "false wo_t w_p"  # ICL-P
-    # "false w_t wo_p"  # ICL-CoT
+    "false w_t w_p"   # 
+    "false wo_t wo_p" # Context-only (ICL)
+    "false wo_t w_p"  # ICL-P
+    "false w_t wo_p"  # ICL-CoT
 )
 
 for model in "${models[@]}"; do
@@ -15,7 +15,7 @@ for model in "${models[@]}"; do
         echo "Running experiment for model: $model, zs: $zs, think: $think, persona: $persona"
         
         # icl inference via api
-        CUDA_VISIBLE_DEVICES=CUDA_DEVICES=2,3,4,7 python src/icl/inference_api.py --dataset cab --model_base $model --zs $zs --think $think --personas $persona
+        CUDA_VISIBLE_DEVICES=0,2 python src/icl/inference_api.py --mode sandbox --dataset cab --model_base $model --zs $zs --think $think --personas $persona
         
         # score calculation
         python src/calculate_scores.py --dataset cab --methods icl --model_base_icl $model --zs $zs --think $think --personas $persona
