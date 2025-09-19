@@ -151,7 +151,9 @@ If you find our work and this codebase helpful, please consider starring this re
 @article{yang2025contextagent,
   title={ContextAgent: Context-Aware Proactive LLM Agents with Open-World Sensory Perceptions},
   author={Yang, Bufang and Xu, Lilin and Zeng, Liekang and Liu, Kaiwei and Jiang, Siyang and Lu, Wenrui and Chen, Hongkai and Jiang, Xiaofan and Xing, Guoliang and Yan, Zhenyu},
-  journal={arXiv preprint arXiv:2505.14668},
+  journal={Advances in Neural Information Processing Systems},
+  volume={38},
+  pages={1--10},
   year={2025}
 }
 ```
