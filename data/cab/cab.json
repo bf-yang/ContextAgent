@@ -13144,9 +13144,7 @@
     "Proactive index": "false",
     "Proactive score": 1,
     "Tool planning": "None",
-    "Action": [
-      "None"
-    ],
+    "Action": "None",
     "Response": "None",
     "Tools": "None"
   },
