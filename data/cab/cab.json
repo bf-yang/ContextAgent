@@ -6918,7 +6918,7 @@
       "Use <play_music> to select and play music from the user's library to set the picnic mood."
     ],
     "Response": "I can play some music from your library to set the mood for the picnic. Would you like me to start a playlist?",
-    "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": {}}]"
+    "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": \"None\"}]"
   },
   "example-336": {
     "Category": "Travel",
@@ -7222,7 +7222,7 @@
       "If the bus schedule is not suitable, use <book_uber> to suggest alternative transportation."
     ],
     "Response": "The next bus to downtown is arriving in 15 minutes, but it may not get you to your meeting on time. Would you like me to book a Uber instead?",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": {}}, {\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for a specific bus stop.\", \"parameters\": {\"bus_stop\": \"$RESULT(get_current_gps_coordinates.address)\"}}, {\"name\": \"book_uber\", \"description\": \"Book an Uber from the current location to the destination.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"downtown\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for a specific bus stop.\", \"parameters\": {\"bus_stop\": \"$RESULT(get_current_gps_coordinates.address)\"}}, {\"name\": \"book_uber\", \"description\": \"Book an Uber from the current location to the destination.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"downtown\"}}]"
   },
   "example-350": {
     "Category": "Work",
@@ -7244,7 +7244,7 @@
       "If the bus is delayed, use <book_uber> to book an alternative transportation to the office park."
     ],
     "Response": "The next bus to the office park is running 10 minutes late. Would you like to book a Uber to ensure you reach your presentation on time?",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": {}}, {\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for a specific bus stop.\", \"parameters\": {\"bus_stop\": \"$RESULT(get_current_gps_coordinates.address)\"}}, {\"name\": \"book_uber\", \"description\": \"Book an Uber from the current location to the destination.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"office park\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for a specific bus stop.\", \"parameters\": {\"bus_stop\": \"$RESULT(get_current_gps_coordinates.address)\"}}, {\"name\": \"book_uber\", \"description\": \"Book an Uber from the current location to the destination.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"office park\"}}]"
   },
   "example-351": {
     "Category": "Work",
@@ -7266,7 +7266,7 @@
       "If the bus timing is not convenient, use <book_uber> to suggest an alternative ride."
     ],
     "Response": "The next bus to the technology park is in 25 minutes, which might be tight for your 10:00 AM call. Would you like me to book a Uber to get you there on time?",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": {}}, {\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for a specific bus stop.\", \"parameters\": {\"bus_stop\": \"$RESULT(get_current_gps_coordinates.address)\"}}, {\"name\": \"book_uber\", \"description\": \"Book an Uber from the current location to the destination.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"technology park\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for a specific bus stop.\", \"parameters\": {\"bus_stop\": \"$RESULT(get_current_gps_coordinates.address)\"}}, {\"name\": \"book_uber\", \"description\": \"Book an Uber from the current location to the destination.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"technology park\"}}]"
   },
   "example-352": {
     "Category": "Health",
@@ -7605,7 +7605,7 @@
       "Use <google_map> to provide the best route to the Grass Island from the current location."
     ],
     "Response": "I can help guide you to the Grass Island. Follow the path to your left for about 10 minutes, and you'll reach it. Would you like directions on your glasses as you walk?",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": {}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"Grass Island\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"Grass Island\"}}]"
   },
   "example-369": {
     "Category": "Outdoors",
@@ -7623,7 +7623,7 @@
       "Use <google_map> to find the walking route and distance from the current location to the lighthouse."
     ],
     "Response": "The lighthouse is a 15-minute walk from here along the beach path. Would you like me to show the route on your glasses?",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": {}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"lighthouse\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"lighthouse\"}}]"
   },
   "example-370": {
     "Category": "Outdoors",
@@ -7641,7 +7641,7 @@
       "Use <google_map> to determine the best walking route from the current location to the cathedral."
     ],
     "Response": "The cathedral is a 10-minute walk from here. Head down Main Street, and it will be on your right. Would you like a map on your glasses to guide you?",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": {}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"city square\", \"destination\": \"cathedral\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"city square\", \"destination\": \"cathedral\"}}]"
   },
   "example-371": {
     "Category": "Outdoors",
@@ -7659,7 +7659,7 @@
       "Use <google_map> to find the trail and distance from the park entrance to the waterfall."
     ],
     "Response": "The waterfall is about a 2-mile hike from here. Follow the Blue Trail, and it will lead you there. Shall I provide step-by-step directions on your glasses?",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": {}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"national park entrance\", \"destination\": \"waterfall\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"national park entrance\", \"destination\": \"waterfall\"}}]"
   },
   "example-372": {
     "Category": "Work",
@@ -8648,7 +8648,7 @@
       "If the bus is not suitable, use <book_uber> to arrange a ride to the airport."
     ],
     "Response": "Your flight is at 3 PM, and the next bus to Hong Kong Airport will not arrive in time. Would you like me to book an Uber to ensure you reach the airport on time?",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": {}}, {\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for a specific bus stop.\", \"parameters\": {\"bus_stop\": \"$RESULT(get_current_gps_coordinates.address)\"}}, {\"name\": \"book_uber\", \"description\": \"Book an Uber from the current location to the destination.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"Hong Kong Airport\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for a specific bus stop.\", \"parameters\": {\"bus_stop\": \"$RESULT(get_current_gps_coordinates.address)\"}}, {\"name\": \"book_uber\", \"description\": \"Book an Uber from the current location to the destination.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"Hong Kong Airport\"}}]"
   },
   "example-418": {
     "Category": "Travel",
@@ -8672,7 +8672,7 @@
       "If the bus is delayed, use <book_uber> to arrange a ride."
     ],
     "Response": "Your meeting at Business Park is at 2 PM. Checking the bus schedule now: if it's delayed, would you like me to book an Uber to ensure you arrive on time?",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": {}}, {\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for a specific bus stop.\", \"parameters\": {\"bus_stop\": \"$RESULT(get_current_gps_coordinates.address)\"}}, {\"name\": \"book_uber\", \"description\": \"Book an Uber from the current location to the destination.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"Business Park\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for a specific bus stop.\", \"parameters\": {\"bus_stop\": \"$RESULT(get_current_gps_coordinates.address)\"}}, {\"name\": \"book_uber\", \"description\": \"Book an Uber from the current location to the destination.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"Business Park\"}}]"
   },
   "example-419": {
     "Category": "Travel",
@@ -8693,7 +8693,7 @@
       "Use <play_music> to play a relaxing music playlist to accompany the user's train journey."
     ],
     "Response": "I can play some relaxing music to enhance your train journey. Would you like me to start a calming playlist?",
-    "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": {}}]"
+    "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": \"None\"}]"
   },
   "example-420": {
     "Category": "Travel",
@@ -8714,7 +8714,7 @@
       "Use <play_music> to play ocean-themed music to complement the user's ferry ride experience."
     ],
     "Response": "I can play some ocean-themed music to enhance your ferry ride experience. Would you like me to start a playlist?",
-    "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": {}}]"
+    "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": \"None\"}]"
   },
   "example-421": {
     "Category": "Travel",
@@ -9143,7 +9143,7 @@
       "Use <google_map> to find the walking time and route for the main garden path from the current location."
     ],
     "Response": "The main garden path will take about 30 minutes to stroll through. Would you like directions on your glasses to guide you?",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"botanical garden entrance\", \"destination\": \"main garden path\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"botanical garden entrance\", \"destination\": \"main garden path\"}}]"
   },
   "example-442": {
     "Category": "Chitchat",
@@ -9450,7 +9450,7 @@
       "Use <play_music> to play a podcast from the user's library for entertainment during the bus ride."
     ],
     "Response": "I see you're on a bus ride. Would you like me to play a podcast to keep you entertained during your journey?",
-    "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song or podcast from the user's library.\", \"parameters\": {}}]"
+    "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song or podcast from the user's library.\", \"parameters\": \"None\"}]"
   },
   "example-458": {
     "Category": "Work",
@@ -10030,7 +10030,7 @@
       "Use <play_music> to play an audiobook or calming music to enhance the user's relaxation."
     ],
     "Response": "I see you're relaxing in the hammock. Would you like me to play an audiobook or some calming music for you?",
-    "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": {}}]"
+    "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": \"None\"}]"
   },
   "example-488": {
     "Category": "Leisure",
@@ -10049,7 +10049,7 @@
       "Use <play_music> to play nature sounds or ambient music to complement the user's leisure activity."
     ],
     "Response": "Would you like me to play some nature sounds or ambient music to enhance your time in the park?",
-    "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": {}}]"
+    "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": \"None\"}]"
   },
   "example-489": {
     "Category": "Leisure",
@@ -10068,7 +10068,7 @@
       "Use <play_music> to play instrumental music to enhance the user's sunset experience."
     ],
     "Response": "The sunset looks beautiful. Would you like some instrumental music to accompany the view?",
-    "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": {}}]"
+    "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": \"None\"}]"
   },
   "example-490": {
     "Category": "Leisure",
@@ -10087,7 +10087,7 @@
       "Use <play_music> to play jazz music to enhance the user's cozy experience by the fireplace."
     ],
     "Response": "You're enjoying a cozy moment by the fireplace. Would you like some jazz music to complement the atmosphere?",
-    "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": {}}]"
+    "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": \"None\"}]"
   },
   "example-491": {
     "Category": "Others",
@@ -10302,7 +10302,7 @@
       "Use <book_uber> to arrange transportation from the beach before the user's phone battery dies"
     ],
     "Response": "I notice it's 7:35 PM and the beach closes at 8:00 PM. Your phone battery is at 12%. Would you like me to book an Uber now to get you back to your accommodation before your battery runs out?",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": {}}, {\"name\": \"book_uber\", \"description\": \"Book an Uber ride from the current location to the destination.\", \"parameters\": {\"current_location\": \"Malibu Beach\", \"destination\": \"Shatin, Hong Kong\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}, {\"name\": \"book_uber\", \"description\": \"Book an Uber ride from the current location to the destination.\", \"parameters\": {\"current_location\": \"Malibu Beach\", \"destination\": \"Shatin, Hong Kong\"}}]"
   },
   "example-502": {
     "Category": "Outdoors",
@@ -10371,7 +10371,7 @@
       "Use <google_map> to identify the correct path to continue on the Pine Ridge Trail and estimate time to completion."
     ],
     "Response": "I notice you're at a junction with unclear markers. The right path will keep you on the Pine Ridge Trail. There's a thunderstorm approaching in approximately 30 minutes. Based on your current pace, you have about 45 minutes until completion. Would you like me to show you shelter options nearby in case the storm arrives sooner?",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": {}}, {\"name\": \"get_city_weather\", \"description\": \"Get the weather for a specified city at a given time\", \"parameters\": {\"city\": \"$RESULT(get_current_gps_coordinates.city)\", \"time\": \"now\"}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API\", \"parameters\": {\"current_location\": \"starting point of Hongshan Forest Park\", \"destination\": \"Pine Ridge Trail end point\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}, {\"name\": \"get_city_weather\", \"description\": \"Get the weather for a specified city at a given time\", \"parameters\": {\"city\": \"$RESULT(get_current_gps_coordinates.city)\", \"time\": \"now\"}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API\", \"parameters\": {\"current_location\": \"starting point of Hongshan Forest Park\", \"destination\": \"Pine Ridge Trail end point\"}}]"
   },
   "example-505": {
     "Category": "Outdoors",
@@ -10393,7 +10393,7 @@
       "Use <vllm> to analyze the flowering plant and provide identification and educational information."
     ],
     "Response": "That's a Titan Arum (Amorphophallus titanum), also known as the corpse flower. It's quite rare to see one in bloom! Native to Sumatra, it produces one of the world's largest flowering structures and is famous for its distinctive smell. Would you like me to share more information about this remarkable plant?",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": {}}, {\"name\": \"vllm\", \"description\": \"Visual Large Language Model (VLM) that can answer the user's questions based on the given image\", \"parameters\": {\"prompt\": \"Identify this flowering plant and provide basic information about it\", \"image_path\": \"current_view\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}, {\"name\": \"vllm\", \"description\": \"Visual Large Language Model (VLM) that can answer the user's questions based on the given image\", \"parameters\": {\"prompt\": \"Identify this flowering plant and provide basic information about it\", \"image_path\": \"current_view\"}}]"
   },
   "example-506": {
     "Category": "Outdoors",
@@ -10415,7 +10415,7 @@
       "Use <get_city_weather> to check the weather forecast for the user's location."
     ],
     "Response": "The clouds are moving quickly, and the forecast indicates rain is expected in about 20 minutes. You might want to find shelter or prepare for rain.",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": {}}, {\"name\": \"get_city_weather\", \"description\": \"Get the weather for a specified city at a given time\", \"parameters\": {\"city\": \"$RESULT(get_current_gps_coordinates.city)\", \"time\": \"now\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}, {\"name\": \"get_city_weather\", \"description\": \"Get the weather for a specified city at a given time\", \"parameters\": {\"city\": \"$RESULT(get_current_gps_coordinates.city)\", \"time\": \"now\"}}]"
   },
   "example-507": {
     "Category": "Outdoors",
@@ -10553,7 +10553,7 @@
       "Use <google_map> to find nearby shelter options or the quickest route back to the trailhead or parking area."
     ],
     "Response": "I see you're enjoying the coastal views, but I noticed rain is expected in about 90 minutes. There's a visitor center with shelter approximately 1.2 miles ahead on your path, or you can return to the parking lot which is 0.8 miles behind you. Would you like directions to either location to avoid getting caught in the rain?",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"get_city_weather\", \"description\": \"Get the weather for a specified city at a given time.\", \"parameters\": {\"city\": \"$RESULT(get_current_gps_coordinates.city)\", \"time\": \"now\"}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"coastal path current location\", \"destination\": [\"visitor center\", \"parking lot\", \"trailhead\"]}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"get_city_weather\", \"description\": \"Get the weather for a specified city at a given time.\", \"parameters\": {\"city\": \"$RESULT(get_current_gps_coordinates.city)\", \"time\": \"now\"}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"coastal path current location\", \"destination\": [\"visitor center\", \"parking lot\", \"trailhead\"]}}]"
   },
   "example-513": {
     "Category": "Outdoors",
@@ -10574,7 +10574,7 @@
       "Use <google_map> to calculate the route and travel time from the current location to La Trattoria restaurant in Millfield."
     ],
     "Response": "I notice you have a dinner reservation at La Trattoria in Millfield at 7:30 PM. It's now 4:45 PM, and from your current location, it will take approximately 1 hour and 15 minutes to reach the restaurant (45 minutes to descend the mountain and 30 minutes to drive to Millfield). You should start heading back within the next hour to arrive on time. Would you like me to show you the quickest route down?",
-    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": {}}, {\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"mountain viewpoint\", \"destination\": \"La Trattoria, Millfield\"}}]"
+    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"mountain viewpoint\", \"destination\": \"La Trattoria, Millfield\"}}]"
   },
   "example-514": {
     "Category": "Outdoors",
@@ -10616,7 +10616,7 @@
       "Use <play_music> to play ambient folk music that complements the evening camping atmosphere"
     ],
     "Response": "I notice you're setting up camp for the evening. Would you like me to play some ambient folk music to enhance your camping experience as the sun sets?",
-    "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": {}}]"
+    "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": \"None\"}]"
   },
   "example-516": {
     "Category": "Outdoors",
@@ -10637,7 +10637,7 @@
       "Use <play_music> to play high-energy workout music to help maintain the user's running pace"
     ],
     "Response": "I see you're 10 minutes into your beach run. Would you like me to play your high-energy workout playlist to help maintain your pace?",
-    "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": {}}]"
+    "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": \"None\"}]"
   },
   "example-517": {
     "Category": "Outdoors",
@@ -10658,7 +10658,7 @@
       "Use <play_music> to play classical music that enhances the user's gardening experience and helps them focus"
     ],
     "Response": "I see you're planting in the garden. Would you like me to play some classical music to accompany your gardening session? I know you enjoy it while tending to your plants.",
-    "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": {}}]"
+    "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": \"None\"}]"
   },
   "example-518": {
     "Category": "Outdoors",
@@ -10679,7 +10679,7 @@
       "Use <play_music> to play instrumental jazz music to enhance the user's creative sketching experience"
     ],
     "Response": "I notice you're sketching the beautiful sunset lake. Would you like me to play some instrumental jazz to complement your creative process?",
-    "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": {}}]"
+    "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": \"None\"}]"
   },
   "example-519": {
     "Category": "Outdoors",
@@ -10701,7 +10701,7 @@
       "Use <query_stock> to check Apple's current stock price"
     ],
     "Response": "I noticed the discussion about Apple. As of today, Apple's stock price is [insert price]. Would you like me to check any other companies visible in the skyline?",
-    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": {}}, {\"name\": \"query_stock\", \"description\": \"This API queries the stock price of a given stock code and date.\", \"parameters\": {\"stock_code\": \"AAPL\", \"date\": \"current_date\"}}]"
+    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"query_stock\", \"description\": \"This API queries the stock price of a given stock code and date.\", \"parameters\": {\"stock_code\": \"AAPL\", \"date\": \"current_date\"}}]"
   },
   "example-520": {
     "Category": "Outdoors",
@@ -10723,7 +10723,7 @@
       "Use <query_stock> to check Tesla's current stock price"
     ],
     "Response": "Impressive view of the Tesla Gigafactory! I thought you might be interested to know that Tesla's current stock price is [insert price]. Would you like to know how this compares to their recent performance?",
-    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": {}}, {\"name\": \"query_stock\", \"description\": \"This API queries the stock price of a given stock code and date.\", \"parameters\": {\"stock_code\": \"TSLA\", \"date\": \"current_date\"}}]"
+    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"query_stock\", \"description\": \"This API queries the stock price of a given stock code and date.\", \"parameters\": {\"stock_code\": \"TSLA\", \"date\": \"current_date\"}}]"
   },
   "example-521": {
     "Category": "Outdoors",
@@ -10745,7 +10745,7 @@
       "Use <query_stock> to check Amazon's current stock price"
     ],
     "Response": "Regarding the Amazon-Whole Foods discussion, Amazon's current stock price is [insert price]. Would you like to know how this compares to when they acquired Whole Foods in 2017?",
-    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": {}}, {\"name\": \"query_stock\", \"description\": \"This API queries the stock price of a given stock code and date.\", \"parameters\": {\"stock_code\": \"AMZN\", \"date\": \"current_date\"}}]"
+    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"query_stock\", \"description\": \"This API queries the stock price of a given stock code and date.\", \"parameters\": {\"stock_code\": \"AMZN\", \"date\": \"current_date\"}}]"
   },
   "example-522": {
     "Category": "Outdoors",
@@ -10917,7 +10917,7 @@
       "Use <wikipedia_search> to retrieve interesting facts about the identified celestial objects"
     ],
     "Response": "You're looking at the constellation Orion with the bright star Betelgeuse at the top left. Betelgeuse is a red supergiant about 700 light-years from Earth. Would you like me to identify other constellations visible tonight?",
-    "Tools": "[{\"name\": \"vllm\", \"description\": \"Visual Large Language Model (VLM) that can answer the user's questions based on the given image.\", \"parameters\": {\"prompt\": \"Identify stars and constellations visible in this night sky image\", \"image_path\": \"\"}}, {\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": {}}, {\"name\": \"wikipedia_search\", \"description\": \"Tool that searches the Wikipedia API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\", \"parameters\": {\"query\": \"Betelgeuse star Orion constellation\"}}]"
+    "Tools": "[{\"name\": \"vllm\", \"description\": \"Visual Large Language Model (VLM) that can answer the user's questions based on the given image.\", \"parameters\": {\"prompt\": \"Identify stars and constellations visible in this night sky image\", \"image_path\": \"\"}}, {\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"wikipedia_search\", \"description\": \"Tool that searches the Wikipedia API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\", \"parameters\": {\"query\": \"Betelgeuse star Orion constellation\"}}]"
   },
   "example-530": {
     "Category": "Outdoors",
@@ -10940,7 +10940,7 @@
       "Use <wikipedia_search> to retrieve information about the identified animal, including behavior and safety considerations"
     ],
     "Response": "Those tracks appear to be from a coyote, which are common in this region. They're typically shy and avoid humans, but it's good to know one is in the area. Would you like to learn more about coyotes or how to distinguish their tracks from other animals?",
-    "Tools": "[{\"name\": \"vllm\", \"description\": \"Visual Large Language Model (VLM) that can answer the user's questions based on the given image.\", \"parameters\": {\"prompt\": \"Identify what animal made these tracks based on paw print pattern and size\", \"image_path\": \"\"}}, {\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"wikipedia_search\", \"description\": \"Tool that searches the Wikipedia API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\", \"parameters\": {\"query\": \"Coyote behavior Pacific Northwest wildlife safety\"}}]"
+    "Tools": "[{\"name\": \"vllm\", \"description\": \"Visual Large Language Model (VLM) that can answer the user's questions based on the given image.\", \"parameters\": {\"prompt\": \"Identify what animal made these tracks based on paw print pattern and size\", \"image_path\": \"\"}}, {\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"wikipedia_search\", \"description\": \"Tool that searches the Wikipedia API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\", \"parameters\": {\"query\": \"Coyote behavior Pacific Northwest wildlife safety\"}}]"
   },
   "example-531": {
     "Category": "Outdoors",
@@ -11078,7 +11078,7 @@
       "Use <book_uber> to arrange transportation from the concert venue to Bayview Resort."
     ],
     "Response": "I notice you're looking for a way back to Bayview Resort. It's nearly midnight and 5.3 miles away. Would you like me to book an Uber for you and your friend? Current wait time is approximately 6 minutes.",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"google_map\", \"description\": \"Get directions and estimated time to a destination.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"Bayview Resort\"}}, {\"name\": \"book_uber\", \"description\": \"Book an Uber ride from the current location to the destination.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"Bayview Resort\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"google_map\", \"description\": \"Get directions and estimated time to a destination.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"Bayview Resort\"}}, {\"name\": \"book_uber\", \"description\": \"Book an Uber ride from the current location to the destination.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"Bayview Resort\"}}]"
   },
   "example-537": {
     "Category": "Leisure",
@@ -11102,7 +11102,7 @@
       "Use <book_uber> to arrange transportation from the gallery to Bella Italia Restaurant."
     ],
     "Response": "The gallery is closing soon, and I see it's raining heavily outside. You have a dinner reservation at Bella Italia at 8:30 PM. Would you like me to book an Uber to get you there on time while staying dry?",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": {}}, {\"name\": \"google_map\", \"description\": \"Get directions and estimated time to a destination.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"Bella Italia Restaurant\"}}, {\"name\": \"book_uber\", \"description\": \"Book an Uber ride from the current location to the destination.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"Bella Italia Restaurant\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"google_map\", \"description\": \"Get directions and estimated time to a destination.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"Bella Italia Restaurant\"}}, {\"name\": \"book_uber\", \"description\": \"Book an Uber ride from the current location to the destination.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"Bella Italia Restaurant\"}}]"
   },
   "example-538": {
     "Category": "Leisure",
@@ -11126,7 +11126,7 @@
       "Use <book_uber> to suggest booking a ride for the user and their friends."
     ],
     "Response": "I noticed your friend mentioned missing the last bus, and it's getting late. Would you like me to book an UberXL that can accommodate your whole group? I can arrange for pickup right outside the theater entrance.",
-    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": {}}, {\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for a specific bus stop.\", \"parameters\": {\"bus_stop\": \"$RESULT(get_current_gps_coordinates.address)\"}}, {\"name\": \"book_uber\", \"description\": \"Book an Uber ride from the current location to the destination.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"Kennedy Town, Hong Kong\"}}]"
+    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for a specific bus stop.\", \"parameters\": {\"bus_stop\": \"$RESULT(get_current_gps_coordinates.address)\"}}, {\"name\": \"book_uber\", \"description\": \"Book an Uber ride from the current location to the destination.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"Kennedy Town, Hong Kong\"}}]"
   },
   "example-539": {
     "Category": "Leisure",
@@ -11148,7 +11148,7 @@
       "Use <book_uber> to arrange transportation home for the user."
     ],
     "Response": "I see you've received a message that your ride can't pick you up, and the park is closing. Would you like me to book an Uber to get you home safely?",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"book_uber\", \"description\": \"Book an Uber ride from the current location to the destination.\", \"parameters\": {\"current_location\": \"Theme park exit\", \"destination\": \"None\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"book_uber\", \"description\": \"Book an Uber ride from the current location to the destination.\", \"parameters\": {\"current_location\": \"Theme park exit\", \"destination\": \"None\"}}]"
   },
   "example-540": {
     "Category": "Leisure",
@@ -11170,7 +11170,7 @@
       "Use <check_agenda_time_conflict> to check if the user has any commitments on Friday evening or during the weekend that would conflict with movie plans."
     ],
     "Response": "I notice you're looking at the trailer for 'Quantum Horizon' opening this Friday. Checking your schedule, you're free Friday evening after 7 PM and have no major commitments on Saturday. Would you like to pre-book tickets while they're still available?",
-    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": {}}, {\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the user's agenda for a given datetime.\", \"parameters\": \"None\"}]"
+    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the user's agenda for a given datetime.\", \"parameters\": \"None\"}]"
   },
   "example-541": {
     "Category": "Leisure",
@@ -11192,7 +11192,7 @@
       "Use <check_agenda_time_conflict> to check if the user has any existing commitments during the festival hours on Saturday."
     ],
     "Response": "I see you're looking at the Spring Festival poster for this Saturday. I checked your schedule and you have a doctor's appointment at 10 AM, but you're free after 11:30 AM for the rest of the day. Would you like me to add this festival to your calendar?",
-    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": {}}, {\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the user's agenda for a given datetime.\", \"parameters\": \"None\"}]"
+    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the user's agenda for a given datetime.\", \"parameters\": \"None\"}]"
   },
   "example-542": {
     "Category": "Leisure",
@@ -11214,7 +11214,7 @@
       "Use <check_agenda_time_conflict> to check if the user has any appointments or commitments on Thursday afternoon/evening."
     ],
     "Response": "I see you're interested in J.K. Morgan's book signing this Thursday at 6 PM. I've checked your schedule and you have a work meeting until 5 PM that day, but nothing after. You should be able to make it to the signing, though it might be cutting it close if you want to arrive early as suggested. Would you like me to add this event to your calendar?",
-    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": {}}, {\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the user's agenda for a given datetime.\", \"parameters\": \"None\"}]"
+    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the user's agenda for a given datetime.\", \"parameters\": \"None\"}]"
   },
   "example-543": {
     "Category": "Leisure",
@@ -11237,7 +11237,7 @@
       "Use <check_bus_schedule> to check departure times for buses from the theme park's bus depot"
     ],
     "Response": "I see you're looking at the bus depot location. The last bus leaving the theme park tonight departs at 8:30 PM, giving you about an hour before you need to be at the depot. You should have time for one more ride if you choose something close to the exit.",
-    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time\", \"parameters\": {}}, {\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": {}}, {\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for a specific bus stop.\", \"parameters\": {\"bus_stop\": \"Theme Park Bus Depot\"}}]"
+    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time\", \"parameters\": \"None\"}, {\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}, {\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for a specific bus stop.\", \"parameters\": {\"bus_stop\": \"Theme Park Bus Depot\"}}]"
   },
   "example-544": {
     "Category": "Leisure",
@@ -11259,7 +11259,7 @@
       "Use <check_bus_schedule> to check the remaining Oceanside Shuttle departures for the evening"
     ],
     "Response": "I notice you're approaching the Oceanside Shuttle stop. With the thunderstorm warning starting at 8:00 PM, you should know the last shuttle departs at 7:45 PM tonight. Would you like me to set a reminder for the 7:45 PM shuttle to ensure you're back before the storm?",
-    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time\", \"parameters\": {}}, {\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for a specific bus stop.\", \"parameters\": {\"bus_stop\": \"Oceanside Shuttle\"}}]"
+    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time\", \"parameters\": \"None\"}, {\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for a specific bus stop.\", \"parameters\": {\"bus_stop\": \"Oceanside Shuttle\"}}]"
   },
   "example-545": {
     "Category": "Leisure",
@@ -11349,7 +11349,7 @@
       "Use <google_map> to find directions to Sunset Ridge Waterfall from the user's current position."
     ],
     "Response": "I notice you may be uncertain about the path to the waterfall. Based on your current location, you should take the left fork to reach Sunset Ridge Waterfall. It's approximately 1.2 miles ahead on that path.",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"Sunset Ridge Waterfall\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"Sunset Ridge Waterfall\"}}]"
   },
   "example-549": {
     "Category": "Leisure",
@@ -11472,7 +11472,7 @@
       "Use <play_music> to play a calming, meditative playlist suitable for yoga practice."
     ],
     "Response": "I see you're getting ready for your yoga session. Would you like me to play some calming, meditative music to enhance your practice?",
-    "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": {}}]"
+    "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": \"None\"}]"
   },
   "example-555": {
     "Category": "Leisure",
@@ -11716,7 +11716,7 @@
       "Use <book_uber> to offer a ride to the restaurant to ensure timely arrival for the reservation."
     ],
     "Response": "It's now 6:45 PM and traffic looks heavy. To make your 7:30 PM reservation at Italian Garden Restaurant, would you like me to book an Uber? The estimated travel time is 25 minutes with current traffic conditions.",
-    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": {}}, {\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"Mong Kok's Italian Garden Restaurant\"}}, {\"name\": \"book_uber\", \"description\": \"Book an Uber ride from the current location to the destination.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"Mong Kok's Italian Garden Restaurant\"}}]"
+    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"Mong Kok's Italian Garden Restaurant\"}}, {\"name\": \"book_uber\", \"description\": \"Book an Uber ride from the current location to the destination.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"Mong Kok's Italian Garden Restaurant\"}}]"
   },
   "example-566": {
     "Category": "Shopping",
@@ -11892,7 +11892,7 @@
       "Use <play_music> to play classical music at a low volume to enhance the user's book browsing experience."
     ],
     "Response": "I notice you're browsing books. Would you like me to play some classical music in your earbuds at a low volume to enhance your shopping experience?",
-    "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": {}}]"
+    "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": \"None\"}]"
   },
   "example-574": {
     "Category": "Shopping",
@@ -12006,7 +12006,7 @@
       "Use <book_uber> to arrange reliable transportation to the airport."
     ],
     "Response": "I notice you're waiting for a taxi in this heavy rain, and you have a flight at 2:45 PM. Traffic to the airport is moderate with a 45-minute estimated travel time. Would you like me to book an Uber to ensure you arrive with plenty of time for check-in?",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": {}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"airport Terminal B\"}}, {\"name\": \"book_uber\", \"description\": \"Book an Uber ride from the current location to the destination.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"airport Terminal B\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"airport Terminal B\"}}, {\"name\": \"book_uber\", \"description\": \"Book an Uber ride from the current location to the destination.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"airport Terminal B\"}}]"
   },
   "example-579": {
     "Category": "Travel",
@@ -12031,7 +12031,7 @@
       "Use <book_uber> to arrange reliable transportation to the medical appointment."
     ],
     "Response": "I notice you're at a bus stop with reduced service and no schedule information. Your doctor's appointment at City Medical Center is at 1:30 PM, which is in about 85 minutes. Would you like me to book an Uber to ensure you arrive on time for your appointment?",
-    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": {}}, {\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"City Medical Center\"}}, {\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for a specific bus stop.\", \"parameters\": {\"bus_stop\": \"$RESULT(get_current_gps_coordinates.address)\"}}, {\"name\": \"book_uber\", \"description\": \"Book an Uber ride from the current location to the destination.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"City Medical Center\"}}]"
+    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"City Medical Center\"}}, {\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for a specific bus stop.\", \"parameters\": {\"bus_stop\": \"$RESULT(get_current_gps_coordinates.address)\"}}, {\"name\": \"book_uber\", \"description\": \"Book an Uber ride from the current location to the destination.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"City Medical Center\"}}]"
   },
   "example-580": {
     "Category": "Travel",
@@ -12077,7 +12077,7 @@
       "Use <book_uber> to arrange immediate transportation if needed."
     ],
     "Response": "I notice your train might be delayed and you have a meeting at Millennium Tower at 10:30 AM. Based on current traffic, an Uber would get you there in 22 minutes. Would you like me to book one to ensure you arrive on time?",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": {}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"Millennium Tower\"}}, {\"name\": \"book_uber\", \"description\": \"Book an Uber ride from the current location to the destination.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"Millennium Tower\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"Millennium Tower\"}}, {\"name\": \"book_uber\", \"description\": \"Book an Uber ride from the current location to the destination.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"Millennium Tower\"}}]"
   },
   "example-582": {
     "Category": "Travel",
@@ -12101,7 +12101,7 @@
       "Use <google_map> to plot a walking route from their current location to the restaurant."
     ],
     "Response": "I notice you might be looking for directions. You have a reservation at Sushi Matsumoto at 7:00 PM, which is about 1.2 kilometers from your current location. Would you like me to display walking directions? It should take about 15 minutes to get there.",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": {}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"Sushi Matsumoto restaurant address Japan\"}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"Sushi Matsumoto restaurant\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"Sushi Matsumoto restaurant address Japan\"}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"Sushi Matsumoto restaurant\"}}]"
   },
   "example-583": {
     "Category": "Travel",
@@ -12182,7 +12182,7 @@
       "If the bus is delayed, use <book_uber> to book an alternative transportation to the business center."
     ],
     "Response": "The next bus to the business center is running late. Would you like me to book an Uber to ensure you reach your interview on time?",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": {}}, {\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for a specific bus stop.\", \"parameters\": {\"bus_stop\": \"$RESULT(get_current_gps_coordinates.address)\"}}, {\"name\": \"book_uber\", \"description\": \"Book an Uber from the current location to the destination.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"business center\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for a specific bus stop.\", \"parameters\": {\"bus_stop\": \"$RESULT(get_current_gps_coordinates.address)\"}}, {\"name\": \"book_uber\", \"description\": \"Book an Uber from the current location to the destination.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"business center\"}}]"
   },
   "example-587": {
     "Category": "Work",
@@ -13364,7 +13364,7 @@
       "Use <add_to_agenda> to add the meeting to the user's calendar"
     ],
     "Response": "I notice you've received a meeting request from Sarah about the Q2 campaign launch. Would you like me to schedule a 30-minute meeting for next Tuesday at 2pm with the marketing team? I can add 'Q2 Campaign Discussion' to your calendar right away.",
-    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": {}}, {\"name\": \"add_meeting\", \"description\": \"This API allows users to make a reservation for a meeting and store the meeting information (e.g., topic, time, location, attendees) in the database.\", \"parameters\": {\"meeting_topic\": \"Q2 Campaign Discussion with Marketing\", \"start_time\": \"2025-05-06 14:00:00\", \"meeting_location\": \"Conference Room B\"}}, {\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the user's agenda for a given datetime and return all events as a summarized string.\", \"parameters\": \"None\"}, {\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda.\", \"parameters\": {\"event\": \"Q2 Campaign Discussion with Marketing\", \"time\": \"2025-05-06 14:00:00\"}}]"
+    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"add_meeting\", \"description\": \"This API allows users to make a reservation for a meeting and store the meeting information (e.g., topic, time, location, attendees) in the database.\", \"parameters\": {\"meeting_topic\": \"Q2 Campaign Discussion with Marketing\", \"start_time\": \"2025-05-06 14:00:00\", \"meeting_location\": \"Conference Room B\"}}, {\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the user's agenda for a given datetime and return all events as a summarized string.\", \"parameters\": \"None\"}, {\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda.\", \"parameters\": {\"event\": \"Q2 Campaign Discussion with Marketing\", \"time\": \"2025-05-06 14:00:00\"}}]"
   },
   "example-648": {
     "Category": "Others",
@@ -13388,7 +13388,7 @@
       "Use <add_to_agenda> to add the meeting to the user's calendar"
     ],
     "Response": "I see your team wants to discuss the customer survey results. Since everyone seems available Thursday afternoon, would you like me to schedule a meeting at 2pm on Thursday titled 'Customer Survey Results Discussion' and invite Dave, Lisa, and Alex?",
-    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": {}}, {\"name\": \"add_meeting\", \"description\": \"This API allows users to make a reservation for a meeting and store the meeting information (e.g., topic, time, location, attendees) in the database.\", \"parameters\": {\"meeting_topic\": \"Customer Survey Results Discussion\", \"start_time\": \"2025-05-01 14:00:00\", \"meeting_location\": \"Conference Room A\"}}, {\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the user's agenda for a given datetime and return all events as a summarized string.\", \"parameters\": \"None\"}, {\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda.\", \"parameters\": {\"event\": \"Customer Survey Results Discussion\", \"time\": \"2025-05-01 14:00:00\"}}]"
+    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"add_meeting\", \"description\": \"This API allows users to make a reservation for a meeting and store the meeting information (e.g., topic, time, location, attendees) in the database.\", \"parameters\": {\"meeting_topic\": \"Customer Survey Results Discussion\", \"start_time\": \"2025-05-01 14:00:00\", \"meeting_location\": \"Conference Room A\"}}, {\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the user's agenda for a given datetime and return all events as a summarized string.\", \"parameters\": \"None\"}, {\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda.\", \"parameters\": {\"event\": \"Customer Survey Results Discussion\", \"time\": \"2025-05-01 14:00:00\"}}]"
   },
   "example-649": {
     "Category": "Others",
@@ -13412,7 +13412,7 @@
       "Use <add_to_agenda> to add the meeting to the user's calendar"
     ],
     "Response": "I see you need to schedule a team retrospective by Friday. Would you like me to add a team retrospective meeting to your calendar for Friday, April 28th at 2pm? Your calendar shows you're free at that time.",
-    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": {}}, {\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the user's agenda for a given datetime and return all events as a summarized string.\", \"parameters\": \"None\"}, {\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda.\", \"parameters\": {\"event\": \"Team Retrospective\", \"time\": \"2025-04-28 14:00:00\"}}, {\"name\": \"add_meeting\", \"description\": \"This API allows users to make a reservation for a meeting and store the meeting information (e.g., topic, time, location, attendees) in the database.\", \"parameters\": {\"meeting_topic\": \"Team Retrospective\", \"start_time\": \"2025-04-28 14:00:00\", \"meeting_location\": \"Conference Room C\"}}]"
+    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the user's agenda for a given datetime and return all events as a summarized string.\", \"parameters\": \"None\"}, {\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda.\", \"parameters\": {\"event\": \"Team Retrospective\", \"time\": \"2025-04-28 14:00:00\"}}, {\"name\": \"add_meeting\", \"description\": \"This API allows users to make a reservation for a meeting and store the meeting information (e.g., topic, time, location, attendees) in the database.\", \"parameters\": {\"meeting_topic\": \"Team Retrospective\", \"start_time\": \"2025-04-28 14:00:00\", \"meeting_location\": \"Conference Room C\"}}]"
   },
   "example-650": {
     "Category": "Others",
@@ -13436,7 +13436,7 @@
       "Use <add_to_agenda> to add the meeting to the user's calendar"
     ],
     "Response": "I notice you're reviewing the product launch memo. The final review meeting needs to happen two weeks before the May 15th launch, and I see your team will be at a conference May 5-7. Would you like me to schedule the final review meeting for Thursday, May 1st at 10am to ensure everyone can attend?",
-    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": {}}, {\"name\": \"add_meeting\", \"description\": \"This API allows users to make a reservation for a meeting and store the meeting information (e.g., topic, time, location, attendees) in the database.\", \"parameters\": {\"meeting_topic\": \"Final Product Launch Review\", \"start_time\": \"2025-05-01 10:00:00\", \"meeting_location\": \"Main Conference Room\"}}, {\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the user's agenda for a given datetime and return all events as a summarized string.\", \"parameters\": \"None\"}, {\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda.\", \"parameters\": {\"event\": \"Final Product Launch Review\", \"time\": \"2025-05-01 10:00:00\"}}]"
+    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"add_meeting\", \"description\": \"This API allows users to make a reservation for a meeting and store the meeting information (e.g., topic, time, location, attendees) in the database.\", \"parameters\": {\"meeting_topic\": \"Final Product Launch Review\", \"start_time\": \"2025-05-01 10:00:00\", \"meeting_location\": \"Main Conference Room\"}}, {\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the user's agenda for a given datetime and return all events as a summarized string.\", \"parameters\": \"None\"}, {\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda.\", \"parameters\": {\"event\": \"Final Product Launch Review\", \"time\": \"2025-05-01 10:00:00\"}}]"
   },
   "example-651": {
     "Category": "Others",
@@ -13675,7 +13675,7 @@
       "Use <play_music> to play ambient nature sounds or meditation music to enhance the user's yoga practice."
     ],
     "Response": "I see you're setting up for yoga. Would you like me to play your ambient nature sounds playlist to help create a peaceful atmosphere for your practice?",
-    "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": {}}]"
+    "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": \"None\"}]"
   },
   "example-662": {
     "Category": "Others",
@@ -13871,7 +13871,7 @@
       "Use <google_map> to find nearby bicycle repair shops that are currently open"
     ],
     "Response": "I notice your bike has a flat tire with what looks like damage to both the tire and inner tube. With your cycling meetup tomorrow morning, you'll need to get this fixed soon. Would you like me to locate the nearest open bike shops? Based on the damage, you'll need both a new inner tube and possibly a new tire.",
-    "Tools": "[{\"name\": \"vllm\", \"description\": \"Visual Large Language Model (VLM) that can answer the user's questions based on the given image.\", \"parameters\": {\"prompt\": \"Assess the damage to this bicycle tire and determine if it needs professional repair or can be fixed at home\", \"image_path\": \"\"}}, {\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"bicycle repair shop near me open now\"}}]"
+    "Tools": "[{\"name\": \"vllm\", \"description\": \"Visual Large Language Model (VLM) that can answer the user's questions based on the given image.\", \"parameters\": {\"prompt\": \"Assess the damage to this bicycle tire and determine if it needs professional repair or can be fixed at home\", \"image_path\": \"\"}}, {\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"bicycle repair shop near me open now\"}}]"
   },
   "example-671": {
     "Category": "Others",
@@ -14034,7 +14034,7 @@
       "Use <add_to_agenda> to add the annual hiking trip to Mount Rainier on the 15th of next month."
     ],
     "Response": "I've added your annual hiking trip to Mount Rainier on the 15th to your calendar. I also noticed you have no conflicts that day. Would you like me to set a reminder for gear preparation a week before?",
-    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": {}}, {\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the user's agenda for a given datetime.\", \"parameters\": \"None\"}, {\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda.\", \"parameters\": {\"event\": \"Annual hiking trip to Mount Rainier\", \"time\": \"15th of next month\"}}]"
+    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the user's agenda for a given datetime.\", \"parameters\": \"None\"}, {\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda.\", \"parameters\": {\"event\": \"Annual hiking trip to Mount Rainier\", \"time\": \"15th of next month\"}}]"
   },
   "example-679": {
     "Category": "Chitchat",
@@ -14078,7 +14078,7 @@
       "Use <book_uber> to arrange immediate transportation to the friend's home."
     ],
     "Response": "I notice your friend isn't feeling well. Would you like me to book an Uber to take you both home from Skyline Nightclub?",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": {}}, {\"name\": \"book_uber\", \"description\": \"Book an Uber ride from the current location to the destination\", \"parameters\": {\"current_location\": \"Skyline Nightclub\", \"destination\": \"Friend's home address\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}, {\"name\": \"book_uber\", \"description\": \"Book an Uber ride from the current location to the destination\", \"parameters\": {\"current_location\": \"Skyline Nightclub\", \"destination\": \"Friend's home address\"}}]"
   },
   "example-681": {
     "Category": "Chitchat",
@@ -14123,7 +14123,7 @@
       "Use <google_search> to find release information for 'Stellar Voyages' new season"
     ],
     "Response": "Today is April 25th, which is mid-spring. According to the latest information, the new season of 'Stellar Voyages' is scheduled to premiere on May 12th, just over two weeks from now. Would you like me to set a reminder for the premiere?",
-    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time\", \"parameters\": {}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page\", \"parameters\": {\"query\": \"Stellar Voyages new season release date spring\"}}]"
+    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time\", \"parameters\": \"None\"}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page\", \"parameters\": {\"query\": \"Stellar Voyages new season release date spring\"}}]"
   },
   "example-683": {
     "Category": "Chitchat",
@@ -14145,7 +14145,7 @@
       "Use <google_search> to find information about famous authors associated with this area."
     ],
     "Response": "I noticed you're discussing local history. Based on your location, author Ernest Hemingway lived in the blue building across the street from 1921-1923. Would you like me to share more historical facts about this neighborhood?",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"Famous authors who lived in [current location]\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"Famous authors who lived in [current location]\"}}]"
   },
   "example-684": {
     "Category": "Chitchat",
@@ -14168,7 +14168,7 @@
       "Use <google_map> to provide directions to the coffee shop from the user's current location."
     ],
     "Response": "I noticed you're looking for that new coffee shop. 'Artisan Brew' opened two weeks ago just two blocks east from where you are now. They're known for their Ethiopian espresso blend. Would you like directions?",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"new coffee shop opened recently downtown [location based on coordinates]\"}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"Artisan Brew coffee shop\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"new coffee shop opened recently downtown [location based on coordinates]\"}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"Artisan Brew coffee shop\"}}]"
   },
   "example-685": {
     "Category": "Chitchat",
@@ -14190,7 +14190,7 @@
       "Use <google_search> to find historical information about the neighborhood and the church visible in the user's view."
     ],
     "Response": "I noticed you're interested in this area's history. You're in the Gothic Quarter of Barcelona, and the church you're looking at is the Barcelona Cathedral, constructed between the 13th and 15th centuries. This neighborhood dates back to Roman times. Would you like me to share more about its architectural significance or other nearby historical sites?",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"google_search\", \"description\": \"Tool that searches the Wikipedia API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\", \"parameters\": {\"query\": \"History of [location based on coordinates] and nearby church\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"google_search\", \"description\": \"Tool that searches the Wikipedia API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\", \"parameters\": {\"query\": \"History of [location based on coordinates] and nearby church\"}}]"
   },
   "example-686": {
     "Category": "Chitchat",
@@ -14233,7 +14233,7 @@
       "Use <google_map> to find the walking distance and estimated time to the music festival venue."
     ],
     "Response": "The music festival venue is about 1.2 miles away, which would take approximately 25 minutes to walk. If you'd prefer not to walk, there's a bus that can get you there in 10 minutes, or a 5-minute taxi ride.",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"music festival venue\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"music festival venue\"}}]"
   },
   "example-688": {
     "Category": "Chitchat",
@@ -14255,7 +14255,7 @@
       "Use <google_map> to calculate the distance and travel time to Riverside Park."
     ],
     "Response": "Riverside Park is about 1.5 miles from this farmers market, which would take approximately 30 minutes to walk or 10 minutes by car. The food festival runs until 7 PM today, so you have plenty of time to finish shopping here first.",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"farmers market\", \"destination\": \"Riverside Park\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"farmers market\", \"destination\": \"Riverside Park\"}}]"
   },
   "example-689": {
     "Category": "Chitchat",
@@ -14913,7 +14913,7 @@
       "Use <check_agenda_time_conflict> to check if there is a conflict"
     ],
     "Response": "I notice you're considering a movie, and you have a dinner reservation at La Trattoria at 8:30 PM. The sci-fi film you're discussing is 2 hours long with showings at 4:15 PM and 6:30 PM. The 4:15 PM showing would end at 6:15 PM, giving you plenty of time to reach your dinner reservation. The 6:30 PM showing would end at 8:30 PM, exactly when your reservation starts, and it's a 15-minute drive to the restaurant. Would you prefer the earlier showing to ensure you're not rushed?",
-    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": {}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"sci-fi movie showtimes and duration at [theater name]\"}}, {\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the user's agenda for a given datetime.\", \"parameters\": \"None\"}]"
+    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"sci-fi movie showtimes and duration at [theater name]\"}}, {\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the user's agenda for a given datetime.\", \"parameters\": \"None\"}]"
   },
   "example-722": {
     "Category": "Leisure",
@@ -14938,7 +14938,7 @@
       "Use <google_map> to check the distance and estimated time for each trail"
     ],
     "Response": "I notice you're planning a hike, but there's a weather alert for thunderstorms in this area after 3:00 PM. It's currently 11:30 AM, which gives you about 3.5 hours of safe hiking time. Based on the trail map, I'd recommend the Cedar Ridge Loop (4.2 miles, approximately 2 hours) or Sunview Trail (3.5 miles, approximately 1.5 hours), which would allow you to complete your hike safely before the storms arrive. Would you like more details about either of these trails?",
-    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": {}}, {\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"get_city_weather\", \"description\": \"Get the weather for a specified city at a given time.\", \"parameters\": {\"city\": \"$RESULT(get_current_gps_coordinates.city)\", \"time\": \"now\"}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"$RESULT(get_current_gps_coordinates.city)\"}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"hiking trail entrance\", \"destination\": \"Cedar Ridge Loop or Sunview Trail\"}}]"
+    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"get_city_weather\", \"description\": \"Get the weather for a specified city at a given time.\", \"parameters\": {\"city\": \"$RESULT(get_current_gps_coordinates.city)\", \"time\": \"now\"}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"$RESULT(get_current_gps_coordinates.city)\"}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"hiking trail entrance\", \"destination\": \"Cedar Ridge Loop or Sunview Trail\"}}]"
   },
   "example-723": {
     "Category": "Leisure",
@@ -14963,7 +14963,7 @@
       "Use <google_search> to find information about The Resonant Echoes and venue details"
     ],
     "Response": "I see you've arrived early for The Resonant Echoes concert - doors don't open until 7:00 PM, which is about an hour from now. Would you like me to find nearby cafes or restaurants where you could grab a bite while waiting? Also, I've noted that you're parked in Block C Level 2 of the parking garage, which I can remind you of when the concert ends.",
-    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": {}}, {\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"concert venue\", \"destination\": \"nearby restaurants and cafes\"}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"The Resonant Echoes concert venue information\"}}]"
+    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"concert venue\", \"destination\": \"nearby restaurants and cafes\"}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"The Resonant Echoes concert venue information\"}}]"
   },
   "example-724": {
     "Category": "Others",
@@ -15081,7 +15081,7 @@
       "Use <google_search> to identify the meaning of the specific engine warning light and recommended actions"
     ],
     "Response": "I notice your fuel is running very low and there's an engine warning light on. The nearest gas station is 1.2 miles ahead on Main Street. After refueling, you may want to check the engine warning light - it typically indicates the engine should be inspected soon. Would you like me to find the closest mechanic as well?",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"nearest gas station\"}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"amber engine warning light meaning and recommended actions\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"nearest gas station\"}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"amber engine warning light meaning and recommended actions\"}}]"
   },
   "example-730": {
     "Category": "Outdoors",
@@ -15294,7 +15294,7 @@
       "Use <google_map> to find the quickest route back to the trailhead"
     ],
     "Response": "I notice the sky is darkening and there's talk of thunderstorms. The weather forecast shows severe thunderstorms approaching your area within the next 30 minutes. For safety, I recommend heading back now. Would you like me to suggest the quickest route to the trailhead?",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"get_city_weather\", \"description\": \"Get the weather for a specified city at a given time.\", \"parameters\": {\"city\": \"$RESULT(get_current_gps_coordinates.city)\", \"time\": \"now\"}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"trailhead\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"get_city_weather\", \"description\": \"Get the weather for a specified city at a given time.\", \"parameters\": {\"city\": \"$RESULT(get_current_gps_coordinates.city)\", \"time\": \"now\"}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"trailhead\"}}]"
   },
   "example-741": {
     "Category": "Outdoors",
@@ -15316,7 +15316,7 @@
       "Use <wikipedia_search> to retrieve information about the specific mountains."
     ],
     "Response": "This view showcases the Appalachian Mountains, one of the oldest mountain ranges in the world at approximately 480 million years old. From this overlook, you're seeing peaks that reach up to 6,684 feet. The unique blue haze that gives these mountains their name comes from hydrocarbons released by the dense forests. Would you like me to capture this beautiful sunset for you?",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"wikipedia_search\", \"description\": \"Tool that searches the Wikipedia API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\", \"parameters\": {\"query\": \"use current location\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"wikipedia_search\", \"description\": \"Tool that searches the Wikipedia API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\", \"parameters\": {\"query\": \"use current location\"}}]"
   },
   "example-742": {
     "Category": "Outdoors",
@@ -15340,7 +15340,7 @@
       "Use <check_bus_schedule> to identify which bus route goes to the Central Museum"
     ],
     "Response": "I noticed you might be interested in visiting the Central Museum, which closes at 5 PM today. It's currently 2:30 PM. Bus #47 from the stop across the street will take you directly there in about 15 minutes. Bus #42 that's approaching now goes to the downtown area but not to the museum. Would you like directions to the correct bus stop?",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": {}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"Central Museum\"}}, {\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for a specific bus stop.\", \"parameters\": {\"bus_stop\": \"$RESULT(get_current_gps_coordinates.address)\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"Central Museum\"}}, {\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for a specific bus stop.\", \"parameters\": {\"bus_stop\": \"$RESULT(get_current_gps_coordinates.address)\"}}]"
   },
   "example-743": {
     "Category": "Outdoors",
@@ -15362,7 +15362,7 @@
       "Use <google_map> to identify nearby shelters or indoor locations"
     ],
     "Response": "Warning: A thunderstorm is approaching and will reach this area soon. The National Weather Service has issued a thunderstorm warning effective from 2:00 PM to 5:00 PM. For your safety, I recommend packing up immediately. There's a shopping center with indoor facilities approximately 0.4 miles from here. Would you like directions to get there safely?",
-    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": {}}, {\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"get_city_weather\", \"description\": \"Get the weather for a specified city at a given time.\", \"parameters\": {\"city\": \"$RESULT(get_current_gps_coordinates.city)\", \"time\": \"now\"}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"shelter\"}}]"
+    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"get_city_weather\", \"description\": \"Get the weather for a specified city at a given time.\", \"parameters\": {\"city\": \"$RESULT(get_current_gps_coordinates.city)\", \"time\": \"now\"}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"shelter\"}}]"
   },
   "example-744": {
     "Category": "Chitchat",
@@ -15386,7 +15386,7 @@
       "Use <wikipedia_search> to find information about the identified building"
     ],
     "Response": "That appears to be the Meridian Tower, completed in 2008. It's the city's tallest building at 352 feet and houses offices, a restaurant on the 27th floor, and an observation deck. It's known for its distinctive spire that's illuminated at night with changing colors for different occasions.",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"tall building in use current location\"}}, {\"name\": \"vllm\", \"description\": \"Visual Large Language Model (VLM) that can answer the user's questions based on the given image.\", \"parameters\": {\"prompt\": \"What is the tall building with the spire in this skyline?\", \"image_path\": \"\"}}, {\"name\": \"wikipedia_search\", \"description\": \"Tool that searches the Wikipedia API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\", \"parameters\": {\"query\": \"tall building in use current location\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"tall building in use current location\"}}, {\"name\": \"vllm\", \"description\": \"Visual Large Language Model (VLM) that can answer the user's questions based on the given image.\", \"parameters\": {\"prompt\": \"What is the tall building with the spire in this skyline?\", \"image_path\": \"\"}}, {\"name\": \"wikipedia_search\", \"description\": \"Tool that searches the Wikipedia API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\", \"parameters\": {\"query\": \"tall building in use current location\"}}]"
   },
   "example-745": {
     "Category": "Chitchat",
@@ -15433,7 +15433,7 @@
       "Use <add_to_agenda> to set a reminder for ticket sales on Friday"
     ],
     "Response": "I noticed you're planning to get Lumineers tickets with your friends. Would you like me to set a reminder for this Friday at 10 AM when tickets go on sale? I can also add the concert date to your calendar for next Sunday.",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}},{\"name\": \"get_city_weather\", \"description\": \"Get the weather for a specified city at a given time.\", \"parameters\": {\"city\": \"$RESULT(get_current_gps_coordinates.city)\", \"time\": \"next Sunday\"}}, {\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there are any time conflicts in the user's agenda.\", \"parameters\": \"None\"}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"The Lumineers River Park concert ticket prices\"}}, {\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda.\", \"parameters\": {\"event\": \"Lumineers tickets go on sale\", \"time\": \"Friday 10 AM\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"},{\"name\": \"get_city_weather\", \"description\": \"Get the weather for a specified city at a given time.\", \"parameters\": {\"city\": \"$RESULT(get_current_gps_coordinates.city)\", \"time\": \"next Sunday\"}}, {\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there are any time conflicts in the user's agenda.\", \"parameters\": \"None\"}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"The Lumineers River Park concert ticket prices\"}}, {\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda.\", \"parameters\": {\"event\": \"Lumineers tickets go on sale\", \"time\": \"Friday 10 AM\"}}]"
   },
   "example-747": {
     "Category": "Chitchat",
@@ -15455,7 +15455,7 @@
       "Use <get_city_weather> to provide accurate weather information if the user requests it."
     ],
     "Response": "None",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}},{\"name\": \"get_city_weather\", \"description\": \"Get the weather for a specified city at a given time.\", \"parameters\": {\"city\": \"$RESULT(get_current_gps_coordinates.city)\", \"time\": \"now\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"},{\"name\": \"get_city_weather\", \"description\": \"Get the weather for a specified city at a given time.\", \"parameters\": {\"city\": \"$RESULT(get_current_gps_coordinates.city)\", \"time\": \"now\"}}]"
   },
   "example-748": {
     "Category": "Chitchat",
@@ -15747,7 +15747,7 @@
       "Use <set_timer> to suggest alarm settings accounting for jet lag and preparation time"
     ],
     "Response": "Welcome to Singapore! For your check-in, your 3-night reservation is confirmed. Your meeting tomorrow at Marina Bay Financial Centre is about 15 minutes by taxi from here. Would you like me to set a wake-up alarm for 7:00 AM to give you enough time to prepare and travel? I can also show you the best route to your meeting location.",
-    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": {}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"Grand Hyatt Singapore\", \"destination\": \"Marina Bay Financial Centre\"}}, {\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the user's agenda for a given datetime.\", \"parameters\": \"None\"}, {\"name\": \"set_timer\", \"description\": \"Set a timer for a specific duration.\", \"parameters\": {\"duration\": \"7:00 AM tomorrow\"}}]"
+    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"Grand Hyatt Singapore\", \"destination\": \"Marina Bay Financial Centre\"}}, {\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the user's agenda for a given datetime.\", \"parameters\": \"None\"}, {\"name\": \"set_timer\", \"description\": \"Set a timer for a specific duration.\", \"parameters\": {\"duration\": \"7:00 AM tomorrow\"}}]"
   },
   "example-762": {
     "Category": "Travel",
@@ -15845,7 +15845,7 @@
       "Use <google_search> to find more information about local attractions if requested"
     ],
     "Response": "I see you're looking at local attractions. If you'd like recommendations or more details about any specific place, just let me know.",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"top-rated attractions in [location]\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"top-rated attractions in [location]\"}}]"
   },
   "example-767": {
     "Category": "Work",
@@ -17008,7 +17008,7 @@
       "Use <wikipedia_search> to gather information about popular museums and cultural sites nearby"
     ],
     "Response": "I notice you have an outdoor walking tour scheduled for 2:00 PM today, but there are flash flood warnings in effect until 8 PM with heavy rain and strong winds. For your safety, you might want to reschedule. I've found several highly-rated indoor alternatives nearby: the City Art Museum has a special exhibition today, the Natural History Center is open until 6 PM, and there's an indoor food market within walking distance of your hotel. Would you like details on any of these options?",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the user's current GPS coordinates.\", \"parameters\": {}}, {\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": {}}, {\"name\": \"get_city_weather\", \"description\": \"Get the weather for a specified city at a given time.\", \"parameters\": {\"city\": \"$RESULT(get_current_gps_coordinates.city)\", \"time\": \"today\"}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"indoor attractions and activities in current city during rain\"}}, {\"name\": \"wikipedia_search\", \"description\": \"Tool that searches the Wikipedia API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\", \"parameters\": {\"query\": \"museums and cultural sites in current city\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the user's current GPS coordinates.\", \"parameters\": \"None\"}, {\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"get_city_weather\", \"description\": \"Get the weather for a specified city at a given time.\", \"parameters\": {\"city\": \"$RESULT(get_current_gps_coordinates.city)\", \"time\": \"today\"}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"indoor attractions and activities in current city during rain\"}}, {\"name\": \"wikipedia_search\", \"description\": \"Tool that searches the Wikipedia API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\", \"parameters\": {\"query\": \"museums and cultural sites in current city\"}}]"
   },
   "example-826": {
     "Category": "Travel",
@@ -17032,7 +17032,7 @@
       "Use <google_map> to locate airport lounges, restaurants, and other amenities near the user's gate"
     ],
     "Response": "I notice your United flight to Chicago has been delayed by 2 hours until 3:45 PM. I've found three alternative flights departing within the next hour with available seats. This delay will overlap with your 4:30 PM meeting with Westfield Partners. Would you like me to show you the alternative flight options, help reschedule your meeting, or locate nearby airport lounges where you can work comfortably during the delay?",
-    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": {}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"alternative flights to Chicago O'Hare today\"}}, {\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the user's agenda for a given datetime.\", \"parameters\": \"None\"}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"current terminal gate\", \"destination\": \"airport lounges and restaurants\"}}]"
+    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"alternative flights to Chicago O'Hare today\"}}, {\"name\": \"check_agenda_time_conflict\", \"description\": \"Check if there is a time conflict in the user's agenda for a given datetime.\", \"parameters\": \"None\"}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"current terminal gate\", \"destination\": \"airport lounges and restaurants\"}}]"
   },
   "example-827": {
     "Category": "Travel",
@@ -17146,7 +17146,7 @@
       "Use <google_search> to find safety protocols for lightning at beaches"
     ],
     "Response": "Warning: I've detected an approaching thunderstorm with lightning. According to safety guidelines, water and beaches should be evacuated immediately when lightning is visible. The nearest shelter is 0.3 miles inland at the beach pavilion. Would you like directions?",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"get_city_weather\", \"description\": \"Get the weather for a specified city at a given time.\", \"parameters\": {\"city\": \"$RESULT(get_current_gps_coordinates.city)\", \"time\": \"now\"}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"lightning safety protocol beach evacuation\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"get_city_weather\", \"description\": \"Get the weather for a specified city at a given time.\", \"parameters\": {\"city\": \"$RESULT(get_current_gps_coordinates.city)\", \"time\": \"now\"}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"lightning safety protocol beach evacuation\"}}]"
   },
   "example-832": {
     "Category": "Outdoors",
@@ -17169,7 +17169,7 @@
       "Use <google_map> to identify the quickest route to safety or shelter"
     ],
     "Response": "I notice there's a storm approaching. Current weather radar confirms severe conditions within the next hour. The nearest shelter is 1.2 miles ahead, or you can take the east trail (left at the next fork) to return to the trailhead in about 45 minutes. Would you like directions to either location?",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"get_city_weather\", \"description\": \"Get the weather for a specified city at a given time.\", \"parameters\": {\"city\": \"$RESULT(get_current_gps_coordinates.city)\", \"time\": \"now\"}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"shelter\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"get_city_weather\", \"description\": \"Get the weather for a specified city at a given time.\", \"parameters\": {\"city\": \"$RESULT(get_current_gps_coordinates.city)\", \"time\": \"now\"}}, {\"name\": \"google_map\", \"description\": \"Get the route and distance from the current location to the destination using Google Maps API.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"shelter\"}}]"
   },
   "example-833": {
     "Category": "Outdoors",
@@ -19564,7 +19564,7 @@
       "Use <book_uber> to check availability and pricing of rideshare options"
     ],
     "Response": "I notice you're waiting in heavy rain with the next bus not arriving for 25 minutes. There's an alternative bus route (#42) arriving in just 7 minutes that stops 2 blocks from your usual destination. I can also get you an Uber that would arrive in 4 minutes for $12.50. Would you like me to help with either option?",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for a specific bus stop.\", \"parameters\": {\"bus_stop\": \"$RESULT(get_current_gps_coordinates.address)\"}}, {\"name\": \"book_uber\", \"description\": \"Book an Uber ride from the current location to the destination.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"None\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for a specific bus stop.\", \"parameters\": {\"bus_stop\": \"$RESULT(get_current_gps_coordinates.address)\"}}, {\"name\": \"book_uber\", \"description\": \"Book an Uber ride from the current location to the destination.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"None\"}}]"
   },
   "example-959": {
     "Category": "Outdoors",
@@ -19588,7 +19588,7 @@
       "Use <google_search> to find additional information about the mountains"
     ],
     "Response": "That tallest peak you're looking at is Mount Rainier, standing at 14,411 feet. It's an active stratovolcano and the most glaciated peak in the contiguous U.S. with 26 major glaciers. The peak to its left is Mount Adams, and the distant one to the right is Mount St. Helens, famous for its 1980 eruption. Would you like to know more about any of these mountains?",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"vllm\", \"description\": \"Visual Large Language Model (VLM) that can answer the user's questions based on the given image.\", \"parameters\": {\"prompt\": \"Identify the mountain peaks visible in this view based on the location.\", \"image_path\": \"\"}}, {\"name\": \"wikipedia_search\", \"description\": \"Tool that searches the Wikipedia API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\", \"parameters\": {\"query\": \"Mount in current location\"}}, {\"name\": \"google_search\", \"description\": \"Tool that searches the Google API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\", \"parameters\": {\"query\": \"Mount in current location\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"vllm\", \"description\": \"Visual Large Language Model (VLM) that can answer the user's questions based on the given image.\", \"parameters\": {\"prompt\": \"Identify the mountain peaks visible in this view based on the location.\", \"image_path\": \"\"}}, {\"name\": \"wikipedia_search\", \"description\": \"Tool that searches the Wikipedia API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\", \"parameters\": {\"query\": \"Mount in current location\"}}, {\"name\": \"google_search\", \"description\": \"Tool that searches the Google API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\", \"parameters\": {\"query\": \"Mount in current location\"}}]"
   },
   "example-960": {
     "Category": "Outdoors",
@@ -19635,7 +19635,7 @@
       "Use <book_uber> to check availability and pricing of rideshare options"
     ],
     "Response": "I see you're waiting for the #87K bus in the rain. The next one will arrive in 7 minutes. There's a covered bus shelter two blocks north if you'd prefer to wait somewhere dry.",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for a specific bus stop.\", \"parameters\": {\"bus_stop\": \"$RESULT(get_current_gps_coordinates.address)\", \"route\": \"87K\"}}, {\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": {}}, {\"name\": \"book_uber\", \"description\": \"Book an Uber ride from the current location to the destination.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"Kowloon Tong, Hong Kong\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"check_bus_schedule\", \"description\": \"Check the bus schedule for a specific bus stop.\", \"parameters\": {\"bus_stop\": \"$RESULT(get_current_gps_coordinates.address)\", \"route\": \"87K\"}}, {\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"book_uber\", \"description\": \"Book an Uber ride from the current location to the destination.\", \"parameters\": {\"current_location\": \"$RESULT(get_current_gps_coordinates.address)\", \"destination\": \"Kowloon Tong, Hong Kong\"}}]"
   },
   "example-962": {
     "Category": "Work",
@@ -19657,7 +19657,7 @@
       "Use <add_to_agenda> to create a priority task for the API documentation updates"
     ],
     "Response": "I've noted that you need to update the API documentation before tomorrow's client demo. Would you like me to add this as a high-priority task to your agenda? I can also set a reminder for 5:30 PM to ensure you have time to complete it before the end of the day.",
-    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": {}}, {\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda.\", \"parameters\": {\"event\": \"Complete API documentation updates for client demo\", \"time\": \"Today 5:00 PM\"}}]"
+    "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time.\", \"parameters\": \"None\"}, {\"name\": \"add_to_agenda\", \"description\": \"Add an event to the user's agenda.\", \"parameters\": {\"event\": \"Complete API documentation updates for client demo\", \"time\": \"Today 5:00 PM\"}}]"
   },
   "example-963": {
     "Category": "Outdoors",
@@ -19679,7 +19679,7 @@
       "Use <get_medical_knowledge> to confirm best practices and safety guidelines for consuming raw fish."
     ],
     "Response": "The restaurant sources fresh fish daily. It's generally safe if it's properly handled. Would you like to see alternative cooked options or proceed with raw sushi selections?",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"Sushi rolls and sashimi options at this restaurant\"}},{\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"Top-rated fresh seafood suppliers near this Japanese restaurant\"}}, {\"name\": \"get_medical_knowledge\", \"description\": \" Get medical expert knowledge from the up-to-date medical knowledge database.\", \"parameters\": {\"query\": \"Safety guidelines for consuming raw fish\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"Sushi rolls and sashimi options at this restaurant\"}},{\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"Top-rated fresh seafood suppliers near this Japanese restaurant\"}}, {\"name\": \"get_medical_knowledge\", \"description\": \" Get medical expert knowledge from the up-to-date medical knowledge database.\", \"parameters\": {\"query\": \"Safety guidelines for consuming raw fish\"}}]"
   },
   "example-964": {
     "Category": "Outdoors",
@@ -19701,7 +19701,7 @@
       "Use <get_medical_knowledge> to confirm safe wheat-alternative ingredients"
     ],
     "Response": "There are gluten-free pasta options made from corn and rice flour here. You might also consider vegetable-based sauces for added flavor. Would you like any recommendations for protein additions or side dishes?",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"Gluten-free pasta options at this Italian restaurant\"}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"Top-rated gluten-free friendly Italian restaurants near this location\"}}, {\"name\": \"get_medical_knowledge\", \"description\": \" Get medical expert knowledge from the up-to-date medical knowledge database.\", \"parameters\": {\"query\": \"Safe gluten-free alternatives for pasta dishes\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"Gluten-free pasta options at this Italian restaurant\"}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"Top-rated gluten-free friendly Italian restaurants near this location\"}}, {\"name\": \"get_medical_knowledge\", \"description\": \" Get medical expert knowledge from the up-to-date medical knowledge database.\", \"parameters\": {\"query\": \"Safe gluten-free alternatives for pasta dishes\"}}]"
   },
   "example-965": {
     "Category": "Outdoors",
@@ -19723,7 +19723,7 @@
       "Use <get_medical_knowledge> to confirm best practices and debate around doneness"
     ],
     "Response": "Medium or medium-well steaks are often recommended to balance flavor and food safety. Would you like more details on recommended cooking temperatures or proceed with one of these options?",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"Preferred steak doneness at this steakhouse\"}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"Safe internal temperature guidelines for steak\"}}, {\"name\": \"get_medical_knowledge\", \"description\": \" Get medical expert knowledge from the up-to-date medical knowledge database.\", \"parameters\": {\"query\": \"Food safety concerns with different steak doneness levels\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"Preferred steak doneness at this steakhouse\"}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"Safe internal temperature guidelines for steak\"}}, {\"name\": \"get_medical_knowledge\", \"description\": \" Get medical expert knowledge from the up-to-date medical knowledge database.\", \"parameters\": {\"query\": \"Food safety concerns with different steak doneness levels\"}}]"
   },
   "example-966": {
     "Category": "Outdoors",
@@ -19745,7 +19745,7 @@
       "Use <get_medical_knowledge> to review cross-contamination prevention and safe preparation"
     ],
     "Response": "They do offer grilled fish and vegetarian sushi rolls prepared separately from shellfish. Would you like more details on non-shellfish menu items or hear about preparation practices to avoid cross-contamination?",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"Allergy-friendly seafood options at this coastal restaurant\"}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"Allergen-friendly seafood restaurants near me\"}}, {\"name\": \"get_medical_knowledge\", \"description\": \" Get medical expert knowledge from the up-to-date medical knowledge database.\", \"parameters\": {\"query\": \"Cross-contamination guidelines for shellfish allergies\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"Allergy-friendly seafood options at this coastal restaurant\"}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"Allergen-friendly seafood restaurants near me\"}}, {\"name\": \"get_medical_knowledge\", \"description\": \" Get medical expert knowledge from the up-to-date medical knowledge database.\", \"parameters\": {\"query\": \"Cross-contamination guidelines for shellfish allergies\"}}]"
   },
   "example-967": {
     "Category": "Outdoors",
@@ -19767,7 +19767,7 @@
       "Use <get_medical_knowledge> to confirm potential health concerns related to spicy food"
     ],
     "Response": "You can opt for mild salsas or skip hot peppers entirely. Would you like to explore an option with moderate heat or see some non-spicy fillings?",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"Mild but flavorful taco fillings at this Mexican restaurant\"}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"Techniques to reduce spicy heat in Mexican food\"}}, {\"name\": \"get_medical_knowledge\", \"description\": \" Get medical expert knowledge from the up-to-date medical knowledge database.\", \"parameters\": {\"query\": \"Potential health issues with spicy foods\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"Mild but flavorful taco fillings at this Mexican restaurant\"}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"Techniques to reduce spicy heat in Mexican food\"}}, {\"name\": \"get_medical_knowledge\", \"description\": \" Get medical expert knowledge from the up-to-date medical knowledge database.\", \"parameters\": {\"query\": \"Potential health issues with spicy foods\"}}]"
   },
   "example-968": {
     "Category": "Outdoors",
@@ -19789,7 +19789,7 @@
       "Use <get_medical_knowledge> to confirm the healthiest sugar substitutes for individuals monitoring sugar levels"
     ],
     "Response": "There are fruit-based parfaits and sugar-free pastries available. Are you interested in a specific flavor preference or any additional dietary restrictions?",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"Low-sugar or sugar-free dessert options at this café\"}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"Best low-sugar dessert cafés nearby\"}}, {\"name\": \"get_medical_knowledge\", \"description\": \" Get medical expert knowledge from the up-to-date medical knowledge database.\", \"parameters\": {\"query\": \"Recommended sugar substitutes for low-sugar diets\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"Low-sugar or sugar-free dessert options at this café\"}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"Best low-sugar dessert cafés nearby\"}}, {\"name\": \"get_medical_knowledge\", \"description\": \" Get medical expert knowledge from the up-to-date medical knowledge database.\", \"parameters\": {\"query\": \"Recommended sugar substitutes for low-sugar diets\"}}]"
   },
   "example-969": {
     "Category": "Outdoors",
@@ -19811,7 +19811,7 @@
       "Use <get_medical_knowledge> to confirm recommended daily cholesterol intake and best practices"
     ],
     "Response": "Egg white omelets and veggie options are popular low-cholesterol choices. Would you like more details on those or other heart-healthy dishes?",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": {}}, {\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"Low-cholesterol brunch options at this restaurant\"}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"Heart-healthy brunch tips\"}}, {\"name\": \"get_medical_knowledge\", \"description\": \" Get medical expert knowledge from the up-to-date medical knowledge database.\", \"parameters\": {\"query\": \"Recommended daily cholesterol intake and egg consumption guidelines\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user.\", \"parameters\": \"None\"}, {\"name\": \"search_rednote\", \"description\": \"A platform where people share tips on travel, fitness, cooking, and more. You can use it to search for relevant strategies there.\", \"parameters\": {\"query\": \"Low-cholesterol brunch options at this restaurant\"}}, {\"name\": \"google_search\", \"description\": \"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\", \"parameters\": {\"query\": \"Heart-healthy brunch tips\"}}, {\"name\": \"get_medical_knowledge\", \"description\": \" Get medical expert knowledge from the up-to-date medical knowledge database.\", \"parameters\": {\"query\": \"Recommended daily cholesterol intake and egg consumption guidelines\"}}]"
   },
   "example-970": {
     "Category": "Shopping",
@@ -19873,7 +19873,7 @@
       "Use <get_city_weather> to check the weather forecast for the user's location."
     ],
     "Response": "It looks like there’s a chance of rain in the next 30 minutes. If you’re worried about the wind, finding a covered spot soon would be wise.",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": {}}, {\"name\": \"get_city_weather\", \"description\": \"Get the weather for a specified city at a given time\", \"parameters\": {\"city\": \"$RESULT(get_current_gps_coordinates.city)\", \"time\": \"now\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}, {\"name\": \"get_city_weather\", \"description\": \"Get the weather for a specified city at a given time\", \"parameters\": {\"city\": \"$RESULT(get_current_gps_coordinates.city)\", \"time\": \"now\"}}]"
   },
   "example-973": {
     "Category": "Outdoors",
@@ -19895,7 +19895,7 @@
       "Use <get_city_weather> to check the evening temperature forecast."
     ],
     "Response": "It looks like temperatures will drop to around 10°C tonight. If you don’t have enough layers, it’s a good idea to head home soon.",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": {}}, {\"name\": \"get_city_weather\", \"description\": \"Get the weather for a specified city at a given time\", \"parameters\": {\"city\": \"$RESULT(get_current_gps_coordinates.city)\", \"time\": \"now\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}, {\"name\": \"get_city_weather\", \"description\": \"Get the weather for a specified city at a given time\", \"parameters\": {\"city\": \"$RESULT(get_current_gps_coordinates.city)\", \"time\": \"now\"}}]"
   },
   "example-974": {
     "Category": "Outdoors",
@@ -19917,7 +19917,7 @@
       "Use <get_city_weather> to check if there's a coastal storm warning."
     ],
     "Response": "There’s a minor storm system expected offshore tonight. Strong winds are likely, so it may be safer to head indoors if you’re concerned.",
-    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": {}}, {\"name\": \"get_city_weather\", \"description\": \"Get the weather for a specified city at a given time\", \"parameters\": {\"city\": \"$RESULT(get_current_gps_coordinates.city)\", \"time\": \"now\"}}]"
+    "Tools": "[{\"name\": \"get_current_gps_coordinates\", \"description\": \"Get the current GPS coordinates of the user\", \"parameters\": \"None\"}, {\"name\": \"get_city_weather\", \"description\": \"Get the weather for a specified city at a given time\", \"parameters\": {\"city\": \"$RESULT(get_current_gps_coordinates.city)\", \"time\": \"now\"}}]"
   },
   "example-975": {
     "Category": "Work",
