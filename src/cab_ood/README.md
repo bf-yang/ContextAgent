@@ -1,1 +1,0 @@
-# Scripts for CAB-OOD Experiments
