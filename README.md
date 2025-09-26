@@ -120,29 +120,6 @@ bash src/sft/sft_exp.sh
 
 👉 For more details, see [README.md](src/sft/README.md).
 
-
-
-
-
-
-<!-- # 📈 Experiment Results
-Please refer to our paper for more results.
-### Quantitative Results
-<div style="text-align: center;">
-    <img src="assets/quantitative_results.png" alt="Dialogue_Teaser" width=100% >
-</div>
-
-### Qualitative Results
-- Proactive Examples
-<div style="text-align: center;">
-    <img src="assets/qualitative_results_overall_proactive.png" alt="Dialogue_Teaser" width=100% >
-</div>
-
-- Non-proactive Examples
-<div style="text-align: center;">
-    <img src="assets/qualitative_results_overall_noproactive.png" alt="Dialogue_Teaser" width=100% >
-</div> -->
-
 ## 🔗 Citation
 
 If you find our work and this codebase helpful, please consider starring this repo 🌟 and cite:

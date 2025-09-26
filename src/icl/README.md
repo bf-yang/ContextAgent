@@ -34,18 +34,23 @@ python src/calculate_scores.py --methods icl --model_base_icl <MODEL_NAME>
 ```
 
 ### ️ ⚙️ Different Settings
-你可以使用下面的脚本来执行不同setting下的ICL的peformance
+Use the scripts below to run ICL (in-context learning) performance experiments under different settings:
 ```
 bash src/icl/icl_infer.sh
 bash src/icl/icl_infer_api.sh
 ```
 > [!NOTE]
-> - icl_infer.sh 是 开源模型的实验.
-> - icl_infer.sh 是 Proprietary模型的实验.
->     "true wo_t wo_p"  # zs
-    "false w_t w_p"   # 
-    "false wo_t wo_p" # Context-only (ICL)
-    "false wo_t w_p"  # ICL-P
-    "false w_t wo_p"  # ICL-CoT
+> - icl_infer.sh runs experiments using open-source models.
+> - icl_infer_api.sh runs experiments using proprietary models.
+
+Here are some additional settings you can test:
+| Setting              | Description                          |
+|---------------------|--------------------------------------|
+| `"true wo_t wo_p"`  | zero-shot (no tools, no extra prompt) |
+| `"false w_t w_p"`   | xxx                                  |
+| `"false wo_t wo_p"` | ICL                                  |
+| `"false wo_t w_p"`  | ICL-P                                |
+| `"false w_t wo_p"`  | ICL-CoT                              |
+
 
 
