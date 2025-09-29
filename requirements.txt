@@ -73,7 +73,7 @@ langchain-text-splitters==0.3.8
 langsmith==0.3.43
 lazy_loader==0.4
 librosa==0.11.0
--e git+https://github.com/hiyouga/LLaMA-Factory.git@a9211a730eb3fc7fe0d008107a0a135c3a8734d8#egg=llamafactory&subdirectory=../../LLaMA-Factory
+# LLaMA-Factory - install separately: pip install -e ./LLaMA-Factory
 llvmlite==0.44.0
 markdown-it-py==3.0.0
 MarkupSafe==3.0.2

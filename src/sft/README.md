@@ -2,8 +2,15 @@
 This folder provides scripts for evaluating different LLMs under SFT settings.  It supports multiple base models (e.g., Qwen, LLaMA, DeepSeek series) and two execution modes: **`live`** and **`sandbox`**.
 
 ### 🔑 API Keys
-Several experiments rely on external APIs (e.g., Google Maps, AMap, LocationIQ, SerpAPI). Please configure the required keys via environment variables:
+Choose ONE to configure environment variables for tool integrations (Google Maps, AMap, LocationIQ, SerpAPI, etc.):
 
+#### Source a shell script (recommended)
+```bash
+$EDITOR scripts/env/export_env.sh   # fill your keys
+source scripts/env/export_env.sh
+```
+
+#### Or export inline
 ```bash
 export GOOGLE_MAP_API_KEY=<YOUR_GOOGLE_MAP_API_KEY>
 export AMAP_API_KEY=<YOUR_AMAP_API_KEY>
@@ -14,12 +21,12 @@ export GOOGLE_CALENDAR_ACCOUNT=<GOOGLE_CALENDAR_ACCOUNT>
 ### ️ ▶️ Usage
 Run the following script:
 ```
-bash src/sft/sft_exp.sh
+bash scripts/sft/run_sft_exp.sh
 ```
 > Note:
-> - Note that ```sft_exp.sh``` contains two scripts. The fisrt one ```LLaMA-Factory/experiments/configs/lora_train.sh``` is used for model training. The second one ```src/sft/eval_sft.sh``` is used for evaluation of the fine-tuned LLMs.
-> - Training recipe: Edit LLaMA-Factory/experiments/cab_lora_train.sh to set the base model and LoRA/SFT training configs.
-> - Evaluation setup: Edit src/sft/eval_sft.sh to specify the base model and evaluation mode.
+> - `run_sft_exp.sh` orchestrates training and evaluation. It calls `LLaMA-Factory/experiments/cab_lora_train.sh` for training and `scripts/sft/run_sft_eval.sh` for evaluation.
+> - Training recipe: Edit `LLaMA-Factory/experiments/cab_lora_train.sh` to set the base model and LoRA/SFT training configs.
+> - Evaluation setup: Edit `scripts/sft/run_sft_eval.sh` to specify the base model and evaluation mode.
 
 
 | Argument  | Type   | Description                                                                 |

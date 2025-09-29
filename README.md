@@ -37,55 +37,141 @@ In this paper, we introduce ContextAgent, the first context-aware proactive LLM 
 ## 📂 Project Structure
 ```
 ContextAgent/
-├─ data/
-│  ├─ cab/
-├─ prompt/
-├─ src/
-│  ├─ icl/
-│  ├─ sft/
-│  ├─ tools/
-│  ├─ utils/
-├─ .gitignore
-├─ README.md
+├── src/                          # Source code directory
+│   ├── icl/                      # In-Context Learning implementation
+│   │   ├── inference_api.py      # API-based inference script
+│   │   └── inference.py          # Local model inference script
+│   ├── sft/                      # Supervised Fine-Tuning
+│   │   ├── train.py              # Training scripts
+│   │   └── eval_sft.sh           # Evaluation scripts
+│   ├── tools/                    # Tool registry and implementations
+│   ├── utils/                    # Utility functions
+│   └── config.py                 # Configuration management
+├── data/                         # Dataset storage
+│   └── cab/                      # CAB dataset files
+├── prompt/                       # Prompt templates
+├── scripts/                      # Shell scripts (env setup, ICL/SFT runners)
+├── LLaMA-Factory/                # LLaMA-Factory integration
+├── setup.py                      # Package setup configuration
+├── pyproject.toml                # Modern Python project configuration
+├── requirements.txt              # Python dependencies
+├── environment.yml               # Conda environment specification
 ```
 
+### Key Components
+- **`src/icl/`**: Implements In-Context Learning evaluation with both API and local model support
+- **`src/sft/`**: Contains supervised fine-tuning scripts and evaluation tools
+- **`src/tools/`**: Tool registry for external API integrations (maps, calendar, etc.)
+- **`src/utils/`**: Shared utilities for inference, parsing, and tool execution
+- **`data/`**: Stores datasets in JSON format for training and evaluation
+- **`prompt/`**: Contains prompt templates for different evaluation scenarios
+
 ## ⚙️ Installation
-1. Clone the repository.
+
+### Method 1: Using pip (Recommended)
 ```bash
+# Clone the repository
 git clone https://github.com/bf-yang/ContextAgent.git
 cd ContextAgent
+
+# Install the package
+pip install -e .
+
+# Install LLaMA-Factory (required for SFT experiments)
+pip install -e ./LLaMA-Factory
 ```
-2. Install packages.
+
+### Method 2: Using conda
 ```bash
+# Clone the repository
+git clone https://github.com/bf-yang/ContextAgent.git
+cd ContextAgent
+
+# Create conda environment from environment file
 conda env create -f environment.yml
 conda activate contextagent
+
+# Install the package
+pip install -e .
+```
+
+### Method 3: Manual Installation
+```bash
+# Clone the repository
+git clone https://github.com/bf-yang/ContextAgent.git
+cd ContextAgent
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Add the project to Python path
+export PYTHONPATH="${PYTHONPATH}:$(pwd)/src"
 ```
 
 ## 📊 Evaluation
-### 🔑 API Keys
-Several experiments rely on external APIs (e.g., Google Maps, AMap, LocationIQ, SerpAPI). Please configure the required keys via environment variables:
 
+### 🔑 Configuration
+
+#### Environment Variables Setup
+ContextAgent requires several API keys for external tool integrations. Configure them using one of the following supported methods:
+
+**Option 1: Export variables inline (no script)**
 ```bash
-export GOOGLE_MAP_API_KEY=<YOUR_GOOGLE_MAP_API_KEY>
-export AMAP_API_KEY=<YOUR_AMAP_API_KEY>
-export LOCATIONIQ_API_KEY=<YOUR_LOCATIONIQ_API_KEY>
-export SERPAPI_KEY=<YOUR_SERPAPI_KEY>
-export GOOGLE_CALENDAR_ACCOUNT=<GOOGLE_CALENDAR_ACCOUNT>
+# Azure OpenAI Configuration
+export AZURE_OPENAI_API_KEY="your_azure_openai_api_key_here"
+export AZURE_OPENAI_ENDPOINT="https://your-resource-name.openai.azure.com/"
+export AZURE_OPENAI_API_VERSION="2024-02-15-preview"
+
+# External API Keys for Tools
+export GOOGLE_MAP_API_KEY="your_google_maps_api_key_here"
+export AMAP_API_KEY="your_amap_api_key_here"
+export LOCATIONIQ_API_KEY="your_locationiq_api_key_here"
+export SERPAPI_KEY="your_serpapi_key_here"
+export GOOGLE_CALENDAR_ACCOUNT="your_google_calendar_account_here"
+
+# Set GPU devices (optional)
+export CUDA_VISIBLE_DEVICES=0,1  # Use GPUs 0 and 1
 ```
+
+**Option 2: Source a shell script (recommended for convenience)**
+```bash
+# Edit with your own credentials
+$EDITOR scripts/env/export_env.sh
+
+# Load variables into your shell
+source scripts/env/export_env.sh
+```
+
 
 ### ️▶️ Usage
 #### ⚙️ 1. ICL Setting
 The following provides scripts for evaluating different LLMs under In-Context Learning (ICL) settings.  It supports multiple base models (e.g., GPT-4o, Qwen, LLaMA, and DeepSeek series) and two execution modes: **`live`** and **`sandbox`**.
 
+
 - **Open-source models.** Test open-source LLMs (e.g., Llama-3.1-8B-Instruct and Qwen2.5-7BInstruct).
-```
-CUDA_VISIBLE_DEVICES=0,2 python src/icl/inference.py --model <MODEL_NAME> --mode sandbox
-```
+
+
+  - Python (direct)
+    ```bash
+    python src/icl/inference.py --model <MODEL_NAME> --mode sandbox
+    ```
+
+  - Shell script
+    ```bash
+    bash scripts/icl/run_infer_local.sh
+    ```
 
 - **Proprietary LLMs.** Use API inference for proprietary LLMs (e.g., GPT-4o).
-```
-python src/icl/inference_api.py --model <MODEL_NAME> --mode sandbox
-```
+
+  - Python (direct)
+    ```bash
+    python src/icl/inference_api.py --model <MODEL_NAME> --mode sandbox
+    ```
+
+  - Shell script
+    ```bash
+    bash scripts/icl/run_infer_api.sh
+    ```
 
 | Argument  | Type   | Description                                                                 |
 |-----------|--------|-----------------------------------------------------------------------------|
@@ -103,22 +189,24 @@ python src/calculate_scores.py --methods icl --model_base_icl <MODEL_NAME>
 #### ⚙️ 2. SFT Setting
 Launch supervised fine-tuning (SFT) experiments via:
 ```
-bash src/sft/sft_exp.sh
+bash scripts/sft/run_sft_exp.sh
 ```
 > [!NOTE]
 > 
 > **What the script does**
 > - Training – calls `LLaMA-Factory/experiments/cab_lora_train.sh` (LoRA/SFT configs).
-> - Evaluation – runs `src/sft/eval_sft.sh` to evaluate fine-tuned models.
+> - Evaluation – runs `scripts/sft/run_sft_eval.sh` to evaluate fine-tuned models.
 >
 > **Customize**
 > - Edit `LLaMA-Factory/experiments/cab_lora_train.sh` to set the base model and SFT/LoRA parameters.
-> - Edit `src/sft/eval_sft.sh` to choose the base model and evaluation mode.
+> - Edit `scripts/sft/run_sft_eval.sh` to choose the base model and evaluation mode.
 >
 > **Tip**
 > - Keep the same base model name across training and evaluation for consistency.
 
 👉 For more details, see [README.md](src/sft/README.md).
+
+ 
 
 ## 🔗 Citation
 

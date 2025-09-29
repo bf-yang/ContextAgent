@@ -5,9 +5,6 @@ from typing import Dict, Any, Tuple, List
 # progress bar
 from tqdm import tqdm
 
-# Ensure 'src' is importable when running: python path/to/this_script.py
-sys.path.append(str(pathlib.Path(__file__).resolve().parents[1]))
-
 import config
 from tool_registry import functions, process_function_call
 from utils import (

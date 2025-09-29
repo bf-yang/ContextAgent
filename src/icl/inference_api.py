@@ -1,5 +1,4 @@
 import os
-import sys
 import json
 import ast
 import argparse
@@ -7,9 +6,6 @@ import random
 from datetime import datetime
 from typing import Dict, Any, List, Tuple
 from tqdm import tqdm
-
-# Make 'src' importable (adjust if your script lives elsewhere)
-sys.path.append("/home/bufang/ContextAgent/src")
 
 # ---- Project imports ----
 import config
@@ -33,9 +29,9 @@ def get_azure_client() -> AzureOpenAI:
     Build an AzureOpenAI client. Prefer environment variables if present,
     otherwise fall back to your provided defaults.
     """
-    api_key = os.getenv("AZURE_OPENAI_API_KEY", "4d2ff10a8c3d4d09883a4411832b6718")
-    endpoint = os.getenv("AZURE_OPENAI_ENDPOINT", "https://cuhk-aiot-gpt4.openai.azure.com/")
-    api_version = os.getenv("AZURE_OPENAI_API_VERSION", "2023-05-15")
+    api_key = os.getenv("AZURE_OPENAI_API_KEY")
+    endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+    api_version = os.getenv("AZURE_OPENAI_API_VERSION")
     return AzureOpenAI(api_key=api_key, api_version=api_version, azure_endpoint=endpoint)
 
 # =========================

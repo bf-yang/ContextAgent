@@ -1,0 +1,71 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "contextagent"
+version = "1.0.0"
+description = "Context-Aware Proactive LLM Agents with Open-World Sensory Perceptions"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Bufang Yang", email = "bfyang@cuhk.edu.hk"},
+    {name = "Lilin Xu"},
+    {name = "Liekang Zeng"},
+    {name = "Kaiwei Liu"},
+    {name = "Siyang Jiang"},
+    {name = "Wenrui Lu"},
+    {name = "Hongkai Chen"},
+    {name = "Xiaofan Jiang"},
+    {name = "Guoliang Xing"},
+    {name = "Zhenyu Yan"},
+]
+keywords = [
+    "artificial intelligence",
+    "large language models",
+    "context-aware agents",
+    "proactive agents",
+    "sensory perception",
+    "machine learning",
+    "natural language processing",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "openai>=1.0.0",
+    "tqdm>=4.60.0",
+    "requests>=2.25.0",
+    "numpy>=1.20.0",
+    "pandas>=1.3.0",
+    "transformers>=4.20.0",
+    "torch>=1.12.0",
+    "accelerate>=0.20.0",
+    "peft>=0.4.0",
+    "datasets>=2.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/bf-yang/ContextAgent"
+Repository = "https://github.com/bf-yang/ContextAgent.git"
+"Bug Tracker" = "https://github.com/bf-yang/ContextAgent/issues"
+
+[project.scripts]
+contextagent-icl = "icl.inference_api:main"
+contextagent-sft = "sft.train:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,6 +1,9 @@
+*.egg-info/
+*.egg
 LLaMA-Factory/saves/
 results/
 data/cab_lite/raw_sensor_data/
+data/cab_full_exp
 src/data_generation/
 src/data_process/
 src/context_extraction/
@@ -13,4 +16,6 @@ src/tool_failure/
 src/wo_sensor/
 src/wo_pce_wo_t/
 src/tool_testing/
+src/tools/api_keys.sh
+scripts/env/export_env.sh
 **.log

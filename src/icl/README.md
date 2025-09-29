@@ -2,9 +2,20 @@
 This folder provides scripts for evaluating different LLMs under In-Context Learning (ICL) settings.  It supports multiple base models (e.g., GPT-4o, Qwen, LLaMA, and DeepSeek series) and two execution modes: **`live`** and **`sandbox`**.
 
 ### 🔑 API Keys
-Several experiments rely on external APIs (e.g., Google Maps, AMap, LocationIQ, SerpAPI). Please configure the required keys via environment variables:
+Choose ONE to configure environment variables:
 
+#### Source a shell script (recommended)
 ```bash
+$EDITOR scripts/env/export_env.sh   # fill your keys
+source scripts/env/export_env.sh
+```
+
+#### Or export inline
+```bash
+export AZURE_OPENAI_API_KEY=<YOUR_AZURE_OPENAI_API_KEY>
+export AZURE_OPENAI_ENDPOINT=<YOUR_AZURE_OPENAI_ENDPOINT>
+export AZURE_OPENAI_API_VERSION=<YOUR_AZURE_OPENAI_API_VERSION>
+
 export GOOGLE_MAP_API_KEY=<YOUR_GOOGLE_MAP_API_KEY>
 export AMAP_API_KEY=<YOUR_AMAP_API_KEY>
 export LOCATIONIQ_API_KEY=<YOUR_LOCATIONIQ_API_KEY>
@@ -13,14 +24,28 @@ export GOOGLE_CALENDAR_ACCOUNT=<GOOGLE_CALENDAR_ACCOUNT>
 ```
 ### ️ ▶️ Usage
 - **Open-source models.** Test open-source LLMs (e.g., Llama-3.1-8B-Instruct and Qwen2.5-7BInstruct).
-```
-CUDA_VISIBLE_DEVICES=0,2 python src/icl/inference.py --model <MODEL_NAME> --mode sandbox
-```
+
+  - ##### Python (direct)
+    ```
+    CUDA_VISIBLE_DEVICES=0,2 python src/icl/inference.py --model <MODEL_NAME> --mode sandbox
+    ```
+
+  - ##### Shell script
+    ```
+    bash scripts/icl/run_infer_local.sh
+    ```
 
 - **Proprietary LLMs.** Use API inference for proprietary LLMs (e.g., GPT-4o).
-```
-python src/icl/inference_api.py --model <MODEL_NAME> --mode sandbox
-```
+
+  - ##### Python (direct)
+    ```
+    python src/icl/inference_api.py --model <MODEL_NAME> --mode sandbox
+    ```
+
+  - ##### Shell script
+    ```
+    bash scripts/icl/run_infer_api.sh
+    ```
 
 | Argument  | Type   | Description                                                                 |
 |-----------|--------|-----------------------------------------------------------------------------|
@@ -34,14 +59,14 @@ python src/calculate_scores.py --methods icl --model_base_icl <MODEL_NAME>
 ```
 
 ### ️ ⚙️ Different Settings
-Use the scripts below to run ICL (in-context learning) performance experiments under different settings:
+Batch runs with provided scripts:
 ```
-bash src/icl/icl_infer.sh
-bash src/icl/icl_infer_api.sh
+bash scripts/icl/run_infer_local.sh
+bash scripts/icl/run_infer_api.sh
 ```
 > [!NOTE]
-> - icl_infer.sh runs experiments using open-source models.
-> - icl_infer_api.sh runs experiments using proprietary models.
+> - run_infer_local.sh runs experiments using open-source models.
+> - run_infer_api.sh runs experiments using proprietary models.
 
 Here are some additional settings you can test:
 | Setting              | Description                          |
