@@ -27,7 +27,7 @@ export GOOGLE_CALENDAR_ACCOUNT=<GOOGLE_CALENDAR_ACCOUNT>
 
   - ##### Python (direct)
     ```
-    CUDA_VISIBLE_DEVICES=0,2 python src/icl/inference.py --model <MODEL_NAME> --mode sandbox
+    python src/icl/inference.py --model <MODEL_NAME> --mode sandbox
     ```
 
   - ##### Shell script
