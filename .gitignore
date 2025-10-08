@@ -24,4 +24,7 @@ LLaMA-Factory/experiments/configs/cab/inference_full_exp
 scripts/sft/run_sft_exp_full.sh
 scripts/sft/run_sft_eval_full_exp.sh
 scripts/env/export_env.sh
+data/cab/cab_train_sft_wo_p.json
+data/cab/cab_train_sft_wo_t_wo_p.json
+data/cab/cab_train_sft_wo_t.json
 **.log
