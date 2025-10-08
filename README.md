@@ -37,34 +37,26 @@ In this paper, we introduce ContextAgent, the first context-aware proactive LLM 
 ## 📂 Project Structure
 ```
 ContextAgent/
-├── src/                          # Source code directory
-│   ├── icl/                      # In-Context Learning implementation
-│   │   ├── inference_api.py      # API-based inference script
-│   │   └── inference.py          # Local model inference script
-│   ├── sft/                      # Supervised Fine-Tuning
-│   │   ├── train.py              # Training scripts
-│   │   └── eval_sft.sh           # Evaluation scripts
-│   ├── tools/                    # Tool registry and implementations
-│   ├── utils/                    # Utility functions
-│   └── config.py                 # Configuration management
-├── data/                         # Dataset storage
-│   └── cab/                      # CAB dataset files
-├── prompt/                       # Prompt templates
-├── scripts/                      # Shell scripts (env setup, ICL/SFT runners)
-├── LLaMA-Factory/                # LLaMA-Factory integration
-├── setup.py                      # Package setup configuration
-├── pyproject.toml                # Modern Python project configuration
-├── requirements.txt              # Python dependencies
-├── environment.yml               # Conda environment specification
+├── src/                          
+│   ├── icl/                      
+│   │   ├── inference_api.py      
+│   │   └── inference.py          
+│   ├── sft/                      
+│   │   ├── train.py             
+│   │   └── eval_sft.sh           
+│   ├── tools/                    
+│   ├── utils/                   
+│   └── config.py                
+├── data/                        
+│   └── cab/                      
+├── prompt/                       
+├── scripts/                      
+├── LLaMA-Factory/               
+├── setup.py                      
+├── pyproject.toml               
+├── requirements.txt              
+├── environment.yml              
 ```
-
-### Key Components
-- **`src/icl/`**: Implements In-Context Learning evaluation with both API and local model support
-- **`src/sft/`**: Contains supervised fine-tuning scripts and evaluation tools
-- **`src/tools/`**: Tool registry for external API integrations (maps, calendar, etc.)
-- **`src/utils/`**: Shared utilities for inference, parsing, and tool execution
-- **`data/`**: Stores datasets in JSON format for training and evaluation
-- **`prompt/`**: Contains prompt templates for different evaluation scenarios
 
 ## ⚙️ Installation
 
@@ -93,19 +85,6 @@ conda activate contextagent
 
 # Install the package
 pip install -e .
-```
-
-### Method 3: Manual Installation
-```bash
-# Clone the repository
-git clone https://github.com/bf-yang/ContextAgent.git
-cd ContextAgent
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Add the project to Python path
-export PYTHONPATH="${PYTHONPATH}:$(pwd)/src"
 ```
 
 ## 📊 Evaluation

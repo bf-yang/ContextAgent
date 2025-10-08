@@ -2,8 +2,7 @@ from openai import OpenAI
 import os
 
 import config
-
-def vllm(prompt: str, image_path: str) -> str:
+def vllm(prompt: str, image_path: str = "data/tools/test_image.png") -> str:
     """
     Visual Large Language Model (VLM) that can answer the user's questions based on the given image.
     Args:
@@ -15,6 +14,8 @@ def vllm(prompt: str, image_path: str) -> str:
     if config.is_sandbox():
         return "The vegetables appear to be fresh, as they are in their original packaging and have a vibrant color, which typically indicates they are not overripe or old."
 
+    if not image_path:
+        image_path = "data/tools/test_image.png"
 
     PORT = 8007
     client_vlm = OpenAI(

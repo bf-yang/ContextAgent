@@ -46,8 +46,17 @@ def load_json(path: str) -> Dict[str, Any]:
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
-def load_prompts(zs_flag: str) -> str:
-    path = "prompt/baselines/icl_zs.txt" if zs_flag == "true" else "prompt/baselines/icl_fs.txt"
+def load_prompts(zs_flag: str, think: str) -> str:
+    if zs_flag == "true":
+        # Zero-shot: always use icl_zs.txt (no think)
+        path = "prompt/baselines/icl_zs.txt"
+    else:
+        # Few-shot: choose based on think parameter
+        if think == "wo_t":
+            path = "prompt/baselines/icl_fs_wo_t.txt"
+        else:
+            path = "prompt/baselines/icl_fs.txt"
+    
     with open(path, "r", encoding="utf-8") as f:
         return f.read()
 
@@ -210,7 +219,7 @@ def main():
     print(f"[main] MODE = {config.MODE}")
     print(f"[main] Loaded tools: {', '.join(sorted(functions.keys()))}")
 
-    base_prompt = load_prompts(args.zs)
+    base_prompt = load_prompts(args.zs, args.think)
 
     # Train (for few-shot examples)
     train_path = f"data/{args.dataset}/{args.dataset}_train.json"

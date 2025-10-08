@@ -1,0 +1,429 @@
+{
+    "example-982": {
+        "Category": "Health",
+        "Vision": "The user is sitting at the dining table with a glass of water and a meal tray.",
+        "Audio": "",
+        "Context information": "Visual information suggests the user is eating lunch but has not touched the water glass for a long time. Wearable data shows mild dehydration risk (elevated heart rate).",
+        "Mobile api data": [
+          "Heart rate: 96 BPM",
+          "Step count today: 1800"
+        ],
+        "Personas": [
+          "The user is recovering from cardiac surgery.",
+          "The user tends to forget drinking water during meals."
+        ],
+        "Thoughts": "The patient is in recovery. Guideline-based hydration is important for cardiac rehabilitation. Since heart rate is slightly elevated and the user has not drunk water for some time, it would be useful to provide a gentle, proactive reminder. I should also consider the current time of day and guideline recommendations.",
+        "Proactive index": "true",
+        "Proactive score": 5,
+        "Tool planning": "<get_current_datetime>,<get_health_data>,<get_medical_knowledge>",
+        "Action": [
+          "Use <get_current_datetime> to confirm current time.",
+          "Use <get_health_data> to verify hydration-related vitals from the wearable.",
+          "Use <get_medical_knowledge> to check cardiac rehab guideline for daily hydration needs."
+        ],
+        "Response": "It’s lunchtime and your wearable shows mild dehydration risk. According to recovery guidelines, regular hydration is important for your heart. Would you like a reminder to drink 200ml of water now?",
+        "Tools": "[{\"name\": \"get_current_datetime\", \"description\": \"Get the current date and time\", \"parameters\": \"None\"}, {\"name\": \"get_health_data\", \"description\": \"Get health data from the user's smart device.\", \"parameters\": \"None\"}, {\"name\": \"get_medical_knowledge\", \"description\": \"Get medical knowledge based on guideline databases.\", \"parameters\": {\"query\": \"daily hydration needs in cardiac rehabilitation\"}}]"
+    },
+
+    "example-983": {
+        "Category": "Health",
+        "Vision": "The user is standing at the entrance door for over 5 minutes.",
+        "Audio": "",
+        "Context information": "Visual indicates prolonged standing near door, possible intent to go outside.",
+        "Mobile api data": [
+          "Indoor motion sensor: active at entrance"
+        ],
+        "Personas": [
+          "Elderly with Alzheimer’s",
+          "Sometimes forgets keys and coat before going out"
+        ],
+        "Thoughts": "The use is an elderly person with Alzheimer’s. The context shows that the user is standing at the entrance door for over 5 minutes, possible intent to go outside. Since the user sometimes forgets keys and coat before going out, I should remind gently such as taking coat and keys.",
+        "Proactive index": "true",
+        "Proactive score": 5,
+        "Tool planning": "<get_current_datetime>,<get_city_weather>",
+        "Action": [
+          "Check time of day",
+          "Check outside weather"
+        ],
+        "Response": "Heading out? Remember to take your coat and keys. The weather outside might be cold—shall I check for you?",
+        "Tools": "[{\"name\":\"get_current_datetime\",\"description\":\"Get current time\",\"parameters\":\"None\"},{\"name\":\"get_city_weather\",\"description\":\"Get local weather\",\"parameters\":{\"city\":\"current_location\",\"time\":\"now\"}}]"
+    },
+
+    "example-984": {
+        "Category": "Health",
+        "Vision": "The user is sitting quietly in the living room for hours without activity.",
+        "Audio": "",
+        "Context information": "No speech or movement detected for more than 2 hours.",
+        "Mobile api data": [
+          "Audio: silence > 2 hours"
+        ],
+        "Personas": [
+          "Elderly with Mild Cognitive Impairment",
+          "Sometimes feels lonely when family is away"
+        ],
+        "Thoughts": "Since the user is an elderly person with Mild Cognitive Impairment, extended silence suggests loneliness. I can either play some music or search for some simple activities for elderly with Mild Cognitive Impairment.",
+        "Proactive index": "true",
+        "Proactive score": 5,
+        "Tool planning": "<play_music>,<search_rednote>",
+        "Action": [
+          "Offer to play soft music using <play_music>",
+          "Optionally provide companionship ideas using <search_rednote>"
+        ],
+        "Response": "You’ve been quiet for quite a while. Would you like me to play some music for company, or suggest a simple activity you might enjoy?",
+        "Tools": "[{\"name\": \"play_music\", \"description\": \"Play a song from the user's music library.\", \"parameters\": \"None\"}, {\"name\": \"search_rednote\", \"description\": \"Search for activity or companionship tips.\", \"parameters\": {\"query\": \"simple activities for elderly with Mild Cognitive Impairment\"}}]"
+    },
+
+    "example-985": {
+        "Category": "Health",
+        "Vision": "The user is lifting a heavy box in the living room.",
+        "Audio": "Grunting sound detected.",
+        "Context information": "Visual context shows the user is lifting a heavy box in the living room.",
+        "Mobile api data": [
+        ],
+        "Personas": [
+          "Elderly with hypertension",
+          "At risk when doing heavy lifting"
+        ],
+        "Thoughts": "Since the user is an elderly person with hypertension, and visual context shows the user is lifting a heavy box in the living room. It may cause heart rate to exceed safe threshold. I should check current vitals and compare with exercise guidelines for hypertension.",
+        "Proactive index": "true",
+        "Proactive score": 5,
+        "Tool planning": "<get_health_data>,<get_medical_knowledge>",
+        "Action": [
+          "Check current vitals",
+          "Compare with exercise guidelines for hypertension"
+        ],
+        "Response": "Your heart rate just went above safe limits. Please take a break. Do you want me to show you recommended safe exercises?",
+        "Tools": "[{\"name\":\"get_health_data\",\"description\":\"Get current vitals\",\"parameters\":\"None\"},{\"name\":\"get_medical_knowledge\",\"description\":\"Query exercise guidelines\",\"parameters\":{\"query\":\"exercise limits for elderly with hypertension\"}}]"
+    },
+
+    "example-986": {
+        "Category": "Health",
+        "Vision": "Dinner plate contains instant noodles and pickled vegetables.",
+        "Audio": "",
+        "Context information": "The visual context shows the user is eating a meal with instant noodles and pickled vegetables.",
+        "Mobile api data": [
+          "Meal log: instant noodles, pickled vegetables"
+        ],
+        "Personas": [
+          "Elderly with hypertension",
+          "Needs to limit sodium and fat intake"
+        ],
+        "Thoughts": "Since the user is an elderly person with hypertension, and the visual context shows the user is eating a meal with instant noodles and pickled vegetables. It may cause high sodium intake. I should confirm using VLM recognition and external search such as wikipedia_search and google_search.",
+        "Proactive index": "true",
+        "Proactive score": 5,
+        "Tool planning": "<vllm>,<wikipedia_search>,<google_search>",
+        "Action": [
+          "Use <vllm> to identify food items on plate",
+          "Use <wikipedia_search> to look up general dietary information",
+          "Use <google_search> to query sodium content of identified foods"
+        ],
+        "Response": "This meal looks high in salt. For your heart, it’s better to reduce sodium. Would you like me to suggest some lower-salt alternatives?",
+        "Tools": "[{\"name\":\"vllm\",\"description\":\"Visual Large Language Model (VLM) that can answer the user's questions based on the given image.\",\"parameters\":{\"prompt\": \"Identify the food items in the image.\", \"image_path\": \"\"}}, {\"name\":\"wikipedia_search\",\"description\":\"Tool that searches the Wikipedia API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\",\"parameters\":{\"query\":\"instant noodles sodium content\"}}, {\"name\":\"google_search\",\"description\":\"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\",\"parameters\":{\"query\":\"instant noodles nutrition\"}}]"
+    },
+
+    "example-987": {
+        "Category": "Health",
+        "Vision": "Visual context shows the user’s view shows a glass of water placed on the dining table. The same half-filled glass has been in sight for hours without being moved.",
+        "Audio": "Background TV noise, no drinking sounds detected.",
+        "Context information": "Visual context shows the user’s view shows a glass of water placed on the dining table. The same half-filled glass has been in sight for hours without being moved.",
+        "Mobile api data": [
+          "Daily water intake: 500ml"
+        ],
+        "Personas": [
+          "Elderly with chronic heart failure",
+          "Needs to maintain balanced hydration"
+        ],
+        "Thoughts": "Current hydration is below recommended guideline. From the glasses’ view and intake data, it’s clear the user has not been drinking enough water. A gentle proactive reminder is needed.",
+        "Proactive index": "true",
+        "Proactive score": 5,
+        "Tool planning": "<get_health_data>,<get_medical_knowledge>",
+        "Action": [
+          "Retrieve hydration intake from wearable/app",
+          "Compare with heart failure guideline"
+        ],
+        "Response": "You’ve only had 500ml of water today, which is below the recommended intake. Would you like me to remind you to drink some water?",
+        "Tools": "[{\"name\":\"get_health_data\",\"description\":\"Retrieve user’s health and hydration data\",\"parameters\":\"None\"},{\"name\":\"get_medical_knowledge\",\"description\":\"Query hydration guidelines\",\"parameters\":{\"query\":\"daily water intake for heart failure patients\"}}]"
+    },
+
+    "example-988": {
+        "Category": "Health",
+        "Vision": "The user is sitting on the sofa with TV on for most of the day.",
+        "Audio": "TV background noise.",
+        "Context information": "Visual context shows the user is sitting on the sofa with TV on for most of the day.",
+        "Mobile api data": [
+          "Daily step count: 900"
+        ],
+        "Personas": [
+          "Elderly with chronic heart failure",
+          "Needs light but regular activity"
+        ],
+        "Thoughts": "Prolonged sedentary behavior. Encourage short, safe indoor activity.",
+        "Proactive index": "true",
+        "Proactive score": 4,
+        "Tool planning": "<get_health_data>,<search_rednote>",
+        "Action": [
+          "Retrieve step count",
+          "Suggest light safe activity"
+        ],
+        "Response": "You’ve been sitting most of the day, with fewer than 1000 steps. Would you like me to suggest a 5-minute indoor walk?",
+        "Tools": "[{\"name\":\"get_health_data\",\"description\":\"Retrieve daily activity data\",\"parameters\":\"None\"},{\"name\":\"search_rednote\",\"description\":\"Find safe activities for CHF\",\"parameters\":{\"query\":\"light indoor exercises for heart failure\"}}]"
+    },
+
+    "example-989": {
+          "Category": "Health",
+          "Vision": "The user is standing on a bathroom scale in the morning. It shows that the user's weight is 72kg.",
+          "Audio": "",
+          "Context information": "Visual context shows the user is standing on a bathroom scale in the morning.",
+          "Mobile api data": [
+            "Last week’s weight: 70kg"
+          ],
+          "Personas": [
+            "Elderly with chronic heart failure",
+            "Weight changes may indicate fluid retention"
+          ],
+          "Thoughts": "Since the user is an elderly person with chronic heart failure, and visual context shows the user is standing on a bathroom scale in the morning. It shows that the user's weight is 72kg, which is 2kg more than last week. It may indicate fluid retention. I should recommend logging and doctor follow-up.",
+          "Proactive index": "true",
+          "Proactive score": 5,
+          "Tool planning": "<get_health_data>,<get_medical_knowledge>",
+          "Action": [
+            "Retrieve recent weight records",
+            "Check CHF guidelines for sudden weight changes"
+          ],
+          "Response": "Your weight has increased by 2kg compared to last week. This may indicate fluid retention. Would you like me to record this for your doctor?",
+          "Tools": "[{\"name\":\"get_health_data\",\"description\":\"Retrieve health vitals and weight history\",\"parameters\":\"None\"},{\"name\":\"get_medical_knowledge\",\"description\":\"CHF guideline lookup\",\"parameters\":{\"query\":\"weight gain threshold for CHF patients\"}}]"
+    },
+
+    
+    "example-990": {
+        "Category": "Leisure",
+        "Vision": "User sitting with friends, smiling and actively participating.",
+        "Audio": "\"That movie was hilarious, I couldn\u2019t stop laughing!\"",
+        "Context information": "Visual context shows the user is sitting with friends, smiling and actively participating.",
+        "Mobile api data": [
+            ""
+        ],
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "Since the user is sitting with friends, smiling and actively participating, it may indicate they are enjoying themselves. I should not interrupt them.",
+        "Proactive index": "false",
+        "Proactive score": 1,
+        "Tool planning": "None",
+        "Action": "None",
+        "Response": "None",
+        "Tools": "None"
+    },
+
+    "example-991": {
+        "Category": "Leisure",
+        "Vision": "User sipping coffee by window looking at street.",
+        "Audio": "",
+        "Context information": "Visual context shows the user is sipping coffee by window looking at street.",
+        "Thoughts": "Since the user is sipping coffee by window looking at street, it may indicate they are enjoying themselves. I should not interrupt them.",
+        "Mobile api data": [
+            ""
+        ],
+        "Personas": [
+            ""
+        ],
+        "Proactive index": "false",
+        "Proactive score": 1,
+        "Tool planning": "None",
+        "Action": "None",
+        "Response": "None",
+        "Tools": "None"
+    },
+    
+    
+    "example-992": {
+        "Category": "Outdoors",
+        "Vision": "User lying on sofa watching comedy video.",
+        "Audio": "",
+        "Context information": "Visual context shows the user is lying on sofa watching comedy video.",
+        "Mobile api data": [
+            ""
+        ],
+        "Personas": [
+            ""
+        ],
+        "Thoughts": "Since the user is lying on sofa watching comedy video, it may indicate they are enjoying themselves. I should not interrupt them.",
+        "Proactive index": "false",
+        "Proactive score": 1,
+        "Tool planning": "None",
+        "Action": "None",
+        "Response": "None",
+        "Tools": "None"
+    },
+
+    "example-993": {
+        "Category": "Leisure",
+        "Vision": "There is a half-finished latte on the café table, a notebook open with doodles, and people walking outside the window. The user occasionally looks up from the table to glance at the passing street scene.",
+        "Audio": "",
+        "Context information": "Visual context shows the user is sitting alone in a relaxed café environment, sipping coffee, occasionally looking outside, and casually doodling in a notebook. The setting indicates a moment of leisure and reflection, without signs of stress or urgency.",
+        "Mobile api data": [
+            ""
+        ],
+        "Personas": [
+            "Enjoys quiet solo time at cafés in the afternoon"
+        ],
+        "Thoughts": "The user appears relaxed and engaged in light leisure activity. There is no need to interrupt with proactive suggestions.",
+        "Proactive index": "false",
+        "Proactive score": 1,
+        "Tool planning": "None",
+        "Action": "None",
+        "Response": "None",
+        "Tools": "None"
+    },
+
+  "example-994": {
+    "Category": "Leisure",
+    "Vision": "The user lying back on a sofa with their legs stretched out, holding a smartphone close to their face. The screen reflects colorful moving images, suggesting a short video or comedy clip. A blanket is loosely draped over the user’s legs, and the room is softly lit by a floor lamp.",
+    "Audio": "",
+    "Context information": "Visual context shows the user is lying back on a sofa with their legs stretched out, holding a smartphone close to their face. The screen reflects colorful moving images, suggesting a short video or comedy clip. A blanket is loosely draped over the user’s legs, and the room is softly lit by a floor lamp.",
+    "Mobile api data": [
+        ""
+    ],
+    "Personas": [
+      "Frequently watches short comedy videos in the evenings"
+    ],
+    "Thoughts": "The user is engaged in personal entertainment and is visibly enjoying themselves. There is no need for proactive interruption.",
+    "Proactive index": "false",
+    "Proactive score": 1,
+    "Tool planning": "None",
+    "Action": "None",
+    "Response": "None",
+    "Tools": "None"
+  },
+
+  "example-995": {
+    "Category": "Outdoors",
+    "Vision": "The user’s view of a park path lined with trees. Sunlight filters through the leaves. A water bottle swings lightly in the user’s hand, and there are children playing with a ball in the distance.",
+    "Audio": "",
+    "Context information": "Visual context shows the user is in a park path lined with trees. Sunlight filters through the leaves. A water bottle swings lightly in the user’s hand, and there are children playing with a ball in the distance.",
+    "Mobile api data": [
+        ""
+    ],
+    "Personas": [
+      "Enjoys light walks in nature during mornings"
+    ],
+    "Thoughts": "The user is having a pleasant outdoor walk and seems to be in a positive mood. No proactive intervention is necessary.",
+    "Proactive index": "false",
+    "Proactive score": 1,
+    "Tool planning": "None",
+    "Action": "None",
+    "Response": "None",
+    "Tools": "None"
+  },
+
+  "example-996": {
+    "Category": "Health",
+    "Vision": "There is a steaming bowl of instant noodles on the dining table, with a packet of seasoning powder torn open next to it. A small plate of pickled vegetables is placed nearby. The user lifts chopsticks toward the bowl.",
+    "Audio": "",
+    "Context information": "Visual context shows is a steaming bowl of instant noodles on the dining table, with a packet of seasoning powder torn open next to it. A small plate of pickled vegetables is placed nearby. The user lifts chopsticks toward the bowl.",
+    "Mobile api data": [
+      "Meal log: instant noodles, pickled vegetables"
+    ],
+    "Personas": [
+      "Elderly with hypertension",
+      "Needs to follow low-sodium diet"
+    ],
+    "Thoughts": "Since the user is an elderly person with hypertension, and visual context shows the user is about to consume a high-sodium meal (instant noodles and pickled vegetables). It may increase cardiovascular risk. I should query nutritional knowledge sources and provide a gentle suggestion for lower-salt alternatives.",
+    "Proactive index": "true",
+    "Proactive score": 5,
+    "Tool planning": "<vllm>,<google_search>,<wikipedia_search>",
+    "Action": [
+      "Use VLLM to confirm food items",
+      "Query sodium content of instant noodles and pickles",
+      "Provide guideline-aligned reminder"
+    ],
+    "Response": "This meal looks high in salt. For your heart health, would you like me to suggest some lower-salt alternatives for dinner?",
+    "Tools": "[{\"name\":\"vllm\",\"description\":\"Visual Large Language Model (VLM) that can answer the user's questions based on the given image.\",\"parameters\":{\"prompt\": \"Identify the food items in the image.\", \"image_path\": \"\"}},{\"name\":\"google_search\",\"description\":\"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\",\"parameters\":{\"query\":\"instant noodles sodium content\"}},{\"name\":\"wikipedia_search\",\"description\":\"Tool that searches the Wikipedia API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\",\"parameters\":{\"query\":\"instant noodles nutrition\"}}]"
+  },
+
+  "example-997": {
+    "Category": "Outdoors",
+    "Vision": "There is a tree-lined sidewalk. Cars occasionally pass by on the adjacent street, and other pedestrians are walking at a relaxed pace. The user’s hands swing naturally with each step, holding a small shopping bag.",
+    "Audio": "",
+    "Context information": "Visual contexts shows that the user is in a tree-lined sidewalk. Cars occasionally pass by on the adjacent street, and other pedestrians are walking at a relaxed pace. The user’s hands swing naturally with each step, holding a small shopping bag.",
+    "Mobile api data": [
+        ""
+    ],
+    "Personas": [
+      "Enjoys short daily walks"
+    ],
+    "Thoughts": "The user is walking outside calmly and appears comfortable. This is routine leisure activity, so I should not interrupt.",
+    "Proactive index": "false",
+    "Proactive score": 1,
+    "Tool planning": "None",
+    "Action": "None",
+    "Response": "None",
+    "Tools": "None"
+  },
+
+  "example-998": {
+    "Category": "Health",
+    "Vision": "The user seated at the living room table with a family photo album open. Their hands turn pages slowly, pausing at familiar faces. A cup of tea sits on the side, steam rising gently.",
+    "Audio": "",
+    "Context information": "Visual contexts suggests the user is sitting at the living room table with a family photo album open. Their hands turn pages slowly, pausing at familiar faces. A cup of tea sits on the side, steam rising gently.",
+    "Mobile api data": [
+        ""
+    ],
+    "Personas": [
+      "Elderly with Parkinson’s Disease"
+    ],
+    "Thoughts": "The user is engaged in a positive and emotionally stabilizing activity. No intervention is needed.",
+    "Proactive index": "false",
+    "Proactive score": 1,
+    "Tool planning": "None",
+    "Action": "None",
+    "Response": "None",
+    "Tools": "None"
+  },
+
+  "example-999": {
+    "Category": "Health",
+    "Vision": "The user opens the refrigerator at night and takes out a pack of instant noodles. The steam fogs the camera slightly as they pour boiling water into the cup. A small salt shaker is also placed on the table.",
+    "Audio": "",
+    "Context information": "Visual contexts indicate the user opens the refrigerator at night and takes out a pack of instant noodles. The steam fogs the camera slightly as they pour boiling water into the cup. A small salt shaker is also placed on the table.",
+    "Mobile api data": [
+      "Time: 11:45 PM",
+      "Heart rate: 97 BPM"
+    ],
+    "Personas": [
+      "Elderly with chronic heart failure"
+    ],
+    "Thoughts": "Since the user is an elderly person with chronic heart failure, and visual context shows the user is preparing to eat instant noodles late at night. Instant noodles are typically high in sodium, which can exacerbate heart failure symptoms. I should confirm using VLM recognition and external search such as google_search.",
+    "Proactive index": "true",
+    "Proactive score": 5,
+    "Tool planning": "<vllm>,<google_search>,<wikipedia_search>",
+    "Action": [
+      "Use <vllm> to identify food type from camera",
+      "Search sodium content of instant noodles using <google_search>",
+      "Check general dietary advice using <wikipedia_search>"
+    ],
+    "Response": "It’s late, and instant noodles contain a lot of salt. For your heart, would you like me to suggest a lighter snack alternative?",
+    "Tools": "[{\"name\":\"vllm\",\"description\":\"Visual Large Language Model (VLM) that can answer the user's questions based on the given image.\",\"parameters\":{\"prompt\": \"Identify the food items in the image.\", \"image_path\": \"\"}},{\"name\":\"google_search\",\"description\":\"Performs a Google search for the given query, retrieves the top search result URLs and description from the page.\",\"parameters\":{\"query\":\"instant noodles sodium content\"}},{\"name\":\"wikipedia_search\",\"description\":\"Tool that searches the Wikipedia API. Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects.\",\"parameters\":{\"query\":\"dietary advice for heart failure patients\"}}]"
+  },
+
+  "example-1000": {
+    "Category": "Health",
+    "Vision": "The user is strolling along a quiet residential street. The pavement is dry, lined with small trees, and the evening sky is orange with sunset. The user’s hand occasionally swings a light shopping bag.",
+    "Audio": "",
+    "Context information": "Visual contexts shows the user is strolling along a quiet residential street. The pavement is dry, lined with small trees, and the evening sky is orange with sunset. The user’s hand occasionally swings a light shopping bag.",
+    "Mobile api data": [
+      "Step count: 4200",
+      "Heart rate: 84 BPM"
+    ],
+    "Personas": [
+      "Elderly with hypertension",
+      "Regularly enjoys short evening walks"
+    ],
+    "Thoughts": "The user is engaging in safe physical activity beneficial for their condition. No proactive intervention is needed.",
+    "Proactive index": "false",
+    "Proactive score": 1,
+    "Tool planning": "None",
+    "Action": "None",
+    "Response": "None",
+    "Tools": "None"
+  }
+}

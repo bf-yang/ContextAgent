@@ -251,9 +251,9 @@ def collect_metrics(dataset: Dict):
         pred_proactive_score = preds.get('proactive_score', 'None')
         pred_tools = preds.get('tools', 'None')
 
-        # Normalize idx via score threshold (preserve original behavior)
-        if gt_proactive_idx == "false":
-            gt_proactive_idx = threshold_idx_from_score(gt_proactive_score)
+        # Normalize idx via score threshold to match reference logic
+        # (use score thresholds unconditionally for GT; for Pred, threshold if available else 'false')
+        gt_proactive_idx = threshold_idx_from_score(gt_proactive_score)
         if pred_proactive_score != 'None':
             pred_proactive_idx = threshold_idx_from_score(pred_proactive_score)
         else:
@@ -276,46 +276,36 @@ def collect_metrics(dataset: Dict):
         R_tool_names_list.append(R)
         F1_tool_names_list.append(F1)
 
-        # ---------- Argument Accuracy counting (improved) ----------
+        # ---------- Argument Accuracy counting (match reference) ----------
+        # 1) Proactive mismatch contributes: GT true & Pred false => error
+        if gt_proactive_idx == 'true' and pred_proactive_idx == 'false':
+            arg_false_overall += 1
+            arg_counts_overall += 1
+            level_metrics[level]["arg_false"] += 1
+            level_metrics[level]["arg_counts"] += 1
+
+        # 2) Tool results errors: count error if tool not in GT, or results contain 'error'
         tools_results = preds.get('tools_results', 'None')
         if tools_results != 'None':
-            # Build GT mapping: tool_name -> parameters
-            gt_tools_list = parse_tools_object(gt_tools)
-            gt_tool_params: Dict[str, object] = {}
-            for item in gt_tools_list:
-                if isinstance(item, dict):
-                    gt_tool_params[item.get("name")] = item.get("parameters")
-
             for tool_result in tools_results:
                 tool_name = tool_result.get("tool_name")
-                pred_param = tool_result.get("results", None)
-                gt_param = gt_tool_params.get(tool_name, None)
+                results_str = str(tool_result.get("results", ""))
 
                 # Counters (overall + per-level)
                 arg_counts_overall += 1
                 level_metrics[level]["arg_counts"] += 1
 
                 is_error = False
-
                 if tool_name not in gt_tool_names_set:
-                    # Predicted a tool that's not in GT => error
                     is_error = True
                 else:
-                    # If GT param is "None": Pred must also be None/"None" to be correct
-                    if is_none_like(gt_param):
-                        is_error = not is_none_like(pred_param)
-                    else:
-                        # GT has parameters: Pred missing or contains 'error' => incorrect
-                        if is_none_like(pred_param) or ("error" in str(pred_param).lower()):
-                            is_error = True
-                        else:
-                            # Otherwise treat as correct (value-level equality check is optional)
-                            is_error = False
+                    if "error" in results_str.lower():
+                        is_error = True
 
                 if is_error:
                     arg_false_overall += 1
                     level_metrics[level]["arg_false"] += 1
-        # ----------------------------------------------------------
+        # -----------------------------------------------------------------
 
         # Global lists
         gt_proactive_idx_list.append(gt_proactive_idx)

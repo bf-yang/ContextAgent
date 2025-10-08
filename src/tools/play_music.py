@@ -1,6 +1,20 @@
 from urllib.parse import quote_plus
 import webbrowser
 import config
+import json
+import os
+
+LAST_SONG_FILE = "data/tools/last_song.json"
+def _load_last_song() -> str:
+    try:
+        if os.path.exists(LAST_SONG_FILE):
+            with open(LAST_SONG_FILE, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                return data.get("song", "").strip()
+    except Exception as e:
+        print(f"Warning: failed to load last song: {e}")
+    return ""
+
 
 def play_music_link(song: str, provider: str = "ytmusic", prefer_app: bool = False) -> str:
     """
@@ -27,11 +41,11 @@ def play_music_link(song: str, provider: str = "ytmusic", prefer_app: bool = Fal
     else:
         return f"Error: unknown provider '{provider}'"
 
-def play_music(song: str, provider: str = "ytmusic", prefer_app: bool = False, open_now: bool = True) -> str:
 
+def play_music(song: str = None, provider: str = "ytmusic", prefer_app: bool = False, open_now: bool = True) -> str:
     """
     Play a song from the user's music library.
-
+    If no song provided, use last_song.json as default.
     Args:
         None.
 
@@ -41,6 +55,8 @@ def play_music(song: str, provider: str = "ytmusic", prefer_app: bool = False, o
     if config.is_sandbox():
         return "Ready to play: Loves Me Not via ytmusic -> https://music.youtube.com/search?q=Loves+Me+Not"
 
+    if not song:
+        song = _load_last_song()
 
     url = play_music_link(song, provider=provider, prefer_app=prefer_app)
     if url.startswith("Error"):
@@ -57,4 +73,5 @@ FUNCTIONS = {
 }
 
 if __name__ == "__main__":
-    print(play_music("Loves Me Not", provider="ytmusic"))
+    print(play_music()) 
+    # print(play_music("Loves Me Not", provider="ytmusic"))

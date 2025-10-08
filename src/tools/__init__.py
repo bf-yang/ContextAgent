@@ -1,10 +1,10 @@
 from importlib import import_module
 from pkgutil import iter_modules
 
-# 合并所有子模块导出的 FUNCTIONS 字典
+# Merge all FUNCTIONS dicts exported by submodules
 functions = {}
 
-for m in iter_modules(__path__):  # 自动发现同目录下的 *.py 模块
+for m in iter_modules(__path__):  # Automatically discover *.py modules in the same directory
     if m.name.startswith("_"):
         continue
     mod = import_module(f"{__name__}.{m.name}")
@@ -13,7 +13,7 @@ for m in iter_modules(__path__):  # 自动发现同目录下的 *.py 模块
 
 def process_function_call(json_tool):
     """
-    与你原来的处理器保持一致：按 name 在 functions 里找对应函数并调用
+    Look up the function by name in functions and call it
     """
     import json as _json
     try:

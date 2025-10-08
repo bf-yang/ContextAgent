@@ -63,7 +63,7 @@ def load_json(path: str) -> Dict[str, Any]:
         return json.load(f)
 
 def load_prompt_base(think_flag: str) -> str:
-    path = "prompt/prompt_sys_wo_t.txt" if think_flag == "wo_t" else "prompt/prompt_sys.txt"
+    path = "prompt/baselines/prompt_sys_wo_t.txt" if think_flag == "wo_t" else "prompt/prompt_sys.txt"
     with open(path, "r", encoding="utf-8") as f:
         return f.read()
 

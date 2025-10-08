@@ -17,5 +17,11 @@ src/wo_sensor/
 src/wo_pce_wo_t/
 src/tool_testing/
 src/tools/api_keys.sh
+scripts/sft/scoring.sh
+LLaMA-Factory/experiments/cab_lora_train_full_exp.sh
+LLaMA-Factory/experiments/configs/cab/train_full_exp
+LLaMA-Factory/experiments/configs/cab/inference_full_exp
+scripts/sft/run_sft_exp_full.sh
+scripts/sft/run_sft_eval_full_exp.sh
 scripts/env/export_env.sh
 **.log

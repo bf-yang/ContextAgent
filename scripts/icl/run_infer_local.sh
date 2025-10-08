@@ -8,7 +8,7 @@
 #   export CUDA_VISIBLE_DEVICES=""       # Use CPU only
 # If not set, will use all available GPUs
 
-models=("qwen2.5:latest" "llama3.1:8b")
+models=("qwen2.5:latest" "llama3.1:8b" "deepseek-r1")
 # models=("llama3.1:8b" "qwen2.5:latest" "deepseek-r1" "qwen2.5:3b" "qwen2.5:1.5b" "deepseek-r1:1.5b" "qwen2.5:0.5b" "qwen2.5:72b" "llama3.1:70b" "deepseek-r1:32b" )
 combinations=(
     "true wo_t wo_p"  # zs
@@ -26,7 +26,7 @@ for model in "${models[@]}"; do
         echo "Using GPUs: ${CUDA_VISIBLE_DEVICES:-all available}"
         
         # icl inference
-        python src/icl/inference.py --mode sandbox --dataset cab --model_base $model --zs $zs --think $think --personas $persona
+        CUDA_VISIBLE_DEVICES=0,2 python src/icl/inference.py --mode sandbox --dataset cab --model_base $model --zs $zs --think $think --personas $persona
 
         # score calculation
         python src/calculate_scores.py --dataset cab --methods icl --model_base_icl $model --zs $zs --think $think --personas $persona
