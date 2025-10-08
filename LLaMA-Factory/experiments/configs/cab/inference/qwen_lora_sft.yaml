@@ -1,0 +1,5 @@
+model_name_or_path: Qwen/Qwen2.5-7B-Instruct
+adapter_name_or_path: saves/cab/qwen7b/lora/sft
+template: qwen
+infer_backend: huggingface  # choices: [huggingface, vllm, sglang]
+trust_remote_code: true

@@ -1,0 +1,2 @@
+[submodule "LLaMA-Factory"]
+	url = https://github.com/bf-yang/LLaMA-Factory.git
