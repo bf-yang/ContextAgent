@@ -18,6 +18,7 @@ src/wo_pce_wo_t/
 src/tool_testing/
 src/tools/api_keys.sh
 scripts/sft/scoring.sh
+prompt/baselines/prompt_sys_wo_t.txt
 LLaMA-Factory/experiments/cab_lora_train_full_exp.sh
 LLaMA-Factory/experiments/configs/cab/train_full_exp
 LLaMA-Factory/experiments/configs/cab/inference_full_exp

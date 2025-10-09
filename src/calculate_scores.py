@@ -1,15 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Evaluation metrics (robust & modular)
-- Preserves original metrics logic and path naming.
-- Robust to malformed predictions (never crash; coerce bad scores to 0.0).
-- Argument Accuracy:
-    * Per-level counters + overall counters (scopes fixed)
-    * If GT parameters == "None", then Pred parameters must also be None/"None" to be correct
-    * If GT has parameters, then Pred missing or "error" => incorrect
-- Prints absolute paths and a concise overall summary.
-"""
-
 import os
 import ast
 import csv
@@ -26,8 +15,6 @@ transformers.logging.set_verbosity_error()
 from transformers.utils.versions import require_version
 require_version("openai>=1.5.0", "To fix: pip install openai>=1.5.0")
 
-# Keep your original project layout
-sys.path.append("/home/bufang/ProAgent/src")  # keep as-is for your codebase
 import ollama  # noqa: F401
 
 from utils import (

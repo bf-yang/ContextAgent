@@ -9,9 +9,6 @@ from typing import Dict, Any, List, Tuple
 from datetime import datetime
 from tqdm import tqdm
 
-# Make 'src' importable
-sys.path.append("/home/bufang/ContextAgent/src")
-
 # Project imports
 import config
 from tool_registry import functions, process_function_call

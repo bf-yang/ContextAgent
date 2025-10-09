@@ -1,9 +1,5 @@
 from __future__ import annotations
-
-# --- make sure 'src' is importable when running "python src/tool_registry.py" ---
 import sys, pathlib
-sys.path.append(str(pathlib.Path(__file__).resolve().parent))  # adds .../src to sys.path
-
 import json
 import logging
 import inspect
