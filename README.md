@@ -24,7 +24,7 @@ with Open-World Sensory Perceptions</strong></h1>
 <div style="text-align: center;">
     <img src="assets/teaser_contextagent.png" alt="Dialogue_Teaser" width=100% >
 </div>
-In this paper, we introduce ContextAgent, the first context-aware proactive LLM agent that harnesses extensive sensory contexts for enhanced proactive services.
+In this paper, we introduce ContextAgent, the first context-aware proactive agent that incorporates extensive sensory contexts surrounding humans to enhance the proactivity of LLM agents.
 
 
 <!-- ## Overview -->
