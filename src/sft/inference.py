@@ -92,7 +92,8 @@ def sft_infer_planning(client: OpenAI,
         resp = client.chat.completions.create(messages=messages, model=model_name)
         return resp.choices[0].message.content
     except Exception as e:
-        return f"[sft planning error] {e}"
+        # Raise on connection failure so the evaluation stops immediately.
+        raise ConnectionError(f"LLM agent connection failed: {e}")
 
 def parse_tool_spec(tools_str: str) -> List[Dict[str, Any]]:
     if tools_str == "None":
@@ -174,14 +175,19 @@ def run_single_sample(client: OpenAI,
     print("=" * 50)
 
     # 1) Planning with SFT model
-    planning = sft_infer_planning(
-        client=client,
-        model_name=args.model_base,
-        sys_prompt=sys_prompt,
-        contextual_info=contextual_info,
-        personas_str=personas_str,
-        personas_flag=args.personas,
-    )
+    # Stop the evaluation immediately if connection to LLM agent fails.
+    try:
+        planning = sft_infer_planning(
+            client=client,
+            model_name=args.model_base,
+            sys_prompt=sys_prompt,
+            contextual_info=contextual_info,
+            personas_str=personas_str,
+            personas_flag=args.personas,
+        )
+    except ConnectionError as e:
+        print(f"[fatal] Connection to LLM agent failed: {e}")
+        raise
     print("\033[1;36mProactive LLM Agent Predictions:\033[0m\n", planning)
     print("=" * 50)
 
@@ -248,6 +254,17 @@ def main():
     apply_mode(args.mode)
     client = get_sft_client(args.port)
 
+    # Test LLM agent connection before starting evaluation
+    print(f"[main] Testing LLM agent connection on port {args.port}...")
+    try:
+        test_messages = [{"role": "system", "content": "test"}, {"role": "user", "content": "test"}]
+        test_resp = client.chat.completions.create(messages=test_messages, model=args.model_base, max_tokens=1)
+        print(f"[main] Connection test successful ✓")
+    except Exception as e:
+        print(f"[fatal] LLM agent connection failed at startup: {e}")
+        print(f"[fatal] Please check if the API server is running on port {args.port}")
+        sys.exit(1)
+
     print(f"[main] MODE = {config.MODE}")
     print(f"[main] Loaded tools: {', '.join(sorted(functions.keys()))}")
 
@@ -268,7 +285,12 @@ def main():
 
     for idx, key in enumerate(tqdm(keys_list, total=total, desc="Evaluating samples", unit="sample"), start=1):
         print(f"\n{sep}\n[Sample {idx}/{total}] ID: {key}\n{sep}")
-        preds = run_single_sample(client, key, dataset[key], args, sys_prompt, dataset_name)
+        try:
+            preds = run_single_sample(client, key, dataset[key], args, sys_prompt, dataset_name)
+        except ConnectionError as e:
+            print(f"[fatal] Connection to LLM agent failed, aborting evaluation: {e}")
+            sys.exit(1)
+
         dataset[key]["predictions"] = preds
 
         save_path = save_results_incremental(dataset, args)

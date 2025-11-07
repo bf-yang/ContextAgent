@@ -7,7 +7,9 @@ data/cab_full_exp
 src/data_generation/
 src/data_process/
 src/context_extraction/
-src/cab_lite/
+data/cab_lite/generate_annotation
+data/cab_lite/raw_sensor_data
+data/cab_lite/utils
 src/cab_ood/
 src/motivation/
 src/persona_retrieval/
@@ -28,5 +30,6 @@ scripts/env/export_env.sh
 data/cab/cab_train_sft_wo_p.json
 data/cab/cab_train_sft_wo_t_wo_p.json
 data/cab/cab_train_sft_wo_t.json
+data/cab_lite/update_cablite.py
 prompt/README.md
 **.log
